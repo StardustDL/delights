@@ -1,17 +1,64 @@
 ﻿@inherits LayoutComponentBase
+@inject IOptions<BuildStatus> BuildStatus
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+<AntDesign.Layout Style="min-height: 100vh; background: initial;">
+    <Sider Collapsible Theme="SiderTheme.Light" Breakpoint="BreakpointType.Xl" CollapsedWidth="0">
+        <Menu Mode="MenuMode.Inline" Theme="MenuTheme.Light">
+            <MenuItem Class="text-center p-0">
+                Delights
+            </MenuItem>
+            <MenuItem>
+                <MdiIcon Type="@IconNames.Home" />
+                <span>
+                    <MenuLink href="" Match="NavLinkMatch.All">
+                        Home
+                    </MenuLink>
+                </span>
+            </MenuItem>
+            <MenuItem>
+                <MdiIcon Type="@IconNames.Search" />
+                <span>
+                    <MenuLink href="search">
+                        Search
+                    </MenuLink>
+                </span>
+            </MenuItem>
+            <MenuItem>
+                <MdiIcon Type="@IconNames.Settings" />
+                <span>
+                    <MenuLink href="settings">
+                        Settings
+                    </MenuLink>
+                </span>
+            </MenuItem>
+        </Menu>
+    </Sider>
+    <AntDesign.Layout Style="background: initial;">
+        <Content>@Body</Content>
+        <Footer Class="text-center p-1">
+            <MdiIcon Type="copyright" />
+            2020 - @DateTimeOffset.Now.Year, StardustDL. All rights reserved.
+            Powered by
+            <Popover Title="@($"Delights v{BuildStatus.Value.Version}")">
+                <ContentTemplate>
+                    <div>
+                        Repository: <a href="https://github.com/@BuildStatus.Value.Repository">@BuildStatus.Value.Repository</a>
+                        <br />
+                        Commit: <a href="https://github.com/@BuildStatus.Value.Repository/commit/@BuildStatus.Value.Commit">@BuildStatus.Value.TrimedCommit</a>
+                        <br />
+                        Branch: <a href="https://github.com/@BuildStatus.Value.Repository/tree/@BuildStatus.Value.Branch">@BuildStatus.Value.TrimedBranch</a>
+                        <br />
+                        Version: @BuildStatus.Value.Version
+                        <br />
+                        Built Date: @BuildStatus.Value.BuildDate
+                    </div>
+                </ContentTemplate>
+                <ChildContent>
+                    <a href="https://github.com/StardustDL/delights">Delights</a>
+                </ChildContent>
+            </Popover>
+        </Footer>
+    </AntDesign.Layout>
+</AntDesign.Layout>
 
-    <div class="main">
-        <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-        </div>
-
-        <div class="content px-4">
-            @Body
-        </div>
-    </div>
-</div>
+<BackTop></BackTop>

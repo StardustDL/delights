@@ -2,7 +2,6 @@
 using Delights.Modules.Client;
 using Delights.Modules.Services;
 using Delights.Modules.UI;
-using Delights.UI.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.JSInterop;
@@ -35,6 +34,9 @@ namespace Delights.UI
             {
                 new UIResource(UIResourceType.StyleSheet,"_content/AntDesign/css/ant-design-blazor.css"),
                 new UIResource(UIResourceType.Script,"_content/AntDesign/js/ant-design-blazor.js"),
+                new UIResource(UIResourceType.StyleSheet, "_content/StardustDL.RazorComponents.MaterialDesignIcons/mdi/css/materialdesignicons.min.css"),
+                new UIResource(UIResourceType.StyleSheet, "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"),
+                new UIResource(UIResourceType.Script,"https://code.jquery.com/jquery-3.3.1.slim.min.js"),
             };
         }
 
@@ -47,6 +49,5 @@ namespace Delights.UI
 
     public class MainModuleService : ModuleService
     {
-        public WeatherForecastService WeatherForecastService = new WeatherForecastService();
     }
 }

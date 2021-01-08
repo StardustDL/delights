@@ -13,7 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.Core", "sr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.Client", "src\Delights.Modules.Client\Delights.Modules.Client.csproj", "{E12666E6-2D09-48A1-A887-E402D308A0BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delights.Modules.Server.GraphQL", "src\Delights.Modules.Server.GraphQL\Delights.Modules.Server.GraphQL.csproj", "{680F01C1-DCB5-42A4-8ED1-234A45D8FBA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.Server.GraphQL", "src\Delights.Modules.Server.GraphQL\Delights.Modules.Server.GraphQL.csproj", "{680F01C1-DCB5-42A4-8ED1-234A45D8FBA6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{0C012303-205C-4886-8F91-DF223124E1E9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{93097B6A-C6E4-4AE7-AE2F-62908F9EA926}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,6 +52,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8475B7E2-0AFA-4108-8A35-8D2980B12850} = {93097B6A-C6E4-4AE7-AE2F-62908F9EA926}
+		{E12666E6-2D09-48A1-A887-E402D308A0BB} = {93097B6A-C6E4-4AE7-AE2F-62908F9EA926}
+		{680F01C1-DCB5-42A4-8ED1-234A45D8FBA6} = {93097B6A-C6E4-4AE7-AE2F-62908F9EA926}
+		{93097B6A-C6E4-4AE7-AE2F-62908F9EA926} = {0C012303-205C-4886-8F91-DF223124E1E9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BEC8D602-768F-4E83-8C66-022EE9BE6CED}
