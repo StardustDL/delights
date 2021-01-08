@@ -1,7 +1,7 @@
 ﻿@page "/fetchdata"
 
-@using Delights.Client.Data
-@inject WeatherForecastService ForecastService
+@using Delights.UI.Services
+@inject MainModuleService Service
 
 <h1>Weather forecast</h1>
 
@@ -41,6 +41,6 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+        forecasts = await Service.WeatherForecastService.GetForecastAsync(DateTime.Now);
     }
 }

@@ -1,6 +1,6 @@
 using System;
 
-namespace Delights.Client.Data
+namespace Delights.UI.Services
 {
     public class WeatherForecast
     {

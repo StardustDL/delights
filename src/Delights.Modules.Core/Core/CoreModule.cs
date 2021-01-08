@@ -25,24 +25,22 @@ namespace Delights.Modules.Core
         {
         }
 
-        protected Task<IJSObjectReference> GetJSModule() => GetJSInvoker("moduleCore.js");
-
         public async ValueTask CacheDataFromPath(string path, bool forceUpdate = false)
         {
-            var js = await GetJSModule();
+            var js = await GetEntryJSModule();
             await js.InvokeVoidAsync("cacheDataFromPath", path, forceUpdate);
         }
 
         public async ValueTask LoadScript(string src)
         {
-            var js = await GetJSModule();
-            await js.InvokeVoidAsync("loadScript", src, );
+            var js = await GetEntryJSModule();
+            await js.InvokeVoidAsync("loadScript", src, ResourceTagAttrName);
         }
 
         public async ValueTask LoadStyleSheet(string href)
         {
-            var js = await GetJSModule();
-            await js.InvokeVoidAsync("loadStyleSheet", href);
+            var js = await GetEntryJSModule();
+            await js.InvokeVoidAsync("loadStyleSheet", href, ResourceTagAttrName);
         }
     }
 

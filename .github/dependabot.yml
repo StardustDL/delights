@@ -1,0 +1,20 @@
+version: 2
+updates:
+  - package-ecosystem: nuget
+    directory: "/"
+    schedule:
+      interval: daily
+    open-pull-requests-limit: 3
+  - package-ecosystem: "docker"
+    directory: "/src/Delights.Api"
+    schedule:
+      interval: daily
+  - package-ecosystem: "docker"
+    directory: "/src/Delights.Client"
+    schedule:
+      interval: daily
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    open-pull-requests-limit: 3

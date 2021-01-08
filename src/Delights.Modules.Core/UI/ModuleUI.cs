@@ -26,7 +26,7 @@ namespace Delights.Modules.UI
 
         public string RootPath { get; }
 
-        public virtual UIResource[] Resources => Array.Empty<UIResource>();
+        public UIResource[] Resources { get; protected set; } = Array.Empty<UIResource>();
 
         public IJSRuntime JSRuntime { get; }
 
@@ -35,7 +35,7 @@ namespace Delights.Modules.UI
         protected Task<IJSObjectReference> GetJSInvoker(string jsPath, string? assemblyName = null)
         {
             if (assemblyName is null)
-                assemblyName = GetType().Assembly.FullName ?? "";
+                assemblyName = GetType().Assembly.GetName().Name ?? "";
 
             string id = $"{assemblyName}/{jsPath}";
 
@@ -48,6 +48,8 @@ namespace Delights.Modules.UI
 
             return JSInvokers[jsPath].Value;
         }
+
+        protected virtual Task<IJSObjectReference> GetEntryJSModule() => GetJSInvoker("module.js");
 
         public async ValueTask DisposeAsync()
         {

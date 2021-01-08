@@ -14,7 +14,7 @@ namespace Delights.Modules
             Name = name;
             if (assemblies is null)
             {
-                string? assembly = GetType().Assembly.FullName;
+                string? assembly = GetType().Assembly.GetName().Name + ".dll";
                 assemblies = assembly is not null ? new string[] { assembly } : Array.Empty<string>();
             }
             Assemblies = assemblies;

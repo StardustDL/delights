@@ -1,4 +1,4 @@
-using Delights.Client.Data;
+using Delights.Modules;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -28,7 +28,8 @@ namespace Delights.Client
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
+
+            _ = services.AddModules().AddModule<UI.MainModule>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

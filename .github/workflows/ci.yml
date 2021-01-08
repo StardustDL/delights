@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+defaults:
+  run:
+    shell: pwsh
+
+env:
+  dotnet-version: "5.0.x"
+  node-version: "12.x"
+  build_version: "0.0.0.${{ github.run_number }}"
+
+jobs:
+  ci:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup dotnet
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: ${{ env.dotnet-version }}
+    - name: Setup NodeJS
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.node-version }}
+    - name: Setup psake
+      run: Set-PSRepository -Name PSGallery -InstallationPolicy Trusted; Install-Module -Name psake
+    - name: CI
+      run: Invoke-psake ci
+    # - name: Upload reports
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: ci-${{ matrix.os }}
+    #     path: ./reports
+  invoke-cd:
+    needs: ci
+    runs-on: ubuntu-latest
+    steps:
+    - name: CD
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+      uses: peter-evans/repository-dispatch@v1
+      with:
+        token: ${{ secrets.PA_TOKEN }}
+        event-type: cd

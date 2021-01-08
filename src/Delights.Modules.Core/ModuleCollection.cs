@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Delights.Modules.Core;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using System.Collections.Generic;
 
 namespace Delights.Modules
@@ -7,7 +9,8 @@ namespace Delights.Modules
     {
         public static ModuleCollection AddModules(this IServiceCollection services)
         {
-            ModuleCollection modules = new ModuleCollection(services);
+            ModuleCollection modules = new(services);
+            modules.AddModule<CoreModule>();
             services.AddSingleton(modules);
             return modules;
         }
