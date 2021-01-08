@@ -1,0 +1,13 @@
+﻿@inject ModuleCollection Collection
+@inject IServiceProvider ServiceProvider
+
+@foreach (var c in Collection.Modules)
+{
+    foreach (var r in c.GetUI(ServiceProvider).Resources)
+    {
+        if (r.Type is UIResourceType.Script)
+        {
+            @((MarkupString)($"<script type=\"text/javascript\" src=\"{r.Path}\" {Delights.Modules.Core.CoreModuleUI.ResourceTagAttrName}=\"{r.Path}\"></script>"))
+        }
+    }
+}
