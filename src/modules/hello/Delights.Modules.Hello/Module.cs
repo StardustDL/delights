@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Delights.Modules.Hello
 {
-    public class Module : ClientModule<ModuleService<Module>, ModuleUI>
+    public class Module : ClientModule<ModuleService, ModuleUI>
     {
         public Module() : base("Hello")
         {
@@ -39,5 +39,10 @@ namespace Delights.Modules.Hello
             var js = await GetEntryJSModule();
             await js.InvokeVoidAsync("showPrompt", message);
         }
+    }
+
+    public class ModuleService : Services.ModuleService
+    {
+
     }
 }

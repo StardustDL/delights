@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Delights.Modules.Hello.Server
 {
-    public class Module : GraphQLServerModule<ModuleService<Module>, ModuleQuery, ModuleMutation, ModuleSubscription>
+    public class Module : GraphQLServerModule<ModuleService, ModuleQuery, ModuleMutation, ModuleSubscription>
     {
         public Module() : base("Hello")
         {
@@ -24,5 +24,10 @@ namespace Delights.Modules.Hello.Server
 
     public class ModuleSubscription : SubscriptionRootObject
     {
+    }
+
+    public class ModuleService : Services.ModuleService
+    {
+
     }
 }
