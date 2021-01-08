@@ -1,4 +1,5 @@
 using Delights.Modules;
+using Delights.Modules.Client;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -29,7 +30,7 @@ namespace Delights.Client
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
-            _ = services.AddModules().AddModule<UI.MainModule>();
+            _ = services.AddModules().AddClientModules().AddModule<UI.MainModule>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

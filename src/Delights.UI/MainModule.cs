@@ -1,4 +1,5 @@
 ﻿using Delights.Modules;
+using Delights.Modules.Client;
 using Delights.Modules.Services;
 using Delights.Modules.UI;
 using Delights.UI.Services;
@@ -13,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Delights.UI
 {
-    public class MainModule : Module<MainModuleService, MainModuleUI>
+    public class MainModule : ClientModule<MainModuleService, MainModuleUI>
     {
         public MainModule() : base("Main")
         {

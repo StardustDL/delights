@@ -31,7 +31,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: .
-        file: ./src/Delights.Api
+        file: ./src/Delights.Api/Dockerfile
         push: true
         tags: |
           stardustdl/delights:api

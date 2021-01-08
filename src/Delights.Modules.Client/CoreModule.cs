@@ -8,20 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Delights.Modules.Core
+namespace Delights.Modules.Client
 {
-    public class CoreModule : Module<CoreModuleService, CoreModuleUI>
+    public class CoreClientModule : ClientModule<CoreClientModuleService, CoreClientModuleUI>
     {
-        public CoreModule() : base("Core")
+        public CoreClientModule() : base("CoreClient")
         {
         }
     }
 
-    public class CoreModuleUI : ModuleUI
+    public class CoreClientModuleUI : ModuleUI
     {
-        public const string ResourceTagAttrName = "Delights_Module_Resource";
+        public const string ResourceTagAttrName = "Delights_Module_Client_Resource";
 
-        public CoreModuleUI(IJSRuntime jsRuntime, ILogger<ModuleUI> logger) : base("", jsRuntime, logger)
+        public CoreClientModuleUI(IJSRuntime jsRuntime, ILogger<ModuleUI> logger) : base("", jsRuntime, logger)
         {
         }
 
@@ -44,7 +44,7 @@ namespace Delights.Modules.Core
         }
     }
 
-    public class CoreModuleService : ModuleService
+    public class CoreClientModuleService : ModuleService
     {
 
     }

@@ -1,5 +1,4 @@
-﻿using Delights.Modules.Core;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using System.Collections.Generic;
 
@@ -10,7 +9,6 @@ namespace Delights.Modules
         public static ModuleCollection AddModules(this IServiceCollection services)
         {
             ModuleCollection modules = new(services);
-            modules.AddModule<CoreModule>();
             services.AddSingleton(modules);
             return modules;
         }
@@ -20,37 +18,9 @@ namespace Delights.Modules
     {
         public ModuleCollection(IServiceCollection services) => Services = services;
 
-        public bool EnabledUI { get; set; } = true;
-
-        public bool EnabledService { get; set; } = true;
-
         IServiceCollection Services { get; }
 
         public IList<Module> Modules { get; } = new List<Module>();
-
-        public ModuleCollection EnableUI()
-        {
-            EnabledUI = true;
-            return this;
-        }
-
-        public ModuleCollection DisableUI()
-        {
-            EnabledUI = false;
-            return this;
-        }
-
-        public ModuleCollection EnableService()
-        {
-            EnabledService = true;
-            return this;
-        }
-
-        public ModuleCollection DisableService()
-        {
-            EnabledService = false;
-            return this;
-        }
 
         public ModuleCollection AddModule<T>()
             where T : Module, new() => AddModule(new T());
@@ -60,14 +30,7 @@ namespace Delights.Modules
         {
             Modules.Add(module);
             Services.TryAddSingleton(module);
-            if (EnabledUI)
-            {
-                module.RegisterUI(Services);
-            }
-            if (EnabledService)
-            {
-                module.RegisterService(Services);
-            }
+            module.RegisterService(Services);
             return this;
         }
     }
