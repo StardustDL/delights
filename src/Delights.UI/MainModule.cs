@@ -1,7 +1,7 @@
 ﻿using Delights.Modules;
 using Delights.Modules.Client;
+using Delights.Modules.Client.UI;
 using Delights.Modules.Services;
-using Delights.Modules.UI;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.JSInterop;
@@ -28,7 +28,7 @@ namespace Delights.UI
 
     public class MainModuleUI : ModuleUI
     {
-        public MainModuleUI(IJSRuntime jsRuntime, ILogger<ModuleUI> logger) : base("", jsRuntime, logger)
+        public MainModuleUI(IJSRuntime jsRuntime, ILogger<ModuleUI> logger) : base(jsRuntime, logger)
         {
             Resources = new UIResource[]
             {
@@ -38,12 +38,6 @@ namespace Delights.UI
                 new UIResource(UIResourceType.StyleSheet, "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"),
                 new UIResource(UIResourceType.Script,"https://code.jquery.com/jquery-3.3.1.slim.min.js"),
             };
-        }
-
-        public async ValueTask Prompt(string message)
-        {
-            var js = await GetEntryJSModule();
-            await js.InvokeVoidAsync("showPrompt", message);
         }
     }
 

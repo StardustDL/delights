@@ -1,5 +1,7 @@
 ﻿@inherits LayoutComponentBase
 @inject IOptions<BuildStatus> BuildStatus
+@inject ModuleCollection Modules
+@inject IServiceProvider ServiceProvider
 
 <AntDesign.Layout Style="min-height: 100vh; background: initial;">
     <Sider Collapsible Theme="SiderTheme.Light" Breakpoint="BreakpointType.Xl" CollapsedWidth="0">
@@ -15,6 +17,30 @@
                     </MenuLink>
                 </span>
             </MenuItem>
+            @foreach (var module in Modules.AllClientModules())
+            {
+                var ui = module.GetUI(ServiceProvider);
+                if (ui.RootPath != "")
+                {
+                    <MenuItem>
+                        <span>
+                            @if (ui.Icon is null)
+                            {
+                                <MdiIcon Type="@IconNames.Module" />
+                            }
+                            else
+                            {
+                                @ui.Icon
+                            }
+                        </span>
+                        <span>
+                            <MenuLink href="@ui.RootPath">
+                                @ui.DisplayName
+                            </MenuLink>
+                        </span>
+                    </MenuItem>
+                }
+            }
             <MenuItem>
                 <MdiIcon Type="@IconNames.Search" />
                 <span>

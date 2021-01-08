@@ -17,6 +17,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Delights.Modules.Server.GraphQL\Delights.Modules.Server.GraphQL.csproj" />
+    <ProjectReference Include="..\modules\hello\Delights.Modules.Hello.Server\Delights.Modules.Hello.Server.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>

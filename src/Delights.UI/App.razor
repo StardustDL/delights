@@ -1,4 +1,8 @@
-<Router AppAssembly="@typeof(App).Assembly" PreferExactMatches="@true">
+@using System.Reflection
+@inject ModuleCollection Modules
+@inject IServiceProvider ServiceProvider
+
+<Router AppAssembly="@typeof(App).Assembly" PreferExactMatches="@true" AdditionalAssemblies="@AdditionalAssemblies" OnNavigateAsync="@OnNavigateAsync">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
     </Found>
@@ -10,3 +14,38 @@
 </Router>
 
 <AntContainer />
+
+@code {
+    List<Assembly> AdditionalAssemblies = new List<Assembly>();
+
+    protected async Task OnNavigateAsync(NavigationContext context)
+    {
+        if (AdditionalAssemblies.Count == 0)
+        {
+            var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+            var current = typeof(App).Assembly;
+
+            foreach (var module in Modules.AllClientModules())
+            {
+                var ui = module.GetUI(ServiceProvider);
+
+                foreach (var name in module.Assemblies)
+                {
+                    var assembly = assemblies.FirstOrDefault(a => a.GetName().Name == name);
+                    if (assembly == current)
+                    {
+                        continue;
+                    }
+                    if (assembly is not null)
+                    {
+                        AdditionalAssemblies.Add(assembly);
+                    }
+                    else
+                    {
+                        AdditionalAssemblies.Add(Assembly.Load(name));
+                    }
+                }
+            }
+        }
+    }
+}

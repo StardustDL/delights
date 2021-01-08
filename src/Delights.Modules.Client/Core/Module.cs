@@ -1,5 +1,4 @@
 ﻿using Delights.Modules.Services;
-using Delights.Modules.UI;
 using Microsoft.Extensions.Logging;
 using Microsoft.JSInterop;
 using System;
@@ -8,20 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Delights.Modules.Client
+namespace Delights.Modules.Client.Core
 {
-    public class CoreClientModule : ClientModule<ModuleService<CoreClientModule>, CoreClientModuleUI>
+    public class Module : ClientModule<ModuleService<Module>, ModuleUI>
     {
-        public CoreClientModule() : base("CoreClient")
+        public Module() : base("CoreClient")
         {
         }
     }
 
-    public class CoreClientModuleUI : ModuleUI
+    public class ModuleUI : UI.ModuleUI
     {
         public const string ResourceTagAttrName = "Delights_Module_Client_Resource";
 
-        public CoreClientModuleUI(IJSRuntime jsRuntime, ILogger<ModuleUI> logger) : base("", jsRuntime, logger)
+        public ModuleUI(IJSRuntime jsRuntime, ILogger<UI.ModuleUI> logger) : base(jsRuntime, logger)
         {
         }
 

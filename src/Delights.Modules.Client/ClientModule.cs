@@ -1,5 +1,5 @@
-﻿using Delights.Modules.Services;
-using Delights.Modules.UI;
+﻿using Delights.Modules.Client.UI;
+using Delights.Modules.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ namespace Delights.Modules.Client
     {
         public static ModuleCollection AddClientModules(this ModuleCollection modules)
         {
-            modules.AddModule<CoreClientModule>();
+            modules.AddModule<Core.Module>();
             return modules;
         }
 
@@ -23,7 +23,7 @@ namespace Delights.Modules.Client
         }
     }
 
-    public abstract class ClientModule : Module
+    public abstract class ClientModule : Modules.Module
     {
         protected ClientModule(string name, string[]? assemblies = null) : base(name, assemblies)
         {
@@ -61,8 +61,8 @@ namespace Delights.Modules.Client
             services.AddScoped<TUIService>();
         }
 
-        public override ModuleUI GetUI(IServiceProvider provider) => provider.GetRequiredService<TUI>();
+        public override TUI GetUI(IServiceProvider provider) => provider.GetRequiredService<TUI>();
 
-        public override ModuleService GetService(IServiceProvider provider) => provider.GetRequiredService<TUIService>();
+        public override TUIService GetService(IServiceProvider provider) => provider.GetRequiredService<TUIService>();
     }
 }

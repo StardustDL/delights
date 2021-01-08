@@ -30,7 +30,10 @@ namespace Delights.Client
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
-            _ = services.AddModules().AddClientModules().AddModule<UI.MainModule>();
+            _ = services.AddModules()
+                .AddClientModules()
+                .AddModule<UI.MainModule>()
+                .AddModule<Modules.Hello.Module>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,4 +1,3 @@
-using Delights.Api.Controllers;
 using Delights.Modules;
 using Delights.Modules.Server.GraphQL;
 using HotChocolate;
@@ -38,9 +37,8 @@ namespace Delights.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Delights.Api", Version = "v1" });
             });
 
-            services.AddScoped<WeatherForecastController>();
-
-            var modules = services.AddModules().AddGraphQLServerModules();
+            var modules = services.AddModules().AddGraphQLServerModules()
+                .AddModule<Modules.Hello.Server.Module>();
 
             services.AddGraphQLServer()
                     .RegisterGraphQLServerModules(modules)

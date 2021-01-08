@@ -1,10 +1,11 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.AspNetCore.Components;
+using Microsoft.Extensions.Logging;
 using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Delights.Modules.UI
+namespace Delights.Modules.Client.UI
 {
     // This class provides an example of how JavaScript functionality can be wrapped
     // in a .NET class for easy consumption. The associated JavaScript module is
@@ -17,13 +18,20 @@ namespace Delights.Modules.UI
     {
         Dictionary<string, Lazy<Task<IJSObjectReference>>> JSInvokers { get; } = new Dictionary<string, Lazy<Task<IJSObjectReference>>>();
 
-        public ModuleUI(string rootPath, IJSRuntime jsRuntime, ILogger<ModuleUI> logger)
+        public ModuleUI(IJSRuntime jsRuntime, ILogger<ModuleUI> logger, string rootPath = "")
         {
             RootPath = rootPath;
             JSRuntime = jsRuntime;
             Logger = logger;
         }
 
+        public virtual RenderFragment? Icon => null;
+
+        public virtual string DisplayName => "";
+
+        /// <summary>
+        /// RootPath, such as home, search, and so on. Empty for no page module.
+        /// </summary>
         public string RootPath { get; }
 
         public UIResource[] Resources { get; protected set; } = Array.Empty<UIResource>();

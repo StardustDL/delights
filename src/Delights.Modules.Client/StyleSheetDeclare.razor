@@ -7,7 +7,7 @@
     {
         if (r.Type is UIResourceType.StyleSheet)
         {
-            @((MarkupString)($"<link type=\"text/css\" rel=\"stylesheet\" href=\"{r.Path}\" {Delights.Modules.Client.CoreClientModuleUI.ResourceTagAttrName}=\"{r.Path}\"/>"))
+            @((MarkupString)($"<link type=\"text/css\" rel=\"stylesheet\" href=\"{r.Path}\" {Delights.Modules.Client.Core.ModuleUI.ResourceTagAttrName}=\"{r.Path}\"/>"))
         }
     }
 }

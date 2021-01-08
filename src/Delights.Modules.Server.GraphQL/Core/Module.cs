@@ -4,16 +4,16 @@ using HotChocolate.Data;
 using HotChocolate.Types;
 using System.Linq;
 
-namespace Delights.Modules.Server.GraphQL
+namespace Delights.Modules.Server.GraphQL.Core
 {
-    public class CoreGraphQLServerModule : GraphQLServerModule<ModuleService<CoreGraphQLServerModule>, CoreGraphQLServerModuleQuery, CoreGraphQLServerModuleQueryMutation, CoreGraphQLServerModuleQuerySubscription>
+    public class Module : GraphQLServerModule<ModuleService<Module>, ModuleQuery, ModuleMutation, ModuleSubscription>
     {
-        public CoreGraphQLServerModule() : base("CoreGraphQLServer")
+        public Module() : base("CoreGraphQLServer")
         {
         }
     }
 
-    public class CoreGraphQLServerModuleQuery : QueryRootObject
+    public class ModuleQuery : QueryRootObject
     {
         public record ModuleMetadata
         {
@@ -30,12 +30,12 @@ namespace Delights.Modules.Server.GraphQL
         }
     }
 
-    public class CoreGraphQLServerModuleQueryMutation : MutationRootObject
+    public class ModuleMutation : MutationRootObject
     {
         public string Hello() => "world";
     }
 
-    public class CoreGraphQLServerModuleQuerySubscription : SubscriptionRootObject
+    public class ModuleSubscription : SubscriptionRootObject
     {
         public string Hello() => "world";
     }

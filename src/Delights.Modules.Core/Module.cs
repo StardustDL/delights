@@ -13,15 +13,15 @@ namespace Delights.Modules
             Name = name;
             if (assemblies is null)
             {
-                string? assembly = GetType().Assembly.GetName().Name + ".dll";
-                assemblies = assembly is not null ? new string[] { assembly } : Array.Empty<string>();
+                string assembly = GetType().Assembly.GetName().Name!;
+                assemblies = new string[] { assembly };
             }
             Assemblies = assemblies;
         }
 
         public string Name { get; }
 
-        public virtual string[] Assemblies { get; }
+        public virtual string[] Assemblies { get; protected set; }
 
         public virtual void RegisterService(IServiceCollection services)
         {
@@ -39,6 +39,6 @@ namespace Delights.Modules
             services.AddScoped<TService>();
         }
 
-        public override ModuleService GetService(IServiceProvider provider) => provider.GetRequiredService<TService>();
+        public override TService GetService(IServiceProvider provider) => provider.GetRequiredService<TService>();
     }
 }

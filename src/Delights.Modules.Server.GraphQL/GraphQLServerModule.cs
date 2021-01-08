@@ -12,7 +12,7 @@ namespace Delights.Modules.Server.GraphQL
     {
         public static ModuleCollection AddGraphQLServerModules(this ModuleCollection modules)
         {
-            modules.AddModule<CoreGraphQLServerModule>();
+            modules.AddModule<Core.Module>();
             return modules;
         }
 
@@ -42,7 +42,7 @@ namespace Delights.Modules.Server.GraphQL
         Subscription
     }
 
-    public abstract class GraphQLServerModule : Module
+    public abstract class GraphQLServerModule : Modules.Module
     {
         protected GraphQLServerModule(string name, string[]? assemblies = null) : base(name, assemblies)
         {
@@ -72,7 +72,7 @@ namespace Delights.Modules.Server.GraphQL
             services.AddScoped<TService>();
         }
 
-        public override ModuleService GetService(IServiceProvider provider) => provider.GetRequiredService<TService>();
+        public override TService GetService(IServiceProvider provider) => provider.GetRequiredService<TService>();
     }
 
     [ExtendObjectType(Name = nameof(RootObjectType.Query))]

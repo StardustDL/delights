@@ -28,6 +28,8 @@ namespace Delights.UI.Shared
 
         public const string Search = "magnify";
 
+        public const string Module = "puzzle";
+
         public const string Settings = "cog";
 
         public const string Page = "book-open";
