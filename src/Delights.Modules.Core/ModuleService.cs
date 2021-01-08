@@ -3,4 +3,8 @@
     public abstract class ModuleService
     {
     }
+
+    public class ModuleService<T> : ModuleService
+    {
+    }
 }

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Delights.Modules.Client
 {
-    public class CoreClientModule : ClientModule<CoreClientModuleService, CoreClientModuleUI>
+    public class CoreClientModule : ClientModule<ModuleService<CoreClientModule>, CoreClientModuleUI>
     {
         public CoreClientModule() : base("CoreClient")
         {
@@ -42,10 +42,5 @@ namespace Delights.Modules.Client
             var js = await GetEntryJSModule();
             await js.InvokeVoidAsync("loadStyleSheet", href, ResourceTagAttrName);
         }
-    }
-
-    public class CoreClientModuleService : ModuleService
-    {
-
     }
 }

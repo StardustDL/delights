@@ -16,6 +16,11 @@ namespace Delights.Modules.Client
             modules.AddModule<CoreClientModule>();
             return modules;
         }
+
+        public static IEnumerable<ClientModule> AllClientModules(this ModuleCollection modules)
+        {
+            return modules.Modules.Where(m => m is ClientModule).Select(m => (m as ClientModule)!);
+        }
     }
 
     public abstract class ClientModule : Module
