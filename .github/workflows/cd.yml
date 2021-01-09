@@ -36,7 +36,7 @@ jobs:
       with:
         dotnet-version: "2.1.x"
     - name: Setup NodeJS
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v2.1.4
       with:
         node-version: ${{ env.node-version }}
     - name: Setup psake
