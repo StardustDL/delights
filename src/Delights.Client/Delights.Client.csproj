@@ -16,6 +16,8 @@
     <ProjectReference Include="..\Delights.UI\Delights.UI.csproj" />
     <ProjectReference Include="..\modules\hello\Delights.Modules.Hello.UI\Delights.Modules.Hello.UI.csproj" />
     <ProjectReference Include="..\modules\hello\Delights.Modules.Hello\Delights.Modules.Hello.csproj" />
+    <ProjectReference Include="..\modules\modulemanager\Delights.Modules.ModuleManager.UI\Delights.Modules.ModuleManager.UI.csproj" />
+    <ProjectReference Include="..\modules\modulemanager\Delights.Modules.ModuleManager\Delights.Modules.ModuleManager.csproj" />
   </ItemGroup>
 
 </Project>

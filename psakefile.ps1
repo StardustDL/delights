@@ -4,9 +4,9 @@ properties {
 
 Task default -depends Restore, Build
 
-Task CI -depends Install-deps, Restore, Gen-Build-Status, Build, Test, Benchmark, Report
+Task CI -depends Restore, Gen-Build-Status, Build, Test, Benchmark, Report
 
-Task CD -depends Gen-Build-Status
+Task CD -depends Restore, Gen-Build-Status, Build
 
 Task Restore {
     # Exec { dotnet nuget add source https://sparkshine.pkgs.visualstudio.com/StardustDL/_packaging/feed/nuget/v3/index.json -n ownpkgs }
@@ -43,12 +43,6 @@ Task Build {
     GenerateGraphQL Hello
     Stop-Job -Name "api"
     Exec { dotnet build -c Release /p:Version=$build_version }
-}
-
-Task Install-deps {
-    # Exec { npm install --global gulp }
-    # Exec { dotnet tool install --global Microsoft.Web.LibraryManager.Cli }
-    # Exec { dotnet tool install dotnet-reportgenerator-globaltool --tool-path ./tools }
 }
 
 Task Test {
@@ -101,14 +95,17 @@ Task new-module {
 
     ReplaceContent Delights.Modules.Hello/Module.cs
     ReplaceContent Delights.Modules.Hello/ModuleOption.cs
+    ReplaceContent Delights.Modules.Hello/Delights.Modules.Hello.csproj
     ReplaceContent Delights.Modules.Hello.Server/Module.cs
     ReplaceContent Delights.Modules.Hello.Server/ModuleOption.cs
+    ReplaceContent Delights.Modules.Hello.Server/Delights.Modules.Hello.Server.csproj
     ReplaceContent Delights.Modules.Hello.UI/_Imports.razor
-    ReplaceContent Delights.Modules.Hello.UI/Index.razor
+    ReplaceContent Delights.Modules.Hello.UI/Pages/Index.razor
     ReplaceContent Delights.Modules.Hello.UI/Delights.Modules.Hello.UI.csproj
     ReplaceContent Delights.Modules.Hello.Core/Delights.Modules.Hello.Core.csproj
     ReplaceContent Delights.Modules.Hello.Core/SharedMetadata.cs
 
+    mv Delights.Modules.Hello/GraphQL/HelloGraphQL.graphql Delights.Modules.Hello/GraphQL/${name}GraphQL.graphql
     mv Delights.Modules.Hello/Delights.Modules.Hello.csproj Delights.Modules.Hello/Delights.Modules.$name.csproj
     mv Delights.Modules.Hello.Core/Delights.Modules.Hello.Core.csproj Delights.Modules.Hello.Core/Delights.Modules.$name.Core.csproj
     mv Delights.Modules.Hello.Server/Delights.Modules.Hello.Server.csproj Delights.Modules.Hello.Server/Delights.Modules.$name.Server.csproj

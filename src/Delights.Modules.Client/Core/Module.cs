@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Delights.Modules.Client.Core
 {
-    public class Module : ClientModule<EmptyModuleService<Module>, EmptyModuleOption<Module>, ModuleUI>
+    public class Module : ClientModule<EmptyModuleService<Module>, ModuleOption, ModuleUI>
     {
         public Module() : base()
         {

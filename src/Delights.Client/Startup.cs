@@ -1,6 +1,7 @@
 using Delights.Modules;
 using Delights.Modules.Client;
 using Delights.Modules.Hello;
+using Delights.Modules.ModuleManager;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -31,12 +32,18 @@ namespace Delights.Client
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
+            var graphqlEndpoint = "https://localhost:5001/graphql";
+
             _ = services.AddModules()
                 .AddClientModules()
                 .AddModule<UI.MainModule>()
                 .AddHelloModule(o =>
                 {
-                    o.GraphQLEndpoint = "https://localhost:5001/graphql";
+                    o.GraphQLEndpoint = graphqlEndpoint;
+                })
+                .AddModuleManagerModule(o =>
+                {
+                    o.GraphQLEndpoint = graphqlEndpoint;
                 });
         }
 

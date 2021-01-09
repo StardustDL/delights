@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Delights.Modules.Server.GraphQL\Delights.Modules.Server.GraphQL.csproj" />
+    <ProjectReference Include="..\Delights.Modules.ModuleManager.Core\Delights.Modules.ModuleManager.Core.csproj" />
+  </ItemGroup>
+
+</Project>
