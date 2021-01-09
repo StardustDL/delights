@@ -1,10 +1,11 @@
 @using System.Reflection
 @inject ModuleCollection Modules
 @inject IServiceProvider ServiceProvider
+@inject Microsoft.AspNetCore.Components.WebAssembly.Services.LazyAssemblyLoader LazyLoader
 
 <Router AppAssembly="@typeof(App).Assembly" PreferExactMatches="@true" AdditionalAssemblies="@AdditionalAssemblies" OnNavigateAsync="@OnNavigateAsync">
     <Found Context="routeData">
-        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(ModulePageLayout)" />
     </Found>
     <NotFound>
         <LayoutView Layout="@typeof(MainLayout)">
@@ -20,17 +21,25 @@
 
     protected async Task OnNavigateAsync(NavigationContext context)
     {
-        if (AdditionalAssemblies.Count == 0)
+        AdditionalAssemblies.Clear();
+
+        var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+        var current = typeof(App).Assembly;
+
+        List<string> toLoad = new List<string>();
+
+        foreach (var module in Modules.AllClientModules())
         {
-            var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-            var current = typeof(App).Assembly;
+            context.CancellationToken.ThrowIfCancellationRequested();
 
-            foreach (var module in Modules.AllClientModules())
+            var ui = module.GetUI(ServiceProvider);
+
+            if (ui.IsPage(context.Path))
             {
-                var ui = module.GetUI(ServiceProvider);
-
-                foreach (var name in module.Assemblies)
+                foreach (var name in Enumerable.Concat(new[] { module.Metadata.EntryAssembly }, module.Metadata.Assemblies))
                 {
+                    context.CancellationToken.ThrowIfCancellationRequested();
+
                     var assembly = assemblies.FirstOrDefault(a => a.GetName().Name == name);
                     if (assembly == current)
                     {
@@ -42,9 +51,26 @@
                     }
                     else
                     {
-                        AdditionalAssemblies.Add(Assembly.Load(name));
+                        toLoad.Add(name);
                     }
                 }
+            }
+        }
+
+        if (Environment.OSVersion.Platform == PlatformID.Other)
+        {
+            foreach (var name in toLoad)
+            {
+                context.CancellationToken.ThrowIfCancellationRequested();
+                AdditionalAssemblies.AddRange(await LazyLoader.LoadAssembliesAsync(new[] { name }));
+            }
+        }
+        else
+        {
+            foreach (var name in toLoad)
+            {
+                context.CancellationToken.ThrowIfCancellationRequested();
+                AdditionalAssemblies.Add(Assembly.Load(name));
             }
         }
     }

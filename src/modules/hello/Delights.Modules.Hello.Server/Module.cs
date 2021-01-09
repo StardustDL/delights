@@ -7,10 +7,24 @@ using System.Linq;
 
 namespace Delights.Modules.Hello.Server
 {
+    public static class ModuleExtensions
+    {
+        public static ModuleCollection AddHelloModule(this ModuleCollection collection)
+        {
+            return collection.AddModule<Module>();
+        }
+    }
+
     public class Module : GraphQLServerModule<ModuleService, ModuleQuery, ModuleMutation, ModuleSubscription>
     {
-        public Module() : base("Hello")
+        public Module() : base()
         {
+            Metadata = Metadata with
+            {
+                Name = SharedMetadata.Raw.Name,
+                DisplayName = SharedMetadata.Raw.DisplayName,
+                Description = SharedMetadata.Raw.Description,
+            };
         }
     }
 

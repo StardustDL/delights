@@ -6,22 +6,36 @@ using System.Threading.Tasks;
 
 namespace Delights.Modules
 {
+    public record ModuleMetadata
+    {
+        public string Name { get; init; } = "";
+
+        public string EntryAssembly { get; init; } = "";
+
+        public string[] Assemblies { get; init; } = Array.Empty<string>();
+
+        public string DisplayName { get; init; } = "";
+
+        public string Description { get; init; } = "";
+    }
+
     public abstract class Module
     {
-        protected Module(string name, string[]? assemblies = null)
+        protected Module(ModuleMetadata? metadata = null)
         {
-            Name = name;
-            if (assemblies is null)
+            if (metadata is null)
             {
-                string assembly = GetType().Assembly.GetName().Name!;
-                assemblies = new string[] { assembly };
+                metadata = new ModuleMetadata
+                {
+                    Name = GetType().Name,
+                    EntryAssembly = GetType().GetAssemblyName(),
+                    DisplayName = GetType().Name,
+                };
             }
-            Assemblies = assemblies;
+            Metadata = metadata;
         }
 
-        public string Name { get; }
-
-        public virtual string[] Assemblies { get; protected set; }
+        public ModuleMetadata Metadata { get; protected set; }
 
         public virtual void RegisterService(IServiceCollection services)
         {
@@ -32,8 +46,6 @@ namespace Delights.Modules
 
     public abstract class Module<TService> : Module where TService : ModuleService
     {
-        protected Module(string name, string[]? assemblies = null) : base(name, assemblies) { }
-
         public override void RegisterService(IServiceCollection services)
         {
             services.AddScoped<TService>();

@@ -1,5 +1,6 @@
 using Delights.Modules;
 using Delights.Modules.Client;
+using Delights.Modules.Hello;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
@@ -33,7 +34,7 @@ namespace Delights.Client
             _ = services.AddModules()
                 .AddClientModules()
                 .AddModule<UI.MainModule>()
-                .AddModule<Modules.Hello.Module>();
+                .AddHelloModule();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

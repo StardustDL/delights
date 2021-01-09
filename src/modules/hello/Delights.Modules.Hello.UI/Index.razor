@@ -1,4 +1,19 @@
 ﻿@page "/hello"
-@inject Module Module
+@inherits BasePage<Delights.Modules.Hello.Module>
 
-<h1>Hello World! from @Module.Name </h1>
+<h1>Hello World! from @Module.Metadata.Name </h1>
+
+<Button OnClick="OnClick">Click</Button>
+
+@code{
+    protected override void OnInitialized()
+    {
+        Parent.Title = "Hello";
+        base.OnInitialized();
+    }
+
+    void OnClick()
+    {
+        Parent.Title = "Hello!";
+    }
+}

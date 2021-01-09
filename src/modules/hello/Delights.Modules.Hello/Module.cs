@@ -11,15 +11,27 @@ using System.Threading.Tasks;
 
 namespace Delights.Modules.Hello
 {
+    public static class ModuleExtensions
+    {
+        public static ModuleCollection AddHelloModule(this ModuleCollection collection)
+        {
+            return collection.AddModule<Module>();
+        }
+    }
+
     public class Module : ClientModule<ModuleService, ModuleUI>
     {
-        public Module() : base("Hello")
+        public Module() : base()
         {
-            var assemblyName = GetType().Assembly.GetName().Name!;
-            Assemblies = new string[]
+            Metadata = Metadata with
             {
-                assemblyName,
-                assemblyName + ".UI",
+                Name = SharedMetadata.Raw.Name,
+                DisplayName = SharedMetadata.Raw.DisplayName,
+                Description = SharedMetadata.Raw.Description,
+                Assemblies = new string[]
+                {
+                    $"{GetType().GetAssemblyName()}.UI"
+                },
             };
         }
     }
@@ -31,8 +43,6 @@ namespace Delights.Modules.Hello
         }
 
         public override RenderFragment Icon => Fragments.Icon;
-
-        public override string DisplayName => "Hello";
 
         public async ValueTask Prompt(string message)
         {

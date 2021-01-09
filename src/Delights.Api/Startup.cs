@@ -1,4 +1,5 @@
 using Delights.Modules;
+using Delights.Modules.Hello.Server;
 using Delights.Modules.Server.GraphQL;
 using HotChocolate;
 using HotChocolate.Data;
@@ -38,7 +39,7 @@ namespace Delights.Api
             });
 
             var modules = services.AddModules().AddGraphQLServerModules()
-                .AddModule<Modules.Hello.Server.Module>();
+                .AddHelloModule();
 
             services.AddGraphQLServer()
                     .RegisterGraphQLServerModules(modules)

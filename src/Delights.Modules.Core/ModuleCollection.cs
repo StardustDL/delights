@@ -4,15 +4,6 @@ using System.Collections.Generic;
 
 namespace Delights.Modules
 {
-    public static class ModuleExtensions
-    {
-        public static ModuleCollection AddModules(this IServiceCollection services)
-        {
-            ModuleCollection modules = new(services);
-            services.AddSingleton(modules);
-            return modules;
-        }
-    }
 
     public class ModuleCollection
     {

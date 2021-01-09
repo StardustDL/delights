@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Delights.Modules.Client.UI
@@ -27,12 +28,20 @@ namespace Delights.Modules.Client.UI
 
         public virtual RenderFragment? Icon => null;
 
-        public virtual string DisplayName => "";
-
         /// <summary>
         /// RootPath, such as home, search, and so on. Empty for no page module.
         /// </summary>
         public string RootPath { get; }
+
+        public virtual bool IsPage(string path)
+        {
+            if (RootPath is "")
+            {
+                return true;
+            }
+            string first = path.Split('/', StringSplitOptions.RemoveEmptyEntries).FirstOrDefault() ?? "";
+            return first == RootPath;
+        }
 
         public UIResource[] Resources { get; protected set; } = Array.Empty<UIResource>();
 

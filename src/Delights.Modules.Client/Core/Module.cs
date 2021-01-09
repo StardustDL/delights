@@ -1,4 +1,5 @@
-﻿using Delights.Modules.Services;
+﻿using Delights.Modules.Client.UI;
+using Delights.Modules.Services;
 using Microsoft.Extensions.Logging;
 using Microsoft.JSInterop;
 using System;
@@ -9,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Delights.Modules.Client.Core
 {
-    public class Module : ClientModule<ModuleService<Module>, ModuleUI>
+    public class Module : ClientModule<ClientModuleService, ModuleUI>
     {
-        public Module() : base("CoreClient")
+        public Module() : base()
         {
         }
     }
@@ -41,5 +42,9 @@ namespace Delights.Modules.Client.Core
             var js = await GetEntryJSModule();
             await js.InvokeVoidAsync("loadStyleSheet", href, ResourceTagAttrName);
         }
+    }
+
+    public class ClientModuleService : ModuleService
+    {
     }
 }

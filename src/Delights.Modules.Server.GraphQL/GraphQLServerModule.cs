@@ -44,7 +44,7 @@ namespace Delights.Modules.Server.GraphQL
 
     public abstract class GraphQLServerModule : Modules.Module
     {
-        protected GraphQLServerModule(string name, string[]? assemblies = null) : base(name, assemblies)
+        protected GraphQLServerModule(ModuleMetadata? metadata = null) : base(metadata)
         {
         }
 
@@ -56,7 +56,7 @@ namespace Delights.Modules.Server.GraphQL
 
     public abstract class GraphQLServerModule<TService, TQuery, TMutation, TSubscription> : GraphQLServerModule where TService : ModuleService where TQuery : QueryRootObject where TMutation : MutationRootObject where TSubscription : SubscriptionRootObject
     {
-        protected GraphQLServerModule(string name, string[]? assemblies = null) : base(name, assemblies)
+        protected GraphQLServerModule(ModuleMetadata? metadata = null) : base(metadata)
         {
         }
 

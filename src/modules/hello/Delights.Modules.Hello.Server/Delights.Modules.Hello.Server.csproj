@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Delights.Modules.Server.GraphQL\Delights.Modules.Server.GraphQL.csproj" />
+    <ProjectReference Include="..\Delights.Modules.Hello.Core\Delights.Modules.Hello.Core.csproj" />
   </ItemGroup>
 
 </Project>

@@ -23,19 +23,10 @@
                 if (ui.RootPath != "")
                 {
                     <MenuItem>
-                        <span>
-                            @if (ui.Icon is null)
-                            {
-                                <MdiIcon Type="@IconNames.Module" />
-                            }
-                            else
-                            {
-                                @ui.Icon
-                            }
-                        </span>
+                        <ModuleIcon Module="module"></ModuleIcon>
                         <span>
                             <MenuLink href="@ui.RootPath">
-                                @ui.DisplayName
+                                @module.Metadata.DisplayName
                             </MenuLink>
                         </span>
                     </MenuItem>

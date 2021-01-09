@@ -15,7 +15,7 @@ namespace Delights.UI
 {
     public class MainModule : ClientModule<MainModuleService, MainModuleUI>
     {
-        public MainModule() : base("Main")
+        public MainModule() : base()
         {
         }
 
@@ -23,6 +23,12 @@ namespace Delights.UI
         {
             base.RegisterUI(services);
             services.AddAntDesign();
+        }
+
+        public override void RegisterService(IServiceCollection services)
+        {
+            base.RegisterService(services);
+            services.AddScoped<Microsoft.AspNetCore.Components.WebAssembly.Services.LazyAssemblyLoader>();
         }
     }
 

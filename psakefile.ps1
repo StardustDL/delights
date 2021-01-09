@@ -76,14 +76,18 @@ Task new-module {
     ReplaceContent Delights.Modules.Hello.UI/_Imports.razor
     ReplaceContent Delights.Modules.Hello.UI/Index.razor
     ReplaceContent Delights.Modules.Hello.UI/Delights.Modules.Hello.UI.csproj
+    ReplaceContent Delights.Modules.Hello.Core/Delights.Modules.Hello.Core.csproj
+    ReplaceContent Delights.Modules.Hello.Core/SharedMetadata.cs
 
     mv Delights.Modules.Hello/Delights.Modules.Hello.csproj Delights.Modules.Hello/Delights.Modules.$name.csproj
+    mv Delights.Modules.Hello.Core/Delights.Modules.Hello.Core.csproj Delights.Modules.Hello.Core/Delights.Modules.$name.Core.csproj
     mv Delights.Modules.Hello.Server/Delights.Modules.Hello.Server.csproj Delights.Modules.Hello.Server/Delights.Modules.$name.Server.csproj
     mv Delights.Modules.Hello.UI/Delights.Modules.Hello.UI.csproj Delights.Modules.Hello.UI/Delights.Modules.$name.UI.csproj
 
     mv Delights.Modules.Hello Delights.Modules.$name
     mv Delights.Modules.Hello.Server Delights.Modules.$name.Server
     mv Delights.Modules.Hello.UI Delights.Modules.$name.UI
+    mv Delights.Modules.Hello.Core Delights.Modules.$name.Core
 
     Set-Location ../../..
 }

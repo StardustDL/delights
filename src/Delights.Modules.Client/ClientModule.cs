@@ -25,7 +25,7 @@ namespace Delights.Modules.Client
 
     public abstract class ClientModule : Modules.Module
     {
-        protected ClientModule(string name, string[]? assemblies = null) : base(name, assemblies)
+        protected ClientModule(ModuleMetadata? metadata = null) : base(metadata)
         {
         }
 
@@ -49,7 +49,9 @@ namespace Delights.Modules.Client
 
     public abstract class ClientModule<TUIService, TUI> : ClientModule where TUI : ModuleUI where TUIService : ModuleService
     {
-        protected ClientModule(string name, string[]? assemblies = null) : base(name, assemblies) { }
+        protected ClientModule(ModuleMetadata? metadata = null) : base(metadata)
+        {
+        }
 
         public override void RegisterUI(IServiceCollection services)
         {
