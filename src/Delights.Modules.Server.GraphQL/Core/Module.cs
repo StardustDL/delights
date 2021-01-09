@@ -1,4 +1,5 @@
-﻿using Delights.Modules.Services;
+﻿using Delights.Modules.Options;
+using Delights.Modules.Services;
 using HotChocolate;
 using HotChocolate.Data;
 using HotChocolate.Types;
@@ -6,7 +7,7 @@ using System.Linq;
 
 namespace Delights.Modules.Server.GraphQL.Core
 {
-    public class Module : GraphQLServerModule<ModuleService<Module>, ModuleQuery, ModuleMutation, ModuleSubscription>
+    public class Module : GraphQLServerModule<EmptyModuleService<Module>, EmptyModuleOption<Module>, ModuleQuery, ModuleMutation, ModuleSubscription>
     {
         public Module() : base()
         {
@@ -15,6 +16,8 @@ namespace Delights.Modules.Server.GraphQL.Core
 
     public class ModuleQuery : QueryRootObject
     {
+        public string Hello() => "world";
+
         [UsePaging]
         [UseProjection]
         [UseFiltering]

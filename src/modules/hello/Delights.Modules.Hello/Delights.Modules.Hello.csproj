@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <BerryNamespace>$(RootNamespace).GraphQL</BerryNamespace>
   </PropertyGroup>
 
   
@@ -11,6 +13,9 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.1" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
+    <PackageReference Include="StrawberryShake" Version="11.0.0-preview.137" />
   </ItemGroup>
 
   <ItemGroup>

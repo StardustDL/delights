@@ -10,10 +10,38 @@ Task CD -depends Gen-Build-Status
 
 Task Restore {
     # Exec { dotnet nuget add source https://sparkshine.pkgs.visualstudio.com/StardustDL/_packaging/feed/nuget/v3/index.json -n ownpkgs }
+    Exec { dotnet tool restore }
     Exec { dotnet restore }
 }
 
+Function GenerateGraphQL($moduleName) {
+    Assert ($null -ne $moduleName) '$moduleName should not be null'
+    $lowerName = ($moduleName).tolower()
+    Write-Output "Generating GraphQL for module: $moduleName"
+
+    Set-Location src/modules/$lowerName
+
+    Set-Location Delights.Modules.$moduleName
+
+    $apiname = $name + "GraphQL"
+    
+    Exec { dotnet graphql init https://localhost:5001/graphql -n $apiname -p "GraphQL" }
+
+    Set-Location "GraphQL"
+
+    # $namespace = $moduleName + ".GraphQL"
+    # Exec { dotnet graphql generate -n Delights.Modules.$namespace }
+    
+    Set-Location ../..
+
+    Set-Location ../../..
+}
+
 Task Build {
+    Start-Job -Name "api" -ScriptBlock { dotnet run -p ./src/Delights.Api  }
+    Start-Sleep -Seconds 1
+    GenerateGraphQL Hello
+    Stop-Job -Name "api"
     Exec { dotnet build -c Release /p:Version=$build_version }
 }
 
@@ -72,7 +100,9 @@ Task new-module {
     }
 
     ReplaceContent Delights.Modules.Hello/Module.cs
+    ReplaceContent Delights.Modules.Hello/ModuleOption.cs
     ReplaceContent Delights.Modules.Hello.Server/Module.cs
+    ReplaceContent Delights.Modules.Hello.Server/ModuleOption.cs
     ReplaceContent Delights.Modules.Hello.UI/_Imports.razor
     ReplaceContent Delights.Modules.Hello.UI/Index.razor
     ReplaceContent Delights.Modules.Hello.UI/Delights.Modules.Hello.UI.csproj
@@ -90,6 +120,11 @@ Task new-module {
     mv Delights.Modules.Hello.Core Delights.Modules.$name.Core
 
     Set-Location ../../..
+}
+
+Task gen-gql {
+    Assert ($name -ne $null) '$name should not be null'
+    GenerateGraphQL $name
 }
 
 # invoke-psake new-module -parameters @{"name"="module_name"}

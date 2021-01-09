@@ -34,7 +34,10 @@ namespace Delights.Client
             _ = services.AddModules()
                 .AddClientModules()
                 .AddModule<UI.MainModule>()
-                .AddHelloModule();
+                .AddHelloModule(o =>
+                {
+                    o.GraphQLEndpoint = "https://localhost:5001/graphql";
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

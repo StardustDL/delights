@@ -28,7 +28,7 @@
 
         List<string> toLoad = new List<string>();
 
-        foreach (var module in Modules.AllClientModules())
+        foreach (var module in Modules.AllSpecifyModules<IClientModule>())
         {
             context.CancellationToken.ThrowIfCancellationRequested();
 

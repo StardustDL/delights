@@ -17,7 +17,7 @@
                     </MenuLink>
                 </span>
             </MenuItem>
-            @foreach (var module in Modules.AllClientModules())
+            @foreach (var module in Modules.AllSpecifyModules<IClientModule>())
             {
                 var ui = module.GetUI(ServiceProvider);
                 if (ui.RootPath != "")

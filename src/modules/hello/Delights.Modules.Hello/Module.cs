@@ -1,6 +1,7 @@
 ﻿using Delights.Modules.Client;
 using Delights.Modules.Services;
 using Microsoft.AspNetCore.Components;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.JSInterop;
 using System;
@@ -8,18 +9,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Delights.Modules.Hello.GraphQL;
+using Delights.Modules.Client.Core;
+using Microsoft.Extensions.Options;
 
 namespace Delights.Modules.Hello
 {
     public static class ModuleExtensions
     {
-        public static ModuleCollection AddHelloModule(this ModuleCollection collection)
+        public static ModuleCollection AddHelloModule(this ModuleCollection modules, Action<ModuleOption>? configureOptions = null)
         {
-            return collection.AddModule<Module>();
+            modules.AddModule<Module, ModuleOption>(configureOptions);
+            return modules;
         }
     }
 
-    public class Module : ClientModule<ModuleService, ModuleUI>
+    public class Module : ClientModule<ModuleService, ModuleOption, ModuleUI>
     {
         public Module() : base()
         {
@@ -33,6 +38,18 @@ namespace Delights.Modules.Hello
                     $"{GetType().GetAssemblyName()}.UI"
                 },
             };
+        }
+
+        public override void RegisterService(IServiceCollection services)
+        {
+            base.RegisterService(services);
+            services.AddHttpClient(
+                "HelloGraphQLClient", (sp, client) =>
+                {
+                    var option = sp.GetRequiredService<IOptions<ModuleOption>>().Value;
+                    client.BaseAddress = new Uri(option.GraphQLEndpoint);
+                });
+            services.AddHelloGraphQLClient();
         }
     }
 
@@ -51,8 +68,13 @@ namespace Delights.Modules.Hello
         }
     }
 
-    public class ModuleService : Services.ModuleService
+    public class ModuleService : Services.IModuleService
     {
+        public IHelloGraphQLClient GraphQLClient { get; }
 
+        public ModuleService(IHelloGraphQLClient graphQLClient)
+        {
+            GraphQLClient = graphQLClient;
+        }
     }
 }

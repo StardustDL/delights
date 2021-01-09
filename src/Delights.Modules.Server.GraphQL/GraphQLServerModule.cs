@@ -1,4 +1,5 @@
-﻿using Delights.Modules.Services;
+﻿using Delights.Modules.Options;
+using Delights.Modules.Services;
 using HotChocolate.Execution.Configuration;
 using HotChocolate.Types;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,16 +23,11 @@ namespace Delights.Modules.Server.GraphQL
                 .AddMutationType(d => d.Name(nameof(RootObjectType.Mutation)))
                 .AddSubscriptionType(d => d.Name(nameof(RootObjectType.Subscription)));
 
-            foreach (var module in modules.AllGraphQLServerModules())
+            foreach (var module in modules.AllSpecifyModules<IGraphQLServerModule>())
             {
                 module.RegisterGraphQLTypes(builder);
             }
             return builder;
-        }
-
-        public static IEnumerable<GraphQLServerModule> AllGraphQLServerModules(this ModuleCollection modules)
-        {
-            return modules.Modules.Where(m => m is GraphQLServerModule).Select(m => (m as GraphQLServerModule)!);
         }
     }
 
@@ -42,7 +38,12 @@ namespace Delights.Modules.Server.GraphQL
         Subscription
     }
 
-    public abstract class GraphQLServerModule : Modules.Module
+    public interface IGraphQLServerModule : IModule
+    {
+        IRequestExecutorBuilder RegisterGraphQLTypes(IRequestExecutorBuilder builder);
+    }
+
+    public abstract class GraphQLServerModule<TService, TOption, TQuery, TMutation, TSubscription> : Module<TService, TOption>, IGraphQLServerModule where TService : class, IModuleService where TOption : ModuleOption where TQuery : QueryRootObject where TMutation : MutationRootObject where TSubscription : SubscriptionRootObject
     {
         protected GraphQLServerModule(ModuleMetadata? metadata = null) : base(metadata)
         {
@@ -50,29 +51,10 @@ namespace Delights.Modules.Server.GraphQL
 
         public virtual IRequestExecutorBuilder RegisterGraphQLTypes(IRequestExecutorBuilder builder)
         {
-            return builder;
-        }
-    }
-
-    public abstract class GraphQLServerModule<TService, TQuery, TMutation, TSubscription> : GraphQLServerModule where TService : ModuleService where TQuery : QueryRootObject where TMutation : MutationRootObject where TSubscription : SubscriptionRootObject
-    {
-        protected GraphQLServerModule(ModuleMetadata? metadata = null) : base(metadata)
-        {
-        }
-
-        public override IRequestExecutorBuilder RegisterGraphQLTypes(IRequestExecutorBuilder builder)
-        {
             return builder.AddTypeExtension<TQuery>()
                           .AddTypeExtension<TMutation>()
                           .AddTypeExtension<TSubscription>();
         }
-
-        public override void RegisterService(IServiceCollection services)
-        {
-            services.AddScoped<TService>();
-        }
-
-        public override TService GetService(IServiceProvider provider) => provider.GetRequiredService<TService>();
     }
 
     [ExtendObjectType(Name = nameof(RootObjectType.Query))]
@@ -93,17 +75,17 @@ namespace Delights.Modules.Server.GraphQL
 
     }
 
-    public class QueryRootObject<T> : QueryRootObject
+    public sealed class EmptyQueryRootObject<T> : QueryRootObject
     {
 
     }
 
-    public class SubscriptionRootObject<T> : SubscriptionRootObject
+    public sealed class EmptySubscriptionRootObject<T> : SubscriptionRootObject
     {
 
     }
 
-    public class MutationRootObject<T> : MutationRootObject
+    public sealed class EmptyMutationRootObject<T> : MutationRootObject
     {
 
     }

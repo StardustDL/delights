@@ -3,19 +3,22 @@ using Delights.Modules.Services;
 using HotChocolate;
 using HotChocolate.Data;
 using HotChocolate.Types;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Delights.Modules.Hello.Server
 {
     public static class ModuleExtensions
     {
-        public static ModuleCollection AddHelloModule(this ModuleCollection collection)
+        public static ModuleCollection AddHelloModule(this ModuleCollection modules, Action<ModuleOption>? configureOptions = null)
         {
-            return collection.AddModule<Module>();
+            modules.AddModule<Module, ModuleOption>(configureOptions);
+            return modules;
         }
     }
 
-    public class Module : GraphQLServerModule<ModuleService, ModuleQuery, ModuleMutation, ModuleSubscription>
+    public class Module : GraphQLServerModule<ModuleService, ModuleOption, ModuleQuery, ModuleMutation, ModuleSubscription>
     {
         public Module() : base()
         {
@@ -30,6 +33,14 @@ namespace Delights.Modules.Hello.Server
 
     public class ModuleQuery : QueryRootObject
     {
+        [UsePaging]
+        [UseProjection]
+        [UseFiltering]
+        [UseSorting]
+        public IQueryable<Message> GetHelloMessages([Service] ModuleService service)
+        {
+            return service.Messages.AsQueryable();
+        }
     }
 
     public class ModuleMutation : MutationRootObject
@@ -40,8 +51,16 @@ namespace Delights.Modules.Hello.Server
     {
     }
 
-    public class ModuleService : Services.ModuleService
+    public record Message
     {
+        public string Content { get; init; } = "";
+    }
 
+    public class ModuleService : Services.IModuleService
+    {
+        public List<Message> Messages { get; } = new List<Message>() {
+            new Message { Content = "Message 1" },
+            new Message { Content = "Message 2" },
+        };
     }
 }

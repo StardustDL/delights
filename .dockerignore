@@ -1,3 +1,6 @@
+**/*.graphql
+**/GraphQL/berry.json
+
 **/.classpath
 **/.dockerignore
 **/.env

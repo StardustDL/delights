@@ -1,7 +1,7 @@
 ﻿@inject ModuleCollection Collection
 @inject IServiceProvider ServiceProvider
 
-@foreach (ClientModule c in Collection.AllClientModules())
+@foreach (var c in Collection.AllSpecifyModules<IClientModule>())
 {
     foreach (var r in c.GetUI(ServiceProvider).Resources)
     {

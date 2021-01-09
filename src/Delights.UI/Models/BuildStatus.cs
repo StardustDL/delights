@@ -46,7 +46,7 @@ namespace Delights.UI.Models
                 else
                 {
                     value = value.Trim();
-                    TrimedBranch = value.Split('/').LastOrDefault();
+                    TrimedBranch = value.Split('/').LastOrDefault() ?? "";
                     if (string.IsNullOrEmpty(TrimedBranch))
                         TrimedBranch = "None";
                 }
@@ -59,8 +59,8 @@ namespace Delights.UI.Models
 
         public string Version { get; set; } = "1.0.0";
 
-        public string TrimedCommit { get; private set; }
+        public string TrimedCommit { get; private set; } = "";
 
-        public string TrimedBranch { get; private set; }
+        public string TrimedBranch { get; private set; } = "";
     }
 }

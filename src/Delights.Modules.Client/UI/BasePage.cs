@@ -18,7 +18,7 @@ namespace Delights.Modules.Client.UI
 
 #pragma warning restore CS8618 // 在退出构造函数时，不可为 null 的字段必须包含非 null 值。请考虑声明为可以为 null。
 
-        public abstract ClientModule GetModule();
+        public abstract IClientModule GetModule();
 
         protected override void OnInitialized()
         {
@@ -27,13 +27,13 @@ namespace Delights.Modules.Client.UI
         }
     }
 
-    public abstract class BasePage<TModule> : BasePage where TModule : ClientModule
+    public abstract class BasePage<TModule> : BasePage where TModule : IClientModule
     {
 #pragma warning disable CS8618 // 在退出构造函数时，不可为 null 的字段必须包含非 null 值。请考虑声明为可以为 null。
         [Inject]
         public TModule Module { get; set; }
 #pragma warning restore CS8618 // 在退出构造函数时，不可为 null 的字段必须包含非 null 值。请考虑声明为可以为 null。
 
-        public override ClientModule GetModule() => Module;
+        public override IClientModule GetModule() => Module;
     }
 }

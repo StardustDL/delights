@@ -1,6 +1,7 @@
 ﻿using Delights.Modules;
 using Delights.Modules.Client;
 using Delights.Modules.Client.UI;
+using Delights.Modules.Options;
 using Delights.Modules.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -13,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Delights.UI
 {
-    public class MainModule : ClientModule<MainModuleService, MainModuleUI>
+    public class MainModule : ClientModule<MainModuleService, EmptyModuleOption<MainModule>, MainModuleUI>
     {
         public MainModule() : base()
         {
@@ -28,6 +29,7 @@ namespace Delights.UI
         public override void RegisterService(IServiceCollection services)
         {
             base.RegisterService(services);
+            services.AddHttpClient();
             services.AddScoped<Microsoft.AspNetCore.Components.WebAssembly.Services.LazyAssemblyLoader>();
         }
     }
@@ -47,7 +49,7 @@ namespace Delights.UI
         }
     }
 
-    public class MainModuleService : ModuleService
+    public class MainModuleService : IModuleService
     {
     }
 }

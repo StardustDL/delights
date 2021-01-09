@@ -5,7 +5,7 @@ namespace Delights.Modules.Client.UI
     public abstract class PageParent : ComponentBase
     {
         private string _title = "";
-        private ClientModule? _module;
+        private IClientModule? _module;
 
         public string Title
         {
@@ -19,7 +19,7 @@ namespace Delights.Modules.Client.UI
             }
         }
 
-        public ClientModule? Module
+        public IClientModule? Module
         {
             get => _module; set
             {
