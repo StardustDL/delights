@@ -18,6 +18,8 @@ namespace Delights.Modules
         public string DisplayName { get; init; } = "";
 
         public string Description { get; init; } = "";
+
+        public string Version { get; init; } = "";
     }
 
     public interface IModule
@@ -44,6 +46,7 @@ namespace Delights.Modules
                     Name = GetType().Name,
                     EntryAssembly = GetType().GetAssemblyName(),
                     DisplayName = GetType().Name,
+                    Version = GetType().Assembly.GetName().Version?.ToString() ?? "",
                 };
             }
             Metadata = metadata;

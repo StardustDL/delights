@@ -1,7 +1,11 @@
-query getMessages {
-    helloMessages {
-        nodes {
-            content
-        }
+query getModules {
+  moduleManagerModules {
+    nodes {
+      name
+      entryAssembly
+      displayName
+      description
+      version
     }
+  }
 }

@@ -16,6 +16,12 @@ namespace Delights.Modules.Client.Core
     {
         public Module() : base()
         {
+            Metadata = Metadata with
+            {
+                Name = "CoreClient",
+                DisplayName = "Core Client",
+                Description = "Provide core functions for client modules."
+            };
         }
     }
 

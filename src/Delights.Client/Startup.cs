@@ -36,7 +36,7 @@ namespace Delights.Client
 
             _ = services.AddModules()
                 .AddClientModules()
-                .AddModule<UI.MainModule>()
+                .AddModule<UI.UIModule>()
                 .AddHelloModule(o =>
                 {
                     o.GraphQLEndpoint = graphqlEndpoint;

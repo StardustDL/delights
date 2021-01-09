@@ -1,23 +1,48 @@
 @page "/modulemanager"
 @inherits BasePage<Delights.Modules.ModuleManager.Module>
+@inject MessageService MessageService
 @inject ModuleService Service
+@inject ModuleCollection ModuleCollection
 
-<h1>ModuleManager World! from @Module.Metadata.Name </h1>
-
-<Button OnClick="OnClick">Click</Button>
-
-@foreach(var message in messages)
-{
-    <p>@message.Content</p>
-    <br/>
-}
+<AntList DataSource="@ClientModules">
+    <Header>
+        Client
+    </Header>
+    <ChildContent>
+        <ListItem>
+            <ListItemMeta Description="@context.Description">
+                <TitleTemplate>
+                    <span>@context.DisplayName @context.Version</span>
+                    <span class="font-weight-light">@context.Name @@ @context.EntryAssembly</span>
+                </TitleTemplate>
+            </ListItemMeta>
+        </ListItem>
+    </ChildContent>
+</AntList>
+<AntList DataSource="@ServerModules">
+    <Header>
+        Server
+    </Header>
+    <ChildContent>
+        <ListItem>
+            <ListItemMeta Description="@context.Description">
+                <TitleTemplate>
+                    <span>@context.DisplayName @context.Version</span>
+                    <span class="font-weight-light">@context.Name @@ @context.EntryAssembly</span>
+                </TitleTemplate>
+            </ListItemMeta>
+        </ListItem>
+    </ChildContent>
+</AntList>
 
 @code{
-    List<GraphQL.IHelloMessage> messages = new List<GraphQL.IHelloMessage>();
+    List<GraphQL.IModuleMetadata> ServerModules = new List<GraphQL.IModuleMetadata>();
+
+    List<ModuleMetadata> ClientModules = new List<ModuleMetadata>();
 
     protected override void OnInitialized()
     {
-        Parent.Title = "ModuleManager";
+        Parent.Title = "Module Manager";
         base.OnInitialized();
     }
 
@@ -25,11 +50,17 @@
     {
         await base.OnInitializedAsync();
 
-        messages = (await Service.GraphQLClient.GetMessagesAsync()).Data.HelloMessages.Nodes.ToList();
-    }
+        ClientModules = ModuleCollection.Modules.Select(m => m.Metadata).ToList();
 
-    void OnClick()
-    {
-        Parent.Title = "ModuleManager!";
+        try
+        {
+            var result = await Service.GraphQLClient.GetModulesAsync();
+            result.EnsureNoErrors();
+            ServerModules = result.Data!.ModuleManagerModules.Nodes.ToList();
+        }
+        catch
+        {
+            _ = MessageService.Error("Failed to fetch server module data.");
+        }
     }
 }

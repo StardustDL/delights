@@ -11,13 +11,11 @@
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web.Extensions" Version="5.0.0-preview9.20513.1" />
-    <PackageReference Include="StardustDL.RazorComponents.MaterialDesignIcons" Version="0.0.1" />
-    <PackageReference Include="AntDesign" Version="0.4.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web.Extensions" Version="5.0.0-preview9.20513.1" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Delights.Modules.Core\Delights.Modules.Core.csproj" />
+		<ProjectReference Include="..\Delights.Modules.Core\Delights.Modules.Core.csproj" />
 	</ItemGroup>
 
 </Project>

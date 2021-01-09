@@ -7,8 +7,8 @@ namespace Delights.Modules.ModuleManager
         public static ModuleMetadata Raw => new ModuleMetadata
         {
             Name = "ModuleManager",
-            DisplayName = "ModuleManager",
-            Description = "A modulemanager module.",
+            DisplayName = "Module Manager",
+            Description = "Manage client modules and server modules.",
         };
     }
 }

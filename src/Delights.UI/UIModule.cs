@@ -14,10 +14,16 @@ using System.Threading.Tasks;
 
 namespace Delights.UI
 {
-    public class MainModule : ClientModule<MainModuleService, EmptyModuleOption<MainModule>, MainModuleUI>
+    public class UIModule : ClientModule<EmptyModuleService<UIModule>, EmptyModuleOption<UIModule>, MainModuleUI>
     {
-        public MainModule() : base()
+        public UIModule() : base()
         {
+            Metadata = Metadata with
+            {
+                Name = "ClientUI",
+                DisplayName = "Client UI",
+                Description = "Provide user interfaces for client module hosting."
+            };
         }
 
         public override void RegisterUI(IServiceCollection services)
@@ -47,9 +53,5 @@ namespace Delights.UI
                 new UIResource(UIResourceType.Script,"https://code.jquery.com/jquery-3.3.1.slim.min.js"),
             };
         }
-    }
-
-    public class MainModuleService : IModuleService
-    {
     }
 }

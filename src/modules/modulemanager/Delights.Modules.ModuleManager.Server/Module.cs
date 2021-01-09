@@ -38,10 +38,9 @@ namespace Delights.Modules.ModuleManager.Server
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<Message> GetModuleManagerMessages([Service] ModuleService service)
+        public IQueryable<ModuleMetadata> GetModuleManagerModules([Service] ModuleCollection collection)
         {
-            service.Logger.LogInformation(nameof(GetModuleManagerMessages));
-            return service.Messages.AsQueryable();
+            return collection.Modules.Select(m => m.Metadata).AsQueryable();
         }
     }
 
@@ -53,20 +52,10 @@ namespace Delights.Modules.ModuleManager.Server
     {
     }
 
-    public record Message
-    {
-        public string Content { get; init; } = "";
-    }
-
     public class ModuleService : Services.IModuleService
     {
         public ModuleService(ILogger<Module> logger) => Logger = logger;
 
         public ILogger<Module> Logger { get; private set; }
-
-        public List<Message> Messages { get; } = new List<Message>() {
-            new Message { Content = "Message 1" },
-            new Message { Content = "Message 2" },
-        };
     }
 }

@@ -1,26 +1,28 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <BerryNamespace>$(RootNamespace).GraphQL</BerryNamespace>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<BerryNamespace>$(RootNamespace).GraphQL</BerryNamespace>
+	</PropertyGroup>
 
-  
-  <ItemGroup>
-    <SupportedPlatform Include="browser" />
-  </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.1" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
-    <PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
-    <PackageReference Include="StrawberryShake" Version="11.0.0-preview.137" />
-  </ItemGroup>
+	<ItemGroup>
+		<SupportedPlatform Include="browser" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Delights.Modules.Client\Delights.Modules.Client.csproj" />
-    <ProjectReference Include="..\Delights.Modules.Hello.Core\Delights.Modules.Hello.Core.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.1" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
+		<PackageReference Include="StrawberryShake" Version="11.0.0-preview.137" />
+		<PackageReference Include="StardustDL.RazorComponents.MaterialDesignIcons" Version="0.0.1" />
+		<PackageReference Include="AntDesign" Version="0.4.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\..\Delights.Modules.Client\Delights.Modules.Client.csproj" />
+		<ProjectReference Include="..\Delights.Modules.Hello.Core\Delights.Modules.Hello.Core.csproj" />
+	</ItemGroup>
 
 </Project>

@@ -11,30 +11,27 @@ namespace Delights.Modules.Server.GraphQL.Core
     {
         public Module() : base()
         {
+            Metadata = Metadata with
+            {
+                Name = "CoreGraphQLServer",
+                DisplayName = "Core GraphQL Server",
+                Description = "Provide heartbeat and other services for GraphQL server."
+            };
         }
     }
 
     public class ModuleQuery : QueryRootObject
     {
-        public string Hello() => "world";
-
-        [UsePaging]
-        [UseProjection]
-        [UseFiltering]
-        [UseSorting]
-        public IQueryable<ModuleMetadata> GetModules([Service] ModuleCollection collection)
-        {
-            return collection.Modules.Select(m => m.Metadata).AsQueryable();
-        }
+        public string Heartbeat() => "ok";
     }
 
     public class ModuleMutation : MutationRootObject
     {
-        public string Hello() => "world";
+        public string Heartbeat() => "ok";
     }
 
     public class ModuleSubscription : SubscriptionRootObject
     {
-        public string Hello() => "world";
+        public string Heartbeat() => "ok";
     }
 }

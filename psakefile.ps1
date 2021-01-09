@@ -130,7 +130,7 @@ Task gen-gql {
 
 Task update-gql {
     Start-Job -Name "api" -ScriptBlock { dotnet run -p ./src/Delights.Api  }
-    Start-Sleep -Seconds 1
+    Start-Sleep -Seconds 3
 
     GenerateGraphQL Hello
     GenerateGraphQL ModuleManager
