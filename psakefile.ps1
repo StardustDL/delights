@@ -1,15 +1,18 @@
 properties {
+    $NUGET_AUTH_TOKEN = $env:NUGET_AUTH_TOKEN
     $build_version = $env:build_version
 }
 
 Task default -depends Restore, Build
 
-Task CI -depends Restore, Gen-Build-Status, Build, Test, Benchmark, Report
+Task CI -depends Restore, Build, Pack, Test, Benchmark, Report
 
-Task CD -depends Restore, Gen-Build-Status, Build
+Task CD -depends Restore, Build, Pack, Deploy
+
+Task Deploy -depends publish-packages
 
 Task Restore {
-    # Exec { dotnet nuget add source https://sparkshine.pkgs.visualstudio.com/StardustDL/_packaging/feed/nuget/v3/index.json -n ownpkgs }
+    Exec { dotnet nuget add source https://sparkshine.pkgs.visualstudio.com/StardustDL/_packaging/feed/nuget/v3/index.json -n ownpkgs }
     Exec { dotnet tool restore }
     Exec { dotnet restore }
 }
@@ -30,7 +33,7 @@ Function GenerateGraphQL($moduleName) {
     Set-Location "GraphQL"
 
     # $namespace = $moduleName + ".GraphQL"
-    # Exec { dotnet graphql generate -n Delights.Modules.$namespace }
+    # Exec { dotnet graphql generate -n Delights.Modules.$namespace -d }
     
     Set-Location ../..
 
@@ -42,7 +45,7 @@ Task Build {
     # Start-Sleep -Seconds 1
     # GenerateGraphQL Hello
     # Stop-Job -Name "api"
-    Exec { dotnet build -c Release /p:Version=$build_version }
+    Exec -maxRetries 3 { dotnet build -c Release /p:Version=$build_version }
 }
 
 Task Test {
@@ -65,11 +68,27 @@ Task Report {
     # Copy-Item ./BenchmarkDotNet.Artifacts/* ./reports/benchmark -Recurse
 }
 
-Task Gen-Build-Status {
-    # Set-Location src/Delights.Client
-    # Write-Output "{ ""Build"": { ""Commit"": ""$env:GITHUB_SHA"", ""Branch"": ""$env:GITHUB_REF"", ""BuildDate"": ""$(Get-date)"", ""Repository"": ""$env:GITHUB_REPOSITORY"", ""Version"": ""$env:build_version"" } }" > ./build.json
-    # Set-Location ../..
+Task Pack {
+    if (-not (Test-Path -Path "packages")) {
+        New-Item -Path "packages" -ItemType Directory
+    }
+
+    Exec -maxRetries 10 { dotnet pack -c Release /p:Version=$build_version -o ./packages }
 }
+
+Task publish-packages {
+    Exec { dotnet nuget update source ownpkgs -u sparkshine -p $NUGET_AUTH_TOKEN --store-password-in-clear-text }
+    Exec { dotnet nuget push ./packages/Delights.Modules.Core.$build_version.nupkg -s ownpkgs -k az --skip-duplicate }
+    Exec { dotnet nuget push ./packages/Delights.Modules.Client.$build_version.nupkg -s ownpkgs -k az --skip-duplicate }
+    Exec { dotnet nuget push ./packages/Delights.Modules.Server.GraphQL.$build_version.nupkg -s ownpkgs -k az --skip-duplicate }
+}
+
+Task publish-packages-release {
+    Exec { dotnet nuget push ./packages/Delights.Modules.Core.$build_version.nupkg  -s https://api.nuget.org/v3/index.json -k $NUGET_AUTH_TOKEN --skip-duplicate }
+    Exec { dotnet nuget push ./packages/Delights.Modules.Client.$build_version.nupkg  -s https://api.nuget.org/v3/index.json -k $NUGET_AUTH_TOKEN --skip-duplicate }
+    Exec { dotnet nuget push ./packages/Delights.Modules.Server.GraphQL.$build_version.nupkg  -s https://api.nuget.org/v3/index.json -k $NUGET_AUTH_TOKEN --skip-duplicate }
+}
+
 
 Task Api {
     Exec { dotnet run -p ./src/Delights.Api }
@@ -130,10 +149,10 @@ Task gen-gql {
 
 Task update-gql {
     Start-Job -Name "api" -ScriptBlock { dotnet run -p ./src/Delights.Api  }
-    Start-Sleep -Seconds 3
+    Start-Sleep -Seconds 5
 
-    GenerateGraphQL Hello
-    GenerateGraphQL ModuleManager
+    Exec -maxRetries 10 { GenerateGraphQL Hello }
+    Exec -maxRetries 10 { GenerateGraphQL ModuleManager }
 
     Stop-Job -Name "api"
 }

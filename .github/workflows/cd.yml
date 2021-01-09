@@ -8,6 +8,11 @@ defaults:
   run:
     shell: pwsh
 
+env:
+  dotnet-version: "5.0.x"
+  node-version: "12.x"
+  build_version: "0.0.1.${{ github.run_number }}"
+
 jobs:
   deploy:
     runs-on: ubuntu-18.04
@@ -36,13 +41,20 @@ jobs:
       with:
         dotnet-version: "2.1.x"
     - name: Setup NodeJS
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v2
       with:
         node-version: ${{ env.node-version }}
     - name: Setup psake
       run: Set-PSRepository -Name PSGallery -InstallationPolicy Trusted; Install-Module -Name psake
-    - name: Prepare to deploy
+    - name: Build and Deploy packages
+      env:
+        NUGET_AUTH_TOKEN: ${{ secrets.AZ_TOKEN }}
       run: Invoke-psake cd
+    - name: Upload package artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: packages
+        path: ./packages
     - name: Push API image
       uses: docker/build-push-action@v2
       with:

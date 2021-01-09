@@ -11,7 +11,7 @@ defaults:
 env:
   dotnet-version: "5.0.x"
   node-version: "12.x"
-  build_version: "0.0.0.${{ github.run_number }}"
+  build_version: "0.0.1.${{ github.run_number }}"
 
 jobs:
   ci:
@@ -36,7 +36,7 @@ jobs:
       with:
         dotnet-version: "2.1.x"
     - name: Setup NodeJS
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v2
       with:
         node-version: ${{ env.node-version }}
     - name: Setup psake
