@@ -28,6 +28,8 @@ namespace Delights.Modules.ModuleManager.Server
                 Name = SharedMetadata.Raw.Name,
                 DisplayName = SharedMetadata.Raw.DisplayName,
                 Description = SharedMetadata.Raw.Description,
+                Url = SharedMetadata.Raw.Url,
+                Author = SharedMetadata.Raw.Author,
             };
         }
     }
@@ -38,7 +40,7 @@ namespace Delights.Modules.ModuleManager.Server
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<ModuleMetadata> GetModuleManagerModules([Service] ModuleCollection collection)
+        public IQueryable<ModuleManifest> GetModuleManagerModules([Service] ModuleCollection collection)
         {
             return collection.Modules.Select(m => m.Metadata).AsQueryable();
         }

@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Delights.Modules
 {
@@ -44,6 +45,14 @@ namespace Delights.Modules
         public IEnumerable<T> AllSpecifyModules<T>()
         {
             return Modules.Where(m => m is T).Select(m => (T)m);
+        }
+
+        public async Task Initialize(IServiceProvider provider)
+        {
+            foreach(var module in Modules)
+            {
+                await module.Initialize(provider);
+            }
         }
     }
 }

@@ -8,7 +8,7 @@ export function showPrompt(message) {
 }
 
 export function cacheDataFromPath(path, forceUpdate) {
-    const cacheKeys = await caches.keys();
+    /*const cacheKeys = await caches.keys();
     const keys = cacheKeys.filter(key => key.startsWith(cacheNamePrefix));
     if (keys.length == 0) {
         // No cache
@@ -20,7 +20,7 @@ export function cacheDataFromPath(path, forceUpdate) {
         if (forceUpdate || (!cache.match(req))) {
             await cache.add(req);
         }
-    }
+    }*/
 }
 
 export function loadScript(src, tagAttr) {

@@ -30,7 +30,7 @@ namespace Delights.Modules.Client
 
     public abstract class ClientModule<TUIService, TOption, TUI> : Module<TUIService, TOption>, IClientModule where TUI : ModuleUI where TUIService : class, IModuleService where TOption : ModuleOption
     {
-        protected ClientModule(ModuleMetadata? metadata = null) : base(metadata)
+        protected ClientModule(ModuleManifest? metadata = null) : base(metadata)
         {
         }
 

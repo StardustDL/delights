@@ -58,12 +58,12 @@ namespace Delights.Modules.Client.UI
 
             if (!JSInvokers.ContainsKey(id))
             {
-                Logger.LogDebug($"Create JS invoker: {id}.");
-                JSInvokers.Add(jsPath, new(() =>
+                Logger.LogInformation($"Create JS invoker: {id}.");
+                JSInvokers.Add(id, new(() =>
                     JSRuntime.InvokeAsync<IJSObjectReference>("import", $"./_content/{id}").AsTask()));
             }
 
-            return JSInvokers[jsPath].Value;
+            return JSInvokers[id].Value;
         }
 
         protected virtual Task<IJSObjectReference> GetEntryJSModule() => GetJSInvoker("module.js");
@@ -74,7 +74,7 @@ namespace Delights.Modules.Client.UI
             {
                 if (invoker.Value.IsValueCreated)
                 {
-                    Logger.LogDebug($"Dispose JS invoker: {invoker.Key}.");
+                    Logger.LogInformation($"Dispose JS invoker: {invoker.Key}.");
                     var value = await invoker.Value.Value;
                     await value.DisposeAsync();
                 }

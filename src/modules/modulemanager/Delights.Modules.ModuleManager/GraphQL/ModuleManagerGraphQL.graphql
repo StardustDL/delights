@@ -7,7 +7,7 @@ schema {
 type Query {
   heartbeat: String!
   helloMessages(first: Int after: String last: Int before: String where: HelloMessageFilterInput order: [HelloMessageSortInput!]): HelloMessageConnection
-  moduleManagerModules(first: Int after: String last: Int before: String where: ModuleMetadataFilterInput order: [ModuleMetadataSortInput!]): ModuleMetadataConnection
+  moduleManagerModules(first: Int after: String last: Int before: String where: ModuleManifestFilterInput order: [ModuleManifestSortInput!]): ModuleManifestConnection
 }
 
 type Mutation {
@@ -42,42 +42,48 @@ type HelloMessageConnection {
   nodes: [HelloMessage!]
 }
 
-type ModuleMetadata {
+type ModuleManifest {
   name: String!
   entryAssembly: String!
   assemblies: [String!]!
   displayName: String!
   description: String!
   version: String!
+  author: String!
+  url: String!
 }
 
-input ModuleMetadataFilterInput {
-  and: [ModuleMetadataFilterInput!]
-  or: [ModuleMetadataFilterInput!]
+input ModuleManifestFilterInput {
+  and: [ModuleManifestFilterInput!]
+  or: [ModuleManifestFilterInput!]
   name: StringOperationFilterInput
   entryAssembly: StringOperationFilterInput
   assemblies: ListStringOperationFilterInput
   displayName: StringOperationFilterInput
   description: StringOperationFilterInput
   version: StringOperationFilterInput
+  author: StringOperationFilterInput
+  url: StringOperationFilterInput
 }
 
-input ModuleMetadataSortInput {
+input ModuleManifestSortInput {
   name: SortEnumType
   entryAssembly: SortEnumType
   displayName: SortEnumType
   description: SortEnumType
   version: SortEnumType
+  author: SortEnumType
+  url: SortEnumType
 }
 
 "A connection to a list of items."
-type ModuleMetadataConnection {
+type ModuleManifestConnection {
   "Information to aid in pagination."
   pageInfo: PageInfo!
   "A list of edges."
-  edges: [ModuleMetadataEdge!]
+  edges: [ModuleManifestEdge!]
   "A flattened list of the nodes."
-  nodes: [ModuleMetadata!]
+  nodes: [ModuleManifest!]
 }
 
 input StringOperationFilterInput {
@@ -128,11 +134,11 @@ input ListStringOperationFilterInput {
 }
 
 "An edge in a connection."
-type ModuleMetadataEdge {
+type ModuleManifestEdge {
   "A cursor for use in pagination."
   cursor: String!
   "The item at the end of the edge."
-  node: ModuleMetadata!
+  node: ModuleManifest!
 }
 
 "The `@defer` directive may be provided for fragment spreads and inline fragments to inform the executor to delay the execution of the current fragment to indicate deprioritization of the current fragment. A query with `@defer` directive will cause the request to potentially return multiple responses, where non-deferred data is delivered in the initial response and data deferred is delivered in a subsequent response. `@include` and `@skip` take precedence over `@defer`."

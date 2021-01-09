@@ -33,6 +33,8 @@ namespace Delights.Modules.ModuleManager
                 Name = SharedMetadata.Raw.Name,
                 DisplayName = SharedMetadata.Raw.DisplayName,
                 Description = SharedMetadata.Raw.Description,
+                Url = SharedMetadata.Raw.Url,
+                Author = SharedMetadata.Raw.Author,
                 Assemblies = new string[]
                 {
                     $"{GetType().GetAssemblyName()}.UI"

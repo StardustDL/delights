@@ -25,7 +25,7 @@
     {
         await base.OnInitializedAsync();
 
-        messages = (await Service.GraphQLClient.GetMessagesAsync()).Data.HelloMessages.Nodes.ToList();
+        messages = (await Service.GraphQLClient.GetMessagesAsync()).Data?.HelloMessages.Nodes.ToList() ?? new List<GraphQL.IHelloMessage>();
     }
 
     void OnClick()

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Delights.Modules
 {
-    public record ModuleMetadata
+    public record ModuleManifest
     {
         public string Name { get; init; } = "";
 
@@ -20,15 +20,21 @@ namespace Delights.Modules
         public string Description { get; init; } = "";
 
         public string Version { get; init; } = "";
+
+        public string Author { get; init; } = "";
+
+        public string Url { get; init; } = "";
     }
 
     public interface IModule
     {
-        ModuleMetadata Metadata { get; set; }
+        ModuleManifest Metadata { get; set; }
 
         void RegisterOptions(IServiceCollection services);
 
         void RegisterService(IServiceCollection services);
+
+        Task Initialize(IServiceProvider provider);
 
         IModuleService GetService(IServiceProvider provider);
 
@@ -37,11 +43,11 @@ namespace Delights.Modules
 
     public abstract class Module<TService, TOption> : IModule where TService : class, IModuleService where TOption : ModuleOption
     {
-        protected Module(ModuleMetadata? metadata = null)
+        protected Module(ModuleManifest? metadata = null)
         {
             if (metadata is null)
             {
-                metadata = new ModuleMetadata
+                metadata = new ModuleManifest
                 {
                     Name = GetType().Name,
                     EntryAssembly = GetType().GetAssemblyName(),
@@ -52,7 +58,7 @@ namespace Delights.Modules
             Metadata = metadata;
         }
 
-        public ModuleMetadata Metadata { get; set; }
+        public ModuleManifest Metadata { get; set; }
 
         public virtual void RegisterOptions(IServiceCollection services)
         {
@@ -62,6 +68,11 @@ namespace Delights.Modules
         public virtual void RegisterService(IServiceCollection services)
         {
             services.AddScoped<TService>();
+        }
+
+        public virtual Task Initialize(IServiceProvider provider)
+        {
+            return Task.CompletedTask;
         }
 
         public virtual TService GetService(IServiceProvider provider) => provider.GetRequiredService<TService>();

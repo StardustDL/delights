@@ -1,6 +1,7 @@
 @using System.Reflection
 @inject ModuleCollection Modules
 @inject IServiceProvider ServiceProvider
+@inject Delights.Modules.Client.Core.ModuleUI ClientUI
 @inject Microsoft.AspNetCore.Components.WebAssembly.Services.LazyAssemblyLoader LazyLoader
 
 <Router AppAssembly="@typeof(App).Assembly" PreferExactMatches="@true" AdditionalAssemblies="@AdditionalAssemblies" OnNavigateAsync="@OnNavigateAsync">
@@ -62,7 +63,7 @@
             foreach (var name in toLoad)
             {
                 context.CancellationToken.ThrowIfCancellationRequested();
-                AdditionalAssemblies.AddRange(await LazyLoader.LoadAssembliesAsync(new[] { name }));
+                AdditionalAssemblies.AddRange(await LazyLoader.LoadAssembliesAsync(new[] { name + ".dll" }));
             }
         }
         else

@@ -28,6 +28,8 @@ namespace Delights.Modules.Hello.Server
                 Name = SharedMetadata.Raw.Name,
                 DisplayName = SharedMetadata.Raw.DisplayName,
                 Description = SharedMetadata.Raw.Description,
+                Url = SharedMetadata.Raw.Url,
+                Author = SharedMetadata.Raw.Author,
             };
         }
     }

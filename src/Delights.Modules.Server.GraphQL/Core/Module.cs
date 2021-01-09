@@ -15,7 +15,9 @@ namespace Delights.Modules.Server.GraphQL.Core
             {
                 Name = "CoreGraphQLServer",
                 DisplayName = "Core GraphQL Server",
-                Description = "Provide heartbeat and other services for GraphQL server."
+                Description = "Provide heartbeat and other services for GraphQL server.",
+                Url = "https://github.com/StardustDL/delights",
+                Author = "StardustDL",
             };
         }
     }
