@@ -23,7 +23,7 @@ Function GenerateGraphQL($moduleName) {
 
     Set-Location Delights.Modules.$moduleName
 
-    $apiname = $name + "GraphQL"
+    $apiname = $moduleName + "GraphQL"
     
     Exec { dotnet graphql init https://localhost:5001/graphql -n $apiname -p "GraphQL" }
 
@@ -38,10 +38,10 @@ Function GenerateGraphQL($moduleName) {
 }
 
 Task Build {
-    Start-Job -Name "api" -ScriptBlock { dotnet run -p ./src/Delights.Api  }
-    Start-Sleep -Seconds 1
-    GenerateGraphQL Hello
-    Stop-Job -Name "api"
+    # Start-Job -Name "api" -ScriptBlock { dotnet run -p ./src/Delights.Api  }
+    # Start-Sleep -Seconds 1
+    # GenerateGraphQL Hello
+    # Stop-Job -Name "api"
     Exec { dotnet build -c Release /p:Version=$build_version }
 }
 
@@ -104,6 +104,8 @@ Task new-module {
     ReplaceContent Delights.Modules.Hello.UI/Delights.Modules.Hello.UI.csproj
     ReplaceContent Delights.Modules.Hello.Core/Delights.Modules.Hello.Core.csproj
     ReplaceContent Delights.Modules.Hello.Core/SharedMetadata.cs
+    ReplaceContent Delights.Modules.Hello/GraphQL/berry.json
+
 
     mv Delights.Modules.Hello/GraphQL/HelloGraphQL.graphql Delights.Modules.Hello/GraphQL/${name}GraphQL.graphql
     mv Delights.Modules.Hello/Delights.Modules.Hello.csproj Delights.Modules.Hello/Delights.Modules.$name.csproj
@@ -124,4 +126,21 @@ Task gen-gql {
     GenerateGraphQL $name
 }
 
-# invoke-psake new-module -parameters @{"name"="module_name"}
+# invoke-psake new-module -parameters @{"name"="Hello"}
+
+Task update-gql {
+    Start-Job -Name "api" -ScriptBlock { dotnet run -p ./src/Delights.Api  }
+    Start-Sleep -Seconds 1
+
+    GenerateGraphQL Hello
+    GenerateGraphQL ModuleManager
+
+    Stop-Job -Name "api"
+}
+
+Task update-gql-d {
+
+    GenerateGraphQL Hello
+    GenerateGraphQL ModuleManager
+
+}

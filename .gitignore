@@ -3,8 +3,6 @@ temp
 packages
 .vscode
 
-**/GraphQL/*GraphQL.graphql
-**/GraphQL/berry.json
 **/GraphQL/Generated
 
 ## Ignore Visual Studio temporary files, build results, and

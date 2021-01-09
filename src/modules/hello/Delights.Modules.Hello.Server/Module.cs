@@ -3,6 +3,7 @@ using Delights.Modules.Services;
 using HotChocolate;
 using HotChocolate.Data;
 using HotChocolate.Types;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,8 +38,9 @@ namespace Delights.Modules.Hello.Server
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<Message> GetHelloMessages([Service] ModuleService service)
+        public IQueryable<HelloMessage> GetHelloMessages([Service] ModuleService service)
         {
+            service.Logger.LogInformation(nameof(GetHelloMessages));
             return service.Messages.AsQueryable();
         }
     }
@@ -51,16 +53,20 @@ namespace Delights.Modules.Hello.Server
     {
     }
 
-    public record Message
+    public record HelloMessage
     {
         public string Content { get; init; } = "";
     }
 
     public class ModuleService : Services.IModuleService
     {
-        public List<Message> Messages { get; } = new List<Message>() {
-            new Message { Content = "Message 1" },
-            new Message { Content = "Message 2" },
+        public ModuleService(ILogger<Module> logger) => Logger = logger;
+
+        public ILogger<Module> Logger { get; private set; }
+
+        public List<HelloMessage> Messages { get; } = new List<HelloMessage>() {
+            new HelloMessage { Content = "Message 1" },
+            new HelloMessage { Content = "Message 2" },
         };
     }
 }
