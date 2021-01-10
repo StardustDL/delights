@@ -28,6 +28,10 @@
 
 ## Example codes
 
+They are based on nightly build package at: 
+
+https://sparkshine.pkgs.visualstudio.com/StardustDL/_packaging/feed/nuget/v3/index.json
+
 ### Design a client (Blazor) module
 
 - [Module.cs](./src/modules/hello/Delights.Modules.Hello/Module.cs) Client module definition.
@@ -41,6 +45,7 @@
 
 - [ModulePage.razor](./src/Delights.UI/Components/ModulePage.razor) Layout and container for module pages.
 - [App.razor](./src/Delights.UI/App.razor) Lazy loading for assemblies when routing.
+- [UIModule.cs](./src/Delights.UI/UIModule.cs) Definition of JS/CSS resources.
 - [Program.cs](./src/Delights.Client/Program.cs) & [Startup.cs](./src/Delights.Client/Startup.cs) Blazor Server hosting.
 - [_Host.cshtml](./src/Delights.Client/Pages/_Host.cshtml) Server prerendering for JS/CSS resources.
 - [Program.cs](./src/Delights.Client.WebAssembly/Program.cs) Blazor WebAssembly hosting.

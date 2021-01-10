@@ -36,7 +36,6 @@ namespace Delights.UI
         {
             base.RegisterService(services);
             services.AddHttpClient();
-            services.AddScoped<Microsoft.AspNetCore.Components.WebAssembly.Services.LazyAssemblyLoader>();
         }
     }
 

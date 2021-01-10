@@ -1,8 +1,5 @@
 @using System.Reflection
-@inject ModuleCollection Modules
-@inject IServiceProvider ServiceProvider
-@inject Delights.Modules.Client.Core.ModuleUI ClientUI
-@inject Microsoft.AspNetCore.Components.WebAssembly.Services.LazyAssemblyLoader LazyLoader
+@inject Delights.Modules.Client.Core.ModuleService ClientService
 
 <Router AppAssembly="@typeof(App).Assembly" PreferExactMatches="@true" AdditionalAssemblies="@AdditionalAssemblies" OnNavigateAsync="@OnNavigateAsync">
     <Found Context="routeData">
@@ -24,55 +21,9 @@
     {
         AdditionalAssemblies.Clear();
 
-        var assemblies = AppDomain.CurrentDomain.GetAssemblies();
         var current = typeof(App).Assembly;
 
-        List<string> toLoad = new List<string>();
-
-        foreach (var module in Modules.AllSpecifyModules<IClientModule>())
-        {
-            context.CancellationToken.ThrowIfCancellationRequested();
-
-            var ui = module.GetUI(ServiceProvider);
-
-            if (ui.Contains(context.Path))
-            {
-                foreach (var name in Enumerable.Concat(new[] { module.Manifest.EntryAssembly }, module.Manifest.Assemblies))
-                {
-                    context.CancellationToken.ThrowIfCancellationRequested();
-
-                    var assembly = assemblies.FirstOrDefault(a => a.GetName().Name == name);
-                    if (assembly == current)
-                    {
-                        continue;
-                    }
-                    if (assembly is not null)
-                    {
-                        AdditionalAssemblies.Add(assembly);
-                    }
-                    else
-                    {
-                        toLoad.Add(name);
-                    }
-                }
-            }
-        }
-
-        if (Environment.OSVersion.Platform == PlatformID.Other)
-        {
-            foreach (var name in toLoad)
-            {
-                context.CancellationToken.ThrowIfCancellationRequested();
-                AdditionalAssemblies.AddRange(await LazyLoader.LoadAssembliesAsync(new[] { name + ".dll" }));
-            }
-        }
-        else
-        {
-            foreach (var name in toLoad)
-            {
-                context.CancellationToken.ThrowIfCancellationRequested();
-                AdditionalAssemblies.Add(Assembly.Load(name));
-            }
-        }
+        var results = await ClientService.GetAssembliesForRouting(context.Path, context.CancellationToken);
+        AdditionalAssemblies.AddRange(results.Where(x => x != current));
     }
 }

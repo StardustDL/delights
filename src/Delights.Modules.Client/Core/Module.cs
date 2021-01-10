@@ -1,6 +1,7 @@
 ﻿using Delights.Modules.Client.UI;
 using Delights.Modules.Options;
 using Delights.Modules.Services;
+using Microsoft.AspNetCore.Components.WebAssembly.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -8,12 +9,14 @@ using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Delights.Modules.Client.Core
 {
-    public class Module : ClientModule<EmptyModuleService<Module>, ModuleOption, ModuleUI>
+    public class Module : ClientModule<ModuleService, ModuleOption, ModuleUI>
     {
         public Module() : base()
         {
@@ -25,6 +28,12 @@ namespace Delights.Modules.Client.Core
                 Url = "https://github.com/StardustDL/delights",
                 Author = "StardustDL",
             };
+        }
+
+        public override void RegisterService(IServiceCollection services)
+        {
+            base.RegisterService(services);
+            services.AddScoped<LazyAssemblyLoader>();
         }
 
         public override async Task Initialize(IServiceProvider provider)
@@ -79,6 +88,102 @@ namespace Delights.Modules.Client.Core
         {
             var js = await GetEntryJSModule();
             await js.InvokeVoidAsync("loadStyleSheet", href, ResourceTagAttrName);
+        }
+    }
+
+    public class ModuleService : IModuleService
+    {
+        public ModuleService(ModuleCollection modules, IServiceProvider serviceProvider, LazyAssemblyLoader lazyAssemblyLoader, ILogger<Module> logger)
+        {
+            Modules = modules;
+            ServiceProvider = serviceProvider;
+            LazyAssemblyLoader = lazyAssemblyLoader;
+            Logger = logger;
+        }
+
+        public ModuleCollection Modules { get; }
+
+        public IServiceProvider ServiceProvider { get; }
+
+        public LazyAssemblyLoader LazyAssemblyLoader { get; }
+
+        public ILogger<Module> Logger { get; }
+
+        public async Task<List<Assembly>> GetAssembliesForRouting(string path, CancellationToken cancellationToken = default)
+        {
+            var loadedAssemblies = AppDomain.CurrentDomain.GetAssemblies();
+
+            List<Assembly> results = new List<Assembly>();
+
+            Queue<string> toLoad = new Queue<string>();
+
+            foreach (var module in Modules.AllSpecifyModules<IClientModule>())
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+
+                toLoad.Enqueue(module.Manifest.EntryAssembly);
+
+                var ui = module.GetUI(ServiceProvider);
+
+                if (ui.Contains(path))
+                {
+                    foreach (var name in module.Manifest.Assemblies)
+                    {
+                        cancellationToken.ThrowIfCancellationRequested();
+
+                        toLoad.Enqueue(name);
+                    }
+                }
+            }
+
+            while (toLoad.Count > 0)
+            {
+                cancellationToken.ThrowIfCancellationRequested();
+
+                var current = toLoad.Dequeue();
+
+                Assembly? assembly;
+
+                assembly = loadedAssemblies.FirstOrDefault(x => x.GetName().Name == current);
+
+                if (assembly is null)
+                {
+                    // Logger.LogInformation($"Loading assembly {current}");
+                    if (Environment.OSVersion.Platform == PlatformID.Other)
+                    {
+                        try
+                        {
+                            assembly = (await LazyAssemblyLoader.LoadAssembliesAsync(new[] { current + ".dll" })).FirstOrDefault();
+                        }
+                        catch { }
+                    }
+                    else
+                    {
+                        assembly = Assembly.Load(current);
+                    }
+                }
+
+                if (assembly is null)
+                {
+                    Logger.LogError($"Failed to load assembly {current}");
+                    continue;
+                }
+                else
+                {
+                    // Logger.LogInformation($"Loaded assembly: {assembly.FullName}");
+                }
+
+                results.Add(assembly);
+
+                /*foreach (var refe in assembly.GetReferencedAssemblies())
+                {
+                    cancellationToken.ThrowIfCancellationRequested();
+                    if (refe.Name is not null)
+                        toLoad.Enqueue(refe.Name);
+                }*/
+            }
+
+            return results;
         }
     }
 }
