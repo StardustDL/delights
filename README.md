@@ -2,7 +2,7 @@
 
 ![](https://github.com/StardustDL/delights/workflows/CI/badge.svg) ![](https://github.com/StardustDL/delights/workflows/CD/badge.svg) ![](https://img.shields.io/github/license/StardustDL/delights.svg) [![](https://buildstats.info/nuget/Delights.Modules.Core)](https://www.nuget.org/packages/Delights.Modules.Core/)
 
-[Delights](https://github.com/StardustDL/delights) in a modular framework aimed to be low intrusive based on dependency injection for .NET 5, ASP.NET Core and Blazor.
+[Delights](https://github.com/StardustDL/delights) is a light modular framework aimed to be low intrusive based on dependency injection for .NET 5, ASP.NET Core and Blazor.
 
 ## Features
 

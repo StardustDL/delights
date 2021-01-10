@@ -2,7 +2,7 @@
 
 namespace Delights.Modules.Client.UI
 {
-    public abstract class PageParent : ComponentBase
+    public abstract class PageParentBase : ComponentBase
     {
         private string _title = "";
         private IClientModule? _module;

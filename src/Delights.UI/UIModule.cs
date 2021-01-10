@@ -3,6 +3,8 @@ using Delights.Modules.Client;
 using Delights.Modules.Client.UI;
 using Delights.Modules.Options;
 using Delights.Modules.Services;
+using Delights.UI.Components;
+using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.JSInterop;
@@ -21,7 +23,7 @@ namespace Delights.UI
             Manifest = Manifest with
             {
                 Name = "ClientUI",
-                DisplayName = "Client UI",
+                DisplayName = "Home",
                 Description = "Provide user interfaces for client module hosting."
             };
         }
@@ -41,7 +43,7 @@ namespace Delights.UI
 
     public class MainModuleUI : ModuleUI
     {
-        public MainModuleUI(IJSRuntime jsRuntime, ILogger<ModuleUI> logger) : base(jsRuntime, logger)
+        public MainModuleUI(IJSRuntime jsRuntime, ILogger<ModuleUI> logger) : base(jsRuntime, logger, "home")
         {
             Resources = new UIResource[]
             {
@@ -52,5 +54,7 @@ namespace Delights.UI
                 new UIResource(UIResourceType.Script,"https://code.jquery.com/jquery-3.3.1.slim.min.js"),
             };
         }
+
+        public override RenderFragment? Icon => Fragments.Icon;
     }
 }

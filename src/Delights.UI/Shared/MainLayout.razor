@@ -9,21 +9,13 @@
             <MenuItem Class="text-center p-0">
                 Delights
             </MenuItem>
-            <MenuItem>
-                <MdiIcon Type="@IconNames.Home" />
-                <span>
-                    <MenuLink href="" Match="NavLinkMatch.All">
-                        Home
-                    </MenuLink>
-                </span>
-            </MenuItem>
             @foreach (var module in Modules.AllSpecifyModules<IClientModule>())
             {
                 var ui = module.GetUI(ServiceProvider);
-                if (ui.RootPath != "")
+                if (ui.RootPath is not "")
                 {
                     <MenuItem>
-                        <ModuleIcon Module="module"></ModuleIcon>
+                        <ModuleIcon Module="module" Fallback="@Fragments.DefaultModuleIcon"></ModuleIcon>
                         <span>
                             <MenuLink href="@ui.RootPath">
                                 @module.Manifest.DisplayName
@@ -32,22 +24,6 @@
                     </MenuItem>
                 }
             }
-            <MenuItem>
-                <MdiIcon Type="@IconNames.Search" />
-                <span>
-                    <MenuLink href="search">
-                        Search
-                    </MenuLink>
-                </span>
-            </MenuItem>
-            <MenuItem>
-                <MdiIcon Type="@IconNames.Settings" />
-                <span>
-                    <MenuLink href="settings">
-                        Settings
-                    </MenuLink>
-                </span>
-            </MenuItem>
         </Menu>
     </Sider>
     <AntDesign.Layout Style="background: initial;">

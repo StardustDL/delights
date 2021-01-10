@@ -3,7 +3,8 @@
 <span>
     @if (UI?.Icon is null)
     {
-        <MdiIcon Type="@IconNames.Module" />
+        if(Fallback is not null)
+            @Fallback
     }
     else
     {
@@ -14,6 +15,9 @@
 @code {
     [Parameter]
     public IClientModule? Module { get; set; }
+
+    [Parameter]
+    public RenderFragment? Fallback { get; set; }
 
     private ModuleUI? UI { get; set; }
 

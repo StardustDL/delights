@@ -1,0 +1,10 @@
+﻿@inherits PageParentBase
+
+<CascadingValue Value="@this" TValue="PageParent">
+    @ChildContent(this)
+</CascadingValue>
+
+@code{
+    [Parameter]
+    public RenderFragment<PageParent> ChildContent { get; set; }
+}

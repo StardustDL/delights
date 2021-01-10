@@ -1,8 +1,10 @@
-@page "/modulemanager"
+@page "/modules"
 @inherits BasePage<Delights.Modules.ModuleManager.Module>
 @inject MessageService MessageService
 @inject ModuleService Service
 @inject ModuleCollection ModuleCollection
+
+<PageTitle Value="Module Manager" />
 
 <AntList DataSource="@ClientModules">
     <Header>
@@ -39,12 +41,6 @@
     List<GraphQL.IModuleManifest> ServerModules = new List<GraphQL.IModuleManifest>();
 
     List<ModuleManifest> ClientModules = new List<ModuleManifest>();
-
-    protected override void OnInitialized()
-    {
-        Parent.Title = "Module Manager";
-        base.OnInitialized();
-    }
 
     protected override async Task OnInitializedAsync()
     {

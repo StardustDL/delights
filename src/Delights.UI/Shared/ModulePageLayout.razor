@@ -1,8 +1,23 @@
 ﻿@inherits LayoutComponentBase
 @layout MainLayout
 
-<ModulePage>
-    <ChildContent>
+<PageParent>
+    <Microsoft.AspNetCore.Components.Web.Extensions.Head.Title Value="@($"{context.Title} - {context.Module?.Manifest.DisplayName} - Delights")"></Microsoft.AspNetCore.Components.Web.Extensions.Head.Title>
+
+    <PageHeader Title="@context.Title">
+        <PageHeaderBreadcrumb>
+            <Breadcrumb>
+                <BreadcrumbItem>
+                    <span>
+                        <ModuleIcon Module="context.Module" Fallback="@Fragments.DefaultModuleIcon"></ModuleIcon>
+                        <span>@(context.Module?.Manifest.Name ?? "")</span>
+                    </span>
+                </BreadcrumbItem>
+            </Breadcrumb>
+        </PageHeaderBreadcrumb>
+    </PageHeader>
+
+    <div class="container">
         @Body
-    </ChildContent>
-</ModulePage>
+    </div>
+</PageParent>

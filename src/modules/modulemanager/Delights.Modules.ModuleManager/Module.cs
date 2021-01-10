@@ -57,7 +57,7 @@ namespace Delights.Modules.ModuleManager
 
     public class ModuleUI : Client.UI.ModuleUI
     {
-        public ModuleUI(IJSRuntime jsRuntime, ILogger<Client.UI.ModuleUI> logger) : base(jsRuntime, logger, "modulemanager")
+        public ModuleUI(IJSRuntime jsRuntime, ILogger<Client.UI.ModuleUI> logger) : base(jsRuntime, logger, "modules")
         {
         }
 

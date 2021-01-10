@@ -39,7 +39,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.ModuleMana
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.ModuleManager.Server", "src\modules\modulemanager\Delights.Modules.ModuleManager.Server\Delights.Modules.ModuleManager.Server.csproj", "{84A4DC85-7120-4EAF-BA6E-A999FA97356D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delights.Client.WebAssembly", "src\Delights.Client.WebAssembly\Delights.Client.WebAssembly.csproj", "{D434D328-CFD6-4575-A1A3-4DE692A74CF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Client.WebAssembly", "src\Delights.Client.WebAssembly\Delights.Client.WebAssembly.csproj", "{D434D328-CFD6-4575-A1A3-4DE692A74CF3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
