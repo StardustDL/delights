@@ -50,7 +50,7 @@
     {
         await base.OnInitializedAsync();
 
-        ClientModules = ModuleCollection.Modules.Select(m => m.Metadata).ToList();
+        ClientModules = ModuleCollection.Modules.Select(m => m.Manifest).ToList();
 
         try
         {

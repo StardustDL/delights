@@ -35,9 +35,9 @@
 
             var ui = module.GetUI(ServiceProvider);
 
-            if (ui.IsPage(context.Path))
+            if (ui.Contains(context.Path))
             {
-                foreach (var name in Enumerable.Concat(new[] { module.Metadata.EntryAssembly }, module.Metadata.Assemblies))
+                foreach (var name in Enumerable.Concat(new[] { module.Manifest.EntryAssembly }, module.Manifest.Assemblies))
                 {
                     context.CancellationToken.ThrowIfCancellationRequested();
 

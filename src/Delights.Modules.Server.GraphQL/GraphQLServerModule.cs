@@ -45,7 +45,7 @@ namespace Delights.Modules.Server.GraphQL
 
     public abstract class GraphQLServerModule<TService, TOption, TQuery, TMutation, TSubscription> : Module<TService, TOption>, IGraphQLServerModule where TService : class, IModuleService where TOption : ModuleOption where TQuery : QueryRootObject where TMutation : MutationRootObject where TSubscription : SubscriptionRootObject
     {
-        protected GraphQLServerModule(ModuleManifest? metadata = null) : base(metadata)
+        protected GraphQLServerModule(ModuleManifest? manifest = null) : base(manifest)
         {
         }
 

@@ -28,7 +28,7 @@ namespace Delights.Modules
 
     public interface IModule
     {
-        ModuleManifest Metadata { get; set; }
+        ModuleManifest Manifest { get; set; }
 
         void RegisterOptions(IServiceCollection services);
 
@@ -43,11 +43,11 @@ namespace Delights.Modules
 
     public abstract class Module<TService, TOption> : IModule where TService : class, IModuleService where TOption : ModuleOption
     {
-        protected Module(ModuleManifest? metadata = null)
+        protected Module(ModuleManifest? manifest = null)
         {
-            if (metadata is null)
+            if (manifest is null)
             {
-                metadata = new ModuleManifest
+                manifest = new ModuleManifest
                 {
                     Name = GetType().Name,
                     EntryAssembly = GetType().GetAssemblyName(),
@@ -55,10 +55,10 @@ namespace Delights.Modules
                     Version = GetType().Assembly.GetName().Version?.ToString() ?? "",
                 };
             }
-            Metadata = metadata;
+            Manifest = manifest;
         }
 
-        public ModuleManifest Metadata { get; set; }
+        public ModuleManifest Manifest { get; set; }
 
         public virtual void RegisterOptions(IServiceCollection services)
         {

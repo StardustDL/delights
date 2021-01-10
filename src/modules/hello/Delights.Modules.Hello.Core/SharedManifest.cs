@@ -2,7 +2,7 @@
 
 namespace Delights.Modules.Hello
 {
-    public static class SharedMetadata
+    public static class SharedManifest
     {
         public static ModuleManifest Raw => new ModuleManifest
         {

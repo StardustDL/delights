@@ -122,7 +122,7 @@ Task new-module {
     ReplaceContent Delights.Modules.Hello.UI/Pages/Index.razor
     ReplaceContent Delights.Modules.Hello.UI/Delights.Modules.Hello.UI.csproj
     ReplaceContent Delights.Modules.Hello.Core/Delights.Modules.Hello.Core.csproj
-    ReplaceContent Delights.Modules.Hello.Core/SharedMetadata.cs
+    ReplaceContent Delights.Modules.Hello.Core/SharedManifest.cs
     ReplaceContent Delights.Modules.Hello/GraphQL/berry.json
 
 

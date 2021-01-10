@@ -33,7 +33,7 @@ namespace Delights.Modules.Client.UI
         /// </summary>
         public string RootPath { get; }
 
-        public virtual bool IsPage(string path)
+        public virtual bool Contains(string path)
         {
             if (RootPath is "")
             {
@@ -49,7 +49,7 @@ namespace Delights.Modules.Client.UI
 
         private ILogger<ModuleUI> Logger { get; }
 
-        protected Task<IJSObjectReference> GetJSInvoker(string jsPath, string? assemblyName = null)
+        protected Task<IJSObjectReference> GetJSModule(string jsPath, string? assemblyName = null)
         {
             if (assemblyName is null)
                 assemblyName = GetType().Assembly.GetName().Name ?? "";
@@ -66,7 +66,7 @@ namespace Delights.Modules.Client.UI
             return JSInvokers[id].Value;
         }
 
-        protected virtual Task<IJSObjectReference> GetEntryJSModule() => GetJSInvoker("module.js");
+        protected virtual Task<IJSObjectReference> GetEntryJSModule() => GetJSModule("module.js");
 
         public async ValueTask DisposeAsync()
         {

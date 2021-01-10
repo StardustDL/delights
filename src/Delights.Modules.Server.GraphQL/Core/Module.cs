@@ -11,7 +11,7 @@ namespace Delights.Modules.Server.GraphQL.Core
     {
         public Module() : base()
         {
-            Metadata = Metadata with
+            Manifest = Manifest with
             {
                 Name = "CoreGraphQLServer",
                 DisplayName = "Core GraphQL Server",

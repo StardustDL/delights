@@ -17,7 +17,7 @@ namespace Delights.Modules.Client.Core
     {
         public Module() : base()
         {
-            Metadata = Metadata with
+            Manifest = Manifest with
             {
                 Name = "CoreClient",
                 DisplayName = "Core Client",

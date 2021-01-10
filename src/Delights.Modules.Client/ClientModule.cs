@@ -26,11 +26,13 @@ namespace Delights.Modules.Client
         void RegisterUIService(IServiceCollection services);
 
         ModuleUI GetUI(IServiceProvider provider);
+
+        IModuleService GetUIService(IServiceProvider provider);
     }
 
     public abstract class ClientModule<TUIService, TOption, TUI> : Module<TUIService, TOption>, IClientModule where TUI : ModuleUI where TUIService : class, IModuleService where TOption : ModuleOption
     {
-        protected ClientModule(ModuleManifest? metadata = null) : base(metadata)
+        protected ClientModule(ModuleManifest? manifest = null) : base(manifest)
         {
         }
 
@@ -52,6 +54,10 @@ namespace Delights.Modules.Client
 
         public TUI GetUI(IServiceProvider provider) => provider.GetRequiredService<TUI>();
 
+        public TUIService GetUIService(IServiceProvider provider) => base.GetService(provider);
+
         ModuleUI IClientModule.GetUI(IServiceProvider provider) => GetUI(provider);
+
+        IModuleService IClientModule.GetUIService(IServiceProvider provider) => GetUIService(provider);
     }
 }

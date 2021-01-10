@@ -23,13 +23,13 @@ namespace Delights.Modules.ModuleManager.Server
     {
         public Module() : base()
         {
-            Metadata = Metadata with
+            Manifest = Manifest with
             {
-                Name = SharedMetadata.Raw.Name,
-                DisplayName = SharedMetadata.Raw.DisplayName,
-                Description = SharedMetadata.Raw.Description,
-                Url = SharedMetadata.Raw.Url,
-                Author = SharedMetadata.Raw.Author,
+                Name = SharedManifest.Raw.Name,
+                DisplayName = SharedManifest.Raw.DisplayName,
+                Description = SharedManifest.Raw.Description,
+                Url = SharedManifest.Raw.Url,
+                Author = SharedManifest.Raw.Author,
             };
         }
     }
@@ -42,7 +42,7 @@ namespace Delights.Modules.ModuleManager.Server
         [UseSorting]
         public IQueryable<ModuleManifest> GetModuleManagerModules([Service] ModuleCollection collection)
         {
-            return collection.Modules.Select(m => m.Metadata).AsQueryable();
+            return collection.Modules.Select(m => m.Manifest).AsQueryable();
         }
     }
 

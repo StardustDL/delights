@@ -18,7 +18,7 @@ namespace Delights.UI
     {
         public UIModule() : base()
         {
-            Metadata = Metadata with
+            Manifest = Manifest with
             {
                 Name = "ClientUI",
                 DisplayName = "Client UI",

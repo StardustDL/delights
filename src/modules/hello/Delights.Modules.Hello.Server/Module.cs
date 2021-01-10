@@ -23,13 +23,13 @@ namespace Delights.Modules.Hello.Server
     {
         public Module() : base()
         {
-            Metadata = Metadata with
+            Manifest = Manifest with
             {
-                Name = SharedMetadata.Raw.Name,
-                DisplayName = SharedMetadata.Raw.DisplayName,
-                Description = SharedMetadata.Raw.Description,
-                Url = SharedMetadata.Raw.Url,
-                Author = SharedMetadata.Raw.Author,
+                Name = SharedManifest.Raw.Name,
+                DisplayName = SharedManifest.Raw.DisplayName,
+                Description = SharedManifest.Raw.Description,
+                Url = SharedManifest.Raw.Url,
+                Author = SharedManifest.Raw.Author,
             };
         }
     }
