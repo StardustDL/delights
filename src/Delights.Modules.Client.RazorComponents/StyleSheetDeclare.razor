@@ -5,9 +5,9 @@
 {
     foreach (var r in c.GetUI(ServiceProvider).Resources)
     {
-        if (r.Type is UIResourceType.Script)
+        if (r.Type is UIResourceType.StyleSheet)
         {
-            @((MarkupString)($"<script type=\"text/javascript\" src=\"{r.Path}\" {Delights.Modules.Client.Core.ModuleUI.ResourceTagAttrName}=\"{r.Path}\"></script>"))
+            @((MarkupString)($"<link type=\"text/css\" rel=\"stylesheet\" href=\"{r.Path}\" {Delights.Modules.Client.RazorComponents.Core.ModuleUI.ResourceTagAttrName}=\"{r.Path}\"/>"))
         }
     }
 }

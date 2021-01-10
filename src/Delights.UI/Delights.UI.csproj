@@ -22,7 +22,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Delights.Modules.Client\Delights.Modules.Client.csproj" />
+		<ProjectReference Include="..\Delights.Modules.Client.RazorComponents\Delights.Modules.Client.RazorComponents.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

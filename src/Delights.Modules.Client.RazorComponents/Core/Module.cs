@@ -1,4 +1,4 @@
-﻿using Delights.Modules.Client.UI;
+﻿using Delights.Modules.Client.RazorComponents.UI;
 using Delights.Modules.Options;
 using Delights.Modules.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Services;
@@ -14,7 +14,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Delights.Modules.Client.Core
+namespace Delights.Modules.Client.RazorComponents.Core
 {
     public class Module : ClientModule<ModuleService, ModuleOption, ModuleUI>
     {

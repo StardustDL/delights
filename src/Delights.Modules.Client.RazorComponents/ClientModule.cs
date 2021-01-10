@@ -1,4 +1,4 @@
-﻿using Delights.Modules.Client.UI;
+﻿using Delights.Modules.Client.RazorComponents.UI;
 using Delights.Modules.Options;
 using Delights.Modules.Services;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Delights.Modules.Client
+namespace Delights.Modules.Client.RazorComponents
 {
     public static class ClientModuleExtensions
     {

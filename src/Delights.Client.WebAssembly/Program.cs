@@ -1,6 +1,6 @@
 using Delights.Modules;
-using Delights.Modules.Client;
-using Delights.Modules.Client.UI;
+using Delights.Modules.Client.RazorComponents;
+using Delights.Modules.Client.RazorComponents.UI;
 using Delights.Modules.Hello;
 using Delights.Modules.ModuleManager;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;

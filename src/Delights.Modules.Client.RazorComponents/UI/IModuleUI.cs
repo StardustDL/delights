@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 
-namespace Delights.Modules.Client.UI
+namespace Delights.Modules.Client.RazorComponents.UI
 {
     public interface IModuleUI
     {

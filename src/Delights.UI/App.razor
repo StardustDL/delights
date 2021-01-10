@@ -1,5 +1,5 @@
 @using System.Reflection
-@inject Delights.Modules.Client.Core.ModuleService ClientService
+@inject Delights.Modules.Client.RazorComponents.Core.ModuleService ClientService
 
 <Router AppAssembly="@typeof(App).Assembly" PreferExactMatches="@true" AdditionalAssemblies="@AdditionalAssemblies" OnNavigateAsync="@OnNavigateAsync">
     <Found Context="routeData">

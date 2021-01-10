@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Delights.Modules.Client.UI
+namespace Delights.Modules.Client.RazorComponents.UI
 {
     public class PageTitle : ComponentBase
     {

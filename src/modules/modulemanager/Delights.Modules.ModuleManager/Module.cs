@@ -1,4 +1,4 @@
-using Delights.Modules.Client;
+using Delights.Modules.Client.RazorComponents;
 using Delights.Modules.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Delights.Modules.ModuleManager.GraphQL;
-using Delights.Modules.Client.Core;
+using Delights.Modules.Client.RazorComponents.Core;
 using Microsoft.Extensions.Options;
 
 namespace Delights.Modules.ModuleManager
@@ -55,9 +55,9 @@ namespace Delights.Modules.ModuleManager
         }
     }
 
-    public class ModuleUI : Client.UI.ModuleUI
+    public class ModuleUI : Client.RazorComponents.UI.ModuleUI
     {
-        public ModuleUI(IJSRuntime jsRuntime, ILogger<Client.UI.ModuleUI> logger) : base(jsRuntime, logger, "modules")
+        public ModuleUI(IJSRuntime jsRuntime, ILogger<Client.RazorComponents.UI.ModuleUI> logger) : base(jsRuntime, logger, "modules")
         {
         }
 

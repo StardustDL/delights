@@ -1,7 +1,7 @@
 ﻿using Microsoft.JSInterop;
 using System.Threading.Tasks;
 
-namespace Delights.Modules.Client.UI
+namespace Delights.Modules.Client.RazorComponents.UI
 {
     public enum UIResourceType
     {

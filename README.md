@@ -19,7 +19,7 @@
 ## Project
 
 - [Delights.Modules.Core](./src/Delights.Modules.Core/) Core types for modular framework.
-- [Delights.Modules.Client](./src/Delights.Modules.Client/) Basic types for client modules.
+- [Delights.Modules.Client.RazorComponents](./src/Delights.Modules.Client.RazorComponents/) Basic types for client modules.
 - [Delights.Modules.Server.GraphQL](./src/Delights.Modules.Server.GraphQL/) Basic types for graphql server modules.
 - [Delights.UI](./src/Delights.UI/) UI hosting for modules.
 - [Delights.Client](./src/Delights.Client/) Blazor Server hosting.
