@@ -42,7 +42,7 @@ namespace Delights.Modules.Client.Core
 
             if (Environment.OSVersion.Platform == PlatformID.Other)
             {
-                var modules = provider.GetRequiredService<ModuleCollection>();
+                var modules = provider.GetModules();
                 var clientui = GetUI(provider);
                 foreach (var module in modules.AllSpecifyModules<IClientModule>())
                 {
@@ -93,7 +93,7 @@ namespace Delights.Modules.Client.Core
 
     public class ModuleService : IModuleService
     {
-        public ModuleService(ModuleCollection modules, IServiceProvider serviceProvider, LazyAssemblyLoader lazyAssemblyLoader, ILogger<Module> logger)
+        public ModuleService(IModuleCollection modules, IServiceProvider serviceProvider, LazyAssemblyLoader lazyAssemblyLoader, ILogger<Module> logger)
         {
             Modules = modules;
             ServiceProvider = serviceProvider;
@@ -101,7 +101,7 @@ namespace Delights.Modules.Client.Core
             Logger = logger;
         }
 
-        public ModuleCollection Modules { get; }
+        public IModuleCollection Modules { get; }
 
         public IServiceProvider ServiceProvider { get; }
 

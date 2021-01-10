@@ -12,7 +12,7 @@ namespace Delights.Modules.Client
 {
     public static class ClientModuleExtensions
     {
-        public static ModuleCollection AddClientModules(this ModuleCollection modules)
+        public static IModuleCollection AddClientModules(this IModuleCollection modules)
         {
             modules.AddModule<Core.Module>();
             return modules;
@@ -25,12 +25,12 @@ namespace Delights.Modules.Client
 
         void RegisterUIService(IServiceCollection services);
 
-        ModuleUI GetUI(IServiceProvider provider);
+        IModuleUI GetUI(IServiceProvider provider);
 
         IModuleService GetUIService(IServiceProvider provider);
     }
 
-    public abstract class ClientModule<TUIService, TOption, TUI> : Module<TUIService, TOption>, IClientModule where TUI : ModuleUI where TUIService : class, IModuleService where TOption : ModuleOption
+    public abstract class ClientModule<TUIService, TOption, TUI> : Module<TUIService, TOption>, IClientModule where TUI : class, IModuleUI where TUIService : class, IModuleService where TOption : ModuleOption
     {
         protected ClientModule(ModuleManifest? manifest = null) : base(manifest)
         {
@@ -56,7 +56,7 @@ namespace Delights.Modules.Client
 
         public TUIService GetUIService(IServiceProvider provider) => base.GetService(provider);
 
-        ModuleUI IClientModule.GetUI(IServiceProvider provider) => GetUI(provider);
+        IModuleUI IClientModule.GetUI(IServiceProvider provider) => GetUI(provider);
 
         IModuleService IClientModule.GetUIService(IServiceProvider provider) => GetUIService(provider);
     }

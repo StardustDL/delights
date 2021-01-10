@@ -11,13 +11,13 @@ namespace Delights.Modules.Server.GraphQL
 {
     public static class GraphQLServerModuleExtensions
     {
-        public static ModuleCollection AddGraphQLServerModules(this ModuleCollection modules)
+        public static IModuleCollection AddGraphQLServerModules(this IModuleCollection modules)
         {
             modules.AddModule<Core.Module>();
             return modules;
         }
 
-        public static IRequestExecutorBuilder RegisterGraphQLServerModules(this IRequestExecutorBuilder builder, ModuleCollection modules)
+        public static IRequestExecutorBuilder RegisterGraphQLServerModules(this IRequestExecutorBuilder builder, IModuleCollection modules)
         {
             builder.AddQueryType(d => d.Name(nameof(RootObjectType.Query)))
                 .AddMutationType(d => d.Name(nameof(RootObjectType.Mutation)))

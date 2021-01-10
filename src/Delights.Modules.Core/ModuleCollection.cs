@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Delights.Modules
 {
 
-    public class ModuleCollection
+    internal class ModuleCollection : IModuleCollection
     {
         public ModuleCollection(IServiceCollection services) => Services = services;
 
@@ -18,20 +18,21 @@ namespace Delights.Modules
 
         public IList<IModule> Modules { get; } = new List<IModule>();
 
-        public ModuleCollection AddModule<T>()
+        public IModuleCollection AddModule<T>()
             where T : class, IModule, new() => AddModule(new T());
 
-        public ModuleCollection AddModule<T>(T module)
+        public IModuleCollection AddModule<T>(T module)
             where T : class, IModule
         {
             Modules.Add(module);
             Services.TryAddSingleton(module);
             module.RegisterOptions(Services);
             module.RegisterService(Services);
+            module.Setup(this, Services);
             return this;
         }
 
-        public ModuleCollection AddModule<T, TOption>(Action<TOption>? configureOptions = null) where
+        public IModuleCollection AddModule<T, TOption>(Action<TOption>? configureOptions = null) where
             T : class, IModule, new() where TOption : ModuleOption
         {
             AddModule<T>();
@@ -49,7 +50,7 @@ namespace Delights.Modules
 
         public async Task Initialize(IServiceProvider provider)
         {
-            foreach(var module in Modules)
+            foreach (var module in Modules)
             {
                 await module.Initialize(provider);
             }

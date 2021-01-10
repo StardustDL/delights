@@ -34,6 +34,8 @@ namespace Delights.Modules
 
         void RegisterService(IServiceCollection services);
 
+        void Setup(IModuleCollection modules, IServiceCollection services);
+
         Task Initialize(IServiceProvider provider);
 
         IModuleService GetService(IServiceProvider provider);
@@ -68,6 +70,11 @@ namespace Delights.Modules
         public virtual void RegisterService(IServiceCollection services)
         {
             services.AddScoped<TService>();
+        }
+
+        public virtual void Setup(IModuleCollection modules, IServiceCollection services)
+        {
+
         }
 
         public virtual Task Initialize(IServiceProvider provider)

@@ -15,7 +15,7 @@ namespace Delights.Modules.Client.UI
     // This class can be registered as scoped DI service and then injected into Blazor
     // components for use.
 
-    public abstract class ModuleUI : IAsyncDisposable
+    public abstract class ModuleUI : IAsyncDisposable, IModuleUI
     {
         Dictionary<string, Lazy<Task<IJSObjectReference>>> JSInvokers { get; } = new Dictionary<string, Lazy<Task<IJSObjectReference>>>();
 
@@ -28,9 +28,6 @@ namespace Delights.Modules.Client.UI
 
         public virtual RenderFragment? Icon => null;
 
-        /// <summary>
-        /// RootPath, such as home, search, and so on. Empty for no page module.
-        /// </summary>
         public string RootPath { get; }
 
         public virtual bool Contains(string path)
@@ -45,7 +42,7 @@ namespace Delights.Modules.Client.UI
 
         public UIResource[] Resources { get; protected set; } = Array.Empty<UIResource>();
 
-        public IJSRuntime JSRuntime { get; }
+        protected IJSRuntime JSRuntime { get; }
 
         private ILogger<ModuleUI> Logger { get; }
 
