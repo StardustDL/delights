@@ -1,7 +1,7 @@
-﻿using Delights.Modules.Options;
-using Delights.Modules.Services;
+﻿using Delights.Modules.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Options;
 using System;
 using System.Threading.Tasks;
 
@@ -30,20 +30,16 @@ namespace Delights.Modules
     {
         ModuleManifest Manifest { get; set; }
 
-        void RegisterOptions(IServiceCollection services);
-
         void RegisterService(IServiceCollection services);
 
-        void Setup(IModuleCollection modules, IServiceCollection services);
+        void Setup(IModuleHost modules, IServiceCollection services);
 
         Task Initialize(IServiceProvider provider);
 
         IModuleService GetService(IServiceProvider provider);
-
-        ModuleOption GetOption(IServiceProvider provider);
     }
 
-    public abstract class Module<TService, TOption> : IModule where TService : class, IModuleService where TOption : ModuleOption
+    public abstract class Module<TService> : IModule where TService : class, IModuleService
     {
         protected Module(ModuleManifest? manifest = null)
         {
@@ -62,17 +58,12 @@ namespace Delights.Modules
 
         public ModuleManifest Manifest { get; set; }
 
-        public virtual void RegisterOptions(IServiceCollection services)
-        {
-            services.AddOptions<TOption>();
-        }
-
         public virtual void RegisterService(IServiceCollection services)
         {
             services.AddScoped<TService>();
         }
 
-        public virtual void Setup(IModuleCollection modules, IServiceCollection services)
+        public virtual void Setup(IModuleHost modules, IServiceCollection services)
         {
 
         }
@@ -84,9 +75,39 @@ namespace Delights.Modules
 
         public virtual TService GetService(IServiceProvider provider) => provider.GetRequiredService<TService>();
 
-        public virtual TOption GetOption(IServiceProvider provider) => provider.GetRequiredService<TOption>();
-
         IModuleService IModule.GetService(IServiceProvider provider) => GetService(provider);
-        ModuleOption IModule.GetOption(IServiceProvider provider) => GetOption(provider);
+    }
+
+    public abstract class Module<TService, TOption> : Module<TService> where TService : class, IModuleService where TOption : class
+    {
+        protected Module(ModuleManifest? manifest = null) : base(manifest)
+        {
+
+        }
+
+        protected OptionsBuilder<TOption>? OptionsBuilder { get; set; }
+
+        public virtual void RegisterOptions(IServiceCollection services)
+        {
+            OptionsBuilder = services.AddOptions<TOption>();
+        }
+
+        public override void RegisterService(IServiceCollection services)
+        {
+            base.RegisterService(services);
+            RegisterOptions(services);
+        }
+
+        public virtual void ConfigureOptions(Action<TOption, IServiceProvider> configureOptions)
+        {
+            if(OptionsBuilder is null)
+            {
+                throw new NullReferenceException("Option configuring must be after registering.");
+            }
+
+            OptionsBuilder.Configure(configureOptions);
+        }
+
+        public virtual TOption GetOption(IServiceProvider provider) => provider.GetRequiredService<IOptions<TOption>>().Value;
     }
 }

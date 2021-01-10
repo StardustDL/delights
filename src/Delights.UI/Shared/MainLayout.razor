@@ -1,6 +1,6 @@
 ﻿@inherits LayoutComponentBase
 @inject IOptions<BuildStatus> BuildStatus
-@inject IModuleCollection Modules
+@inject IModuleHost Modules
 @inject IServiceProvider ServiceProvider
 
 <AntDesign.Layout Style="min-height: 100vh; background: initial;">
@@ -16,11 +16,7 @@
                 {
                     <MenuItem>
                         <ModuleIcon Module="module" Fallback="@Fragments.DefaultModuleIcon"></ModuleIcon>
-                        <span>
-                            <MenuLink href="@ui.RootPath">
-                                @module.Manifest.DisplayName
-                            </MenuLink>
-                        </span>
+                        <MenuLink href="@ui.RootPath">@module.Manifest.DisplayName</MenuLink>
                     </MenuItem>
                 }
             }

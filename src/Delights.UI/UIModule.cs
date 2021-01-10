@@ -24,7 +24,9 @@ namespace Delights.UI
             {
                 Name = "ClientUI",
                 DisplayName = "Home",
-                Description = "Provide user interfaces for client module hosting."
+                Description = "Provide user interfaces for client module hosting.",
+                Url = "https://github.com/StardustDL/delights",
+                Author = "StardustDL",
             };
         }
 

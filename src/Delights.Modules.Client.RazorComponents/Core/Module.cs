@@ -1,5 +1,4 @@
 ﻿using Delights.Modules.Client.RazorComponents.UI;
-using Delights.Modules.Options;
 using Delights.Modules.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Services;
 using Microsoft.Extensions.DependencyInjection;
@@ -42,7 +41,7 @@ namespace Delights.Modules.Client.RazorComponents.Core
 
             if (Environment.OSVersion.Platform == PlatformID.Other)
             {
-                var modules = provider.GetModules();
+                var modules = provider.GetModuleHost();
                 var clientui = GetUI(provider);
                 foreach (var module in modules.AllSpecifyModules<IClientModule>())
                 {
@@ -59,6 +58,25 @@ namespace Delights.Modules.Client.RazorComponents.Core
                                 break;
                         }
                     }
+                }
+            }
+
+            var option = GetOption(provider);
+            if (option.Validation)
+            {
+                HashSet<string> rootPaths = new HashSet<string>();
+                var modules = provider.GetModuleHost();
+                var clientService = GetService(provider);
+                foreach (var module in modules.AllSpecifyModules<IClientModule>())
+                {
+                    var ui = module.GetUI(provider);
+                    if (rootPaths.Contains(ui.RootPath))
+                    {
+                        throw new Exception($"Same RootPath in modules: {ui.RootPath} @ {module.Manifest.Name}");
+                    }
+                    rootPaths.Add(ui.RootPath);
+
+                    await clientService.GetAssembliesForRouting($"/{ui.RootPath}");
                 }
             }
         }
@@ -93,7 +111,7 @@ namespace Delights.Modules.Client.RazorComponents.Core
 
     public class ModuleService : IModuleService
     {
-        public ModuleService(IModuleCollection modules, IServiceProvider serviceProvider, LazyAssemblyLoader lazyAssemblyLoader, ILogger<Module> logger)
+        public ModuleService(IModuleHost modules, IServiceProvider serviceProvider, LazyAssemblyLoader lazyAssemblyLoader, ILogger<Module> logger)
         {
             Modules = modules;
             ServiceProvider = serviceProvider;
@@ -101,7 +119,7 @@ namespace Delights.Modules.Client.RazorComponents.Core
             Logger = logger;
         }
 
-        public IModuleCollection Modules { get; }
+        public IModuleHost Modules { get; }
 
         public IServiceProvider ServiceProvider { get; }
 
@@ -151,11 +169,7 @@ namespace Delights.Modules.Client.RazorComponents.Core
                     // Logger.LogInformation($"Loading assembly {current}");
                     if (Environment.OSVersion.Platform == PlatformID.Other)
                     {
-                        try
-                        {
-                            assembly = (await LazyAssemblyLoader.LoadAssembliesAsync(new[] { current + ".dll" })).FirstOrDefault();
-                        }
-                        catch { }
+                        assembly = (await LazyAssemblyLoader.LoadAssembliesAsync(new[] { current + ".dll" })).FirstOrDefault();
                     }
                     else
                     {

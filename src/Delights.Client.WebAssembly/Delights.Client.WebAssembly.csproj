@@ -12,20 +12,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\Delights.UI\Delights.UI.csproj" />
-		<ProjectReference Include="..\modules\hello\Delights.Modules.Hello.UI\Delights.Modules.Hello.UI.csproj" />
-		<ProjectReference Include="..\modules\hello\Delights.Modules.Hello\Delights.Modules.Hello.csproj" />
-		<ProjectReference Include="..\modules\modulemanager\Delights.Modules.ModuleManager.UI\Delights.Modules.ModuleManager.UI.csproj" />
-		<ProjectReference Include="..\modules\modulemanager\Delights.Modules.ModuleManager\Delights.Modules.ModuleManager.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
 	</ItemGroup>
 
   <ItemGroup>
     <BlazorWebAssemblyLazyLoad Include="Delights.Modules.Hello.UI.dll" />
     <BlazorWebAssemblyLazyLoad Include="Delights.Modules.ModuleManager.UI.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Delights.Client.Shared\Delights.Client.Shared.csproj" />
   </ItemGroup>
 
 </Project>

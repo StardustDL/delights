@@ -11,13 +11,13 @@ namespace Delights.Modules.Server.GraphQL
 {
     public static class GraphQLServerModuleExtensions
     {
-        public static IModuleCollection AddGraphQLServerModules(this IModuleCollection modules)
+        public static IModuleHost AddGraphQLServerModules(this IModuleHost modules)
         {
             modules.AddModule<Core.Module>();
             return modules;
         }
 
-        public static IRequestExecutorBuilder RegisterGraphQLServerModules(this IRequestExecutorBuilder builder, IModuleCollection modules)
+        public static IRequestExecutorBuilder RegisterGraphQLServerModules(this IRequestExecutorBuilder builder, IModuleHost modules)
         {
             builder.AddQueryType(d => d.Name(nameof(RootObjectType.Query)))
                 .AddMutationType(d => d.Name(nameof(RootObjectType.Mutation)))
@@ -43,7 +43,7 @@ namespace Delights.Modules.Server.GraphQL
         IRequestExecutorBuilder RegisterGraphQLTypes(IRequestExecutorBuilder builder);
     }
 
-    public abstract class GraphQLServerModule<TService, TOption, TQuery, TMutation, TSubscription> : Module<TService, TOption>, IGraphQLServerModule where TService : class, IModuleService where TOption : ModuleOption where TQuery : QueryRootObject where TMutation : MutationRootObject where TSubscription : SubscriptionRootObject
+    public abstract class GraphQLServerModule<TService, TOption, TQuery, TMutation, TSubscription> : Module<TService, TOption>, IGraphQLServerModule where TService : class, IModuleService where TOption : class where TQuery : QueryRootObject where TMutation : MutationRootObject where TSubscription : SubscriptionRootObject
     {
         protected GraphQLServerModule(ModuleManifest? manifest = null) : base(manifest)
         {

@@ -6,6 +6,8 @@ query getModules {
       displayName
       description
       version
+      author
+      url
     }
   }
 }

@@ -2,7 +2,7 @@
 @inherits BasePage<Delights.Modules.ModuleManager.Module>
 @inject MessageService MessageService
 @inject ModuleService Service
-@inject IModuleCollection ModuleCollection
+@inject IModuleHost ModuleCollection
 
 <PageTitle Value="Module Manager" />
 
@@ -11,13 +11,14 @@
         Client
     </Header>
     <ChildContent>
-        <ListItem>
-            <ListItemMeta Description="@context.Description">
+        <ListItem Actions="@(new[] { LinkRenderFragment((context.Url, "Url")) })">
+            <ListItemMeta Description="@($"{context.Name} @ {context.EntryAssembly}")">
                 <TitleTemplate>
                     <span>@context.DisplayName @context.Version</span>
-                    <span class="font-weight-light">@context.Name @@ @context.EntryAssembly</span>
+                    <span class="font-weight-light">@context.Author</span>
                 </TitleTemplate>
             </ListItemMeta>
+            @context.Description
         </ListItem>
     </ChildContent>
 </AntList>
@@ -26,13 +27,14 @@
         Server
     </Header>
     <ChildContent>
-        <ListItem>
-            <ListItemMeta Description="@context.Description">
+        <ListItem Actions="@(new[] { LinkRenderFragment((context.Url, "Url")) })">
+            <ListItemMeta Description="@($"{context.Name} @ {context.EntryAssembly}")">
                 <TitleTemplate>
                     <span>@context.DisplayName @context.Version</span>
-                    <span class="font-weight-light">@context.Name @@ @context.EntryAssembly</span>
+                    <span class="font-weight-light">@context.Author</span>
                 </TitleTemplate>
             </ListItemMeta>
+            @context.Description
         </ListItem>
     </ChildContent>
 </AntList>
@@ -59,4 +61,9 @@
             _ = MessageService.Error("Failed to fetch server module data.");
         }
     }
+
+    RenderFragment<(string link, string text)> LinkRenderFragment = context =>
+    @<Template>
+        <a href="@context.link">@context.text</a>
+    </Template>;
 }

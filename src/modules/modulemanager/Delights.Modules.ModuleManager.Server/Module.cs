@@ -12,9 +12,9 @@ namespace Delights.Modules.ModuleManager.Server
 {
     public static class ModuleExtensions
     {
-        public static IModuleCollection AddModuleManagerModule(this IModuleCollection modules, Action<ModuleOption>? configureOptions = null)
+        public static IModuleHost AddModuleManagerModule(this IModuleHost modules, Action<ModuleOption, IServiceProvider>? configureOptions = null)
         {
-            modules.AddModule<Module, ModuleOption>(configureOptions);
+            modules.AddModule<Module, ModuleService, ModuleOption>(configureOptions);
             return modules;
         }
     }
@@ -40,7 +40,7 @@ namespace Delights.Modules.ModuleManager.Server
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<ModuleManifest> GetModuleManagerModules([Service] IModuleCollection collection)
+        public IQueryable<ModuleManifest> GetModuleManagerModules([Service] IModuleHost collection)
         {
             return collection.Modules.Select(m => m.Manifest).AsQueryable();
         }

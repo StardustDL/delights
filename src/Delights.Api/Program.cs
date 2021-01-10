@@ -17,7 +17,7 @@ namespace Delights.Api
         {
             var host = CreateHostBuilder(args).Build();
 
-            var modules = host.Services.GetModules();
+            var modules = host.Services.GetModuleHost();
             await modules.Initialize(host.Services);
 
             await host.RunAsync();

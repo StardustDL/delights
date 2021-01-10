@@ -1,3 +1,4 @@
+using Delights.Client.Shared;
 using Delights.Modules;
 using Delights.Modules.Client.RazorComponents;
 using Delights.Modules.Hello;
@@ -32,19 +33,7 @@ namespace Delights.Client
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
-            var graphqlEndpoint = "https://localhost:5001/graphql";
-
-            _ = services.AddModules()
-                .AddClientModules()
-                .AddModule<UI.UIModule>()
-                .AddHelloModule(o =>
-                {
-                    o.GraphQLEndpoint = graphqlEndpoint;
-                })
-                .AddModuleManagerModule(o =>
-                {
-                    o.GraphQLEndpoint = graphqlEndpoint;
-                });
+            services.AddAllModules();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

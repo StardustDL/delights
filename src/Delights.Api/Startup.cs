@@ -39,7 +39,7 @@ namespace Delights.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Delights.Api", Version = "v1" });
             });
 
-            var modules = services.AddModules().AddGraphQLServerModules()
+            var modules = services.AddModuleHost().AddGraphQLServerModules()
                 .AddHelloModule().AddModuleManagerModule();
 
             services.AddGraphQLServer()

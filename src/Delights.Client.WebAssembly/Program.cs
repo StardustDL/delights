@@ -1,3 +1,4 @@
+using Delights.Client.Shared;
 using Delights.Modules;
 using Delights.Modules.Client.RazorComponents;
 using Delights.Modules.Client.RazorComponents.UI;
@@ -24,24 +25,14 @@ namespace Delights.Client.WebAssembly
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-            var graphqlEndpoint = "https://localhost:5001/graphql";
-
-            var modules = builder.Services.AddModules()
-                .AddClientModules()
-                .AddModule<UI.UIModule>()
-                .AddHelloModule(o =>
-                {
-                    o.GraphQLEndpoint = graphqlEndpoint;
-                })
-                .AddModuleManagerModule(o =>
-                {
-                    o.GraphQLEndpoint = graphqlEndpoint;
-                });
-
+            var modules = builder.Services.AddAllModules();
 
             await using (var provider = builder.Services.BuildServiceProvider())
             {
-                await modules.Initialize(provider);
+                using (var scope = provider.CreateScope())
+                {
+                    await modules.Initialize(scope.ServiceProvider);
+                }
             }
 
             await builder.Build().RunAsync();

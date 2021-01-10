@@ -15,7 +15,7 @@ namespace Delights.Modules.Client.RazorComponents.UI
     // This class can be registered as scoped DI service and then injected into Blazor
     // components for use.
 
-    public abstract class ModuleUI : IAsyncDisposable, IModuleUI
+    public abstract class ModuleUI : IDisposable, IAsyncDisposable, IModuleUI
     {
         Dictionary<string, Lazy<Task<IJSObjectReference>>> JSInvokers { get; } = new Dictionary<string, Lazy<Task<IJSObjectReference>>>();
 
@@ -36,8 +36,8 @@ namespace Delights.Modules.Client.RazorComponents.UI
             {
                 return true;
             }
-            string first = path.Split('/', StringSplitOptions.RemoveEmptyEntries).FirstOrDefault() ?? "";
-            return first == RootPath;
+            path = path.Trim('/') + "/";
+            return path.StartsWith($"{RootPath}/");
         }
 
         public UIResource[] Resources { get; protected set; } = Array.Empty<UIResource>();
@@ -65,7 +65,9 @@ namespace Delights.Modules.Client.RazorComponents.UI
 
         protected virtual Task<IJSObjectReference> GetEntryJSModule() => GetJSModule("module.js");
 
-        public async ValueTask DisposeAsync()
+        #region Dispose
+
+        protected virtual async ValueTask DisposeAsyncCore()
         {
             foreach (var invoker in JSInvokers)
             {
@@ -76,6 +78,45 @@ namespace Delights.Modules.Client.RazorComponents.UI
                     await value.DisposeAsync();
                 }
             }
+            JSInvokers.Clear();
         }
+
+        public async ValueTask DisposeAsync()
+        {
+            await DisposeAsyncCore();
+
+            Dispose(disposing: false);
+            GC.SuppressFinalize(this);
+        }
+
+        private bool _disposedValue;
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!_disposedValue)
+            {
+                if (disposing)
+                {
+                    foreach (var invoker in JSInvokers)
+                    {
+                        if (invoker.Value.IsValueCreated)
+                        {
+                            Logger.LogInformation($"Dispose JS invoker: {invoker.Key}.");
+                            (invoker.Value.Value as IDisposable)?.Dispose();
+                        }
+                    }
+                    JSInvokers.Clear();
+                }
+                _disposedValue = true;
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
+        }
+
+        #endregion
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Delights.Modules.Client.RazorComponents.UI;
-using Delights.Modules.Options;
 using Delights.Modules.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -12,9 +11,9 @@ namespace Delights.Modules.Client.RazorComponents
 {
     public static class ClientModuleExtensions
     {
-        public static IModuleCollection AddClientModules(this IModuleCollection modules)
+        public static IModuleHost AddClientModules(this IModuleHost modules, Action<Core.ModuleOption, IServiceProvider>? configureOptions = null)
         {
-            modules.AddModule<Core.Module>();
+            modules.AddModule<Core.Module, Core.ModuleService, Core.ModuleOption>(configureOptions);
             return modules;
         }
     }
@@ -30,7 +29,7 @@ namespace Delights.Modules.Client.RazorComponents
         IModuleService GetUIService(IServiceProvider provider);
     }
 
-    public abstract class ClientModule<TUIService, TOption, TUI> : Module<TUIService, TOption>, IClientModule where TUI : class, IModuleUI where TUIService : class, IModuleService where TOption : ModuleOption
+    public abstract class ClientModule<TUIService, TOption, TUI> : Module<TUIService, TOption>, IClientModule where TUI : class, IModuleUI where TUIService : class, IModuleService where TOption : class
     {
         protected ClientModule(ModuleManifest? manifest = null) : base(manifest)
         {
