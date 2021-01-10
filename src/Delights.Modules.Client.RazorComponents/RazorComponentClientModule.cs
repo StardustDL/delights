@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace Delights.Modules.Client.RazorComponents
 {
-    public static class ClientModuleExtensions
+    public static class RazorComponentClientModuleExtensions
     {
-        public static IModuleHost AddClientModules(this IModuleHost modules, Action<Core.ModuleOption, IServiceProvider>? configureOptions = null)
+        public static IModuleHost AddRazorComponentClientModules(this IModuleHost modules, Action<Core.ModuleOption, IServiceProvider>? configureOptions = null)
         {
-            modules.AddModule<Core.Module, Core.ModuleService, Core.ModuleOption>(configureOptions);
+            modules.AddModule<Core.Module, Core.ModuleOption>(configureOptions);
             return modules;
         }
     }
 
-    public interface IClientModule : IModule
+    public interface IRazorComponentClientModule : IModule
     {
         void RegisterUI(IServiceCollection services);
 
@@ -29,9 +29,16 @@ namespace Delights.Modules.Client.RazorComponents
         IModuleService GetUIService(IServiceProvider provider);
     }
 
-    public abstract class ClientModule<TUIService, TOption, TUI> : Module<TUIService, TOption>, IClientModule where TUI : class, IModuleUI where TUIService : class, IModuleService where TOption : class
+    public interface IRazorComponentClientModule<out TUIService, out TOption, out TUI> : IModule<TUIService, TOption>, IRazorComponentClientModule where TUI : IModuleUI where TUIService : IModuleService
     {
-        protected ClientModule(ModuleManifest? manifest = null) : base(manifest)
+        new TUI GetUI(IServiceProvider provider);
+
+        new TUIService GetUIService(IServiceProvider provider);
+    }
+
+    public abstract class RazorComponentClientModule<TUIService, TOption, TUI> : Module<TUIService, TOption>, IRazorComponentClientModule<TUIService, TOption, TUI> where TUI : class, IModuleUI where TUIService : class, IModuleService where TOption : class
+    {
+        protected RazorComponentClientModule(ModuleManifest? manifest = null) : base(manifest)
         {
         }
 
@@ -55,8 +62,8 @@ namespace Delights.Modules.Client.RazorComponents
 
         public TUIService GetUIService(IServiceProvider provider) => base.GetService(provider);
 
-        IModuleUI IClientModule.GetUI(IServiceProvider provider) => GetUI(provider);
+        IModuleUI IRazorComponentClientModule.GetUI(IServiceProvider provider) => GetUI(provider);
 
-        IModuleService IClientModule.GetUIService(IServiceProvider provider) => GetUIService(provider);
+        IModuleService IRazorComponentClientModule.GetUIService(IServiceProvider provider) => GetUIService(provider);
     }
 }

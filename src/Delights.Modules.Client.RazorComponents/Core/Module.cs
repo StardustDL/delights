@@ -15,15 +15,15 @@ using System.Threading.Tasks;
 
 namespace Delights.Modules.Client.RazorComponents.Core
 {
-    public class Module : ClientModule<ModuleService, ModuleOption, ModuleUI>
+    public class Module : RazorComponentClientModule<ModuleService, ModuleOption, ModuleUI>
     {
         public Module() : base()
         {
             Manifest = Manifest with
             {
-                Name = "CoreClient",
-                DisplayName = "Core Client",
-                Description = "Provide core functions for client modules.",
+                Name = "CoreRazorComponentClient",
+                DisplayName = "Core Razor Component Client",
+                Description = "Provide core functions for razor component client modules.",
                 Url = "https://github.com/StardustDL/delights",
                 Author = "StardustDL",
             };
@@ -43,7 +43,7 @@ namespace Delights.Modules.Client.RazorComponents.Core
             {
                 var modules = provider.GetModuleHost();
                 var clientui = GetUI(provider);
-                foreach (var module in modules.AllSpecifyModules<IClientModule>())
+                foreach (var module in modules.AllSpecifyModules<IRazorComponentClientModule>())
                 {
                     var ui = module.GetUI(provider);
                     foreach (var resource in ui.Resources)
@@ -67,7 +67,7 @@ namespace Delights.Modules.Client.RazorComponents.Core
                 HashSet<string> rootPaths = new HashSet<string>();
                 var modules = provider.GetModuleHost();
                 var clientService = GetService(provider);
-                foreach (var module in modules.AllSpecifyModules<IClientModule>())
+                foreach (var module in modules.AllSpecifyModules<IRazorComponentClientModule>())
                 {
                     var ui = module.GetUI(provider);
                     if (rootPaths.Contains(ui.RootPath))
@@ -135,7 +135,7 @@ namespace Delights.Modules.Client.RazorComponents.Core
 
             Queue<string> toLoad = new Queue<string>();
 
-            foreach (var module in Modules.AllSpecifyModules<IClientModule>())
+            foreach (var module in Modules.AllSpecifyModules<IRazorComponentClientModule>())
             {
                 cancellationToken.ThrowIfCancellationRequested();
 

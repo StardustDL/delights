@@ -14,7 +14,7 @@ namespace Delights.Client.Shared
             var graphqlEndpoint = "https://localhost:5001/graphql";
 
             return collection.AddModuleHost()
-                .AddClientModules((o, _) =>
+                .AddRazorComponentClientModules((o, _) =>
                 {
                     o.Validation = true;
                 })

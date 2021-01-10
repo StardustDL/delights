@@ -30,8 +30,8 @@ namespace Delights.Modules
         public static IModuleHost AddModule<T>(this IModuleHost modules)
             where T : class, IModule, new() => modules.AddModule(new T());
 
-        public static IModuleHost AddModule<T, TService, TOption>(this IModuleHost modules, T module, Action<TOption, IServiceProvider>? configureOptions = null)
-            where T : Module<TService, TOption> where TService : class, IModuleService where TOption : class
+        public static IModuleHost AddModule<T, TOption>(this IModuleHost modules, T module, Action<TOption, IServiceProvider>? configureOptions = null)
+            where T : class, IModule<IModuleService, TOption>, new() where TOption : class
         {
             modules.AddModule(module);
             if (configureOptions is not null)
@@ -41,10 +41,10 @@ namespace Delights.Modules
             return modules;
         }
 
-        public static IModuleHost AddModule<T, TService, TOption>(this IModuleHost modules, Action<TOption, IServiceProvider>? configureOptions = null)
-            where T : Module<TService, TOption>, new() where TService : class, IModuleService where TOption : class
+        public static IModuleHost AddModule<T, TOption>(this IModuleHost modules, Action<TOption, IServiceProvider>? configureOptions = null)
+            where T : class, IModule<IModuleService, TOption>, new() where TOption : class
         {
-            return modules.AddModule<T, TService, TOption>(new T(), configureOptions);
+            return modules.AddModule(new T(), configureOptions);
         }
     }
 }

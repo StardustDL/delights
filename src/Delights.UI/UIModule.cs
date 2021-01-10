@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace Delights.UI
 {
-    public class UIModule : ClientModule<EmptyModuleService<UIModule>, EmptyModuleOption<UIModule>, MainModuleUI>
+    public class UIModule : RazorComponentClientModule<EmptyModuleService<UIModule>, EmptyModuleOption<UIModule>, MainModuleUI>
     {
         public UIModule() : base()
         {

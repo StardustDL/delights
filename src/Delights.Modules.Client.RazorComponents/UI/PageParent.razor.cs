@@ -5,7 +5,7 @@ namespace Delights.Modules.Client.RazorComponents.UI
     public abstract class PageParentBase : ComponentBase
     {
         private string _title = "";
-        private IClientModule? _module;
+        private IRazorComponentClientModule? _module;
 
         public string Title
         {
@@ -19,7 +19,7 @@ namespace Delights.Modules.Client.RazorComponents.UI
             }
         }
 
-        public IClientModule? Module
+        public IRazorComponentClientModule? Module
         {
             get => _module; set
             {

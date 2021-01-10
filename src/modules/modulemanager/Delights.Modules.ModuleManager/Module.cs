@@ -19,12 +19,12 @@ namespace Delights.Modules.ModuleManager
     {
         public static IModuleHost AddModuleManagerModule(this IModuleHost modules, Action<ModuleOption, IServiceProvider>? configureOptions = null)
         {
-            modules.AddModule<Module, ModuleService, ModuleOption>(configureOptions);
+            modules.AddModule<Module, ModuleOption>(configureOptions);
             return modules;
         }
     }
 
-    public class Module : ClientModule<ModuleService, ModuleOption, ModuleUI>
+    public class Module : RazorComponentClientModule<ModuleService, ModuleOption, ModuleUI>
     {
         public Module() : base()
         {

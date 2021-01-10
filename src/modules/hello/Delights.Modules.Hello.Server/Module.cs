@@ -14,7 +14,7 @@ namespace Delights.Modules.Hello.Server
     {
         public static IModuleHost AddHelloModule(this IModuleHost modules, Action<ModuleOption, IServiceProvider>? configureOptions = null)
         {
-            modules.AddModule<Module, ModuleService, ModuleOption>(configureOptions);
+            modules.AddModule<Module, ModuleOption>(configureOptions);
             return modules;
         }
     }

@@ -39,7 +39,12 @@ namespace Delights.Modules
         IModuleService GetService(IServiceProvider provider);
     }
 
-    public abstract class Module<TService> : IModule where TService : class, IModuleService
+    public interface IModule<out TService> : IModule where TService : IModuleService
+    {
+        new TService GetService(IServiceProvider provider);
+    }
+
+    public abstract class Module<TService> : IModule<TService> where TService : class, IModuleService
     {
         protected Module(ModuleManifest? manifest = null)
         {
@@ -78,7 +83,14 @@ namespace Delights.Modules
         IModuleService IModule.GetService(IServiceProvider provider) => GetService(provider);
     }
 
-    public abstract class Module<TService, TOption> : Module<TService> where TService : class, IModuleService where TOption : class
+    public interface IModule<out TService, out TOption> : IModule<TService> where TService : IModuleService
+    {
+        void ConfigureOptions(Action<TOption, IServiceProvider> configureOptions);
+
+        TOption GetOption(IServiceProvider provider);
+    }
+
+    public abstract class Module<TService, TOption> : Module<TService>, IModule<TService, TOption> where TService : class, IModuleService where TOption : class
     {
         protected Module(ModuleManifest? manifest = null) : base(manifest)
         {
@@ -100,7 +112,7 @@ namespace Delights.Modules
 
         public virtual void ConfigureOptions(Action<TOption, IServiceProvider> configureOptions)
         {
-            if(OptionsBuilder is null)
+            if (OptionsBuilder is null)
             {
                 throw new NullReferenceException("Option configuring must be after registering.");
             }

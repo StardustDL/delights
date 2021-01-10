@@ -9,7 +9,7 @@
             <MenuItem Class="text-center p-0">
                 Delights
             </MenuItem>
-            @foreach (var module in Modules.AllSpecifyModules<IClientModule>())
+            @foreach (var module in Modules.AllSpecifyModules<IRazorComponentClientModule>())
             {
                 var ui = module.GetUI(ServiceProvider);
                 if (ui.RootPath is not "")
