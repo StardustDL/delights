@@ -3,8 +3,12 @@ name: CD
 on:
   workflow_dispatch:
     inputs:
-      nuget:
-        description: 'Push to nuget'
+      pkg:
+        description: 'Upload packages'
+        required: false
+        default: "false"
+      image:
+        description: 'Upload images'
         required: false
         default: "false"
 
@@ -18,7 +22,7 @@ env:
   build_version: "0.0.1-preview.${{ github.run_number }}"
 
 jobs:
-  deploy:
+  docker:
     runs-on: ubuntu-18.04
     steps:
     - name: Checkout
@@ -62,11 +66,12 @@ jobs:
         NUGET_AUTH_TOKEN: ${{ secrets.AZ_TOKEN }}
       run: Invoke-psake publish-packages
     - name: Upload to NuGet
-      if: ${{ github.event.inputs.nuget == 'true' }}
+      if: ${{ github.event.inputs.pkg == 'true' }}
       env:
         NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
       run: Invoke-psake publish-packages-release
     - name: Push API image
+      if: ${{ github.event.inputs.image == 'true' }}
       uses: docker/build-push-action@v2
       with:
         context: .
@@ -75,6 +80,7 @@ jobs:
         tags: |
           stardustdl/delights:api
     - name: Push client image
+      if: ${{ github.event.inputs.image == 'true' }}
       uses: docker/build-push-action@v2
       with:
         context: .
@@ -83,6 +89,7 @@ jobs:
         tags: |
           stardustdl/delights:client
     - name: Push WASM host client image
+      if: ${{ github.event.inputs.image == 'true' }}
       uses: docker/build-push-action@v2
       with:
         context: .

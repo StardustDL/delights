@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using Delights.Modules.ModuleManager.GraphQL;
 using Delights.Modules.Client.RazorComponents.Core;
 using Microsoft.Extensions.Options;
+using StardustDL.RazorComponents.AntDesigns;
 
 namespace Delights.Modules.ModuleManager
 {
@@ -52,6 +53,11 @@ namespace Delights.Modules.ModuleManager
                     client.BaseAddress = new Uri(option.GraphQLEndpoint);
                 });
             services.AddModuleManagerGraphQLClient();
+        }
+
+        public override void Setup(IModuleHostBuilder host)
+        {
+            host.AddAntDesignModule();
         }
     }
 

@@ -30,6 +30,8 @@ namespace Delights.Modules
             services.AddScoped<TService>();
         }
 
+        public virtual void Setup(IModuleHostBuilder host) { }
+
         public virtual TService GetService(IServiceProvider provider) => provider.GetRequiredService<TService>();
 
         IModuleService IModule.GetService(IServiceProvider provider) => GetService(provider);

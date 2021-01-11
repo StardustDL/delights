@@ -18,7 +18,7 @@
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
 		<PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
 		<PackageReference Include="StardustDL.RazorComponents.MaterialDesignIcons" Version="0.0.1" />
-		<PackageReference Include="AntDesign" Version="0.5.2" />
+    <PackageReference Include="StardustDL.RazorComponents.AntDesigns" Version="0.0.1-preview.3" />
 	</ItemGroup>
 
 	<ItemGroup>
