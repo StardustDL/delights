@@ -25,14 +25,11 @@ namespace Delights.Client.WebAssembly
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-            var modules = builder.Services.AddAllModules();
+            ModuleSetup.CreateDefaultBuilder().Build(builder.Services);
 
             await using (var provider = builder.Services.BuildServiceProvider())
             {
-                using (var scope = provider.CreateScope())
-                {
-                    await modules.Initialize(scope.ServiceProvider);
-                }
+                await provider.GetModuleHost().Initialize();
             }
 
             await builder.Build().RunAsync();

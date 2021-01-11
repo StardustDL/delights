@@ -2,6 +2,7 @@
 using Delights.Modules.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Services;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.JSInterop;
@@ -32,53 +33,7 @@ namespace Delights.Modules.Client.RazorComponents.Core
         public override void RegisterService(IServiceCollection services)
         {
             base.RegisterService(services);
-            services.AddScoped<LazyAssemblyLoader>();
-        }
-
-        public override async Task Initialize(IServiceProvider provider)
-        {
-            await base.Initialize(provider);
-
-            if (Environment.OSVersion.Platform == PlatformID.Other)
-            {
-                var modules = provider.GetModuleHost();
-                var clientui = GetUI(provider);
-                foreach (var module in modules.AllSpecifyModules<IRazorComponentClientModule>())
-                {
-                    var ui = module.GetUI(provider);
-                    foreach (var resource in ui.Resources)
-                    {
-                        switch (resource.Type)
-                        {
-                            case UIResourceType.Script:
-                                await clientui.LoadScript(resource.Path);
-                                break;
-                            case UIResourceType.StyleSheet:
-                                await clientui.LoadStyleSheet(resource.Path);
-                                break;
-                        }
-                    }
-                }
-            }
-
-            var option = GetOption(provider);
-            if (option.Validation)
-            {
-                HashSet<string> rootPaths = new HashSet<string>();
-                var modules = provider.GetModuleHost();
-                var clientService = GetService(provider);
-                foreach (var module in modules.AllSpecifyModules<IRazorComponentClientModule>())
-                {
-                    var ui = module.GetUI(provider);
-                    if (rootPaths.Contains(ui.RootPath))
-                    {
-                        throw new Exception($"Same RootPath in modules: {ui.RootPath} @ {module.Manifest.Name}");
-                    }
-                    rootPaths.Add(ui.RootPath);
-
-                    await clientService.GetAssembliesForRouting($"/{ui.RootPath}");
-                }
-            }
+            services.TryAddScoped<LazyAssemblyLoader>();
         }
     }
 
@@ -111,21 +66,71 @@ namespace Delights.Modules.Client.RazorComponents.Core
 
     public class ModuleService : IModuleService
     {
-        public ModuleService(IModuleHost modules, IServiceProvider serviceProvider, LazyAssemblyLoader lazyAssemblyLoader, ILogger<Module> logger)
+        public ModuleService(IModuleHost moduleHost, IServiceProvider serviceProvider, IOptions<ModuleOption> options, ModuleUI ui, LazyAssemblyLoader lazyAssemblyLoader, ILogger<Module> logger)
         {
-            Modules = modules;
+            ModuleHost = moduleHost;
+            Options = options.Value;
+            UI = ui;
             ServiceProvider = serviceProvider;
             LazyAssemblyLoader = lazyAssemblyLoader;
             Logger = logger;
         }
 
-        public IModuleHost Modules { get; }
+        public IModuleHost ModuleHost { get; }
 
         public IServiceProvider ServiceProvider { get; }
 
         public LazyAssemblyLoader LazyAssemblyLoader { get; }
 
         public ILogger<Module> Logger { get; }
+
+        public ModuleOption Options { get; }
+
+        public ModuleUI UI { get; }
+
+        public async Task Initialize()
+        {
+            if (Environment.OSVersion.Platform == PlatformID.Other)
+            {
+                foreach (var module in ModuleHost.Modules.AllSpecifyModules<IRazorComponentClientModule>())
+                {
+                    var ui = module.GetUI(ServiceProvider);
+                    foreach (var resource in ui.Resources)
+                    {
+                        switch (resource.Type)
+                        {
+                            case UIResourceType.Script:
+                                await UI.LoadScript(resource.Path);
+                                break;
+                            case UIResourceType.StyleSheet:
+                                await UI.LoadStyleSheet(resource.Path);
+                                break;
+                        }
+                    }
+                }
+            }
+
+            if (Options.Validation)
+            {
+                await Validation();
+            }
+        }
+
+        public async Task Validation()
+        {
+            HashSet<string> rootPaths = new HashSet<string>();
+            foreach (var module in ModuleHost.Modules.AllSpecifyModules<IRazorComponentClientModule>())
+            {
+                var ui = module.GetUI(ServiceProvider);
+                if (rootPaths.Contains(ui.RootPath))
+                {
+                    throw new Exception($"Same RootPath in modules: {ui.RootPath} @ {module.Manifest.Name}");
+                }
+                rootPaths.Add(ui.RootPath);
+
+                await GetAssembliesForRouting($"/{ui.RootPath}");
+            }
+        }
 
         public async Task<List<Assembly>> GetAssembliesForRouting(string path, CancellationToken cancellationToken = default)
         {
@@ -135,7 +140,7 @@ namespace Delights.Modules.Client.RazorComponents.Core
 
             Queue<string> toLoad = new Queue<string>();
 
-            foreach (var module in Modules.AllSpecifyModules<IRazorComponentClientModule>())
+            foreach (var module in ModuleHost.Modules.AllSpecifyModules<IRazorComponentClientModule>())
             {
                 cancellationToken.ThrowIfCancellationRequested();
 

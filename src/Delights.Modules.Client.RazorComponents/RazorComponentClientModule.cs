@@ -11,7 +11,7 @@ namespace Delights.Modules.Client.RazorComponents
 {
     public static class RazorComponentClientModuleExtensions
     {
-        public static IModuleHost AddRazorComponentClientModules(this IModuleHost modules, Action<Core.ModuleOption, IServiceProvider>? configureOptions = null)
+        public static IModuleHostBuilder AddRazorComponentClientModules(this IModuleHostBuilder modules, Action<Core.ModuleOption, IServiceProvider>? configureOptions = null)
         {
             modules.AddModule<Core.Module, Core.ModuleOption>(configureOptions);
             return modules;

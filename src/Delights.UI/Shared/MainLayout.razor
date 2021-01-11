@@ -1,6 +1,6 @@
 ﻿@inherits LayoutComponentBase
 @inject IOptions<BuildStatus> BuildStatus
-@inject IModuleHost Modules
+@inject IModuleHost ModuleHost
 @inject IServiceProvider ServiceProvider
 
 <AntDesign.Layout Style="min-height: 100vh; background: initial;">
@@ -9,7 +9,7 @@
             <MenuItem Class="text-center p-0">
                 Delights
             </MenuItem>
-            @foreach (var module in Modules.AllSpecifyModules<IRazorComponentClientModule>())
+            @foreach (var module in ModuleHost.Modules.AllSpecifyModules<IRazorComponentClientModule>())
             {
                 var ui = module.GetUI(ServiceProvider);
                 if (ui.RootPath is not "")

@@ -7,14 +7,14 @@ using System;
 
 namespace Delights.Client.Shared
 {
-    public static class ModuleSetupExtensions
+    public static class ModuleSetup
     {
-        public static IModuleHost AddAllModules(this IServiceCollection collection)
+        public static IModuleHostBuilder CreateDefaultBuilder()
         {
             var graphqlEndpoint = "https://localhost:5001/graphql";
 
-            return collection.AddModuleHost()
-                .AddRazorComponentClientModules((o, _) =>
+            var builder = ModuleHostBuilder.CreateDefaultBuilder();
+                builder.AddRazorComponentClientModules((o, _) =>
                 {
                     o.Validation = true;
                 })
@@ -27,6 +27,8 @@ namespace Delights.Client.Shared
                 {
                     o.GraphQLEndpoint = graphqlEndpoint;
                 });
+
+            return builder;
         }
     }
 }

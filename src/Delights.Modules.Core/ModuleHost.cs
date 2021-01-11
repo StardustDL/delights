@@ -12,32 +12,27 @@ namespace Delights.Modules
 
     internal class ModuleHost : IModuleHost
     {
-        public ModuleHost(IServiceCollection services) => Services = services;
-
-        public IServiceCollection Services { get; }
-
-        public IList<IModule> Modules { get; } = new List<IModule>();
-
-        public IModuleHost AddModule<T>(T module)
-            where T : class, IModule
+        public ModuleHost(IServiceProvider services, IList<IModule> modules)
         {
-            Modules.Add(module);
-            Services.AddSingleton(module);
-            module.RegisterService(Services);
-            module.Setup(this, Services);
-            return this;
+            Services = services;
+            Modules = modules;
         }
+
+        public IServiceProvider Services { get; }
+
+        public IList<IModule> Modules { get; }
 
         public IEnumerable<T> AllSpecifyModules<T>()
         {
             return Modules.Where(m => m is T).Select(m => (T)m);
         }
 
-        public async Task Initialize(IServiceProvider provider)
+        public async Task Initialize()
         {
+            using var scope = Services.CreateScope();
             foreach (var module in Modules)
             {
-                await module.Initialize(provider);
+                await module.GetService(scope.ServiceProvider).Initialize();
             }
         }
     }

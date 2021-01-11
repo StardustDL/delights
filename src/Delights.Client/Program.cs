@@ -17,11 +17,7 @@ namespace Delights.Client
         {
             var host = CreateHostBuilder(args).Build();
 
-            using (var scope = host.Services.CreateScope())
-            {
-                var modules = scope.ServiceProvider.GetModuleHost();
-                await modules.Initialize(scope.ServiceProvider);
-            }
+            await host.Services.GetModuleHost().Initialize();
 
             await host.RunAsync();
         }
