@@ -9,9 +9,11 @@ namespace Delights.Modules
     {
         IReadOnlyList<IModule> Modules { get; }
 
-        IModuleHostBuilder AddModule<T>(T module) where T : class, IModule;
+        IModuleHostBuilder AddModule(Type type, IModule module);
 
         void Build(IServiceCollection services);
+
+        public IModuleHostBuilder AddModule<T>(T module) where T : class, IModule => AddModule(typeof(T), module);
 
         public IModuleHostBuilder AddModule<T>()
             where T : class, IModule, new() => AddModule(new T());

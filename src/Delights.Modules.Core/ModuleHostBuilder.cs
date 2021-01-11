@@ -19,10 +19,9 @@ namespace Delights.Modules
 
         public IReadOnlyList<IModule> Modules => Descriptors.Select(x => x.Item2).ToArray();
 
-        public IModuleHostBuilder AddModule<T>(T module)
-            where T : class, IModule
+        public IModuleHostBuilder AddModule(Type type, IModule module)
         {
-            Descriptors.Add((typeof(T), module));
+            Descriptors.Add((type, module));
             return this;
         }
 

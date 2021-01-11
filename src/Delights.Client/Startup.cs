@@ -33,6 +33,7 @@ namespace Delights.Client
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
+            services.AddServerConfiguration();
             ModuleSetup.CreateDefaultBuilder().Build(services);
         }
 
