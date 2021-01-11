@@ -50,17 +50,18 @@ jobs:
     #     path: ./reports
   invoke-cd:
     needs: ci
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && ! startsWith(github.event.head_commit.message, 'docs:') }}
     runs-on: ubuntu-latest
     steps:
     - name: Invoke CD workflow
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && ! startsWith(github.event.head_commit.message, '/release')}}
+      if: ${{ ! startsWith(github.event.head_commit.message, 'release:') }}
       uses: benc-uk/workflow-dispatch@v1
       with:
         workflow: CD
         token: ${{ secrets.PA_TOKEN }}
         inputs: '{ "nuget": false }'
     - name: Invoke CD workflow with release
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && startsWith(github.event.head_commit.message, '/release') }}
+      if: ${{ startsWith(github.event.head_commit.message, 'release:') }}
       uses: benc-uk/workflow-dispatch@v1
       with:
         workflow: CD

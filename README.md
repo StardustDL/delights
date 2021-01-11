@@ -16,6 +16,67 @@
   - Unified query/mutation/subscription definition
 - Builtin module options support
 
+It provides a place to unify resources, and it can be used to make Razor component library easy to use and manage. The user needn't to take care of related services and `<script>` or `<link>` tags in `index.html`.
+
+## Usage
+
+### Use modules
+
+1. Create a ModuleHostBuilder and register modules.
+
+For Razor component modules:
+
+```cs
+var builder = ModuleHostBuilder.CreateDefaultBuilder()
+    .AddRazorComponentClientModules()
+    .AddModule<FooModule>();
+```
+
+For GraphQL server modules:
+
+```cs
+var builder = ModuleHostBuilder.CreateDefaultBuilder()
+    .AddGraphQLServerModules()
+    .AddModule<FooModule>();
+```
+
+2. Use the builder to register services.
+
+```cs
+builder.Build(services);
+```
+
+Additional step for GraphQL server modules:
+
+```cs
+services.AddGraphQLServer()
+    .RegisterGraphQLServerModules(builder);
+```
+
+3. Call module initializing functions.
+
+```cs
+// Blazor WebAssembly
+await using (var provider = builder.Services.BuildServiceProvider())
+{
+    // This will load js/css resources into current DOM.
+    await provider.GetModuleHost().Initialize();
+}
+
+// Others
+await host.Services.GetModuleHost().Initialize();
+```
+
+4. For Blazor server projects and prerendering projects, you need to add prerendering components for JS/CSS resouces.
+
+```razor
+<component type="typeof(Delights.Modules.Client.RazorComponents.StyleSheetDeclare)" render-mode="Static" />
+
+<component type="typeof(Delights.Modules.Client.RazorComponents.ScriptDeclare)" render-mode="Static" />
+```
+
+These two components will find all resources defined in modules, and render HTML tags for them.
+
 ## Project guide
 
 - [Delights.Modules.Core](./src/Delights.Modules.Core/) Core types for modular framework.
