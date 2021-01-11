@@ -16,7 +16,7 @@ namespace Delights.Modules
 
         IModuleService GetService(IServiceProvider provider);
 
-        public void Setup(IModuleHostBuilder host, IServiceCollection services) { }
+        public void Setup(IModuleHostBuilder host) { }
     }
 
     public interface IModule<out TService> : IModule where TService : IModuleService

@@ -19,7 +19,7 @@ namespace Delights.Modules.Hello
     {
         public static IModuleHostBuilder AddHelloModule(this IModuleHostBuilder modules, Action<ModuleOption, IServiceProvider>? configureOptions = null)
         {
-            modules.AddModule<Module, ModuleOption>(configureOptions);
+            modules.TryAddModule<Module, ModuleOption>(configureOptions);
             return modules;
         }
     }

@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.1" />
+    <PackageReference Include="AntDesign" Version="0.5.2" />
   </ItemGroup>
 
   <ItemGroup>

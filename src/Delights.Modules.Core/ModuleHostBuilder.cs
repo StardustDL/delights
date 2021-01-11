@@ -15,14 +15,27 @@ namespace Delights.Modules
 
     public class DefaultModuleHostBuilder : IModuleHostBuilder
     {
-        protected List<(Type, IModule)> Descriptors { get; } = new List<(Type, IModule)>();
+        protected Dictionary<Type, IModule> Descriptors { get; } = new Dictionary<Type, IModule>();
 
-        public IReadOnlyList<IModule> Modules => Descriptors.Select(x => x.Item2).ToArray();
+        public IReadOnlyList<IModule> Modules => Descriptors.Values.ToArray();
 
         public IModuleHostBuilder AddModule(Type type, IModule module)
         {
-            Descriptors.Add((type, module));
+            if (Descriptors.ContainsKey(type))
+            {
+                throw new Exception($"Module with type {type.Name} has been added.");
+            }
+            Descriptors.Add(type, module);
+            module.Setup(this);
             return this;
+        }
+
+        public IModule? GetModule(Type type)
+        {
+            if (Descriptors.TryGetValue(type, out var value))
+                return value;
+            else
+                return null;
         }
 
         public void Build(IServiceCollection services)
@@ -33,10 +46,6 @@ namespace Delights.Modules
             {
                 services.AddSingleton(type, module);
                 module.RegisterService(services);
-            }
-            foreach (var module in modules)
-            {
-                module.Setup(this, services);
             }
         }
     }

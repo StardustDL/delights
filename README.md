@@ -1,6 +1,6 @@
 # Delights
 
-![](https://github.com/StardustDL/delights/workflows/CI/badge.svg) ![](https://github.com/StardustDL/delights/workflows/CD/badge.svg) ![](https://img.shields.io/github/license/StardustDL/delights.svg) [![](https://buildstats.info/nuget/Delights.Modules.Core)](https://www.nuget.org/packages/Delights.Modules.Core/)
+![](https://github.com/StardustDL/delights/workflows/CI/badge.svg) ![](https://github.com/StardustDL/delights/workflows/CD/badge.svg) ![](https://img.shields.io/github/license/StardustDL/delights.svg) [![](https://buildstats.info/nuget/Delights.Modules.Core)](https://www.nuget.org/packages/Delights.Modules.Core/) [![](https://buildstats.info/nuget/Delights.Modules.Core?includePreReleases=true)](https://www.nuget.org/packages/Delights.Modules.Core/)
 
 [Delights](https://github.com/StardustDL/delights) is a light modular framework aimed to be low intrusive based on dependency injection for .NET 5, ASP.NET Core and Blazor.
 
@@ -16,7 +16,7 @@
   - Unified query/mutation/subscription definition
 - Builtin module options support
 
-## Project
+## Project guide
 
 - [Delights.Modules.Core](./src/Delights.Modules.Core/) Core types for modular framework.
 - [Delights.Modules.Client.RazorComponents](./src/Delights.Modules.Client.RazorComponents/) Basic types for client modules.
@@ -24,7 +24,12 @@
 - [Delights.UI](./src/Delights.UI/) UI hosting for modules.
 - [Delights.Client](./src/Delights.Client/) Blazor Server hosting.
 - [Delights.Client.WebAssembly](./src/Delights.Client.WebAssembly/) Blazor WebAssembly hosting.
+- [Delights.Client.WebAssembly.Host](./src/Delights.Client.WebAssembly/) Blazor WebAssembly ASP.NET hosting.
 - [Hello module](./src/modules/hello/) A demo module.
+  - [Hello](./src/modules/hello/Delights.Modules.Hello) Client module.
+  - [Hello.Core](./src/modules/hello/Delights.Modules.Hello.Core) Shared manifest between client & server module.
+  - [Hello.UI](./src/modules/hello/Delights.Modules.Hello.UI) UI (pages) for client module.
+  - [Hello.Server](./src/modules/hello/Delights.Modules.Hello.Server) Server module.
 
 ## Example codes
 
@@ -46,9 +51,12 @@ https://sparkshine.pkgs.visualstudio.com/StardustDL/_packaging/feed/nuget/v3/ind
 - [ModulePage.razor](./src/Delights.UI/Components/ModulePage.razor) Layout and container for module pages.
 - [App.razor](./src/Delights.UI/App.razor) Lazy loading for assemblies when routing.
 - [UIModule.cs](./src/Delights.UI/UIModule.cs) Definition of JS/CSS resources.
+- [ModuleSetup.cs](./src/Delights.Client.Shared/ModuleSetup.cs) Use modules in client.
 - [Program.cs](./src/Delights.Client/Program.cs) & [Startup.cs](./src/Delights.Client/Startup.cs) Blazor Server hosting.
-- [_Host.cshtml](./src/Delights.Client/Pages/_Host.cshtml) Server prerendering for JS/CSS resources.
 - [Program.cs](./src/Delights.Client.WebAssembly/Program.cs) Blazor WebAssembly hosting.
+- [index.html](./src/Delights.Client.WebAssembly/wwwroot/index.html) Clean index.html.
+- [_Host.cshtml](./src/Delights.Client/Pages/_Host.cshtml) Server prerendering for JS/CSS resources.
+- [_Host.cshtml](./src/Delights.Client.WebAssembly.Host/Pages/_Host.cshtml) WebAssembly prerendering.
 
 ### Use a GraphQL server module
 
