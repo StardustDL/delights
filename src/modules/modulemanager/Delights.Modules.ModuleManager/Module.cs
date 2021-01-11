@@ -1,5 +1,4 @@
-using Delights.Modules.Client.RazorComponents;
-using Delights.Modules.Services;
+using Modulight.Modules.Client.RazorComponents;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -10,15 +9,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Delights.Modules.ModuleManager.GraphQL;
-using Delights.Modules.Client.RazorComponents.Core;
+using Modulight.Modules.Client.RazorComponents.Core;
 using Microsoft.Extensions.Options;
-using StardustDL.RazorComponents.AntDesigns;
+// using StardustDL.RazorComponents.AntDesigns;
+using Modulight.Modules.Services;
+using Modulight.Modules;
 
 namespace Delights.Modules.ModuleManager
 {
     public static class ModuleExtensions
     {
-        public static IModuleHostBuilder AddModuleManagerModule(this IModuleHostBuilder modules, Action<ModuleOption, IServiceProvider>? configureOptions = null)
+        public static Modulight.Modules.IModuleHostBuilder AddModuleManagerModule(this Modulight.Modules.IModuleHostBuilder modules, Action<ModuleOption, IServiceProvider>? configureOptions = null)
         {
             modules.TryAddModule<Module, ModuleOption>(configureOptions);
             return modules;
@@ -55,15 +56,15 @@ namespace Delights.Modules.ModuleManager
             services.AddModuleManagerGraphQLClient();
         }
 
-        public override void Setup(IModuleHostBuilder host)
+        public override void Setup(Modulight.Modules.IModuleHostBuilder host)
         {
-            host.AddAntDesignModule();
+            // TODO: host.AddAntDesignModule();
         }
     }
 
-    public class ModuleUI : Client.RazorComponents.UI.ModuleUI
+    public class ModuleUI : Modulight.Modules.Client.RazorComponents.UI.ModuleUI
     {
-        public ModuleUI(IJSRuntime jsRuntime, ILogger<Client.RazorComponents.UI.ModuleUI> logger) : base(jsRuntime, logger, "modules")
+        public ModuleUI(IJSRuntime jsRuntime, ILogger<Modulight.Modules.Client.RazorComponents.UI.ModuleUI> logger) : base(jsRuntime, logger, "modules")
         {
         }
 
@@ -76,7 +77,7 @@ namespace Delights.Modules.ModuleManager
         }
     }
 
-    public class ModuleService : Services.IModuleService
+    public class ModuleService : IModuleService
     {
         public IModuleManagerGraphQLClient GraphQLClient { get; }
 

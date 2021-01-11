@@ -78,15 +78,15 @@ Task Pack {
 Task publish-packages {
     Exec { dotnet nuget add source https://sparkshine.pkgs.visualstudio.com/StardustDL/_packaging/feed/nuget/v3/index.json -n ownpkgs }
     Exec { dotnet nuget update source ownpkgs -u sparkshine -p $NUGET_AUTH_TOKEN --store-password-in-clear-text }
-    Exec { dotnet nuget push ./packages/Delights.Modules.Core.$build_version.nupkg -s ownpkgs -k az --skip-duplicate }
-    Exec { dotnet nuget push ./packages/Delights.Modules.Client.RazorComponents.$build_version.nupkg -s ownpkgs -k az --skip-duplicate }
-    Exec { dotnet nuget push ./packages/Delights.Modules.Server.GraphQL.$build_version.nupkg -s ownpkgs -k az --skip-duplicate }
+    Exec { dotnet nuget push ./packages/Modulight.Modules.Core.$build_version.nupkg -s ownpkgs -k az --skip-duplicate }
+    Exec { dotnet nuget push ./packages/Modulight.Modules.Client.RazorComponents.$build_version.nupkg -s ownpkgs -k az --skip-duplicate }
+    Exec { dotnet nuget push ./packages/Modulight.Modules.Server.GraphQL.$build_version.nupkg -s ownpkgs -k az --skip-duplicate }
 }
 
 Task publish-packages-release {
-    Exec { dotnet nuget push ./packages/Delights.Modules.Core.$build_version.nupkg  -s https://api.nuget.org/v3/index.json -k $NUGET_AUTH_TOKEN --skip-duplicate }
-    Exec { dotnet nuget push ./packages/Delights.Modules.Client.RazorComponents.$build_version.nupkg  -s https://api.nuget.org/v3/index.json -k $NUGET_AUTH_TOKEN --skip-duplicate }
-    Exec { dotnet nuget push ./packages/Delights.Modules.Server.GraphQL.$build_version.nupkg  -s https://api.nuget.org/v3/index.json -k $NUGET_AUTH_TOKEN --skip-duplicate }
+    Exec { dotnet nuget push ./packages/Modulight.Modules.Core.$build_version.nupkg  -s https://api.nuget.org/v3/index.json -k $NUGET_AUTH_TOKEN --skip-duplicate }
+    Exec { dotnet nuget push ./packages/Modulight.Modules.Client.RazorComponents.$build_version.nupkg  -s https://api.nuget.org/v3/index.json -k $NUGET_AUTH_TOKEN --skip-duplicate }
+    Exec { dotnet nuget push ./packages/Modulight.Modules.Server.GraphQL.$build_version.nupkg  -s https://api.nuget.org/v3/index.json -k $NUGET_AUTH_TOKEN --skip-duplicate }
 }
 
 

@@ -1,5 +1,4 @@
-﻿using Delights.Modules.Client.RazorComponents;
-using Delights.Modules.Services;
+﻿using Modulight.Modules.Client.RazorComponents;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -10,8 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Delights.Modules.Hello.GraphQL;
-using Delights.Modules.Client.RazorComponents.Core;
+using Modulight.Modules.Client.RazorComponents.Core;
 using Microsoft.Extensions.Options;
+using Modulight.Modules;
 
 namespace Delights.Modules.Hello
 {
@@ -55,9 +55,9 @@ namespace Delights.Modules.Hello
         }
     }
 
-    public class ModuleUI : Client.RazorComponents.UI.ModuleUI
+    public class ModuleUI : Modulight.Modules.Client.RazorComponents.UI.ModuleUI
     {
-        public ModuleUI(IJSRuntime jsRuntime, ILogger<Client.RazorComponents.UI.ModuleUI> logger) : base(jsRuntime, logger, "hello")
+        public ModuleUI(IJSRuntime jsRuntime, ILogger<Modulight.Modules.Client.RazorComponents.UI.ModuleUI> logger) : base(jsRuntime, logger, "hello")
         {
         }
 
@@ -70,7 +70,7 @@ namespace Delights.Modules.Hello
         }
     }
 
-    public class ModuleService : Services.IModuleService
+    public class ModuleService : Modulight.Modules.Services.IModuleService
     {
         public IHelloGraphQLClient GraphQLClient { get; }
 

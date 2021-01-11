@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Delights.Modules.Core\Delights.Modules.Core.csproj" />
+    <ProjectReference Include="..\..\..\Modulight.Modules.Core\Modulight.Modules.Core.csproj" />
   </ItemGroup>
 
 </Project>

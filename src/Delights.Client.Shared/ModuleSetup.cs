@@ -1,5 +1,4 @@
-﻿using Delights.Modules;
-using Delights.Modules.Client.RazorComponents;
+﻿using Modulight.Modules.Client.RazorComponents;
 using Delights.Modules.Hello;
 using Delights.Modules.ModuleManager;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,9 +9,9 @@ namespace Delights.Client.Shared
 {
     public static class ModuleSetup
     {
-        public static IModuleHostBuilder CreateDefaultBuilder()
+        public static Modulight.Modules.IModuleHostBuilder CreateDefaultBuilder()
         {
-            var builder = ModuleHostBuilder.CreateDefaultBuilder()
+            var builder = Modulight.Modules.ModuleHostBuilder.CreateDefaultBuilder()
                 .AddRazorComponentClientModules((o, _) =>
                 {
                     o.Validation = true;

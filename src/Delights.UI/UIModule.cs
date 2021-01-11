@@ -1,19 +1,18 @@
-﻿using Delights.Modules;
-using Delights.Modules.Client.RazorComponents;
-using Delights.Modules.Client.RazorComponents.UI;
-using Delights.Modules.Options;
-using Delights.Modules.Services;
+﻿using Modulight.Modules.Services;
+using Modulight.Modules.Client.RazorComponents;
+using Modulight.Modules.Client.RazorComponents.UI;
 using Delights.UI.Components;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.JSInterop;
-using StardustDL.RazorComponents.AntDesigns;
+// using StardustDL.RazorComponents.AntDesigns;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Modulight.Modules.Options;
 
 namespace Delights.UI
 {
@@ -43,15 +42,15 @@ namespace Delights.UI
             services.AddHttpClient();
         }
 
-        public override void Setup(IModuleHostBuilder host)
+        public override void Setup(Modulight.Modules.IModuleHostBuilder host)
         {
-            host.AddAntDesignModule();
+            //TODO: host.AddAntDesignModule();
         }
     }
 
-    public class MainModuleUI : Modules.Client.RazorComponents.UI.ModuleUI
+    public class MainModuleUI : Modulight.Modules.Client.RazorComponents.UI.ModuleUI
     {
-        public MainModuleUI(IJSRuntime jsRuntime, ILogger<Modules.Client.RazorComponents.UI.ModuleUI> logger) : base(jsRuntime, logger, "home")
+        public MainModuleUI(IJSRuntime jsRuntime, ILogger<Modulight.Modules.Client.RazorComponents.UI.ModuleUI> logger) : base(jsRuntime, logger, "home")
         {
             Resources = new UIResource[]
             {

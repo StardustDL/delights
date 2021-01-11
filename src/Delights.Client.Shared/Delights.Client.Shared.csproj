@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Delights.Modules.Client.RazorComponents\Delights.Modules.Client.RazorComponents.csproj" />
+    <ProjectReference Include="..\Modulight.Modules.Client.RazorComponents\Modulight.Modules.Client.RazorComponents.csproj" />
     <ProjectReference Include="..\Delights.UI\Delights.UI.csproj" />
     <ProjectReference Include="..\modules\hello\Delights.Modules.Hello.UI\Delights.Modules.Hello.UI.csproj" />
     <ProjectReference Include="..\modules\hello\Delights.Modules.Hello\Delights.Modules.Hello.csproj" />

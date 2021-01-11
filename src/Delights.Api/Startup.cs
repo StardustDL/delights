@@ -1,7 +1,7 @@
 using Delights.Modules;
 using Delights.Modules.Hello.Server;
 using Delights.Modules.ModuleManager.Server;
-using Delights.Modules.Server.GraphQL;
+using Modulight.Modules.Server.GraphQL;
 using HotChocolate;
 using HotChocolate.Data;
 using HotChocolate.Types;
@@ -18,6 +18,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Modulight.Modules;
 
 namespace Delights.Api
 {

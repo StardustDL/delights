@@ -1,3 +1,4 @@
+using Modulight.Modules;
 using System;
 
 namespace Delights.Modules.ModuleManager

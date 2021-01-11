@@ -9,11 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.UI", "src\Delights
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Client", "src\Delights.Client\Delights.Client.csproj", "{275F052C-CA08-4EF0-AC4A-9F1421B8CDC7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.Core", "src\Delights.Modules.Core\Delights.Modules.Core.csproj", "{8475B7E2-0AFA-4108-8A35-8D2980B12850}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modulight.Modules.Core", "src\Modulight.Modules.Core\Modulight.Modules.Core.csproj", "{8475B7E2-0AFA-4108-8A35-8D2980B12850}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.Client.RazorComponents", "src\Delights.Modules.Client.RazorComponents\Delights.Modules.Client.RazorComponents.csproj", "{E12666E6-2D09-48A1-A887-E402D308A0BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modulight.Modules.Client.RazorComponents", "src\Modulight.Modules.Client.RazorComponents\Modulight.Modules.Client.RazorComponents.csproj", "{E12666E6-2D09-48A1-A887-E402D308A0BB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.Server.GraphQL", "src\Delights.Modules.Server.GraphQL\Delights.Modules.Server.GraphQL.csproj", "{680F01C1-DCB5-42A4-8ED1-234A45D8FBA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modulight.Modules.Server.GraphQL", "src\Modulight.Modules.Server.GraphQL\Modulight.Modules.Server.GraphQL.csproj", "{680F01C1-DCB5-42A4-8ED1-234A45D8FBA6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{0C012303-205C-4886-8F91-DF223124E1E9}"
 EndProject

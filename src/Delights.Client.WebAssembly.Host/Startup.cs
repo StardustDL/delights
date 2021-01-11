@@ -1,6 +1,6 @@
 using Delights.Client.Shared;
 using Delights.Modules;
-using Delights.Modules.Client.RazorComponents;
+using Modulight.Modules.Client.RazorComponents;
 using Delights.Modules.Hello;
 using Delights.Modules.ModuleManager;
 using Microsoft.AspNetCore.Builder;

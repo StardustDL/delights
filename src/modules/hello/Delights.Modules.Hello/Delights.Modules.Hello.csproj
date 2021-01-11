@@ -20,7 +20,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\..\Delights.Modules.Client.RazorComponents\Delights.Modules.Client.RazorComponents.csproj" />
+		<ProjectReference Include="..\..\..\Modulight.Modules.Client.RazorComponents\Modulight.Modules.Client.RazorComponents.csproj" />
 		<ProjectReference Include="..\Delights.Modules.Hello.Core\Delights.Modules.Hello.Core.csproj" />
 	</ItemGroup>
 

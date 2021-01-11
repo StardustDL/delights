@@ -1,7 +1,7 @@
 using Delights.Client.Shared;
 using Delights.Modules;
-using Delights.Modules.Client.RazorComponents;
-using Delights.Modules.Client.RazorComponents.UI;
+using Modulight.Modules.Client.RazorComponents;
+using Modulight.Modules.Client.RazorComponents.UI;
 using Delights.Modules.Hello;
 using Delights.Modules.ModuleManager;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Modulight.Modules;
 
 namespace Delights.Client.WebAssembly
 {

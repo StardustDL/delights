@@ -1,5 +1,5 @@
-using Delights.Modules.Server.GraphQL;
-using Delights.Modules.Services;
+using Modulight.Modules.Server.GraphQL;
+using Modulight.Modules.Services;
 using HotChocolate;
 using HotChocolate.Data;
 using HotChocolate.Types;
@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Modulight.Modules;
 
 namespace Delights.Modules.ModuleManager.Server
 {
@@ -54,7 +55,7 @@ namespace Delights.Modules.ModuleManager.Server
     {
     }
 
-    public class ModuleService : Services.IModuleService
+    public class ModuleService : IModuleService
     {
         public ModuleService(ILogger<Module> logger) => Logger = logger;
 
