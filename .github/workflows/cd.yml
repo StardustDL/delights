@@ -1,8 +1,12 @@
 name: CD
 
 on:
-  repository_dispatch:
-    types: [cd]
+  workflow_dispatch:
+    inputs:
+      nuget:
+        description: 'Push to nuget'
+        required: false
+        default: "false"
 
 defaults:
   run:
@@ -47,14 +51,21 @@ jobs:
     - name: Setup psake
       run: Set-PSRepository -Name PSGallery -InstallationPolicy Trusted; Install-Module -Name psake
     - name: Build and Deploy packages
-      env:
-        NUGET_AUTH_TOKEN: ${{ secrets.AZ_TOKEN }}
       run: Invoke-psake cd
     - name: Upload package artifacts
       uses: actions/upload-artifact@v2
       with:
         name: packages
         path: ./packages
+    - name: Upload to Azure packages
+      env:
+        NUGET_AUTH_TOKEN: ${{ secrets.AZ_TOKEN }}
+      run: Invoke-psake publish-packages
+    - name: Upload to NuGet
+      if: ${{ github.event.inputs.nuget == 'true' }}
+      env:
+        NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
+      run: Invoke-psake publish-packages-release
     - name: Push API image
       uses: docker/build-push-action@v2
       with:

@@ -28,6 +28,9 @@ namespace Delights.Modules.Client.RazorComponents.UI
 
         public virtual RenderFragment? Icon => null;
 
+        /// <summary>
+        /// Empty for no page module
+        /// </summary>
         public string RootPath { get; }
 
         public virtual bool Contains(string path)

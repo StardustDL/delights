@@ -7,12 +7,11 @@ Task default -depends Restore, Build
 
 Task CI -depends Restore, Build, Pack, Test, Benchmark, Report
 
-Task CD -depends Restore, Build, Pack, Deploy
+Task CD -depends Restore, Build, Pack
 
 Task Deploy -depends publish-packages
 
 Task Restore {
-    Exec { dotnet nuget add source https://sparkshine.pkgs.visualstudio.com/StardustDL/_packaging/feed/nuget/v3/index.json -n ownpkgs }
     Exec { dotnet tool restore }
     Exec { dotnet restore }
 }
@@ -77,6 +76,7 @@ Task Pack {
 }
 
 Task publish-packages {
+    Exec { dotnet nuget add source https://sparkshine.pkgs.visualstudio.com/StardustDL/_packaging/feed/nuget/v3/index.json -n ownpkgs }
     Exec { dotnet nuget update source ownpkgs -u sparkshine -p $NUGET_AUTH_TOKEN --store-password-in-clear-text }
     Exec { dotnet nuget push ./packages/Delights.Modules.Core.$build_version.nupkg -s ownpkgs -k az --skip-duplicate }
     Exec { dotnet nuget push ./packages/Delights.Modules.Client.RazorComponents.$build_version.nupkg -s ownpkgs -k az --skip-duplicate }

@@ -52,9 +52,17 @@ jobs:
     needs: ci
     runs-on: ubuntu-latest
     steps:
-    - name: CD
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
-      uses: peter-evans/repository-dispatch@v1
+    - name: Invoke CD workflow
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && ! startsWith(github.event.head_commit.message, '/release')}}
+      uses: benc-uk/workflow-dispatch@v1
       with:
+        workflow: CD
         token: ${{ secrets.PA_TOKEN }}
-        event-type: cd
+        inputs: '{ "nuget": false }'
+    - name: Invoke CD workflow with release
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && startsWith(github.event.head_commit.message, '/release') }}
+      uses: benc-uk/workflow-dispatch@v1
+      with:
+        workflow: CD
+        token: ${{ secrets.PA_TOKEN }}
+        inputs: '{ "nuget": "true" }'

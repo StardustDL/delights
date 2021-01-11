@@ -122,11 +122,14 @@ namespace Delights.Modules.Client.RazorComponents.Core
             foreach (var module in ModuleHost.Modules.AllSpecifyModules<IRazorComponentClientModule>())
             {
                 var ui = module.GetUI(ServiceProvider);
-                if (rootPaths.Contains(ui.RootPath))
+                if (ui.RootPath is not "")
                 {
-                    throw new Exception($"Same RootPath in modules: {ui.RootPath} @ {module.Manifest.Name}");
+                    if (rootPaths.Contains(ui.RootPath))
+                    {
+                        throw new Exception($"Same RootPath in modules: {ui.RootPath} @ {module.Manifest.Name}");
+                    }
+                    rootPaths.Add(ui.RootPath);
                 }
-                rootPaths.Add(ui.RootPath);
 
                 await GetAssembliesForRouting($"/{ui.RootPath}");
             }

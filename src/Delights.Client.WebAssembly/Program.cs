@@ -21,7 +21,7 @@ namespace Delights.Client.WebAssembly
         public static async Task Main(string[] args)
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
-            builder.RootComponents.Add<Delights.UI.App>("#app");
+            builder.RootComponents.Add<Delights.UI.App>("app");
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
