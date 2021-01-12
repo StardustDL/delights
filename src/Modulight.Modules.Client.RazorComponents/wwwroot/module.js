@@ -46,7 +46,7 @@ export function loadScript(src, tagAttr) {
         script.setAttribute(tagAttr, src);
 
         document.body.appendChild(script);
-    })
+    });
 }
 
 export function loadStyleSheet(href, tagAttr) {

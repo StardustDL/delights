@@ -56,30 +56,24 @@ app.UseEndpoints(endpoints =>
 });
 ```
 
-3. Call module initializing functions.
-
-```cs
-// Blazor WebAssembly
-await using (var provider = builder.Services.BuildServiceProvider())
-{
-    // This will load js/css resources into current DOM.
-    await provider.GetModuleHost().Initialize();
-}
-
-// Others
-var host = CreateHostBuilder(args).Build();
-await host.Services.GetModuleHost().Initialize();
-```
-
-4. For Blazor server projects and prerendering projects, you need to add prerendering components for JS/CSS resouces.
+3. For razor components, add `ResourceDeclare` component to App.razor to load UI resources.
 
 ```razor
-<component type="typeof(Modulight.Modules.Client.RazorComponents.StyleSheetDeclare)" render-mode="Static" />
-
-<component type="typeof(Modulight.Modules.Client.RazorComponents.ScriptDeclare)" render-mode="Static" />
+<Modulight.Modules.Client.RazorComponents.UI.ResourceDeclare />
 ```
 
-These two components will find all resources defined in modules, and render HTML tags for them.
+This component will find all resources defined in modules, and render HTML tags for them.
+
+This works for normal cases, but if you use WebAssembly target, no prerenderring, and the component library need the javascript files to be loaded initially. You can use the following codes to load resources manually.
+
+```cs
+// WebAssemblyHostBuilder builder;
+await using(var provider = builder.Services.BuildServiceProvider())
+{
+    await provider.GetCoreRazorComponentClientModule().GetService(provider).LoadResouces();
+}
+await builder.Build().RunAsync();
+```
 
 ## Project guide
 

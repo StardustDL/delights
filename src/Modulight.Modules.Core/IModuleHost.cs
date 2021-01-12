@@ -9,7 +9,5 @@ namespace Modulight.Modules
     public interface IModuleHost
     {
         IList<IModule> Modules { get; }
-
-        Task Initialize();
     }
 }

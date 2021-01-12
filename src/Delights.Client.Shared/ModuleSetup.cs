@@ -14,7 +14,6 @@ namespace Delights.Client.Shared
             var builder = Modulight.Modules.ModuleHostBuilder.CreateDefaultBuilder()
                 .AddRazorComponentClientModules((o, _) =>
                 {
-                    o.Validation = true;
                 })
                 .AddModule<UI.UIModule>()
                 .AddHelloModule((o, sp) =>

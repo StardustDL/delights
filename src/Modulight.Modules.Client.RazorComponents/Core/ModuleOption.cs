@@ -2,6 +2,5 @@
 {
     public class ModuleOption
     {
-        public bool Validation { get; set; } = false;
     }
 }

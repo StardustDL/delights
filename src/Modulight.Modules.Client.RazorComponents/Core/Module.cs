@@ -39,7 +39,7 @@ namespace Modulight.Modules.Client.RazorComponents.Core
 
     public class ModuleUI : UI.ModuleUI
     {
-        public const string ResourceTagAttrName = "Delights_Module_Client_Resource";
+        public const string ResourceTagAttrName = "Modulight_Module_Client_RazorComponents_Resource";
 
         public ModuleUI(IJSRuntime jsRuntime, ILogger<UI.ModuleUI> logger) : base(jsRuntime, logger)
         {
@@ -88,31 +88,23 @@ namespace Modulight.Modules.Client.RazorComponents.Core
 
         public ModuleUI UI { get; }
 
-        public async Task Initialize()
+        public async Task LoadResouces()
         {
-            if (Environment.OSVersion.Platform == PlatformID.Other)
+            foreach (var module in ModuleHost.Modules.AllSpecifyModules<IRazorComponentClientModule>())
             {
-                foreach (var module in ModuleHost.Modules.AllSpecifyModules<IRazorComponentClientModule>())
+                var ui = module.GetUI(ServiceProvider);
+                foreach (var resource in ui.Resources)
                 {
-                    var ui = module.GetUI(ServiceProvider);
-                    foreach (var resource in ui.Resources)
+                    switch (resource.Type)
                     {
-                        switch (resource.Type)
-                        {
-                            case UIResourceType.Script:
-                                await UI.LoadScript(resource.Path);
-                                break;
-                            case UIResourceType.StyleSheet:
-                                await UI.LoadStyleSheet(resource.Path);
-                                break;
-                        }
+                        case UIResourceType.Script:
+                            await UI.LoadScript(resource.Path);
+                            break;
+                        case UIResourceType.StyleSheet:
+                            await UI.LoadStyleSheet(resource.Path);
+                            break;
                     }
                 }
-            }
-
-            if (Options.Validation)
-            {
-                await Validation();
             }
         }
 

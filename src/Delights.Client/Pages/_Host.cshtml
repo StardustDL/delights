@@ -13,13 +13,11 @@
     <title>Delights.Client</title>
     <base href="~/" />
     <link href="Delights.Client.styles.css" rel="stylesheet" />
-    <link href="css/site.css" rel="stylesheet" />
-    <component type="typeof(Modulight.Modules.Client.RazorComponents.StyleSheetDeclare)" render-mode="Static" />
 </head>
 <body>
     <component type="typeof(Delights.UI.App)" render-mode="ServerPrerendered" />
 
-    <div id="blazor-error-ui" class="alert alert-danger mdi mdi-alert" role="alert">
+    <div id="blazor-error-ui" class="alert alert-danger mdi mdi-alert" role="alert" style="display: none">
         <environment include="Staging,Production">
             An error has occurred. This application may no longer respond until reloaded.
         </environment>
@@ -31,7 +29,5 @@
     </div>
 
     <script src="_framework/blazor.server.js"></script>
-
-    <component type="typeof(Modulight.Modules.Client.RazorComponents.ScriptDeclare)" render-mode="Static" />
 </body>
 </html>

@@ -1,6 +1,8 @@
 @using System.Reflection
 @inject Modulight.Modules.Client.RazorComponents.Core.ModuleService ClientService
 
+<Modulight.Modules.Client.RazorComponents.UI.ResourceDeclare />
+
 <Router AppAssembly="@typeof(App).Assembly" PreferExactMatches="@true" AdditionalAssemblies="@AdditionalAssemblies" OnNavigateAsync="@OnNavigateAsync">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(ModulePageLayout)" />

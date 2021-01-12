@@ -29,9 +29,9 @@ namespace Delights.Client.WebAssembly
             builder.Services.AddServerConfiguration();
             ModuleSetup.CreateDefaultBuilder().Build(builder.Services);
 
-            await using (var provider = builder.Services.BuildServiceProvider())
+            await using(var provider = builder.Services.BuildServiceProvider())
             {
-                await provider.GetModuleHost().Initialize();
+                await provider.GetCoreRazorComponentClientModule().GetService(provider).LoadResouces();
             }
 
             await builder.Build().RunAsync();

@@ -13,12 +13,12 @@
     <title>Delights.Client.WebAssembly.Host</title>
     <base href="~/" />
     <link href="Delights.Client.WebAssembly.Host.styles.css" rel="stylesheet" />
-    <component type="typeof(Modulight.Modules.Client.RazorComponents.StyleSheetDeclare)" render-mode="Static" />
 </head>
 <body>
-    <component type="typeof(Delights.UI.App)" render-mode="WebAssemblyPrerendered"/>
+    <!--<component type="typeof(Delights.UI.App)" render-mode="WebAssemblyPrerendered" />-->
+    <app>Loading...</app>
 
-    <div id="blazor-error-ui" class="alert alert-danger mdi mdi-alert" role="alert">
+    <div id="blazor-error-ui" class="alert alert-danger mdi mdi-alert" role="alert" style="display: none">
         <environment include="Staging,Production">
             An error has occurred. This application may no longer respond until reloaded.
         </environment>
@@ -31,7 +31,5 @@
 
     <script src="_framework/blazor.webassembly.js"></script>
     <script>navigator.serviceWorker.register('service-worker.js');</script>
-
-    <component type="typeof(Modulight.Modules.Client.RazorComponents.ScriptDeclare)" render-mode="Static" />
 </body>
 </html>

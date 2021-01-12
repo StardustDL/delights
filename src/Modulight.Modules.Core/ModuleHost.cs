@@ -26,14 +26,5 @@ namespace Modulight.Modules
         {
             return Modules.Where(m => m is T).Select(m => (T)m);
         }
-
-        public async Task Initialize()
-        {
-            using var scope = Services.CreateScope();
-            foreach (var module in Modules)
-            {
-                await module.GetService(scope.ServiceProvider).Initialize();
-            }
-        }
     }
 }
