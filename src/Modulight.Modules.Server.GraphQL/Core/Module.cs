@@ -8,6 +8,7 @@ using System;
 using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Routing;
+using HotChocolate.AspNetCore.Extensions;
 
 namespace Modulight.Modules.Server.GraphQL.Core
 {
@@ -56,11 +57,13 @@ namespace Modulight.Modules.Server.GraphQL.Core
 
         public ModuleOption Options { get; }
 
-        public void MapEndpoints(IEndpointRouteBuilder builder)
+        public void MapEndpoints(IEndpointRouteBuilder builder, Action<IGraphQLServerModule, GraphQLEndpointConventionBuilder>? postMap = null)
         {
             foreach (var module in ModuleHost.Modules.AllSpecifyModules<IGraphQLServerModule>())
             {
-                module.MapEndpoint(builder, ServiceProvider);
+                var gbuilder = module.MapEndpoint(builder, ServiceProvider);
+                if (postMap is not null)
+                    postMap(module, gbuilder);
             }
         }
     }

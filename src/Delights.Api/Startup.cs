@@ -40,6 +40,8 @@ namespace Delights.Api
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Delights.Api", Version = "v1" });
             });
 
+            services.AddCors();
+
             var builder = ModuleHostBuilder.CreateDefaultBuilder()
                 .AddGraphQLServerModules()
                 .AddHelloModule()
@@ -64,12 +66,20 @@ namespace Delights.Api
 
             app.UseAuthorization();
 
+            app.UseCors();
+
             var graphQLModule = app.ApplicationServices.GetCoreGraphQLServerModule().GetService(app.ApplicationServices);
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                graphQLModule.MapEndpoints(endpoints);
+                graphQLModule.MapEndpoints(endpoints, (_, builder) =>
+                {
+                    builder.RequireCors(cors =>
+                    {
+                        cors.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                    });
+                });
             });
         }
     }
