@@ -23,7 +23,7 @@
 
         var current = typeof(App).Assembly;
 
-        var results = await ClientService.GetAssembliesForRouting(context.Path, context.CancellationToken);
+        var results = await ClientService.GetAssembliesForRouting(context.Path, cancellationToken: context.CancellationToken);
         AdditionalAssemblies.AddRange(results.Where(x => x != current));
     }
 }

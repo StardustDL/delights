@@ -13,7 +13,7 @@
 }
 
 @code{
-    List<GraphQL.IHelloMessage> messages = new List<GraphQL.IHelloMessage>();
+    List<GraphQL.IMessage> messages = new List<GraphQL.IMessage>();
 
     protected override void OnInitialized()
     {
@@ -25,7 +25,7 @@
     {
         await base.OnInitializedAsync();
 
-        messages = (await Service.GraphQLClient.GetMessagesAsync()).Data?.HelloMessages.Nodes.ToList() ?? new List<GraphQL.IHelloMessage>();
+        messages = (await Service.GraphQLClient.GetMessagesAsync()).Data?.Messages.Nodes.ToList() ?? new List<GraphQL.IMessage>();
     }
 
     void OnClick()

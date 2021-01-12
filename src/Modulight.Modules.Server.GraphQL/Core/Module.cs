@@ -4,11 +4,17 @@ using HotChocolate;
 using HotChocolate.Data;
 using HotChocolate.Types;
 using System.Linq;
+using System;
+using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Routing;
 
 namespace Modulight.Modules.Server.GraphQL.Core
 {
-    public class Module : GraphQLServerModule<EmptyModuleService<Module>, EmptyModuleOption<Module>, ModuleQuery, ModuleMutation, ModuleSubscription>
+    public class Module : GraphQLServerModule<ModuleService, ModuleOption>
     {
+        public override Type? QueryType => typeof(ModuleQuery);
+
         public Module() : base()
         {
             Manifest = Manifest with
@@ -22,18 +28,40 @@ namespace Modulight.Modules.Server.GraphQL.Core
         }
     }
 
-    public class ModuleQuery : QueryRootObject
+    public class ModuleQuery
     {
         public string Heartbeat() => "ok";
     }
 
-    public class ModuleMutation : MutationRootObject
+    public class ModuleOption
     {
-        public string Heartbeat() => "ok";
+
     }
 
-    public class ModuleSubscription : SubscriptionRootObject
+    public class ModuleService : IModuleService
     {
-        public string Heartbeat() => "ok";
+        public ModuleService(IModuleHost moduleHost, IServiceProvider serviceProvider, IOptions<ModuleOption> options, ILogger<Module> logger)
+        {
+            ModuleHost = moduleHost;
+            Options = options.Value;
+            ServiceProvider = serviceProvider;
+            Logger = logger;
+        }
+
+        public IModuleHost ModuleHost { get; }
+
+        public IServiceProvider ServiceProvider { get; }
+
+        public ILogger<Module> Logger { get; }
+
+        public ModuleOption Options { get; }
+
+        public void MapEndpoints(IEndpointRouteBuilder builder)
+        {
+            foreach (var module in ModuleHost.Modules.AllSpecifyModules<IGraphQLServerModule>())
+            {
+                module.MapEndpoint(builder, ServiceProvider);
+            }
+        }
     }
 }

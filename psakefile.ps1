@@ -27,7 +27,7 @@ Function GenerateGraphQL($moduleName) {
 
     $apiname = $moduleName + "GraphQL"
     
-    Exec { dotnet graphql init https://localhost:5001/graphql -n $apiname -p "GraphQL" }
+    Exec { dotnet graphql init https://localhost:5001/graphql/$moduleName -n $apiname -p "GraphQL" }
 
     Set-Location "GraphQL"
 

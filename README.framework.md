@@ -1,4 +1,4 @@
-# Delights.Modules
+# Modulight
 
 ![](https://github.com/StardustDL/delights/workflows/CI/badge.svg) ![](https://github.com/StardustDL/delights/workflows/CD/badge.svg) ![](https://img.shields.io/github/license/StardustDL/delights.svg) [![](https://buildstats.info/nuget/Modulight.Modules.Core)](https://www.nuget.org/packages/Modulight.Modules.Core/) [![](https://buildstats.info/nuget/Modulight.Modules.Core?includePreReleases=true)](https://www.nuget.org/packages/Modulight.Modules.Core/)
 
@@ -49,8 +49,11 @@ builder.Build(services);
 Additional step for GraphQL server modules:
 
 ```cs
-services.AddGraphQLServer()
-    .RegisterGraphQLServerModules(builder);
+var graphQLModule = app.ApplicationServices.GetCoreGraphQLServerModule().GetService(app.ApplicationServices);
+app.UseEndpoints(endpoints =>
+{
+    graphQLModule.MapEndpoints(endpoints);
+});
 ```
 
 3. Call module initializing functions.
@@ -64,6 +67,7 @@ await using (var provider = builder.Services.BuildServiceProvider())
 }
 
 // Others
+var host = CreateHostBuilder(args).Build();
 await host.Services.GetModuleHost().Initialize();
 ```
 

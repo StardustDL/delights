@@ -1,5 +1,5 @@
 query getMessages {
-    helloMessages {
+    messages {
         nodes {
             content
         }

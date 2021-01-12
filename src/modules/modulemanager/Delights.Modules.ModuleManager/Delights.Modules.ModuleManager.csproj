@@ -15,8 +15,7 @@
 		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.1" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
 		<PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
-		<!--<PackageReference Include="StardustDL.RazorComponents.AntDesigns" Version="0.0.1-preview.3" />-->
-    <PackageReference Include="AntDesign" Version="0.5.3" />
+		<PackageReference Include="StardustDL.RazorComponents.AntDesigns" Version="0.0.1-preview.4" />
 		<PackageReference Include="StrawberryShake" Version="11.0.0-preview.137" />
 		<PackageReference Include="StardustDL.RazorComponents.MaterialDesignIcons" Version="0.0.1" />
 	</ItemGroup>

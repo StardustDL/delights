@@ -30,9 +30,9 @@ namespace Modulight.Modules.Client.RazorComponents.Core
             };
         }
 
-        public override void RegisterService(IServiceCollection services)
+        public override void RegisterUIService(IServiceCollection services)
         {
-            base.RegisterService(services);
+            base.RegisterUIService(services);
             services.TryAddScoped<LazyAssemblyLoader>();
         }
     }
@@ -131,11 +131,11 @@ namespace Modulight.Modules.Client.RazorComponents.Core
                     rootPaths.Add(ui.RootPath);
                 }
 
-                await GetAssembliesForRouting($"/{ui.RootPath}");
+                await GetAssembliesForRouting($"/{ui.RootPath}", throwOnError: true);
             }
         }
 
-        public async Task<List<Assembly>> GetAssembliesForRouting(string path, CancellationToken cancellationToken = default)
+        public async Task<List<Assembly>> GetAssembliesForRouting(string path, bool recurse = false, bool throwOnError = false, CancellationToken cancellationToken = default)
         {
             var loadedAssemblies = AppDomain.CurrentDomain.GetAssemblies();
 
@@ -174,35 +174,48 @@ namespace Modulight.Modules.Client.RazorComponents.Core
 
                 if (assembly is null)
                 {
-                    // Logger.LogInformation($"Loading assembly {current}");
-                    if (Environment.OSVersion.Platform == PlatformID.Other)
+                    try
                     {
-                        assembly = (await LazyAssemblyLoader.LoadAssembliesAsync(new[] { current + ".dll" })).FirstOrDefault();
+                        // Logger.LogInformation($"Loading assembly {current}");
+                        if (Environment.OSVersion.Platform == PlatformID.Other)
+                        {
+                            assembly = (await LazyAssemblyLoader.LoadAssembliesAsync(new[] { current + ".dll" })).FirstOrDefault();
+                        }
+                        else
+                        {
+                            assembly = Assembly.Load(current);
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        assembly = Assembly.Load(current);
+                        if (throwOnError)
+                        {
+                            throw;
+                        }
+                        else
+                        {
+                            Logger.LogWarning($"Failed to load assembly {current}: {ex}");
+                        }
                     }
                 }
 
                 if (assembly is null)
                 {
-                    Logger.LogError($"Failed to load assembly {current}");
+                    Logger.LogError($"Failed to load assembly {current}.");
                     continue;
-                }
-                else
-                {
-                    // Logger.LogInformation($"Loaded assembly: {assembly.FullName}");
                 }
 
                 results.Add(assembly);
 
-                /*foreach (var refe in assembly.GetReferencedAssemblies())
+                if (recurse)
                 {
-                    cancellationToken.ThrowIfCancellationRequested();
-                    if (refe.Name is not null)
-                        toLoad.Enqueue(refe.Name);
-                }*/
+                    foreach (var refe in assembly.GetReferencedAssemblies())
+                    {
+                        cancellationToken.ThrowIfCancellationRequested();
+                        if (refe.Name is not null)
+                            toLoad.Enqueue(refe.Name);
+                    }
+                }
             }
 
             return results;

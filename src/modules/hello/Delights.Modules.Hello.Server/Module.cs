@@ -20,8 +20,10 @@ namespace Delights.Modules.Hello.Server
         }
     }
 
-    public class Module : GraphQLServerModule<ModuleService, ModuleOption, ModuleQuery, ModuleMutation, ModuleSubscription>
+    public class Module : GraphQLServerModule<ModuleService, ModuleOption>
     {
+        public override Type? QueryType => typeof(ModuleQuery);
+
         public Module() : base()
         {
             Manifest = Manifest with
@@ -35,28 +37,20 @@ namespace Delights.Modules.Hello.Server
         }
     }
 
-    public class ModuleQuery : QueryRootObject
+    public class ModuleQuery
     {
         [UsePaging]
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<HelloMessage> GetHelloMessages([Service] ModuleService service)
+        public IQueryable<Message> GetMessages([Service] ModuleService service)
         {
-            service.Logger.LogInformation(nameof(GetHelloMessages));
+            service.Logger.LogInformation(nameof(GetMessages));
             return service.Messages.AsQueryable();
         }
     }
 
-    public class ModuleMutation : MutationRootObject
-    {
-    }
-
-    public class ModuleSubscription : SubscriptionRootObject
-    {
-    }
-
-    public record HelloMessage
+    public record Message
     {
         public string Content { get; init; } = "";
     }
@@ -67,9 +61,9 @@ namespace Delights.Modules.Hello.Server
 
         public ILogger<Module> Logger { get; private set; }
 
-        public List<HelloMessage> Messages { get; } = new List<HelloMessage>() {
-            new HelloMessage { Content = "Message 1" },
-            new HelloMessage { Content = "Message 2" },
+        public List<Message> Messages { get; } = new List<Message>() {
+            new Message { Content = "Message 1" },
+            new Message { Content = "Message 2" },
         };
     }
 }

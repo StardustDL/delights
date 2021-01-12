@@ -6,6 +6,9 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Routing;
+using HotChocolate.AspNetCore.Extensions;
+using Microsoft.AspNetCore.Builder;
 
 namespace Modulight.Modules.Server.GraphQL
 {
@@ -17,18 +20,7 @@ namespace Modulight.Modules.Server.GraphQL
             return modules;
         }
 
-        public static IRequestExecutorBuilder RegisterGraphQLServerModules(this IRequestExecutorBuilder builder, IModuleHostBuilder modules)
-        {
-            builder.AddQueryType(d => d.Name(nameof(RootObjectType.Query)))
-                .AddMutationType(d => d.Name(nameof(RootObjectType.Mutation)))
-                .AddSubscriptionType(d => d.Name(nameof(RootObjectType.Subscription)));
-
-            foreach (var module in modules.Modules.AllSpecifyModules<IGraphQLServerModule>())
-            {
-                module.RegisterGraphQLTypes(builder);
-            }
-            return builder;
-        }
+        public static Core.Module GetCoreGraphQLServerModule(this IServiceProvider provider) => provider.GetRequiredService<Core.Module>();
     }
 
     public enum RootObjectType
@@ -40,53 +32,55 @@ namespace Modulight.Modules.Server.GraphQL
 
     public interface IGraphQLServerModule : IModule
     {
-        IRequestExecutorBuilder RegisterGraphQLTypes(IRequestExecutorBuilder builder);
+        string SchemaName { get; }
+
+        IRequestExecutorBuilder RegisterGraphQLService(IServiceCollection services);
+
+        GraphQLEndpointConventionBuilder MapEndpoint(IEndpointRouteBuilder builder, IServiceProvider provider);
     }
 
-    public abstract class GraphQLServerModule<TService, TOption, TQuery, TMutation, TSubscription> : Module<TService, TOption>, IGraphQLServerModule where TService : class, IModuleService where TOption : class where TQuery : QueryRootObject where TMutation : MutationRootObject where TSubscription : SubscriptionRootObject
+    public abstract class GraphQLServerModule<TService, TOption> : Module<TService, TOption>, IGraphQLServerModule where TService : class, IModuleService where TOption : class
     {
         protected GraphQLServerModule(ModuleManifest? manifest = null) : base(manifest)
         {
         }
 
-        public virtual IRequestExecutorBuilder RegisterGraphQLTypes(IRequestExecutorBuilder builder)
+        public virtual string SchemaName => Manifest.Name;
+
+        public virtual Type? QueryType { get; }
+
+        public virtual Type? MutationType { get; }
+
+        public virtual Type? SubscriptionType { get; }
+
+        public virtual IRequestExecutorBuilder RegisterGraphQLService(IServiceCollection services)
         {
-            return builder.AddTypeExtension<TQuery>()
-                          .AddTypeExtension<TMutation>()
-                          .AddTypeExtension<TSubscription>();
+            var builder = services.AddGraphQLServer(SchemaName);
+            if (QueryType is not null)
+            {
+                builder.AddQueryType(QueryType);
+            }
+            if (MutationType is not null)
+            {
+                builder.AddMutationType(MutationType);
+            }
+            if (SubscriptionType is not null)
+            {
+                builder.AddSubscriptionType(SubscriptionType);
+            }
+            builder.AddFiltering().AddSorting().AddProjections();
+            return builder;
         }
-    }
 
-    [ExtendObjectType(Name = nameof(RootObjectType.Query))]
-    public abstract class QueryRootObject
-    {
+        public override void RegisterService(IServiceCollection services)
+        {
+            base.RegisterService(services);
+            RegisterGraphQLService(services);
+        }
 
-    }
-
-    [ExtendObjectType(Name = nameof(RootObjectType.Subscription))]
-    public abstract class SubscriptionRootObject
-    {
-
-    }
-
-    [ExtendObjectType(Name = nameof(RootObjectType.Mutation))]
-    public abstract class MutationRootObject
-    {
-
-    }
-
-    public sealed class EmptyQueryRootObject<T> : QueryRootObject
-    {
-
-    }
-
-    public sealed class EmptySubscriptionRootObject<T> : SubscriptionRootObject
-    {
-
-    }
-
-    public sealed class EmptyMutationRootObject<T> : MutationRootObject
-    {
-
+        public virtual GraphQLEndpointConventionBuilder MapEndpoint(IEndpointRouteBuilder builder, IServiceProvider provider)
+        {
+            return builder.MapGraphQL($"/graphql/{SchemaName}".TrimEnd('/'), SchemaName);
+        }
     }
 }

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.JSInterop;
-// using StardustDL.RazorComponents.AntDesigns;
+using StardustDL.RazorComponents.AntDesigns;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,7 +44,7 @@ namespace Delights.UI
 
         public override void Setup(Modulight.Modules.IModuleHostBuilder host)
         {
-            //TODO: host.AddAntDesignModule();
+            host.AddAntDesignModule();
         }
     }
 

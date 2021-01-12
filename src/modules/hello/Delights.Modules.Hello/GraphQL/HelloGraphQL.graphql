@@ -1,89 +1,33 @@
 schema {
-  query: Query
-  mutation: Mutation
-  subscription: Subscription
+  query: ModuleQuery
 }
 
-type Query {
-  heartbeat: String!
-  helloMessages(first: Int after: String last: Int before: String where: HelloMessageFilterInput order: [HelloMessageSortInput!]): HelloMessageConnection
-  moduleManagerModules(first: Int after: String last: Int before: String where: ModuleManifestFilterInput order: [ModuleManifestSortInput!]): ModuleManifestConnection
+type ModuleQuery {
+  messages(first: Int after: String last: Int before: String where: MessageFilterInput order: [MessageSortInput!]): MessageConnection
 }
 
-type Mutation {
-  heartbeat: String!
-}
-
-type Subscription {
-  heartbeat: String!
-}
-
-type HelloMessage {
+type Message {
   content: String!
 }
 
-input HelloMessageFilterInput {
-  and: [HelloMessageFilterInput!]
-  or: [HelloMessageFilterInput!]
+input MessageFilterInput {
+  and: [MessageFilterInput!]
+  or: [MessageFilterInput!]
   content: StringOperationFilterInput
 }
 
-input HelloMessageSortInput {
+input MessageSortInput {
   content: SortEnumType
 }
 
 "A connection to a list of items."
-type HelloMessageConnection {
+type MessageConnection {
   "Information to aid in pagination."
   pageInfo: PageInfo!
   "A list of edges."
-  edges: [HelloMessageEdge!]
+  edges: [MessageEdge!]
   "A flattened list of the nodes."
-  nodes: [HelloMessage!]
-}
-
-type ModuleManifest {
-  name: String!
-  entryAssembly: String!
-  assemblies: [String!]!
-  displayName: String!
-  description: String!
-  version: String!
-  author: String!
-  url: String!
-}
-
-input ModuleManifestFilterInput {
-  and: [ModuleManifestFilterInput!]
-  or: [ModuleManifestFilterInput!]
-  name: StringOperationFilterInput
-  entryAssembly: StringOperationFilterInput
-  assemblies: ListStringOperationFilterInput
-  displayName: StringOperationFilterInput
-  description: StringOperationFilterInput
-  version: StringOperationFilterInput
-  author: StringOperationFilterInput
-  url: StringOperationFilterInput
-}
-
-input ModuleManifestSortInput {
-  name: SortEnumType
-  entryAssembly: SortEnumType
-  displayName: SortEnumType
-  description: SortEnumType
-  version: SortEnumType
-  author: SortEnumType
-  url: SortEnumType
-}
-
-"A connection to a list of items."
-type ModuleManifestConnection {
-  "Information to aid in pagination."
-  pageInfo: PageInfo!
-  "A list of edges."
-  edges: [ModuleManifestEdge!]
-  "A flattened list of the nodes."
-  nodes: [ModuleManifest!]
+  nodes: [Message!]
 }
 
 input StringOperationFilterInput {
@@ -119,26 +63,11 @@ type PageInfo {
 }
 
 "An edge in a connection."
-type HelloMessageEdge {
+type MessageEdge {
   "A cursor for use in pagination."
   cursor: String!
   "The item at the end of the edge."
-  node: HelloMessage!
-}
-
-input ListStringOperationFilterInput {
-  all: StringOperationFilterInput
-  none: StringOperationFilterInput
-  some: StringOperationFilterInput
-  any: Boolean
-}
-
-"An edge in a connection."
-type ModuleManifestEdge {
-  "A cursor for use in pagination."
-  cursor: String!
-  "The item at the end of the edge."
-  node: ModuleManifest!
+  node: Message!
 }
 
 "The `@defer` directive may be provided for fragment spreads and inline fragments to inform the executor to delay the execution of the current fragment to indicate deprioritization of the current fragment. A query with `@defer` directive will cause the request to potentially return multiple responses, where non-deferred data is delivered in the initial response and data deferred is delivered in a subsequent response. `@include` and `@skip` take precedence over `@defer`."

@@ -46,12 +46,6 @@ namespace Delights.Api
                 .AddModuleManagerModule();
 
             builder.Build(services);
-
-            services.AddGraphQLServer()
-                    .RegisterGraphQLServerModules(builder)
-                    .AddFiltering()
-                    .AddSorting()
-                    .AddProjections();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,10 +64,12 @@ namespace Delights.Api
 
             app.UseAuthorization();
 
+            var graphQLModule = app.ApplicationServices.GetCoreGraphQLServerModule().GetService(app.ApplicationServices);
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                endpoints.MapGraphQL();
+                graphQLModule.MapEndpoints(endpoints);
             });
         }
     }

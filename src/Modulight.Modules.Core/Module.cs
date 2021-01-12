@@ -27,7 +27,7 @@ namespace Modulight.Modules
 
         public virtual void RegisterService(IServiceCollection services)
         {
-            services.AddScoped<TService>();
+            services.AddSingleton<TService>();
         }
 
         public virtual void Setup(IModuleHostBuilder host) { }

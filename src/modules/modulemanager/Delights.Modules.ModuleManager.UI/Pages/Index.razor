@@ -54,7 +54,7 @@
         {
             var result = await Service.GraphQLClient.GetModulesAsync();
             result.EnsureNoErrors();
-            ServerModules = result.Data!.ModuleManagerModules.Nodes.ToList();
+            ServerModules = result.Data!.Modules.Nodes.ToList();
         }
         catch
         {

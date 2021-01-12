@@ -1,5 +1,5 @@
 query getModules {
-  moduleManagerModules {
+  modules {
     nodes {
       name
       entryAssembly

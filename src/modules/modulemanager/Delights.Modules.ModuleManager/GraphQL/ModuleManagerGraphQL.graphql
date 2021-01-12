@@ -1,45 +1,9 @@
 schema {
-  query: Query
-  mutation: Mutation
-  subscription: Subscription
+  query: ModuleQuery
 }
 
-type Query {
-  heartbeat: String!
-  helloMessages(first: Int after: String last: Int before: String where: HelloMessageFilterInput order: [HelloMessageSortInput!]): HelloMessageConnection
-  moduleManagerModules(first: Int after: String last: Int before: String where: ModuleManifestFilterInput order: [ModuleManifestSortInput!]): ModuleManifestConnection
-}
-
-type Mutation {
-  heartbeat: String!
-}
-
-type Subscription {
-  heartbeat: String!
-}
-
-type HelloMessage {
-  content: String!
-}
-
-input HelloMessageFilterInput {
-  and: [HelloMessageFilterInput!]
-  or: [HelloMessageFilterInput!]
-  content: StringOperationFilterInput
-}
-
-input HelloMessageSortInput {
-  content: SortEnumType
-}
-
-"A connection to a list of items."
-type HelloMessageConnection {
-  "Information to aid in pagination."
-  pageInfo: PageInfo!
-  "A list of edges."
-  edges: [HelloMessageEdge!]
-  "A flattened list of the nodes."
-  nodes: [HelloMessage!]
+type ModuleQuery {
+  modules(first: Int after: String last: Int before: String where: ModuleManifestFilterInput order: [ModuleManifestSortInput!]): ModuleManifestConnection
 }
 
 type ModuleManifest {
@@ -101,6 +65,13 @@ input StringOperationFilterInput {
   nendsWith: String
 }
 
+input ListStringOperationFilterInput {
+  all: StringOperationFilterInput
+  none: StringOperationFilterInput
+  some: StringOperationFilterInput
+  any: Boolean
+}
+
 enum SortEnumType {
   ASC
   DESC
@@ -116,21 +87,6 @@ type PageInfo {
   startCursor: String
   "When paginating forwards, the cursor to continue."
   endCursor: String
-}
-
-"An edge in a connection."
-type HelloMessageEdge {
-  "A cursor for use in pagination."
-  cursor: String!
-  "The item at the end of the edge."
-  node: HelloMessage!
-}
-
-input ListStringOperationFilterInput {
-  all: StringOperationFilterInput
-  none: StringOperationFilterInput
-  some: StringOperationFilterInput
-  any: Boolean
 }
 
 "An edge in a connection."

@@ -16,6 +16,8 @@ namespace Modulight.Modules.Client.RazorComponents
             modules.AddModule<Core.Module, Core.ModuleOption>(configureOptions);
             return modules;
         }
+
+        public static Core.Module GetCoreRazorComponentClientModule(this IServiceProvider provider) => provider.GetRequiredService<Core.Module>();
     }
 
     public interface IRazorComponentClientModule : IModule
@@ -54,7 +56,8 @@ namespace Modulight.Modules.Client.RazorComponents
 
         public override void RegisterService(IServiceCollection services)
         {
-            base.RegisterService(services);
+            RegisterUIService(services);
+            RegisterOptions(services);
             RegisterUI(services);
         }
 

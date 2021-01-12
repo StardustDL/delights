@@ -20,8 +20,10 @@ namespace Delights.Modules.ModuleManager.Server
         }
     }
 
-    public class Module : GraphQLServerModule<ModuleService, ModuleOption, ModuleQuery, ModuleMutation, ModuleSubscription>
+    public class Module : GraphQLServerModule<ModuleService, ModuleOption>
     {
+        public override Type? QueryType => typeof(ModuleQuery);
+
         public Module() : base()
         {
             Manifest = Manifest with
@@ -35,24 +37,16 @@ namespace Delights.Modules.ModuleManager.Server
         }
     }
 
-    public class ModuleQuery : QueryRootObject
+    public class ModuleQuery
     {
         [UsePaging]
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<ModuleManifest> GetModuleManagerModules([Service] IModuleHost collection)
+        public IQueryable<ModuleManifest> GetModules([Service] IModuleHost collection)
         {
             return collection.Modules.Select(m => m.Manifest).AsQueryable();
         }
-    }
-
-    public class ModuleMutation : MutationRootObject
-    {
-    }
-
-    public class ModuleSubscription : SubscriptionRootObject
-    {
     }
 
     public class ModuleService : IModuleService

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using Delights.Modules.ModuleManager.GraphQL;
 using Modulight.Modules.Client.RazorComponents.Core;
 using Microsoft.Extensions.Options;
-// using StardustDL.RazorComponents.AntDesigns;
+using StardustDL.RazorComponents.AntDesigns;
 using Modulight.Modules.Services;
 using Modulight.Modules;
 
@@ -51,14 +51,14 @@ namespace Delights.Modules.ModuleManager
                 "ModuleManagerGraphQLClient", (sp, client) =>
                 {
                     var option = sp.GetRequiredService<IOptions<ModuleOption>>().Value;
-                    client.BaseAddress = new Uri(option.GraphQLEndpoint);
+                    client.BaseAddress = new Uri(option.GraphQLEndpoint.TrimEnd('/') + $"/{SharedManifest.Raw.Name}");
                 });
             services.AddModuleManagerGraphQLClient();
         }
 
         public override void Setup(Modulight.Modules.IModuleHostBuilder host)
         {
-            // TODO: host.AddAntDesignModule();
+            host.AddAntDesignModule();
         }
     }
 

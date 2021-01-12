@@ -49,7 +49,7 @@ namespace Delights.Modules.Hello
                 "HelloGraphQLClient", (sp, client) =>
                 {
                     var option = sp.GetRequiredService<IOptions<ModuleOption>>().Value;
-                    client.BaseAddress = new Uri(option.GraphQLEndpoint);
+                    client.BaseAddress = new Uri(option.GraphQLEndpoint.TrimEnd('/') + $"/{SharedManifest.Raw.Name}");
                 });
             services.AddHelloGraphQLClient();
         }
