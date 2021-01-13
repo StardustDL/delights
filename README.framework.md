@@ -28,7 +28,7 @@ For Razor component modules:
 
 ```cs
 var builder = ModuleHostBuilder.CreateDefaultBuilder()
-    .AddRazorComponentClientModules()
+    .UseRazorComponentClientModules()
     .AddModule<FooModule>();
 ```
 
@@ -36,9 +36,9 @@ For GraphQL server modules:
 
 ```cs
 var builder = ModuleHostBuilder.CreateDefaultBuilder()
-    .AddGraphQLServerModules(postMapEndpoint: (module, builder) =>
+    .UseAspNetServerModules().UseGraphQLServerModules()
+    .BridgeGraphQLServerModuleToAspNet(postMapEndpoint: (module, builder) =>
     {
-        // configuration GraphQL Endpoint eg:
         builder.RequireCors(cors =>
         {
             cors.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
@@ -60,15 +60,15 @@ Additional step for GraphQL server modules:
 ```cs
 // in Startup: void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 
-var aspnetCoreModule = app.ApplicationServices.GetCoreAspNetServerModule().GetService(app.ApplicationServices);
-aspnetCoreModule.UseMiddlewares(app);
+var aspnetModuleHost = app.ApplicationServices.GetAspNetServerModuleHost();
+aspnetModuleHost.UseMiddlewares(app);
 
 app.UseEndpoints(endpoints =>
 {
     // other mapper, eg:
     endpoints.MapControllers();
     // modules mapper
-    aspnetCoreModule.MapEndpoints(endpoints);
+    aspnetModuleHost.MapEndpoints(endpoints);
 });
 ```
 
@@ -86,7 +86,7 @@ This works for normal cases, but if you use WebAssembly target, no prerenderring
 // WebAssemblyHostBuilder builder;
 await using(var provider = builder.Services.BuildServiceProvider())
 {
-    await provider.GetCoreRazorComponentClientModule().GetService(provider).LoadResouces();
+    await provider.GetRazorComponentClientModuleHost().LoadResouces();
 }
 await builder.Build().RunAsync();
 ```

@@ -1,107 +1,60 @@
-﻿using Modulight.Modules.Client.RazorComponents.UI;
-using Modulight.Modules.Services;
-using Microsoft.AspNetCore.Components.WebAssembly.Services;
+﻿using Microsoft.AspNetCore.Components.WebAssembly.Services;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Microsoft.JSInterop;
+using Modulight.Modules.Client.RazorComponents.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Modulight.Modules.Client.RazorComponents.Core
+namespace Modulight.Modules.Client.RazorComponents
 {
-    public class Module : RazorComponentClientModule<ModuleService, ModuleOption, ModuleUI>
+    public interface IRazorComponentClientModuleHost : IModuleHost
     {
-        public Module() : base()
-        {
-            Manifest = Manifest with
-            {
-                Name = "CoreRazorComponentClient",
-                DisplayName = "Core Razor Component Client",
-                Description = "Provide core functions for razor component client modules.",
-                Url = "https://github.com/StardustDL/delights",
-                Author = "StardustDL",
-            };
-        }
+        new IReadOnlyList<IRazorComponentClientModule> Modules { get; }
 
-        public override void RegisterUIService(IServiceCollection services)
-        {
-            base.RegisterUIService(services);
-            services.TryAddScoped<LazyAssemblyLoader>();
-        }
+        Task<List<Assembly>> GetAssembliesForRouting(string path, bool recurse = false, bool throwOnError = false, CancellationToken cancellationToken = default);
+
+        Task Validation();
+
+        Task LoadResouces();
     }
 
-    public class ModuleUI : UI.ModuleUI
+    internal class RazorComponentClientModuleHost : IRazorComponentClientModuleHost
     {
-        public const string ResourceTagAttrName = "Modulight_Module_Client_RazorComponents_Resource";
-
-        public ModuleUI(IJSRuntime jsRuntime, ILogger<UI.ModuleUI> logger) : base(jsRuntime, logger)
+        public RazorComponentClientModuleHost(IServiceProvider services, IReadOnlyList<IRazorComponentClientModule> modules)
         {
+            Services = services;
+            Modules = modules;
+            Logger = Services.GetRequiredService<ILogger<RazorComponentClientModuleHost>>();
         }
 
-        public async ValueTask CacheDataFromPath(string path, bool forceUpdate = false)
-        {
-            var js = await GetEntryJSModule();
-            await js.InvokeVoidAsync("cacheDataFromPath", path, forceUpdate);
-        }
+        public IServiceProvider Services { get; }
 
-        public async ValueTask LoadScript(string src)
-        {
-            var js = await GetEntryJSModule();
-            await js.InvokeVoidAsync("loadScript", src, ResourceTagAttrName);
-        }
+        public ILogger<RazorComponentClientModuleHost> Logger { get; }
 
-        public async ValueTask LoadStyleSheet(string href)
-        {
-            var js = await GetEntryJSModule();
-            await js.InvokeVoidAsync("loadStyleSheet", href, ResourceTagAttrName);
-        }
-    }
-
-    public class ModuleService : IModuleService
-    {
-        public ModuleService(IModuleHost moduleHost, IServiceProvider serviceProvider, IOptions<ModuleOption> options, ModuleUI ui, LazyAssemblyLoader lazyAssemblyLoader, ILogger<Module> logger)
-        {
-            ModuleHost = moduleHost;
-            Options = options.Value;
-            UI = ui;
-            ServiceProvider = serviceProvider;
-            LazyAssemblyLoader = lazyAssemblyLoader;
-            Logger = logger;
-        }
-
-        public IModuleHost ModuleHost { get; }
-
-        public IServiceProvider ServiceProvider { get; }
-
-        public LazyAssemblyLoader LazyAssemblyLoader { get; }
-
-        public ILogger<Module> Logger { get; }
-
-        public ModuleOption Options { get; }
-
-        public ModuleUI UI { get; }
+        public IReadOnlyList<IRazorComponentClientModule> Modules { get; }
 
         public async Task LoadResouces()
         {
-            foreach (var module in ModuleHost.Modules.AllSpecifyModules<IRazorComponentClientModule>())
+            using var scope = Services.CreateScope();
+            var provider = scope.ServiceProvider;
+            await using var ui = new ModuleUILoader(provider.GetRequiredService<IJSRuntime>(), provider.GetRequiredService<ILogger<ModuleUI>>());
+            foreach (var module in Modules)
             {
-                var ui = module.GetUI(ServiceProvider);
-                foreach (var resource in ui.Resources)
+                var cui = module.GetUI(provider);
+                foreach (var resource in cui.Resources)
                 {
                     switch (resource.Type)
                     {
                         case UIResourceType.Script:
-                            await UI.LoadScript(resource.Path);
+                            await ui.LoadScript(resource.Path);
                             break;
                         case UIResourceType.StyleSheet:
-                            await UI.LoadStyleSheet(resource.Path);
+                            await ui.LoadStyleSheet(resource.Path);
                             break;
                     }
                 }
@@ -111,9 +64,9 @@ namespace Modulight.Modules.Client.RazorComponents.Core
         public async Task Validation()
         {
             HashSet<string> rootPaths = new HashSet<string>();
-            foreach (var module in ModuleHost.Modules.AllSpecifyModules<IRazorComponentClientModule>())
+            foreach (var module in Modules)
             {
-                var ui = module.GetUI(ServiceProvider);
+                var ui = module.GetUI(Services);
                 if (ui.RootPath is not "")
                 {
                     if (rootPaths.Contains(ui.RootPath))
@@ -129,19 +82,23 @@ namespace Modulight.Modules.Client.RazorComponents.Core
 
         public async Task<List<Assembly>> GetAssembliesForRouting(string path, bool recurse = false, bool throwOnError = false, CancellationToken cancellationToken = default)
         {
+            using var scope = Services.CreateScope();
+            var provider = scope.ServiceProvider;
+            var lazyLoader = provider.GetRequiredService<LazyAssemblyLoader>();
+
             var loadedAssemblies = AppDomain.CurrentDomain.GetAssemblies();
 
             List<Assembly> results = new List<Assembly>();
 
             Queue<string> toLoad = new Queue<string>();
 
-            foreach (var module in ModuleHost.Modules.AllSpecifyModules<IRazorComponentClientModule>())
+            foreach (var module in Modules)
             {
                 cancellationToken.ThrowIfCancellationRequested();
 
                 toLoad.Enqueue(module.Manifest.EntryAssembly);
 
-                var ui = module.GetUI(ServiceProvider);
+                var ui = module.GetUI(provider);
 
                 if (ui.Contains(path))
                 {
@@ -171,7 +128,7 @@ namespace Modulight.Modules.Client.RazorComponents.Core
                         // Logger.LogInformation($"Loading assembly {current}");
                         if (Environment.OSVersion.Platform == PlatformID.Other)
                         {
-                            assembly = (await LazyAssemblyLoader.LoadAssembliesAsync(new[] { current + ".dll" })).FirstOrDefault();
+                            assembly = (await lazyLoader.LoadAssembliesAsync(new[] { current + ".dll" })).FirstOrDefault();
                         }
                         else
                         {
@@ -193,6 +150,10 @@ namespace Modulight.Modules.Client.RazorComponents.Core
 
                 if (assembly is null)
                 {
+                    if (throwOnError)
+                    {
+                        throw new NullReferenceException($"Failed to load assembly {current}.");
+                    }
                     Logger.LogError($"Failed to load assembly {current}.");
                     continue;
                 }
@@ -212,5 +173,7 @@ namespace Modulight.Modules.Client.RazorComponents.Core
 
             return results;
         }
+
+        IReadOnlyList<IModule> IModuleHost.Modules => Modules;
     }
 }

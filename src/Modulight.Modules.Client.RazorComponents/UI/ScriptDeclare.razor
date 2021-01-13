@@ -1,13 +1,13 @@
-﻿@inject IModuleHost ModuleHost
+﻿@inject IRazorComponentClientModuleHost ModuleHost
 @inject IServiceProvider ServiceProvider
 
-@foreach (var c in ModuleHost.Modules.AllSpecifyModules<IRazorComponentClientModule>())
+@foreach (var c in ModuleHost.Modules)
 {
     foreach (var r in c.GetUI(ServiceProvider).Resources)
     {
         if (r.Type is UIResourceType.Script)
         {
-            @((MarkupString)($"<script type=\"text/javascript\" src=\"{r.Path}\" {Modulight.Modules.Client.RazorComponents.Core.ModuleUI.ResourceTagAttrName}=\"{r.Path}\"></script>"))
+            @((MarkupString)($"<script type=\"text/javascript\" src=\"{r.Path}\" {Modulight.Modules.Client.RazorComponents.UI.ModuleUILoader.ResourceTagAttrName}=\"{r.Path}\"></script>"))
         }
     }
 }

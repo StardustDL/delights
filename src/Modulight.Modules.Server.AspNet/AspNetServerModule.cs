@@ -2,7 +2,6 @@
 using Modulight.Modules.Services;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Builder;
@@ -11,13 +10,16 @@ namespace Modulight.Modules.Server.AspNet
 {
     public static class AspNetServerModuleExtensions
     {
-        public static IModuleHostBuilder AddAspNetServerModules(this IModuleHostBuilder modules, Action<Core.ModuleOption, IServiceProvider>? configureOptions = null)
+        public static IModuleHostBuilder UseAspNetServerModules(this IModuleHostBuilder modules)
         {
-            modules.TryAddModule<Core.Module, Core.ModuleOption>(configureOptions);
-            return modules;
+            return modules.UsePostMiddleware((modules, services) =>
+            {
+                services.AddSingleton<IAspNetServerModuleHost>(sp => new AspNetServerModuleHost(sp, 
+                    modules.Modules.AllSpecifyModules<IAspNetServerModule>().ToArray()));
+            });
         }
 
-        public static Core.Module GetCoreAspNetServerModule(this IServiceProvider provider) => provider.GetRequiredService<Core.Module>();
+        public static IAspNetServerModuleHost GetAspNetServerModuleHost(this IServiceProvider provider) => provider.GetRequiredService<IAspNetServerModuleHost>();
     }
 
     public interface IAspNetServerModule : IModule

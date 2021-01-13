@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Delights.Modules.ModuleManager.GraphQL;
-using Modulight.Modules.Client.RazorComponents.Core;
 using Microsoft.Extensions.Options;
 using StardustDL.RazorComponents.AntDesigns;
 using Modulight.Modules.Services;

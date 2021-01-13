@@ -1,5 +1,4 @@
-﻿using Modulight.Modules.Client.RazorComponents.Core;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;

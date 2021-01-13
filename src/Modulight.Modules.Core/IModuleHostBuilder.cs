@@ -5,6 +5,12 @@ using System.Collections.Generic;
 
 namespace Modulight.Modules
 {
+    public enum ModuleHostBuilderMiddlewareType
+    {
+        Pre,
+        Post
+    }
+
     public interface IModuleHostBuilder
     {
         IReadOnlyList<IModule> Modules { get; }
@@ -13,7 +19,11 @@ namespace Modulight.Modules
 
         IModule? GetModule(Type type);
 
+        IModuleHostBuilder UseMiddleware(ModuleHostBuilderMiddlewareType type, Action<IModuleHostBuilder, IServiceCollection> middleware);
+
         void Build(IServiceCollection services);
+
+        #region Extension Methods for Module
 
         public IModuleHostBuilder AddModule<T>(T module) where T : class, IModule => AddModule(typeof(T), module);
 
@@ -67,5 +77,11 @@ namespace Modulight.Modules
 
         public IModuleHostBuilder TryAddModule<T, TOption>(Action<TOption, IServiceProvider>? configureOptions = null)
             where T : class, IModule<IModuleService, TOption>, new() where TOption : class => TryAddModule(() => new T(), configureOptions);
+
+        #endregion
+
+        public IModuleHostBuilder UsePreMiddleware(Action<IModuleHostBuilder, IServiceCollection> middleware) => UseMiddleware(ModuleHostBuilderMiddlewareType.Pre, middleware);
+
+        public IModuleHostBuilder UsePostMiddleware(Action<IModuleHostBuilder, IServiceCollection> middleware) => UseMiddleware(ModuleHostBuilderMiddlewareType.Post, middleware);
     }
 }

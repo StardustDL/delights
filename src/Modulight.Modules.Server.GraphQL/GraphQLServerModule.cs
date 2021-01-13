@@ -9,18 +9,28 @@ using System.Linq;
 using Microsoft.AspNetCore.Routing;
 using HotChocolate.AspNetCore.Extensions;
 using Microsoft.AspNetCore.Builder;
+using Modulight.Modules.Server.GraphQL.Bridges;
 
 namespace Modulight.Modules.Server.GraphQL
 {
     public static class GraphQLServerModuleExtensions
     {
-        public static IModuleHostBuilder AddGraphQLServerModules(this IModuleHostBuilder modules, Action<Core.ModuleOption, IServiceProvider>? configureOptions = null, Action<IGraphQLServerModule, GraphQLEndpointConventionBuilder>? postMapEndpoint = null)
+        public static IModuleHostBuilder BridgeGraphQLServerModuleToAspNet(this IModuleHostBuilder modules, Action<BridgeAspNetModuleOption, IServiceProvider>? configureOptions = null, Action<IGraphQLServerModule, GraphQLEndpointConventionBuilder>? postMapEndpoint = null)
         {
-            modules.TryAddModule<Core.Module, Core.ModuleOption>(() => new (postMapEndpoint), configureOptions);
+            modules.TryAddModule<BridgeAspNetModule, BridgeAspNetModuleOption>(() => new(postMapEndpoint), configureOptions);
             return modules;
         }
 
-        public static Core.Module GetCoreGraphQLServerModule(this IServiceProvider provider) => provider.GetRequiredService<Core.Module>();
+        public static IModuleHostBuilder UseGraphQLServerModules(this IModuleHostBuilder modules)
+        {
+            return modules.UsePostMiddleware((modules, services) =>
+            {
+                services.AddSingleton<IGraphQLServerModuleHost>(sp => new GraphQLServerModuleHost(sp,
+                    modules.Modules.AllSpecifyModules<IGraphQLServerModule>().ToArray()));
+            });
+        }
+
+        public static IGraphQLServerModuleHost GetGraphQLServerModuleHost(this IServiceProvider provider) => provider.GetRequiredService<IGraphQLServerModuleHost>();
     }
 
     public enum RootObjectType

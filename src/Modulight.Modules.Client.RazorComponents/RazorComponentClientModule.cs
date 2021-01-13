@@ -6,18 +6,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.AspNetCore.Components.WebAssembly.Services;
 
 namespace Modulight.Modules.Client.RazorComponents
 {
     public static class RazorComponentClientModuleExtensions
     {
-        public static IModuleHostBuilder AddRazorComponentClientModules(this IModuleHostBuilder modules, Action<Core.ModuleOption, IServiceProvider>? configureOptions = null)
+        public static IModuleHostBuilder UseRazorComponentClientModules(this IModuleHostBuilder modules)
         {
-            modules.TryAddModule<Core.Module, Core.ModuleOption>(configureOptions);
-            return modules;
+            return modules.UsePostMiddleware((modules, services) =>
+            {
+                services.TryAddScoped<LazyAssemblyLoader>();
+                services.AddSingleton<IRazorComponentClientModuleHost>(sp => new RazorComponentClientModuleHost(sp,
+                    modules.Modules.AllSpecifyModules<IRazorComponentClientModule>().ToArray()));
+            });
         }
 
-        public static Core.Module GetCoreRazorComponentClientModule(this IServiceProvider provider) => provider.GetRequiredService<Core.Module>();
+        public static IRazorComponentClientModuleHost GetRazorComponentClientModuleHost(this IServiceProvider provider) => provider.GetRequiredService<IRazorComponentClientModuleHost>();
     }
 
     public interface IRazorComponentClientModule : IModule

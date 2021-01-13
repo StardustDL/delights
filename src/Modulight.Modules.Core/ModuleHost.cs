@@ -1,18 +1,19 @@
-﻿using Modulight.Modules.Services;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.Extensions.Options;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Modulight.Modules
 {
+    public interface IModuleHost
+    {
+        IReadOnlyList<IModule> Modules { get; }
+    }
 
     internal class ModuleHost : IModuleHost
     {
-        public ModuleHost(IServiceProvider services, IList<IModule> modules)
+        public ModuleHost(IServiceProvider services, IReadOnlyList<IModule> modules)
         {
             Services = services;
             Modules = modules;
@@ -20,11 +21,6 @@ namespace Modulight.Modules
 
         public IServiceProvider Services { get; }
 
-        public IList<IModule> Modules { get; }
-
-        public IEnumerable<T> AllSpecifyModules<T>()
-        {
-            return Modules.Where(m => m is T).Select(m => (T)m);
-        }
+        public IReadOnlyList<IModule> Modules { get; }
     }
 }

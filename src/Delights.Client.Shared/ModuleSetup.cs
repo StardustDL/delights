@@ -12,9 +12,7 @@ namespace Delights.Client.Shared
         public static Modulight.Modules.IModuleHostBuilder CreateDefaultBuilder()
         {
             var builder = Modulight.Modules.ModuleHostBuilder.CreateDefaultBuilder()
-                .AddRazorComponentClientModules((o, _) =>
-                {
-                })
+                .UseRazorComponentClientModules()
                 .AddModule<UI.UIModule>()
                 .AddHelloModule((o, sp) =>
                 {

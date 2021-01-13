@@ -17,9 +17,11 @@ namespace Modulight.Modules
     {
         protected Dictionary<Type, IModule> Descriptors { get; } = new Dictionary<Type, IModule>();
 
-        public IReadOnlyList<IModule> Modules => Descriptors.Values.ToArray();
+        protected List<(ModuleHostBuilderMiddlewareType, Action<IModuleHostBuilder, IServiceCollection>)> Middlewares { get; } = new List<(ModuleHostBuilderMiddlewareType, Action<IModuleHostBuilder, IServiceCollection>)>();
 
-        public IModuleHostBuilder AddModule(Type type, IModule module)
+        public virtual IReadOnlyList<IModule> Modules => Descriptors.Values.ToArray();
+
+        public virtual IModuleHostBuilder AddModule(Type type, IModule module)
         {
             if (Descriptors.ContainsKey(type))
             {
@@ -30,7 +32,7 @@ namespace Modulight.Modules
             return this;
         }
 
-        public IModule? GetModule(Type type)
+        public virtual IModule? GetModule(Type type)
         {
             if (Descriptors.TryGetValue(type, out var value))
                 return value;
@@ -38,8 +40,28 @@ namespace Modulight.Modules
                 return null;
         }
 
-        public void Build(IServiceCollection services)
+        protected virtual void PreBuild(IServiceCollection services)
         {
+            foreach (var middleware in
+                from x in Middlewares where x.Item1 is ModuleHostBuilderMiddlewareType.Pre select x.Item2)
+            {
+                middleware(this, services);
+            }
+        }
+
+        protected virtual void PostBuild(IServiceCollection services)
+        {
+            foreach (var middleware in
+                from x in Middlewares where x.Item1 is ModuleHostBuilderMiddlewareType.Post select x.Item2)
+            {
+                middleware(this, services);
+            }
+        }
+
+        public virtual void Build(IServiceCollection services)
+        {
+            PreBuild(services);
+
             var modules = Modules.ToArray();
             services.AddSingleton<IModuleHost>(sp => new ModuleHost(sp, modules));
             foreach (var (type, module) in Descriptors)
@@ -47,6 +69,14 @@ namespace Modulight.Modules
                 services.AddSingleton(type, module);
                 module.RegisterService(services);
             }
+
+            PostBuild(services);
+        }
+
+        public IModuleHostBuilder UseMiddleware(ModuleHostBuilderMiddlewareType type, Action<IModuleHostBuilder, IServiceCollection> middleware)
+        {
+            Middlewares.Add((type, middleware));
+            return this;
         }
     }
 }
