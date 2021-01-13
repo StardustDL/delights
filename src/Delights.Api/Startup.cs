@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Modulight.Modules;
+using Modulight.Modules.Server.AspNet;
 
 namespace Delights.Api
 {
@@ -43,7 +44,13 @@ namespace Delights.Api
             services.AddCors();
 
             var builder = ModuleHostBuilder.CreateDefaultBuilder()
-                .AddGraphQLServerModules()
+                .AddGraphQLServerModules(postMapEndpoint: (module, builder) =>
+                {
+                    builder.RequireCors(cors =>
+                    {
+                        cors.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                    });
+                })
                 .AddHelloModule()
                 .AddModuleManagerModule();
 
@@ -68,18 +75,13 @@ namespace Delights.Api
 
             app.UseCors();
 
-            var graphQLModule = app.ApplicationServices.GetCoreGraphQLServerModule().GetService(app.ApplicationServices);
+            var aspnetCoreModule = app.ApplicationServices.GetCoreAspNetServerModule().GetService(app.ApplicationServices);
+            aspnetCoreModule.UseMiddlewares(app);
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
-                graphQLModule.MapEndpoints(endpoints, (_, builder) =>
-                {
-                    builder.RequireCors(cors =>
-                    {
-                        cors.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
-                    });
-                });
+                aspnetCoreModule.MapEndpoints(endpoints);
             });
         }
     }

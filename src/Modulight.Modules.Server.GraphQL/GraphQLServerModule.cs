@@ -14,9 +14,9 @@ namespace Modulight.Modules.Server.GraphQL
 {
     public static class GraphQLServerModuleExtensions
     {
-        public static IModuleHostBuilder AddGraphQLServerModules(this IModuleHostBuilder modules)
+        public static IModuleHostBuilder AddGraphQLServerModules(this IModuleHostBuilder modules, Action<Core.ModuleOption, IServiceProvider>? configureOptions = null, Action<IGraphQLServerModule, GraphQLEndpointConventionBuilder>? postMapEndpoint = null)
         {
-            modules.AddModule<Core.Module>();
+            modules.TryAddModule<Core.Module, Core.ModuleOption>(() => new (postMapEndpoint), configureOptions);
             return modules;
         }
 

@@ -36,23 +36,39 @@ For GraphQL server modules:
 
 ```cs
 var builder = ModuleHostBuilder.CreateDefaultBuilder()
-    .AddGraphQLServerModules()
+    .AddGraphQLServerModules(postMapEndpoint: (module, builder) =>
+    {
+        // configuration GraphQL Endpoint eg:
+        builder.RequireCors(cors =>
+        {
+            cors.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+        });
+    })
     .AddModule<FooModule>();
 ```
 
 2. Use the builder to register services.
 
 ```cs
+// in Startup: void ConfigureServices(IServiceCollection services)
+
 builder.Build(services);
 ```
 
 Additional step for GraphQL server modules:
 
 ```cs
-var graphQLModule = app.ApplicationServices.GetCoreGraphQLServerModule().GetService(app.ApplicationServices);
+// in Startup: void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+
+var aspnetCoreModule = app.ApplicationServices.GetCoreAspNetServerModule().GetService(app.ApplicationServices);
+aspnetCoreModule.UseMiddlewares(app);
+
 app.UseEndpoints(endpoints =>
 {
-    graphQLModule.MapEndpoints(endpoints);
+    // other mapper, eg:
+    endpoints.MapControllers();
+    // modules mapper
+    aspnetCoreModule.MapEndpoints(endpoints);
 });
 ```
 
@@ -75,21 +91,6 @@ await using(var provider = builder.Services.BuildServiceProvider())
 await builder.Build().RunAsync();
 ```
 
-## Project guide
-
-- [Modulight.Modules.Core](./src/Modulight.Modules.Core/) Core types for modular framework.
-- [Modulight.Modules.Client.RazorComponents](./src/Modulight.Modules.Client.RazorComponents/) Basic types for client modules.
-- [Modulight.Modules.Server.GraphQL](./src/Modulight.Modules.Server.GraphQL/) Basic types for graphql server modules.
-- [Delights.UI](./src/Delights.UI/) UI hosting for modules.
-- [Delights.Client](./src/Delights.Client/) Blazor Server hosting.
-- [Delights.Client.WebAssembly](./src/Delights.Client.WebAssembly/) Blazor WebAssembly hosting.
-- [Delights.Client.WebAssembly.Host](./src/Delights.Client.WebAssembly/) Blazor WebAssembly ASP.NET hosting.
-- [Hello module](./src/modules/hello/) A demo module.
-  - [Hello](./src/modules/hello/Delights.Modules.Hello) Client module.
-  - [Hello.Core](./src/modules/hello/Delights.Modules.Hello.Core) Shared manifest between client & server module.
-  - [Hello.UI](./src/modules/hello/Delights.Modules.Hello.UI) UI (pages) for client module.
-  - [Hello.Server](./src/modules/hello/Delights.Modules.Hello.Server) Server module.
-
 ## Example codes
 
 They are based on nightly build package at: 
@@ -108,15 +109,13 @@ https://sparkshine.pkgs.visualstudio.com/StardustDL/_packaging/feed/nuget/v3/ind
 ### Use a client module in Blazor websites
 
 - [ModulePage.razor](./src/Delights.UI/Components/ModulePage.razor) Layout and container for module pages.
-- [App.razor](./src/Delights.UI/App.razor) Lazy loading for assemblies when routing.
+- [App.razor](./src/Delights.UI/App.razor) Lazy loading for js/css/sassemblies when routing.
 - [UIModule.cs](./src/Delights.UI/UIModule.cs) Definition of JS/CSS resources.
 - [ModuleSetup.cs](./src/Delights.Client.Shared/ModuleSetup.cs) Use modules in client.
-- [Program.cs](./src/Delights.Client/Program.cs) & [Startup.cs](./src/Delights.Client/Startup.cs) Blazor Server hosting.
+- [Startup.cs](./src/Delights.Client/Startup.cs) Blazor Server hosting.
 - [Program.cs](./src/Delights.Client.WebAssembly/Program.cs) Blazor WebAssembly hosting.
 - [index.html](./src/Delights.Client.WebAssembly/wwwroot/index.html) Clean index.html.
-- [_Host.cshtml](./src/Delights.Client/Pages/_Host.cshtml) Server prerendering for JS/CSS resources.
-- [_Host.cshtml](./src/Delights.Client.WebAssembly.Host/Pages/_Host.cshtml) WebAssembly prerendering.
 
 ### Use a GraphQL server module
 
-- [Program.cs](./src/Delights.Api/Program.cs) & [Startup.cs](./src/Delights.Api/Startup.cs) GraphQL server integrating.
+- [Startup.cs](./src/Delights.Api/Startup.cs) GraphQL server integrating.

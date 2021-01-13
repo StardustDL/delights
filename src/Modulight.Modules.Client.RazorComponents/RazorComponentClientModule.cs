@@ -13,7 +13,7 @@ namespace Modulight.Modules.Client.RazorComponents
     {
         public static IModuleHostBuilder AddRazorComponentClientModules(this IModuleHostBuilder modules, Action<Core.ModuleOption, IServiceProvider>? configureOptions = null)
         {
-            modules.AddModule<Core.Module, Core.ModuleOption>(configureOptions);
+            modules.TryAddModule<Core.Module, Core.ModuleOption>(configureOptions);
             return modules;
         }
 

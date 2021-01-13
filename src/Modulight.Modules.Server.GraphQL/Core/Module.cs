@@ -9,29 +9,40 @@ using Microsoft.Extensions.Options;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Routing;
 using HotChocolate.AspNetCore.Extensions;
+using Modulight.Modules.Server.AspNet;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Modulight.Modules.Server.GraphQL.Core
 {
-    public class Module : GraphQLServerModule<ModuleService, ModuleOption>
+    public class Module : AspNetServerModule<ModuleService, ModuleOption>
     {
-        public override Type? QueryType => typeof(ModuleQuery);
+        Action<IGraphQLServerModule, GraphQLEndpointConventionBuilder>? PostMapEndpoint { get; }
 
-        public Module() : base()
+        public Module(Action<IGraphQLServerModule, GraphQLEndpointConventionBuilder>? postMapEndpoint = null) : base()
         {
             Manifest = Manifest with
             {
                 Name = "CoreGraphQLServer",
                 DisplayName = "Core GraphQL Server",
-                Description = "Provide heartbeat and other services for GraphQL server.",
+                Description = "Provide controller for GraphQL server modules.",
                 Url = "https://github.com/StardustDL/delights",
                 Author = "StardustDL",
             };
+            PostMapEndpoint = postMapEndpoint;
         }
-    }
 
-    public class ModuleQuery
-    {
-        public string Heartbeat() => "ok";
+        public override void MapEndpoint(IEndpointRouteBuilder builder, IServiceProvider provider)
+        {
+            base.MapEndpoint(builder, provider);
+
+            GetService(provider).MapEndpoints(builder, PostMapEndpoint);
+        }
+
+        public override void Setup(IModuleHostBuilder host)
+        {
+            base.Setup(host);
+            host.AddAspNetServerModules();
+        }
     }
 
     public class ModuleOption
@@ -57,13 +68,13 @@ namespace Modulight.Modules.Server.GraphQL.Core
 
         public ModuleOption Options { get; }
 
-        public void MapEndpoints(IEndpointRouteBuilder builder, Action<IGraphQLServerModule, GraphQLEndpointConventionBuilder>? postMap = null)
+        public void MapEndpoints(IEndpointRouteBuilder builder, Action<IGraphQLServerModule, GraphQLEndpointConventionBuilder>? postMapEndpoint = null)
         {
             foreach (var module in ModuleHost.Modules.AllSpecifyModules<IGraphQLServerModule>())
             {
                 var gbuilder = module.MapEndpoint(builder, ServiceProvider);
-                if (postMap is not null)
-                    postMap(module, gbuilder);
+                if (postMapEndpoint is not null)
+                    postMapEndpoint(module, gbuilder);
             }
         }
     }
