@@ -12,11 +12,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.2" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
 		<PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
 		<PackageReference Include="StrawberryShake" Version="11.0.0-preview.137" />
-		<PackageReference Include="StardustDL.RazorComponents.MaterialDesignIcons" Version="0.0.1" />
+		<PackageReference Include="StardustDL.RazorComponents.MaterialDesignIcons" Version="0.0.1-preview.5" />
 	</ItemGroup>
 
 	<ItemGroup>

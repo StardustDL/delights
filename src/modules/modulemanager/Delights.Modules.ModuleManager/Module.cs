@@ -13,6 +13,7 @@ using Microsoft.Extensions.Options;
 using StardustDL.RazorComponents.AntDesigns;
 using Modulight.Modules.Services;
 using Modulight.Modules;
+using StardustDL.RazorComponents.MaterialDesignIcons;
 
 namespace Delights.Modules.ModuleManager
 {
@@ -57,7 +58,9 @@ namespace Delights.Modules.ModuleManager
 
         public override void Setup(Modulight.Modules.IModuleHostBuilder host)
         {
+            base.Setup(host);
             host.AddAntDesignModule();
+            host.AddMaterialDesignIconModule();
         }
     }
 

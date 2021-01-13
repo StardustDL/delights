@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using Delights.Modules.Hello.GraphQL;
 using Microsoft.Extensions.Options;
 using Modulight.Modules;
+using StardustDL.RazorComponents.MaterialDesignIcons;
 
 namespace Delights.Modules.Hello
 {
@@ -51,6 +52,12 @@ namespace Delights.Modules.Hello
                     client.BaseAddress = new Uri(option.GraphQLEndpoint.TrimEnd('/') + $"/{SharedManifest.Raw.Name}");
                 });
             services.AddHelloGraphQLClient();
+        }
+
+        public override void Setup(IModuleHostBuilder host)
+        {
+            base.Setup(host);
+            host.AddMaterialDesignIconModule();
         }
     }
 

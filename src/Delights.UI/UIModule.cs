@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Modulight.Modules.Options;
+using StardustDL.RazorComponents.MaterialDesignIcons;
 
 namespace Delights.UI
 {
@@ -44,7 +45,9 @@ namespace Delights.UI
 
         public override void Setup(Modulight.Modules.IModuleHostBuilder host)
         {
+            base.Setup(host);
             host.AddAntDesignModule();
+            host.AddMaterialDesignIconModule();
         }
     }
 
@@ -54,7 +57,6 @@ namespace Delights.UI
         {
             Resources = new UIResource[]
             {
-                new UIResource(UIResourceType.StyleSheet, "_content/StardustDL.RazorComponents.MaterialDesignIcons/mdi/css/materialdesignicons.min.css"),
                 new UIResource(UIResourceType.StyleSheet, "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"),
                 new UIResource(UIResourceType.Script,"https://code.jquery.com/jquery-3.3.1.slim.min.js"),
             };
