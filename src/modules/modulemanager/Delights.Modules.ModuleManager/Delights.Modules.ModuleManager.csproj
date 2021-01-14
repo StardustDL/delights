@@ -17,7 +17,7 @@
 		<PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
 		<PackageReference Include="StardustDL.RazorComponents.AntDesigns" Version="0.0.1-preview.5" />
 		<PackageReference Include="StrawberryShake" Version="11.0.0-preview.137" />
-		<PackageReference Include="StardustDL.RazorComponents.MaterialDesignIcons" Version="0.0.1-preview.5" />
+		<PackageReference Include="StardustDL.RazorComponents.MaterialDesignIcons" Version="0.0.1" />
 	</ItemGroup>
 
 	<ItemGroup>
