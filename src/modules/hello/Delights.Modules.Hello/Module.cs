@@ -17,9 +17,9 @@ namespace Delights.Modules.Hello
 {
     public static class ModuleExtensions
     {
-        public static IModuleHostBuilder AddHelloModule(this IModuleHostBuilder modules, Action<ModuleOption, IServiceProvider>? configureOptions = null)
+        public static IModuleHostBuilder AddHelloModule(this IModuleHostBuilder modules, Action<ModuleOption>? setupOptions = null, Action<ModuleOption, IServiceProvider>? configureOptions = null)
         {
-            modules.TryAddModule<Module, ModuleOption>(configureOptions);
+            modules.TryAddModule<Module, ModuleOption>(setupOptions, configureOptions);
             return modules;
         }
     }

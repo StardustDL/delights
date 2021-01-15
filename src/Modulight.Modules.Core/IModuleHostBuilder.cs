@@ -30,9 +30,13 @@ namespace Modulight.Modules
         public IModuleHostBuilder AddModule<T>()
             where T : class, IModule, new() => AddModule(new T());
 
-        public IModuleHostBuilder AddModule<T, TOption>(T module, Action<TOption, IServiceProvider>? configureOptions = null)
+        public IModuleHostBuilder AddModule<T, TOption>(T module, Action<TOption>? setupOptions = null, Action<TOption, IServiceProvider>? configureOptions = null)
             where T : class, IModule<IModuleService, TOption> where TOption : class
         {
+            if (setupOptions is not null)
+            {
+                module.SetupOptions(setupOptions);
+            }
             if (configureOptions is not null)
             {
                 module.ConfigureOptions(configureOptions);
@@ -41,8 +45,8 @@ namespace Modulight.Modules
             return this;
         }
 
-        public IModuleHostBuilder AddModule<T, TOption>(Action<TOption, IServiceProvider>? configureOptions = null)
-            where T : class, IModule<IModuleService, TOption>, new() where TOption : class => AddModule(new T(), configureOptions);
+        public IModuleHostBuilder AddModule<T, TOption>(Action<TOption>? setupOptions = null, Action<TOption, IServiceProvider>? configureOptions = null)
+            where T : class, IModule<IModuleService, TOption>, new() where TOption : class => AddModule(new T(), setupOptions, configureOptions);
 
         public IModuleHostBuilder TryAddModule(Type type, Func<IModule> module)
         {
@@ -59,13 +63,17 @@ namespace Modulight.Modules
         public IModuleHostBuilder TryAddModule<T>()
             where T : class, IModule, new() => TryAddModule(() => new T());
 
-        public IModuleHostBuilder TryAddModule<T, TOption>(Func<T> module, Action<TOption, IServiceProvider>? configureOptions = null)
+        public IModuleHostBuilder TryAddModule<T, TOption>(Func<T> module, Action<TOption>? setupOptions = null, Action<TOption, IServiceProvider>? configureOptions = null)
             where T : class, IModule<IModuleService, TOption> where TOption : class
         {
             var type = typeof(T);
             if (GetModule(type) is null)
             {
                 var mod = module();
+                if (setupOptions is not null)
+                {
+                    mod.SetupOptions(setupOptions);
+                }
                 if (configureOptions is not null)
                 {
                     mod.ConfigureOptions(configureOptions);
@@ -75,8 +83,8 @@ namespace Modulight.Modules
             return this;
         }
 
-        public IModuleHostBuilder TryAddModule<T, TOption>(Action<TOption, IServiceProvider>? configureOptions = null)
-            where T : class, IModule<IModuleService, TOption>, new() where TOption : class => TryAddModule(() => new T(), configureOptions);
+        public IModuleHostBuilder TryAddModule<T, TOption>(Action<TOption>? setupOptions = null, Action<TOption, IServiceProvider>? configureOptions = null)
+            where T : class, IModule<IModuleService, TOption>, new() where TOption : class => TryAddModule(() => new T(), setupOptions, configureOptions);
 
         #endregion
 

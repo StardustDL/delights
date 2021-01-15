@@ -26,6 +26,8 @@ namespace Modulight.Modules
 
     public interface IModule<out TService, out TOption> : IModule<TService> where TService : IModuleService
     {
+        void SetupOptions(Action<TOption> setupOptions);
+
         void ConfigureOptions(Action<TOption, IServiceProvider> configureOptions);
 
         TOption GetOption(IServiceProvider provider);

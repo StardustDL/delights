@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Modulight.Modules;
+using StardustDL.AspNet.IdentityServer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,21 @@ namespace Delights.Api
     {
         public static async Task Main(string[] args)
         {
-            await CreateHostBuilder(args).Build().RunAsync();
+            var host = CreateHostBuilder(args).Build();
+
+            using (var scope = host.Services.CreateScope())
+            {
+                var services = scope.ServiceProvider;
+                await services.GetRequiredService<IdentityServerService>().Initialize(new StardustDL.AspNet.IdentityServer.Models.ApplicationUser
+                {
+                    UserName = "admin@delights",
+                    Email = "admin@delights",
+                    EmailConfirmed = true,
+                    LockoutEnabled = false
+                }, "123P$d");
+            }
+
+            await host.RunAsync();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

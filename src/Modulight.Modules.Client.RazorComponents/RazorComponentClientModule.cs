@@ -44,7 +44,7 @@ namespace Modulight.Modules.Client.RazorComponents
         new TUIService GetUIService(IServiceProvider provider);
     }
 
-    public abstract class RazorComponentClientModule<TUIService, TOption, TUI> : Module<TUIService, TOption>, IRazorComponentClientModule<TUIService, TOption, TUI> where TUI : class, IModuleUI where TUIService : class, IModuleService where TOption : class
+    public abstract class RazorComponentClientModule<TUIService, TOption, TUI> : Module<TUIService, TOption>, IRazorComponentClientModule<TUIService, TOption, TUI> where TUI : class, IModuleUI where TUIService : class, IModuleService where TOption : class, new()
     {
         protected RazorComponentClientModule(ModuleManifest? manifest = null) : base(manifest)
         {

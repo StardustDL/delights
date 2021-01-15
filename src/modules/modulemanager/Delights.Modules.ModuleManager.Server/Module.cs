@@ -13,9 +13,9 @@ namespace Delights.Modules.ModuleManager.Server
 {
     public static class ModuleExtensions
     {
-        public static IModuleHostBuilder AddModuleManagerModule(this IModuleHostBuilder modules, string? schemaName = null, string? endpoint = null, Action<ModuleOption, IServiceProvider>? configureOptions = null)
+        public static IModuleHostBuilder AddModuleManagerModule(this IModuleHostBuilder modules, Action<ModuleOption>? setupOptions = null, Action<ModuleOption, IServiceProvider>? configureOptions = null)
         {
-            modules.TryAddModule(() => new Module(schemaName, endpoint), configureOptions);
+            modules.TryAddModule<Module, ModuleOption>(setupOptions, configureOptions);
             return modules;
         }
     }
@@ -24,7 +24,7 @@ namespace Delights.Modules.ModuleManager.Server
     {
         public override Type? QueryType => typeof(ModuleQuery);
 
-        public Module(string? schemaName = null, string? endpoint = null) : base(schemaName, endpoint)
+        public Module() : base()
         {
             Manifest = Manifest with
             {

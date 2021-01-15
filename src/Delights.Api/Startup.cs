@@ -21,6 +21,8 @@ using System.Threading.Tasks;
 using Modulight.Modules;
 using Modulight.Modules.Server.AspNet;
 using StardustDL.AspNet.ObjectStorage;
+using StardustDL.AspNet.IdentityServer;
+using Microsoft.EntityFrameworkCore;
 
 namespace Delights.Api
 {
@@ -44,8 +46,16 @@ namespace Delights.Api
 
             services.AddCors();
 
-            var builder = ModuleHostBuilder.CreateDefaultBuilder()
-                .AddObjectStorageModule((o, sp) =>
+            var builder = ModuleHostBuilder.CreateDefaultBuilder().UseAspNetServerModules().UseGraphQLServerModules()
+                .BridgeGraphQLServerModuleToAspNet(postMapEndpoint: (module, builder) =>
+                {
+                    builder.RequireCors(cors =>
+                    {
+                        cors.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                    });
+                });
+
+            builder.AddObjectStorageModule((o) =>
                 {
                     o.Endpoint = "localhost:9000";
                     o.AccessKey = "user";
@@ -53,14 +63,16 @@ namespace Delights.Api
                 })
                 .AddObjectStorageApiModule();
 
-            builder.UseAspNetServerModules().UseGraphQLServerModules()
-                .BridgeGraphQLServerModuleToAspNet(postMapEndpoint: (module, builder) =>
-                {
-                    builder.RequireCors(cors =>
-                    {
-                        cors.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
-                    });
-                })
+            builder.AddIdentityServerModule(o =>
+            {
+                o.ConfigureDbContext = options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection"));
+                o.ConfigureIdentity = options => options.SignIn.RequireConfirmedAccount = false;
+                o.ConfigureIdentityServer = options => Configuration.GetSection("IdentityServer:Options").Bind(options);
+                o.ConfigureApiAuthorization = options => Configuration.GetSection("IdentityServer").Bind(options);
+                o.JwtAudiences = new string[] { "Delights.ApiAPI" };
+            })
+                .AddIdentityServerGraphQLModule()
                 .AddHelloModule()
                 .AddModuleManagerModule();
 

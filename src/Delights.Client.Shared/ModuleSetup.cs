@@ -14,12 +14,12 @@ namespace Delights.Client.Shared
             var builder = Modulight.Modules.ModuleHostBuilder.CreateDefaultBuilder()
                 .UseRazorComponentClientModules()
                 .AddModule<UI.UIModule>()
-                .AddHelloModule((o, sp) =>
+                .AddHelloModule(configureOptions: (o, sp) =>
                 {
                     var serverConfiguration = sp.GetRequiredService<IOptions<ServerConfiguration>>().Value;
                     o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;
                 })
-                .AddModuleManagerModule((o, sp) =>
+                .AddModuleManagerModule(configureOptions: (o, sp) =>
                 {
                     var serverConfiguration = sp.GetRequiredService<IOptions<ServerConfiguration>>().Value;
                     o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;

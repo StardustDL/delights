@@ -27,7 +27,7 @@ namespace Modulight.Modules
 
         public virtual void RegisterService(IServiceCollection services)
         {
-            services.AddSingleton<TService>();
+            services.AddScoped<TService>();
         }
 
         public virtual void Setup(IModuleHostBuilder host) { }
@@ -37,9 +37,19 @@ namespace Modulight.Modules
         IModuleService IModule.GetService(IServiceProvider provider) => GetService(provider);
     }
 
-    public abstract class Module<TService, TOption> : Module<TService>, IModule<TService, TOption> where TService : class, IModuleService where TOption : class
+    public abstract class Module<TService, TOption> : Module<TService>, IModule<TService, TOption> where TService : class, IModuleService where TOption : class, new()
     {
         protected IList<Action<TOption, IServiceProvider>> OptionConfigurations { get; } = new List<Action<TOption, IServiceProvider>>();
+
+        protected Action<TOption>? OptionsSetup { get; set; }
+
+        protected TOption GetSetupOptions()
+        {
+            var result = new TOption();
+            if (OptionsSetup is not null)
+                OptionsSetup(result);
+            return result;
+        }
 
         protected Module(ModuleManifest? manifest = null) : base(manifest)
         {
@@ -48,6 +58,8 @@ namespace Modulight.Modules
         public virtual void RegisterOptions(IServiceCollection services)
         {
             var builder = services.AddOptions<TOption>();
+            if (OptionsSetup is not null)
+                builder.Configure(OptionsSetup);
             foreach (var item in OptionConfigurations)
                 builder.Configure(item);
         }
@@ -57,6 +69,8 @@ namespace Modulight.Modules
             base.RegisterService(services);
             RegisterOptions(services);
         }
+
+        public virtual void SetupOptions(Action<TOption> setupOptions) => OptionsSetup = setupOptions;
 
         public virtual void ConfigureOptions(Action<TOption, IServiceProvider> configureOptions) => OptionConfigurations.Add(configureOptions);
 

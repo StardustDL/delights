@@ -14,7 +14,7 @@ namespace Modulight.Modules.Server.AspNet
         {
             return modules.UsePostMiddleware((modules, services) =>
             {
-                services.AddSingleton<IAspNetServerModuleHost>(sp => new AspNetServerModuleHost(sp, 
+                services.AddSingleton<IAspNetServerModuleHost>(sp => new AspNetServerModuleHost(sp,
                     modules.Modules.AllSpecifyModules<IAspNetServerModule>().ToArray()));
             });
         }
@@ -31,7 +31,7 @@ namespace Modulight.Modules.Server.AspNet
         void MapEndpoint(IEndpointRouteBuilder builder, IServiceProvider provider);
     }
 
-    public abstract class AspNetServerModule<TService, TOption> : Module<TService, TOption>, IAspNetServerModule where TService : class, IModuleService where TOption : class
+    public abstract class AspNetServerModule<TService, TOption> : Module<TService, TOption>, IAspNetServerModule where TService : class, IModuleService where TOption : class, new()
     {
         protected AspNetServerModule(ModuleManifest? manifest = null) : base(manifest)
         {

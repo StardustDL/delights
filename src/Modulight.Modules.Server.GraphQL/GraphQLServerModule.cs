@@ -15,9 +15,9 @@ namespace Modulight.Modules.Server.GraphQL
 {
     public static class GraphQLServerModuleExtensions
     {
-        public static IModuleHostBuilder BridgeGraphQLServerModuleToAspNet(this IModuleHostBuilder modules, Action<BridgeAspNetModuleOption, IServiceProvider>? configureOptions = null, Action<IGraphQLServerModule, GraphQLEndpointConventionBuilder>? postMapEndpoint = null)
+        public static IModuleHostBuilder BridgeGraphQLServerModuleToAspNet(this IModuleHostBuilder modules, Action<BridgeAspNetModuleOption>? setupOptions = null, Action<BridgeAspNetModuleOption, IServiceProvider>? configureOptions = null, Action<IGraphQLServerModule, GraphQLEndpointConventionBuilder>? postMapEndpoint = null)
         {
-            modules.TryAddModule<BridgeAspNetModule, BridgeAspNetModuleOption>(() => new(postMapEndpoint), configureOptions);
+            modules.TryAddModule<BridgeAspNetModule, BridgeAspNetModuleOption>(() => new(postMapEndpoint), setupOptions, configureOptions);
             return modules;
         }
 
@@ -33,41 +33,19 @@ namespace Modulight.Modules.Server.GraphQL
         public static IGraphQLServerModuleHost GetGraphQLServerModuleHost(this IServiceProvider provider) => provider.GetRequiredService<IGraphQLServerModuleHost>();
     }
 
-    public enum RootObjectType
-    {
-        Query,
-        Mutation,
-        Subscription
-    }
-
     public interface IGraphQLServerModule : IModule
     {
-        string? SchemaName { get; }
-
-        string? Endpoint { get; }
-
         IRequestExecutorBuilder RegisterGraphQLService(IServiceCollection services);
 
         GraphQLEndpointConventionBuilder MapEndpoint(IEndpointRouteBuilder builder, IServiceProvider provider);
     }
 
-    public abstract class GraphQLServerModule<TService, TOption> : Module<TService, TOption>, IGraphQLServerModule where TService : class, IModuleService where TOption : class
+    public abstract class GraphQLServerModule<TService, TOption> : Module<TService, TOption>, IGraphQLServerModule where TService : class, IModuleService where TOption : class, IGraphQLServerModuleOption, new()
     {
-        protected GraphQLServerModule(string? schemaName = null, string? endpoint = null, ModuleManifest? manifest = null) : base(manifest)
+        protected GraphQLServerModule(ModuleManifest? manifest = null) : base(manifest)
         {
-            SchemaName = schemaName;
-            Endpoint = endpoint;
+            SetupOptions(_ => { });
         }
-
-        /// <summary>
-        /// SchemaName, default to Manifest.Name
-        /// </summary>
-        public virtual string? SchemaName { get; protected set; }
-
-        /// <summary>
-        /// Endpoint route, default to /graphql/{SchemaName}
-        /// </summary>
-        public virtual string? Endpoint { get; protected set; }
 
         public virtual Type? QueryType { get; }
 
@@ -75,9 +53,25 @@ namespace Modulight.Modules.Server.GraphQL
 
         public virtual Type? SubscriptionType { get; }
 
+        public override void SetupOptions(Action<TOption> setupOptions)
+        {
+            base.SetupOptions(o =>
+            {
+                setupOptions(o);
+                if (o.SchemaName is "")
+                {
+                    o.SchemaName = Manifest.Name;
+                }
+                if (o.Endpoint is "")
+                {
+                    o.Endpoint = $"/graphql/{o.SchemaName}";
+                }
+            });
+        }
+
         public virtual IRequestExecutorBuilder RegisterGraphQLService(IServiceCollection services)
         {
-            string schemaName = SchemaName ?? Manifest.Name;
+            string schemaName = GetSetupOptions().SchemaName;
 
             var builder = services.AddGraphQLServer(schemaName);
             if (QueryType is not null)
@@ -104,8 +98,9 @@ namespace Modulight.Modules.Server.GraphQL
 
         public virtual GraphQLEndpointConventionBuilder MapEndpoint(IEndpointRouteBuilder builder, IServiceProvider provider)
         {
-            string schemaName = SchemaName ?? Manifest.Name;
-            string endpoint = Endpoint ?? $"/graphql/{schemaName}";
+            var options = GetSetupOptions();
+            string schemaName = options.SchemaName;
+            string endpoint = options.Endpoint;
 
             return builder.MapGraphQL(endpoint.TrimEnd('/'), schemaName);
         }
