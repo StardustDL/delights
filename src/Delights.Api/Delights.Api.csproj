@@ -19,6 +19,7 @@
     <ProjectReference Include="..\Modulight.Modules.Server.GraphQL\Modulight.Modules.Server.GraphQL.csproj" />
     <ProjectReference Include="..\modules\hello\Delights.Modules.Hello.Server\Delights.Modules.Hello.Server.csproj" />
     <ProjectReference Include="..\modules\modulemanager\Delights.Modules.ModuleManager.Server\Delights.Modules.ModuleManager.Server.csproj" />
+    <ProjectReference Include="..\StardustDL.AspNet.ObjectStorage\StardustDL.AspNet.ObjectStorage.csproj" />
   </ItemGroup>
 
   <ItemGroup>

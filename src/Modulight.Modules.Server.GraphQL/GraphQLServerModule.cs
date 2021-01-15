@@ -42,7 +42,9 @@ namespace Modulight.Modules.Server.GraphQL
 
     public interface IGraphQLServerModule : IModule
     {
-        string SchemaName { get; }
+        string? SchemaName { get; }
+
+        string? Endpoint { get; }
 
         IRequestExecutorBuilder RegisterGraphQLService(IServiceCollection services);
 
@@ -51,11 +53,21 @@ namespace Modulight.Modules.Server.GraphQL
 
     public abstract class GraphQLServerModule<TService, TOption> : Module<TService, TOption>, IGraphQLServerModule where TService : class, IModuleService where TOption : class
     {
-        protected GraphQLServerModule(ModuleManifest? manifest = null) : base(manifest)
+        protected GraphQLServerModule(string? schemaName = null, string? endpoint = null, ModuleManifest? manifest = null) : base(manifest)
         {
+            SchemaName = schemaName;
+            Endpoint = endpoint;
         }
 
-        public virtual string SchemaName => Manifest.Name;
+        /// <summary>
+        /// SchemaName, default to Manifest.Name
+        /// </summary>
+        public virtual string? SchemaName { get; protected set; }
+
+        /// <summary>
+        /// Endpoint route, default to /graphql/{SchemaName}
+        /// </summary>
+        public virtual string? Endpoint { get; protected set; }
 
         public virtual Type? QueryType { get; }
 
@@ -65,7 +77,9 @@ namespace Modulight.Modules.Server.GraphQL
 
         public virtual IRequestExecutorBuilder RegisterGraphQLService(IServiceCollection services)
         {
-            var builder = services.AddGraphQLServer(SchemaName);
+            string schemaName = SchemaName ?? Manifest.Name;
+
+            var builder = services.AddGraphQLServer(schemaName);
             if (QueryType is not null)
             {
                 builder.AddQueryType(QueryType);
@@ -90,7 +104,10 @@ namespace Modulight.Modules.Server.GraphQL
 
         public virtual GraphQLEndpointConventionBuilder MapEndpoint(IEndpointRouteBuilder builder, IServiceProvider provider)
         {
-            return builder.MapGraphQL($"/graphql/{SchemaName}".TrimEnd('/'), SchemaName);
+            string schemaName = SchemaName ?? Manifest.Name;
+            string endpoint = Endpoint ?? $"/graphql/{schemaName}";
+
+            return builder.MapGraphQL(endpoint.TrimEnd('/'), schemaName);
         }
     }
 }

@@ -20,6 +20,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Modulight.Modules;
 using Modulight.Modules.Server.AspNet;
+using StardustDL.AspNet.ObjectStorage;
 
 namespace Delights.Api
 {
@@ -44,7 +45,15 @@ namespace Delights.Api
             services.AddCors();
 
             var builder = ModuleHostBuilder.CreateDefaultBuilder()
-                .UseAspNetServerModules().UseGraphQLServerModules()
+                .AddObjectStorageModule((o, sp) =>
+                {
+                    o.Endpoint = "localhost:9000";
+                    o.AccessKey = "user";
+                    o.SecretKey = "password";
+                })
+                .AddObjectStorageApiModule();
+
+            builder.UseAspNetServerModules().UseGraphQLServerModules()
                 .BridgeGraphQLServerModuleToAspNet(postMapEndpoint: (module, builder) =>
                 {
                     builder.RequireCors(cors =>
@@ -81,8 +90,8 @@ namespace Delights.Api
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
                 aspnetModuleHost.MapEndpoints(endpoints);
+                endpoints.MapControllers();
             });
         }
     }

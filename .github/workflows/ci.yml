@@ -84,6 +84,30 @@ jobs:
       env:
         NUGET_AUTH_TOKEN: ${{ secrets.AZ_TOKEN }}
       run: Invoke-psake publish-packages
+    - name: Build API image
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        file: ./src/Delights.Api/Dockerfile
+        push: false
+        tags: |
+          stardustdl/delights:api
+    - name: Build client image
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        file: ./src/Delights.Client/Dockerfile
+        push: false
+        tags: |
+          stardustdl/delights:client
+    - name: Build WASM host client image
+      uses: docker/build-push-action@v2
+      with:
+        context: .
+        file: ./src/Delights.Client.WebAssembly.Host/Dockerfile
+        push: false
+        tags: |
+          stardustdl/delights:client-wasm-host
   invoke-cd:
     needs: deploy
     runs-on: ubuntu-latest
@@ -92,6 +116,7 @@ jobs:
       IMAGE: ${{ format('{0}', contains(github.event.head_commit.message, '/image')) }}
     steps:
     - name: Invoke CD workflow
+      if: ${{ env.PKG || env.IMAGE }}
       uses: benc-uk/workflow-dispatch@v1
       with:
         workflow: CD
