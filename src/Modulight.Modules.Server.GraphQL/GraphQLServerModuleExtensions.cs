@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 using HotChocolate.AspNetCore.Extensions;
-using Modulight.Modules.Server.GraphQL.Bridges;
+using Microsoft.AspNetCore.Routing;
 
 namespace Modulight.Modules.Server.GraphQL
 {
@@ -11,20 +11,6 @@ namespace Modulight.Modules.Server.GraphQL
     /// </summary>
     public static class GraphQLServerModuleExtensions
     {
-        /// <summary>
-        /// Add bridge module to register graphql module services like aspnet modules.
-        /// </summary>
-        /// <param name="modules"></param>
-        /// <param name="setupOptions"></param>
-        /// <param name="configureOptions"></param>
-        /// <param name="postMapEndpoint"></param>
-        /// <returns></returns>
-        public static IModuleHostBuilder BridgeGraphQLServerModuleToAspNet(this IModuleHostBuilder modules, Action<BridgeGraphqlAspnetModuleOption>? setupOptions = null, Action<BridgeGraphqlAspnetModuleOption, IServiceProvider>? configureOptions = null, Action<IGraphQLServerModule, GraphQLEndpointConventionBuilder>? postMapEndpoint = null)
-        {
-            modules.TryAddModule<BridgeGraphqlAspnetModule, BridgeGraphqlAspnetModuleOption>(() => new(postMapEndpoint), setupOptions, configureOptions);
-            return modules;
-        }
-
         /// <summary>
         /// Use building middlewares for graphql modules.
         /// It will register <see cref="IGraphQLServerModuleHost"/> service.
@@ -46,5 +32,16 @@ namespace Modulight.Modules.Server.GraphQL
         /// <param name="provider"></param>
         /// <returns></returns>
         public static IGraphQLServerModuleHost GetGraphQLServerModuleHost(this IServiceProvider provider) => provider.GetRequiredService<IGraphQLServerModuleHost>();
+
+        /// <summary>
+        /// Map all registered graphql server module's endpoints.
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <returns></returns>
+        public static IEndpointRouteBuilder MapGraphQLServerModuleEndpoints(this IEndpointRouteBuilder builder, Action<IGraphQLServerModule, GraphQLEndpointConventionBuilder>? postMapEndpoint = null)
+        {
+            builder.ServiceProvider.GetGraphQLServerModuleHost().MapEndpoints(builder, postMapEndpoint);
+            return builder;
+        }
     }
 }

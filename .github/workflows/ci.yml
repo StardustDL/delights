@@ -116,7 +116,7 @@ jobs:
       IMAGE: ${{ format('{0}', contains(github.event.head_commit.message, '/image')) }}
     steps:
     - name: Invoke CD workflow
-      if: ${{ env.PKG || env.IMAGE }}
+      if: ${{ env.PKG == 'true' || env.IMAGE == 'true' }}
       uses: benc-uk/workflow-dispatch@v1
       with:
         workflow: CD

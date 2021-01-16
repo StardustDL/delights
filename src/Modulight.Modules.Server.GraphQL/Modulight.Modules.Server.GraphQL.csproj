@@ -20,7 +20,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Modulight.Modules.Server.AspNet\Modulight.Modules.Server.AspNet.csproj" />
+	  <ProjectReference Include="..\Modulight.Modules.Core\Modulight.Modules.Core.csproj" />
 	</ItemGroup>
 
 </Project>

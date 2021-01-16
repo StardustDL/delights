@@ -46,14 +46,7 @@ namespace Delights.Api
 
             services.AddCors();
 
-            var builder = ModuleHostBuilder.CreateDefaultBuilder().UseAspNetServerModules().UseGraphQLServerModules()
-                .BridgeGraphQLServerModuleToAspNet(postMapEndpoint: (module, builder) =>
-                {
-                    builder.RequireCors(cors =>
-                    {
-                        cors.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
-                    });
-                });
+            var builder = ModuleHostBuilder.CreateDefaultBuilder().UseAspNetServerModules().UseGraphQLServerModules();
 
             builder.AddObjectStorageModule((o) =>
                 {
@@ -93,16 +86,20 @@ namespace Delights.Api
 
             app.UseRouting();
 
-            app.UseAuthorization();
-
             app.UseCors();
 
-            var aspnetModuleHost = app.ApplicationServices.GetAspNetServerModuleHost();
-            aspnetModuleHost.UseMiddlewares(app);
+            app.UseAspNetServerModuleMiddlewares();
 
             app.UseEndpoints(endpoints =>
             {
-                aspnetModuleHost.MapEndpoints(endpoints);
+                endpoints.MapAspNetServerModuleEndpoints();
+                endpoints.MapGraphQLServerModuleEndpoints(postMapEndpoint: (module, builder) =>
+                {
+                    builder.RequireCors(cors =>
+                    {
+                        cors.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                    });
+                });
                 endpoints.MapControllers();
             });
         }

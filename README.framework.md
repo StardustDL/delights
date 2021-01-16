@@ -37,13 +37,6 @@ For GraphQL server modules:
 ```cs
 var builder = ModuleHostBuilder.CreateDefaultBuilder()
     .UseAspNetServerModules().UseGraphQLServerModules()
-    .BridgeGraphQLServerModuleToAspNet(postMapEndpoint: (module, builder) =>
-    {
-        builder.RequireCors(cors =>
-        {
-            cors.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
-        });
-    })
     .AddModule<FooModule>();
 ```
 
@@ -60,15 +53,21 @@ Additional step for GraphQL server modules:
 ```cs
 // in Startup: void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 
-var aspnetModuleHost = app.ApplicationServices.GetAspNetServerModuleHost();
-aspnetModuleHost.UseMiddlewares(app);
+app.UseAspNetServerModuleMiddlewares();
 
 app.UseEndpoints(endpoints =>
 {
+    // modules mapper
+    endpoints.MapAspNetServerModuleEndpoints();
+    endpoints.MapGraphQLServerModuleEndpoints(postMapEndpoint: (module, builder) =>
+    {
+        builder.RequireCors(cors =>
+        {
+            cors.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+        });
+    });
     // other mapper, eg:
     endpoints.MapControllers();
-    // modules mapper
-    aspnetModuleHost.MapEndpoints(endpoints);
 });
 ```
 
@@ -99,12 +98,12 @@ https://sparkshine.pkgs.visualstudio.com/StardustDL/_packaging/feed/nuget/v3/ind
 
 ### Design a client (Blazor) module
 
-- [Module.cs](./src/modules/hello/Delights.Modules.Hello/Module.cs) Client module definition.
+- [HelloModule.cs](./src/modules/hello/Delights.Modules.Hello/HelloModule.cs) Client module definition.
 - [Index.razor](./src/modules/hello/Delights.Modules.Hello.UI/Pages/Index.razor) Client module pages. It belongs to a different assembly from which Module belongs to because we want this assembly is lazy loading.
 
 ### Design a GraphQL server module
 
-- [Module.cs](./src/modules/hello/Delights.Modules.Hello.Server/Module.cs) GraphQL server module definition.
+- [HelloServerModule.cs](./src/modules/hello/Delights.Modules.Hello.Server/HelloServerModule.cs) GraphQL server module definition.
 
 ### Use a client module in Blazor websites
 
