@@ -108,6 +108,43 @@ jobs:
         push: false
         tags: |
           stardustdl/delights:client-wasm-host
+  deploy-docs:
+    needs: ci
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && ! startsWith(github.event.head_commit.message, 'docs:') }}
+    runs-on: windows-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Setup dotnet
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: ${{ env.dotnet-version }}
+    - name: Setup dotnet
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: "3.1.x"
+    - name: Setup dotnet
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: "2.1.x"
+    - name: Setup NodeJS
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ env.node-version }}
+    - name: Setup psake
+      run: Set-PSRepository -Name PSGallery -InstallationPolicy Trusted; Install-Module -Name psake
+    - name: Build and Deploy packages
+      run: Invoke-psake cd
+    - name: Install docfx
+      run: choco install docfx -y
+    - name: Generate docs
+      run: docfx ./docs/docfx.json
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@3.7.1
+      with:
+        ACCESS_TOKEN: ${{ secrets.PA_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: ./docs/_site
   invoke-cd:
     needs: deploy
     runs-on: ubuntu-latest
