@@ -19,9 +19,9 @@ namespace Modulight.Modules.Server.GraphQL
         /// <param name="configureOptions"></param>
         /// <param name="postMapEndpoint"></param>
         /// <returns></returns>
-        public static IModuleHostBuilder BridgeGraphQLServerModuleToAspNet(this IModuleHostBuilder modules, Action<BridgeAspNetModuleOption>? setupOptions = null, Action<BridgeAspNetModuleOption, IServiceProvider>? configureOptions = null, Action<IGraphQLServerModule, GraphQLEndpointConventionBuilder>? postMapEndpoint = null)
+        public static IModuleHostBuilder BridgeGraphQLServerModuleToAspNet(this IModuleHostBuilder modules, Action<BridgeGraphqlAspnetModuleOption>? setupOptions = null, Action<BridgeGraphqlAspnetModuleOption, IServiceProvider>? configureOptions = null, Action<IGraphQLServerModule, GraphQLEndpointConventionBuilder>? postMapEndpoint = null)
         {
-            modules.TryAddModule<BridgeAspNetModule, BridgeAspNetModuleOption>(() => new(postMapEndpoint), setupOptions, configureOptions);
+            modules.TryAddModule<BridgeGraphqlAspnetModule, BridgeGraphqlAspnetModuleOption>(() => new(postMapEndpoint), setupOptions, configureOptions);
             return modules;
         }
 

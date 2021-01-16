@@ -17,18 +17,11 @@ using StardustDL.RazorComponents.MaterialDesignIcons;
 
 namespace Delights.UI
 {
+    [Modulight.Modules.Module(Description = "Provide user interfaces for client module hosting.", Url = Modules.Shared.SharedManifest.Url, Author = Modules.Shared.SharedManifest.Author)]
     public class UIModule : RazorComponentClientModule<EmptyModuleService<UIModule>, EmptyModuleOption<UIModule>, MainModuleUI>
     {
         public UIModule() : base()
         {
-            Manifest = Manifest with
-            {
-                Name = "ClientUI",
-                DisplayName = "Home",
-                Description = "Provide user interfaces for client module hosting.",
-                Url = "https://github.com/StardustDL/delights",
-                Author = "StardustDL",
-            };
         }
 
         public override void RegisterUI(IServiceCollection services)

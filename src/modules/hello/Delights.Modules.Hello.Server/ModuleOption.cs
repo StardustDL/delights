@@ -2,10 +2,7 @@
 
 namespace Delights.Modules.Hello.Server
 {
-    public class ModuleOption : IGraphQLServerModuleOption
+    public class ModuleOption : GraphQLServerModuleOption
     {
-        public string SchemaName { get; set; } = "";
-
-        public string Endpoint { get; set; } = "";
     }
 }

@@ -20,13 +20,7 @@ namespace Modulight.Modules
         {
             if (manifest is null)
             {
-                manifest = new ModuleManifest 
-                {
-                    Name = GetType().Name,
-                    EntryAssembly = GetType().GetAssemblyName(),
-                    DisplayName = GetType().Name,
-                    Version = GetType().Assembly.GetName().Version?.ToString() ?? "",
-                };
+                manifest = ModuleManifest.Generate(GetType());
             }
             Manifest = manifest;
         }

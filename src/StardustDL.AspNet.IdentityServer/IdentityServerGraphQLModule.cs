@@ -63,10 +63,7 @@ namespace StardustDL.AspNet.IdentityServer
     {
     }
 
-    public class IdentityServerGraphQLModuleOption : IGraphQLServerModuleOption
+    public class IdentityServerGraphQLModuleOption : GraphQLServerModuleOption
     {
-        public string SchemaName { get; set; } = "";
-
-        public string Endpoint { get; set; } = "";
     }
 }

@@ -21,27 +21,16 @@ namespace Delights.Modules.ModuleManager
     {
         public static Modulight.Modules.IModuleHostBuilder AddModuleManagerModule(this Modulight.Modules.IModuleHostBuilder modules, Action<ModuleOption>? setupOptions = null, Action<ModuleOption, IServiceProvider>? configureOptions = null)
         {
-            modules.TryAddModule<Module, ModuleOption>(setupOptions, configureOptions);
+            modules.TryAddModule<ModuleManagerModule, ModuleOption>(setupOptions, configureOptions);
             return modules;
         }
     }
 
-    public class Module : RazorComponentClientModule<ModuleService, ModuleOption, ModuleUI>
+    [Module(Url = Shared.SharedManifest.Url, Author = Shared.SharedManifest.Author, Description = SharedManifest.Description)]
+    public class ModuleManagerModule : RazorComponentClientModule<ModuleService, ModuleOption, ModuleUI>
     {
-        public Module() : base()
+        public ModuleManagerModule() : base()
         {
-            Manifest = Manifest with
-            {
-                Name = SharedManifest.Raw.Name,
-                DisplayName = SharedManifest.Raw.DisplayName,
-                Description = SharedManifest.Raw.Description,
-                Url = SharedManifest.Raw.Url,
-                Author = SharedManifest.Raw.Author,
-                Assemblies = new string[]
-                {
-                    $"{GetType().GetAssemblyName()}.UI"
-                },
-            };
         }
 
         public override void RegisterService(IServiceCollection services)
@@ -51,7 +40,7 @@ namespace Delights.Modules.ModuleManager
                 "ModuleManagerGraphQLClient", (sp, client) =>
                 {
                     var option = sp.GetRequiredService<IOptions<ModuleOption>>().Value;
-                    client.BaseAddress = new Uri(option.GraphQLEndpoint.TrimEnd('/') + $"/{SharedManifest.Raw.Name}");
+                    client.BaseAddress = new Uri(option.GraphQLEndpoint.TrimEnd('/') + $"/{Manifest.Name}Server");
                 });
             services.AddModuleManagerGraphQLClient();
         }

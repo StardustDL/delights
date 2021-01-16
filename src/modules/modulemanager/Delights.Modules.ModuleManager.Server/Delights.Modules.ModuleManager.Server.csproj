@@ -11,7 +11,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Modulight.Modules.Server.GraphQL\Modulight.Modules.Server.GraphQL.csproj" />
-    <ProjectReference Include="..\Delights.Modules.ModuleManager.Core\Delights.Modules.ModuleManager.Core.csproj" />
   </ItemGroup>
+
+  <Import Project="..\..\Delights.Modules.Shared\Delights.Modules.Shared.projitems" Label="Shared" />
+
+  <Import Project="..\Delights.Modules.ModuleManager.Shared\Delights.Modules.ModuleManager.Shared.projitems" Label="Shared" />
 
 </Project>

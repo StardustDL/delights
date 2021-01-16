@@ -14,20 +14,16 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Modulight.Modules.Server.GraphQL.Bridges
 {
-    internal class BridgeAspNetModule : AspNetServerModule<BridgeAspNetModuleService, BridgeAspNetModuleOption>
+    [Module(
+        Author = "StardustDL",
+        Description = "Bridge GraphQL server modules to AspNet server module.",
+        Url = "https://github.com/StardustDL/delights")]
+    internal class BridgeGraphqlAspnetModule : AspNetServerModule<BridgeGraphqlAspnetModuleService, BridgeGraphqlAspnetModuleOption>
     {
         Action<IGraphQLServerModule, GraphQLEndpointConventionBuilder>? PostMapEndpoint { get; }
 
-        public BridgeAspNetModule(Action<IGraphQLServerModule, GraphQLEndpointConventionBuilder>? postMapEndpoint = null) : base()
+        public BridgeGraphqlAspnetModule(Action<IGraphQLServerModule, GraphQLEndpointConventionBuilder>? postMapEndpoint = null) : base()
         {
-            Manifest = Manifest with
-            {
-                Name = "BridgeGraphQLAspNet",
-                DisplayName = "Bridge GraphQL AspNet",
-                Description = "Bridge GraphQL server modules to AspNet server module.",
-                Url = "https://github.com/StardustDL/delights",
-                Author = "StardustDL",
-            };
             PostMapEndpoint = postMapEndpoint;
         }
 
@@ -39,7 +35,7 @@ namespace Modulight.Modules.Server.GraphQL.Bridges
         }
     }
 
-    internal class BridgeAspNetModuleService : IModuleService
+    internal class BridgeGraphqlAspnetModuleService : IModuleService
     {
 
     }
@@ -47,7 +43,7 @@ namespace Modulight.Modules.Server.GraphQL.Bridges
     /// <summary>
     /// Options for GraphQL-AspNet bridge module.
     /// </summary>
-    public class BridgeAspNetModuleOption
+    public class BridgeGraphqlAspnetModuleOption
     {
 
     }

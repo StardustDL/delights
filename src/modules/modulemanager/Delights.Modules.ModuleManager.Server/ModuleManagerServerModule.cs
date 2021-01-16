@@ -15,25 +15,18 @@ namespace Delights.Modules.ModuleManager.Server
     {
         public static IModuleHostBuilder AddModuleManagerModule(this IModuleHostBuilder modules, Action<ModuleOption>? setupOptions = null, Action<ModuleOption, IServiceProvider>? configureOptions = null)
         {
-            modules.TryAddModule<Module, ModuleOption>(setupOptions, configureOptions);
+            modules.TryAddModule<ModuleManagerServerModule, ModuleOption>(setupOptions, configureOptions);
             return modules;
         }
     }
 
-    public class Module : GraphQLServerModule<ModuleService, ModuleOption>
+    [Module(Url = Shared.SharedManifest.Url, Author = Shared.SharedManifest.Author, Description = SharedManifest.Description)]
+    public class ModuleManagerServerModule : GraphQLServerModule<ModuleService, ModuleOption>
     {
         public override Type QueryType => typeof(ModuleQuery);
 
-        public Module() : base()
+        public ModuleManagerServerModule() : base()
         {
-            Manifest = Manifest with
-            {
-                Name = SharedManifest.Raw.Name,
-                DisplayName = SharedManifest.Raw.DisplayName,
-                Description = SharedManifest.Raw.Description,
-                Url = SharedManifest.Raw.Url,
-                Author = SharedManifest.Raw.Author,
-            };
         }
     }
 
@@ -51,8 +44,8 @@ namespace Delights.Modules.ModuleManager.Server
 
     public class ModuleService : IModuleService
     {
-        public ModuleService(ILogger<Module> logger) => Logger = logger;
+        public ModuleService(ILogger<ModuleManagerServerModule> logger) => Logger = logger;
 
-        public ILogger<Module> Logger { get; private set; }
+        public ILogger<ModuleManagerServerModule> Logger { get; private set; }
     }
 }

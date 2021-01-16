@@ -15,14 +15,17 @@
 		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.2" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
 		<PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
-		<PackageReference Include="StardustDL.RazorComponents.AntDesigns" Version="0.0.1-preview.5" />
+		<PackageReference Include="StardustDL.RazorComponents.AntDesigns" Version="0.0.2-preview.6" />
 		<PackageReference Include="StrawberryShake" Version="11.0.0-preview.137" />
-		<PackageReference Include="StardustDL.RazorComponents.MaterialDesignIcons" Version="0.0.1-preview.5" />
+		<PackageReference Include="StardustDL.RazorComponents.MaterialDesignIcons" Version="0.0.2-preview.6" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\..\..\Modulight.Modules.Client.RazorComponents\Modulight.Modules.Client.RazorComponents.csproj" />
-		<ProjectReference Include="..\Delights.Modules.ModuleManager.Core\Delights.Modules.ModuleManager.Core.csproj" />
 	</ItemGroup>
+
+	<Import Project="..\Delights.Modules.ModuleManager.Shared\Delights.Modules.ModuleManager.Shared.projitems" Label="Shared" />
+
+	<Import Project="..\..\Delights.Modules.Shared\Delights.Modules.Shared.projitems" Label="Shared" />
 
 </Project>

@@ -15,4 +15,16 @@
         /// </summary>
         string Endpoint { get; set; }
     }
+
+    /// <summary>
+    /// Basic implement for <see cref="IGraphQLServerModuleOption"/>.
+    /// </summary>
+    public class GraphQLServerModuleOption : IGraphQLServerModuleOption
+    {
+        /// <inheritdoc/>
+        public string SchemaName { get; set; } = "";
+
+        /// <inheritdoc/>
+        public string Endpoint { get; set; } = "";
+    }
 }

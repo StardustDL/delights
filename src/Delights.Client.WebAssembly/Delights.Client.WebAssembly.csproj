@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <BlazorWebAssemblyLazyLoad Include="Delights.Modules.Hello.UI.dll" />
-    <BlazorWebAssemblyLazyLoad Include="Delights.Modules.ModuleManager.UI.dll" />
   </ItemGroup>
 
   <ItemGroup>

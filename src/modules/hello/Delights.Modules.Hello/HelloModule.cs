@@ -19,22 +19,18 @@ namespace Delights.Modules.Hello
     {
         public static IModuleHostBuilder AddHelloModule(this IModuleHostBuilder modules, Action<ModuleOption>? setupOptions = null, Action<ModuleOption, IServiceProvider>? configureOptions = null)
         {
-            modules.TryAddModule<Module, ModuleOption>(setupOptions, configureOptions);
+            modules.TryAddModule<HelloModule, ModuleOption>(setupOptions, configureOptions);
             return modules;
         }
     }
 
-    public class Module : RazorComponentClientModule<ModuleService, ModuleOption, ModuleUI>
+    [Module(Url = Shared.SharedManifest.Url, Author = Shared.SharedManifest.Author, Description = SharedManifest.Description)]
+    public class HelloModule : RazorComponentClientModule<ModuleService, ModuleOption, ModuleUI>
     {
-        public Module() : base()
+        public HelloModule() : base()
         {
             Manifest = Manifest with
             {
-                Name = SharedManifest.Raw.Name,
-                DisplayName = SharedManifest.Raw.DisplayName,
-                Description = SharedManifest.Raw.Description,
-                Url = SharedManifest.Raw.Url,
-                Author = SharedManifest.Raw.Author,
                 Assemblies = new string[]
                 {
                     $"{GetType().GetAssemblyName()}.UI"
@@ -49,7 +45,7 @@ namespace Delights.Modules.Hello
                 "HelloGraphQLClient", (sp, client) =>
                 {
                     var option = sp.GetRequiredService<IOptions<ModuleOption>>().Value;
-                    client.BaseAddress = new Uri(option.GraphQLEndpoint.TrimEnd('/') + $"/{SharedManifest.Raw.Name}");
+                    client.BaseAddress = new Uri(option.GraphQLEndpoint.TrimEnd('/') + $"/{Manifest.Name}Server");
                 });
             services.AddHelloGraphQLClient();
         }
