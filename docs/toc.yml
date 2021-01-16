@@ -1,5 +1,11 @@
 - name: Articles
   href: articles/
-- name: Api Documentation
-  href: api/
-  homepage: api/index.md
+- name: Delights API Documentation
+  href: api/delights
+  homepage: api/delights/index.md
+- name: Modulight API Documentation
+  href: api/modulight
+  homepage: api/modulight/index.md
+- name: Extension API Documentation
+  href: api/extensions
+  homepage: api/extensions/index.md

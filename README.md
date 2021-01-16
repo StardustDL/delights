@@ -4,9 +4,9 @@
 
 Delights is my collection of useful tools in life.
 
-> It's built on a light modular framework [Modulight](./README.framework.md).
+> It's built on a light modular framework [Modulight](https://stardustdl.github.io/delights/api/modulight/).
 > 
-> Visit [here](https://stardustdl.github.io/delights/) for details about the modular framework.
+> Visit [here](https://stardustdl.github.io/delights/api/modulight/) for details about the modular framework.
 
 ## Project guide
 

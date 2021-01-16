@@ -9,7 +9,34 @@
           "cwd": ".."
         }
       ],
-      "dest": "api",
+      "dest": "api/modulight",
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false
+    },
+    {
+      "src": [
+        {
+          "files": [
+            "src/StardustDL*/**.csproj"
+          ],
+          "cwd": ".."
+        }
+      ],
+      "dest": "api/extensions",
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false
+    },
+    {
+      "src": [
+        {
+          "files": [
+            "src/Delights*/**.csproj",
+            "src/modules/**.csproj"
+          ],
+          "cwd": ".."
+        }
+      ],
+      "dest": "api/delights",
       "disableGitFeatures": false,
       "disableDefaultFilter": false
     }
@@ -18,8 +45,20 @@
     "content": [
       {
         "files": [
-          "api/**.yml",
-          "api/index.md"
+          "api/modulight/**.yml",
+          "api/modulight/index.md"
+        ]
+      },
+      {
+        "files": [
+          "api/extensions/**.yml",
+          "api/extensions/index.md"
+        ]
+      },
+      {
+        "files": [
+          "api/delights/**.yml",
+          "api/delights/index.md"
         ]
       },
       {
@@ -50,7 +89,7 @@
       }
     ],
     "globalMetadata": {
-      "_appTitle": "Modulight",
+      "_appTitle": "Delights",
       "_appFooter": "Copyright © StardustDL.",
       "_enableSearch": true,
       "_enableNewTab": true,
@@ -58,7 +97,7 @@
       "_gitContribute": {
         "repo": "https://github.com/StardustDL/delights",
         "branch": "master",
-        "apiSpecFolder": "docs"
+        "apiSpecFolder": "docs/apidoc"
       }
     },
     "dest": "_site",

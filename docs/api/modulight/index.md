@@ -98,23 +98,23 @@ https://sparkshine.pkgs.visualstudio.com/StardustDL/_packaging/feed/nuget/v3/ind
 
 ### Design a client (Blazor) module
 
-- [HelloModule.cs](./src/modules/hello/Delights.Modules.Hello/HelloModule.cs) Client module definition.
-- [Index.razor](./src/modules/hello/Delights.Modules.Hello.UI/Pages/Index.razor) Client module pages. It belongs to a different assembly from which Module belongs to because we want this assembly is lazy loading.
+- [HelloModule.cs](https://github.com/StardustDL/delights/blob/master/src/modules/hello/Delights.Modules.Hello/HelloModule.cs) Client module definition.
+- [Index.razor](https://github.com/StardustDL/delights/blob/master/src/modules/hello/Delights.Modules.Hello.UI/Pages/Index.razor) Client module pages. It belongs to a different assembly from which Module belongs to because we want this assembly is lazy loading.
 
 ### Design a GraphQL server module
 
-- [HelloServerModule.cs](./src/modules/hello/Delights.Modules.Hello.Server/HelloServerModule.cs) GraphQL server module definition.
+- [HelloServerModule.cs](https://github.com/StardustDL/delights/blob/master/src/modules/hello/Delights.Modules.Hello.Server/HelloServerModule.cs) GraphQL server module definition.
 
 ### Use a client module in Blazor websites
 
-- [ModulePage.razor](./src/Delights.UI/Components/ModulePage.razor) Layout and container for module pages.
-- [App.razor](./src/Delights.UI/App.razor) Lazy loading for js/css/sassemblies when routing.
-- [UIModule.cs](./src/Delights.UI/UIModule.cs) Definition of JS/CSS resources.
-- [ModuleSetup.cs](./src/Delights.Client.Shared/ModuleSetup.cs) Use modules in client.
-- [Startup.cs](./src/Delights.Client/Startup.cs) Blazor Server hosting.
-- [Program.cs](./src/Delights.Client.WebAssembly/Program.cs) Blazor WebAssembly hosting.
-- [index.html](./src/Delights.Client.WebAssembly/wwwroot/index.html) Clean index.html.
+- [ModulePage.razor](https://github.com/StardustDL/delights/blob/master/src/Delights.UI/Components/ModulePage.razor) Layout and container for module pages.
+- [App.razor](https://github.com/StardustDL/delights/blob/master/src/Delights.UI/App.razor) Lazy loading for js/css/sassemblies when routing.
+- [UIModule.cs](https://github.com/StardustDL/delights/blob/master/src/Delights.UI/UIModule.cs) Definition of JS/CSS resources.
+- [ModuleSetup.cs](https://github.com/StardustDL/delights/blob/master/src/Delights.Client.Shared/ModuleSetup.cs) Use modules in client.
+- [Startup.cs](https://github.com/StardustDL/delights/blob/master/src/Delights.Client/Startup.cs) Blazor Server hosting.
+- [Program.cs](https://github.com/StardustDL/delights/blob/master/src/Delights.Client.WebAssembly/Program.cs) Blazor WebAssembly hosting.
+- [index.html](https://github.com/StardustDL/delights/blob/master/src/Delights.Client.WebAssembly/wwwroot/index.html) Clean index.html.
 
 ### Use a GraphQL server module
 
-- [Startup.cs](./src/Delights.Api/Startup.cs) GraphQL server integrating.
+- [Startup.cs](https://github.com/StardustDL/delights/blob/master/src/Delights.Api/Startup.cs) GraphQL server integrating.
