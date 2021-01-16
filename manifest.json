@@ -1,0 +1,1856 @@
+{
+  "homepages": [],
+  "source_base_path": "D:/a/delights/delights/docs",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      },
+      "is_incremental": false
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Api.Program.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Api.Program.html",
+          "hash": "hkczmp5feeTlpuTteoFY6g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Api.Startup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Api.Startup.html",
+          "hash": "2tl0+6KjZxdBGEVXjtLX4A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Api.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Api.html",
+          "hash": "hWyQfD4NlKzIHTeRXLINCQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Client.Program.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Client.Program.html",
+          "hash": "oaqjirrc7ck78RjCz83jPw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Client.Shared.ModuleSetup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Client.Shared.ModuleSetup.html",
+          "hash": "ikrUbU5x435LrBaQ/KyXZA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Client.Shared.ServerConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Client.Shared.ServerConfiguration.html",
+          "hash": "yFPeogkN6MM2IUOq7daKhQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Client.Shared.ServiceExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Client.Shared.ServiceExtensions.html",
+          "hash": "xPHzp0hbVraJtatcd3IpVA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Client.Shared.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Client.Shared.html",
+          "hash": "jpE91nQbF3Le+MwQbqV7fg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Client.Startup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Client.Startup.html",
+          "hash": "6Gol9dbzSXbCbnlFwHSusA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Client.WebAssembly.Host.Program.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Client.WebAssembly.Host.Program.html",
+          "hash": "P1smPmcG0UVZN4OvJBDv5A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Client.WebAssembly.Host.Startup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Client.WebAssembly.Host.Startup.html",
+          "hash": "yCfZxdQEPMjy2YjiogAJRA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Client.WebAssembly.Host.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Client.WebAssembly.Host.html",
+          "hash": "j8eseCi6ylJS3yx1+BNcdA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Client.WebAssembly.Program.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Client.WebAssembly.Program.html",
+          "hash": "7gJMSEqlzCwdA2ZYr27xcQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Client.WebAssembly.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Client.WebAssembly.html",
+          "hash": "Tx1gyOiJCctUkutgmPoPzQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Client.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Client.html",
+          "hash": "pHiCagk67oeRLebAIH3+5w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Hello.GraphQL.GetMessages.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Hello.GraphQL.GetMessages.html",
+          "hash": "eHsPv4S7RL7vzye/Vk+RfA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Hello.GraphQL.GetMessagesOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Hello.GraphQL.GetMessagesOperation.html",
+          "hash": "TQ6ryCydkKpMOgokiFqzgg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Hello.GraphQL.GetMessagesResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Hello.GraphQL.GetMessagesResultParser.html",
+          "hash": "VLd0g7z1Y1sw67/fyjAixQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Hello.GraphQL.HelloGraphQLClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Hello.GraphQL.HelloGraphQLClient.html",
+          "hash": "nkicDLRcDSzwbZ8l72+9iw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Hello.GraphQL.HelloGraphQLClientServiceCollectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Hello.GraphQL.HelloGraphQLClientServiceCollectionExtensions.html",
+          "hash": "hTtKxHJgk9MyRCJdk0edAg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Hello.GraphQL.IGetMessages.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Hello.GraphQL.IGetMessages.html",
+          "hash": "kCwKQ/QskRQFDNrqBDBClw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Hello.GraphQL.IHelloGraphQLClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Hello.GraphQL.IHelloGraphQLClient.html",
+          "hash": "TcmcQ3OhDO99VMVkoJWuzg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Hello.GraphQL.IMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Hello.GraphQL.IMessage.html",
+          "hash": "WSkLDzSdORdjYJIwf5ihPA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Hello.GraphQL.IMessageConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Hello.GraphQL.IMessageConnection.html",
+          "hash": "KvMNRH1UxejdBTKpS4TaTw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Hello.GraphQL.Message.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Hello.GraphQL.Message.html",
+          "hash": "DxQTgNZWXepv2qUV68GKKw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Hello.GraphQL.MessageConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Hello.GraphQL.MessageConnection.html",
+          "hash": "XS6qICbhlZWp4jEomLTFSQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Hello.GraphQL.Module.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Hello.GraphQL.Module.html",
+          "hash": "ax0GKzOrWTh6OXgfsMheGg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Hello.GraphQL.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Hello.GraphQL.html",
+          "hash": "FKOqgc5cw8V7f9XObxrS+g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Hello.HelloModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Hello.HelloModule.html",
+          "hash": "AbkcOut+d02rXBeGQ7HWVQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Hello.ModuleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Hello.ModuleExtensions.html",
+          "hash": "lP5jEy4Xkis6hWKL6bQFKg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Hello.ModuleOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Hello.ModuleOption.html",
+          "hash": "SyDYu4JYkoyEmbAyLtvSZQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Hello.ModuleService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Hello.ModuleService.html",
+          "hash": "+JFXAXWzy4kzjM2wEYQaUA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Hello.ModuleUI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Hello.ModuleUI.html",
+          "hash": "qnvX/kvQKSBPM9LaqsTDgw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Hello.Server.HelloServerModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Hello.Server.HelloServerModule.html",
+          "hash": "0gxONizRm5RjZr9ES+uV6A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Hello.Server.ModuleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Hello.Server.ModuleExtensions.html",
+          "hash": "TnaB8zojkGiRaycIEg2msw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Hello.Server.ModuleOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Hello.Server.ModuleOption.html",
+          "hash": "xmdMikagrVhqopG4VNrj/w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Hello.Server.ModuleQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Hello.Server.ModuleQuery.html",
+          "hash": "yIO48LmwMEb+ldY5BkrCtQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Hello.Server.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Hello.Server.html",
+          "hash": "bzcXeg4u9FrYCxb49vXYww=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Hello.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Hello.html",
+          "hash": "Thg8RVDWLCBUsIzRpI85jQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.GetModules.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.GetModules.html",
+          "hash": "UB075XlYNySVKmjHPCNXTQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.GetModulesOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.GetModulesOperation.html",
+          "hash": "k9WiRQsyErmdIT3Rp3aJTQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.GetModulesResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.GetModulesResultParser.html",
+          "hash": "WNyAEkdnt4UI/QQglpDzdw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.IGetModules.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.IGetModules.html",
+          "hash": "HwczxPYLBfZqpoqUbjNQSw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.IModuleManagerGraphQLClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.IModuleManagerGraphQLClient.html",
+          "hash": "SQuWHTop1k+GahLyeFN2Xw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.IModuleManifest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.IModuleManifest.html",
+          "hash": "U7m3gsgxQctP/1YcoqNELA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.IModuleManifestConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.IModuleManifestConnection.html",
+          "hash": "8fLJ0rhSr+WRHQ+X6Amk8g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.Module.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.Module.html",
+          "hash": "uZBWJZN/LmOuU0J0i5GorA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.ModuleManagerGraphQLClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.ModuleManagerGraphQLClient.html",
+          "hash": "Lay5BtSa9tryXQmOqFsEyA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.ModuleManagerGraphQLClientServiceCollectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.ModuleManagerGraphQLClientServiceCollectionExtensions.html",
+          "hash": "3KXuEkPbUaICrRLXj7LGZg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.ModuleManifest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.ModuleManifest.html",
+          "hash": "05mDmI1y+90F9xoylHhwow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.ModuleManifestConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.ModuleManifestConnection.html",
+          "hash": "uZd2HGmC0sMQau2v6FarkA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.html",
+          "hash": "918bZxCecEN9xoqqRg9r+Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.ModuleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.ModuleExtensions.html",
+          "hash": "qrSnW438WE3eK2u3vQRPvA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.ModuleManagerModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.ModuleManagerModule.html",
+          "hash": "vgsOrmPFl97e0zeYh9QDbw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.ModuleOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.ModuleOption.html",
+          "hash": "s1fHYPLF7tR+raAKBptTrw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.ModuleService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.ModuleService.html",
+          "hash": "NyqHvTD3WpO9vmA+O/C3VA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.ModuleUI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.ModuleUI.html",
+          "hash": "mUoCsmehKYjwoWUtALmlew=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.Server.ModuleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.Server.ModuleExtensions.html",
+          "hash": "UrQhTi6a6Flzyu7V7kfdhA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.Server.ModuleManagerServerModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.Server.ModuleManagerServerModule.html",
+          "hash": "wKx9N2OnXlUr9OdgdEbMzQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.Server.ModuleOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.Server.ModuleOption.html",
+          "hash": "l+93FC6zbwnz+R9xhS3o6g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.Server.ModuleQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.Server.ModuleQuery.html",
+          "hash": "sZEk2L02/63WByWw/8TUOw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.Server.ModuleService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.Server.ModuleService.html",
+          "hash": "QXadwhR/moBxIDUv6FcGRw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.Server.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.Server.html",
+          "hash": "fRo+SQ4FEFievlKtHFHH6w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.SharedManifest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.SharedManifest.html",
+          "hash": "qpZlOHDGT0O42xlcU58ybw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.html",
+          "hash": "4SWfKuIybl6GZbcfX5Lisg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.UI.MainModuleUI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.UI.MainModuleUI.html",
+          "hash": "FDDCpsvxqnGP5SdGj693nQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.UI.Models.BuildStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.UI.Models.BuildStatus.html",
+          "hash": "8V3m3CibTW7naAQsHCYKng=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.UI.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.UI.Models.html",
+          "hash": "atU5EJS3JtiizUGtovsycQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.UI.Shared.IconNames.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.UI.Shared.IconNames.html",
+          "hash": "rYpnwc4jmzE+JYbmHPk0WA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.UI.Shared.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.UI.Shared.html",
+          "hash": "X2jIBYUwcRGH2O2GnNNUqw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.UI.UIModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.UI.UIModule.html",
+          "hash": "GdDAhI0I4EwW87p9OpiyMw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.UI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.UI.html",
+          "hash": "ACR/uY28QQhA12KuKTyzvQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/delights/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/index.html",
+          "hash": "S+UPm4+Xtaf7qaVNtLcCRg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/delights/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/toc.html",
+          "hash": "he0o6i/v7ToJ9VWrrZeecA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.Data.IdentityDbContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.Data.IdentityDbContext.html",
+          "hash": "rEjGoepCTMbPxSp2lR7tZQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.Data.html",
+          "hash": "NLBGKWE1NY4BFaT/oUma2A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.html",
+          "hash": "QirCtLVDhDOfF/YRjfeEwA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModuleOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModuleOption.html",
+          "hash": "KzTtmgI115WzVomK1cEaOQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModuleService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModuleService.html",
+          "hash": "jdkJaU6jDK9W3yyLfhgzXQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerModule.html",
+          "hash": "N8d3t0aZUd0Q5H/rJ07XuA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.Models.ApplicationUser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.Models.ApplicationUser.html",
+          "hash": "fTURdq9nziDVq1E1vBadIw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.Models.html",
+          "hash": "N+tlMOTJLs1zlA1Dg6INMA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.ModuleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.ModuleExtensions.html",
+          "hash": "ohdIiRyC9hjJ6weuEevIvA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.ModuleQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.ModuleQuery.html",
+          "hash": "R1omrkhG+s5Np/qVqPu6+w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.html",
+          "hash": "EnyyX0eOtKY7aOqPY4HV8g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.BucketService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.BucketService.html",
+          "hash": "GheqClk7fkvQxMQukFJG4g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ModuleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ModuleExtensions.html",
+          "hash": "j3/9aAn9s0PCyTwBYq/KjQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectService.html",
+          "hash": "82ht0oyNprWuYieUetmBVg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageApiModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageApiModule.html",
+          "hash": "DjjKjKzozsglCdxb2g/Cng=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageApiModuleOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageApiModuleOption.html",
+          "hash": "zFG4YiZ7INcDmkNc/n85ng=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageApiService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageApiService.html",
+          "hash": "MJsGE8EBpd34ENrUBRRDIg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageController.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageController.html",
+          "hash": "Nt9uhmq1oSiBGvgDlQx1Vg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageModule.html",
+          "hash": "4WnrNf41u7KxtKFmKnZlVQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageModuleOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageModuleOption.html",
+          "hash": "+KC0vU+I1HuNdSqaxGvJGg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageService.html",
+          "hash": "HJZ0VBkXddVAZPDXPDxvbw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.html",
+          "hash": "uliLUdSfRUpymmqzgOOgXA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/extensions/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/index.html",
+          "hash": "so4JLjaYZeZSe87eF/flqw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/extensions/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/toc.html",
+          "hash": "5S/LPSIs40T3SVxp4UlfQQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule-3.html",
+          "hash": "oXhe6VrFhfC7hDl+U9IqtQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.html",
+          "hash": "zW3bRrZ2csyoP9SSGLYFtg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModuleHost.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModuleHost.html",
+          "hash": "t9zom+wiwjbYVFSgI8VDzw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-3.html",
+          "hash": "psoqXCCSAkC3PVIZobvKQw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions.html",
+          "hash": "tjBlE7pfSrfs+Y/FoWOE3g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.BasePage-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.BasePage-1.html",
+          "hash": "eI2BqpvEY6vT6wdp/JAm/A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.BasePage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.BasePage.html",
+          "hash": "njjW+uv2kY61tlspP2Ou9A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.IModuleUI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.IModuleUI.html",
+          "hash": "tx+q+2wK+DVHObmpN4LjyQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html",
+          "hash": "SJLfWXsLPKYO0inPR2XttQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.PageParentBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.PageParentBase.html",
+          "hash": "li1Tkb1VOsUhYATm92sinw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.PageTitle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.PageTitle.html",
+          "hash": "7J4WMAmszuZembmG488WAw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.UIResource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.UIResource.html",
+          "hash": "aN+i3AKnLxH8aqJ8LmTerg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.UIResourceType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.UIResourceType.html",
+          "hash": "kbZc4Rx1HwRNp/1QXWTTTQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.html",
+          "hash": "zdzaPHVUk+NOqh6JTt/eEA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.html",
+          "hash": "cHkEEMSQ4oYLeu0iF65WHQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.DefaultModuleHostBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.DefaultModuleHostBuilder.html",
+          "hash": "LpzT9hnV+QpdHYTUHCVk5w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.IModule-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.IModule-1.html",
+          "hash": "WzS1coMPokmxeKmzp2FNSA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.IModule-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.IModule-2.html",
+          "hash": "Rf3oHe+Knwn24QYIhxW4AQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.IModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.IModule.html",
+          "hash": "LYhcv4BHVV04OsQERV9NHA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.IModuleHost.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.IModuleHost.html",
+          "hash": "swfSm6SIpI2Eg+Dpd2ZVZg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.IModuleHostBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.IModuleHostBuilder.html",
+          "hash": "qmTZJk527yeoVmQiFizOvA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Module-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Module-1.html",
+          "hash": "ZBwl6j7035AZSqHDnFFjHA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Module-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Module-2.html",
+          "hash": "ONv2eZYGSjolv46XgNgEHA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.ModuleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.ModuleExtensions.html",
+          "hash": "vkb6A+PoO8KMvYfK/EaXTg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.ModuleHostBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.ModuleHostBuilder.html",
+          "hash": "nQGiN2Ra258Do5snDfwz/Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.ModuleHostBuilderMiddlewareType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.ModuleHostBuilderMiddlewareType.html",
+          "hash": "uAwv+V2O3ihvEQWRGOrFrw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.ModuleHostExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.ModuleHostExtensions.html",
+          "hash": "yPmfjC70uMtToxWh9rEOzQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Options.EmptyModuleOption-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Options.EmptyModuleOption-1.html",
+          "hash": "EngKz/ww0oVCrcpNH7V8fg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Options.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Options.html",
+          "hash": "Ye9zl+YhJEOqOPwh8dsNhw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Server.AspNet.AspNetServerModule-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Server.AspNet.AspNetServerModule-2.html",
+          "hash": "cESUnoyPUR6CnZ4EPOH8zQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Server.AspNet.AspNetServerModuleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Server.AspNet.AspNetServerModuleExtensions.html",
+          "hash": "NoHPQW/4zQ8kcpFBiIrxlQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Server.AspNet.IAspNetServerModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Server.AspNet.IAspNetServerModule.html",
+          "hash": "j2w/yh0WqzSEO57own8vTA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Server.AspNet.IAspNetServerModuleHost.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Server.AspNet.IAspNetServerModuleHost.html",
+          "hash": "WPLEpY748VPgVREk7ZN2yA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Server.AspNet.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Server.AspNet.html",
+          "hash": "aUp6uJAnLua9T6nJqHrLWg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.GraphQLServerModule-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.GraphQLServerModule-2.html",
+          "hash": "zzr5kDgBUhQEhHBdUGT4nQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.GraphQLServerModuleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.GraphQLServerModuleExtensions.html",
+          "hash": "WIYdSXddbMKEPbVqp1K2TQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.GraphQLServerModuleOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.GraphQLServerModuleOption.html",
+          "hash": "iBcMmybuMDNn77rwI/X5Vw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.IGraphQLServerModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.IGraphQLServerModule.html",
+          "hash": "FYfejaUchKS1Wzxszanm7w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.IGraphQLServerModuleHost.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.IGraphQLServerModuleHost.html",
+          "hash": "3LlbiEwb/cyBXFLwHQPOMg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.IGraphQLServerModuleOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.IGraphQLServerModuleOption.html",
+          "hash": "sA6xdIl6v2vY5JgpjKYnlQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.html",
+          "hash": "l6VCgIXi7V+0f+Y+6uCcvA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Services.EmptyModuleService-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Services.EmptyModuleService-1.html",
+          "hash": "n06mshQfaG2ijsyxoxCmeg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Services.IModuleService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Services.IModuleService.html",
+          "hash": "0M5Y2ZC2n2pGBh/JIrtbbg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Services.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Services.html",
+          "hash": "MiE5kmzTNTUxWDmtALOG5A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.html",
+          "hash": "gHLtLlaO3QfHgr9oCP2yqw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "api/modulight/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/index.html",
+          "hash": "wgLCz9JS/l8M6BLd2F5gRQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/modulight/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/toc.html",
+          "hash": "zQKS7v4lGaN58ID6d0u0LQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/intro.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/intro.html",
+          "hash": "v9tzzqQMEohYpivvwUJfdw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "articles/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "articles/toc.html",
+          "hash": "gB8AESyvNru97tzIZofEEg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "b2H2nKQA1CcYx/inQ9AAWA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "wt7wbuenAQs7SHSRR3izkg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build",
+        "total_file_count": 0,
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
+      },
+      "processors": {
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 5,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 139,
+          "skipped_file_count": 0
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
+        "incrementalPhase": "postProcessing",
+        "total_file_count": 0,
+        "skipped_file_count": 0
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}
