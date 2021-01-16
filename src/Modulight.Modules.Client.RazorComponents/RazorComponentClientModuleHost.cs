@@ -12,15 +12,38 @@ using System.Threading.Tasks;
 
 namespace Modulight.Modules.Client.RazorComponents
 {
+    /// <summary>
+    /// Specifies the contract for razor component module hosts.
+    /// </summary>
     public interface IRazorComponentClientModuleHost : IModuleHost
     {
+        /// <summary>
+        /// Get all registered modules.
+        /// </summary>
         new IReadOnlyList<IRazorComponentClientModule> Modules { get; }
 
+        /// <summary>
+        /// Load related assemblies for a given route.
+        /// </summary>
+        /// <param name="path">Route path.</param>
+        /// <param name="recurse">Load dependent assemblies recursely.</param>
+        /// <param name="throwOnError">Throw exceptions when error occurs instead of logs.</param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         Task<List<Assembly>> GetAssembliesForRouting(string path, bool recurse = false, bool throwOnError = false, CancellationToken cancellationToken = default);
 
-        Task Validation();
+        /// <summary>
+        /// Validate modules.
+        /// Check if route roots conflict or assembly loading fails.
+        /// </summary>
+        /// <returns></returns>
+        Task Validate();
 
-        Task LoadResouces();
+        /// <summary>
+        /// Load all <see cref="UIResource"/> defined in modules into DOM.
+        /// </summary>
+        /// <returns></returns>
+        Task LoadResources();
     }
 
     internal class RazorComponentClientModuleHost : IRazorComponentClientModuleHost
@@ -38,7 +61,7 @@ namespace Modulight.Modules.Client.RazorComponents
 
         public IReadOnlyList<IRazorComponentClientModule> Modules { get; }
 
-        public async Task LoadResouces()
+        public async Task LoadResources()
         {
             using var scope = Services.CreateScope();
             var provider = scope.ServiceProvider;
@@ -61,7 +84,7 @@ namespace Modulight.Modules.Client.RazorComponents
             }
         }
 
-        public async Task Validation()
+        public async Task Validate()
         {
             HashSet<string> rootPaths = new HashSet<string>();
             foreach (var module in Modules)

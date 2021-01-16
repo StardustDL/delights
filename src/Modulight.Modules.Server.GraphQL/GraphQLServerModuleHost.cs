@@ -7,10 +7,22 @@ using System.Linq;
 
 namespace Modulight.Modules.Server.GraphQL
 {
+    /// <summary>
+    /// Specifies the contract for graphql module hosts.
+    /// </summary>
     public interface IGraphQLServerModuleHost : IModuleHost
     {
+        /// <summary>
+        /// Get all registered modules.
+        /// </summary>
         new IReadOnlyList<IGraphQLServerModule> Modules { get; }
 
+        /// <summary>
+        /// Map all registered module's endpoints.
+        /// Used in <see cref="EndpointRoutingApplicationBuilderExtensions.UseEndpoints(IApplicationBuilder, Action{IEndpointRouteBuilder})"/>.
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="postMapEndpoint">Action to configure mapped GraphQL endpoints.</param>
         void MapEndpoints(IEndpointRouteBuilder builder, Action<IGraphQLServerModule, GraphQLEndpointConventionBuilder>? postMapEndpoint = null);
     }
 

@@ -22,7 +22,7 @@ namespace Delights.Modules.ModuleManager.Server
 
     public class Module : GraphQLServerModule<ModuleService, ModuleOption>
     {
-        public override Type? QueryType => typeof(ModuleQuery);
+        public override Type QueryType => typeof(ModuleQuery);
 
         public Module() : base()
         {

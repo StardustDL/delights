@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace Modulight.Modules
 {
+    /// <summary>
+    /// Specifies the contract for module hosts.
+    /// </summary>
     public interface IModuleHost
     {
+        /// <summary>
+        /// Get all registered modules.
+        /// </summary>
         IReadOnlyList<IModule> Modules { get; }
     }
 

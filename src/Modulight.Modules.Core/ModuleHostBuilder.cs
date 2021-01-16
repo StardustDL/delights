@@ -5,22 +5,40 @@ using System.Linq;
 
 namespace Modulight.Modules
 {
+    /// <summary>
+    /// Default methods for module host builders.
+    /// </summary>
     public static class ModuleHostBuilder
     {
+        /// <summary>
+        /// Create a defualt module host builder.
+        /// </summary>
+        /// <returns></returns>
         public static IModuleHostBuilder CreateDefaultBuilder()
         {
             return new DefaultModuleHostBuilder();
         }
     }
 
+    /// <summary>
+    /// Default implement for <see cref="IModuleHostBuilder"/>.
+    /// </summary>
     public class DefaultModuleHostBuilder : IModuleHostBuilder
     {
+        /// <summary>
+        /// Module descriptors registered modules.
+        /// </summary>
         protected Dictionary<Type, IModule> Descriptors { get; } = new Dictionary<Type, IModule>();
 
+        /// <summary>
+        /// Registered building middlewares.
+        /// </summary>
         protected List<(ModuleHostBuilderMiddlewareType, Action<IModuleHostBuilder, IServiceCollection>)> Middlewares { get; } = new List<(ModuleHostBuilderMiddlewareType, Action<IModuleHostBuilder, IServiceCollection>)>();
 
+        /// <inheritdoc />
         public virtual IReadOnlyList<IModule> Modules => Descriptors.Values.ToArray();
 
+        /// <inheritdoc />
         public virtual IModuleHostBuilder AddModule(Type type, IModule module)
         {
             if (Descriptors.ContainsKey(type))
@@ -32,6 +50,7 @@ namespace Modulight.Modules
             return this;
         }
 
+        /// <inheritdoc />
         public virtual IModule? GetModule(Type type)
         {
             if (Descriptors.TryGetValue(type, out var value))
@@ -40,6 +59,10 @@ namespace Modulight.Modules
                 return null;
         }
 
+        /// <summary>
+        /// Invoked by <see cref="Build(IServiceCollection)"/> before building.
+        /// </summary>
+        /// <param name="services"></param>
         protected virtual void PreBuild(IServiceCollection services)
         {
             foreach (var middleware in
@@ -49,6 +72,10 @@ namespace Modulight.Modules
             }
         }
 
+        /// <summary>
+        /// Invoked by <see cref="Build(IServiceCollection)"/> after building.
+        /// </summary>
+        /// <param name="services"></param>
         protected virtual void PostBuild(IServiceCollection services)
         {
             foreach (var middleware in
@@ -58,6 +85,7 @@ namespace Modulight.Modules
             }
         }
 
+        /// <inheritdoc />
         public virtual void Build(IServiceCollection services)
         {
             PreBuild(services);
@@ -73,6 +101,7 @@ namespace Modulight.Modules
             PostBuild(services);
         }
 
+        /// <inheritdoc />
         public IModuleHostBuilder UseMiddleware(ModuleHostBuilderMiddlewareType type, Action<IModuleHostBuilder, IServiceCollection> middleware)
         {
             Middlewares.Add((type, middleware));

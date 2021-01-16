@@ -23,3 +23,5 @@ Delights is my collection of useful tools in life.
   - [Hello.Core](./src/modules/hello/Delights.Modules.Hello.Core) Shared manifest between client & server module.
   - [Hello.UI](./src/modules/hello/Delights.Modules.Hello.UI) UI (pages) for client module.
   - [Hello.Server](./src/modules/hello/Delights.Modules.Hello.Server) Server module.
+- [ObjectStorage](./src/StardustDL.AspNet.ObjectStorage/) A module for Minio based object storage.
+- [IdentityServer](./src/StardustDL.AspNet.IdentityServer/) A module for IdentityServer4 based authorization.

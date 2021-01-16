@@ -4,6 +4,7 @@ using Delights.Modules.ModuleManager;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using System;
+using Modulight.Modules;
 
 namespace Delights.Client.Shared
 {

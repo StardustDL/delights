@@ -8,6 +8,7 @@
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<PackageLicenseExpression>MPL-2.0</PackageLicenseExpression>
 		<Authors>StardustDL</Authors>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<Description>Core types in Modulight modular framework.</Description>
 		<PackageProjectUrl>https://github.com/StardustDL/delights</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/StardustDL/delights</RepositoryUrl>

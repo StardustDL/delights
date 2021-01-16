@@ -6,12 +6,29 @@ using System.Linq;
 
 namespace Modulight.Modules.Server.AspNet
 {
+    /// <summary>
+    /// Specifies the contract for aspnet module hosts.
+    /// </summary>
     public interface IAspNetServerModuleHost : IModuleHost
     {
+        /// <summary>
+        /// Get all registered modules.
+        /// </summary>
         new IReadOnlyList<IAspNetServerModule> Modules { get; }
 
+        /// <summary>
+        /// Map all registered module's endpoints.
+        /// Used in <see cref="EndpointRoutingApplicationBuilderExtensions.UseEndpoints(IApplicationBuilder, Action{IEndpointRouteBuilder})"/>.
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <param name="postMapEndpoint">Action to configure mapped GraphQL endpoints.</param>
         void MapEndpoints(IEndpointRouteBuilder builder, Action<IAspNetServerModule, IEndpointRouteBuilder>? postMapEndpoint = null);
 
+        /// <summary>
+        /// Use all registered module's middlewares.
+        /// Used for <see cref="UseMiddlewareExtensions.UseMiddleware(IApplicationBuilder, Type, object[])"/> 
+        /// </summary>
+        /// <param name="builder"></param>
         void UseMiddlewares(IApplicationBuilder builder);
     }
 

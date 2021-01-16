@@ -5,91 +5,58 @@ using System.Collections.Generic;
 
 namespace Modulight.Modules
 {
+    /// <summary>
+    /// Executing order for module host builder middlewares.
+    /// </summary>
     public enum ModuleHostBuilderMiddlewareType
     {
+        /// <summary>
+        /// Execute before building.
+        /// </summary>
         Pre,
+        /// <summary>
+        /// Execute after building.
+        /// </summary>
         Post
     }
 
+    /// <summary>
+    /// Specifies the contract for module host builder.
+    /// </summary>
     public interface IModuleHostBuilder
     {
+        /// <summary>
+        /// Get all registered modules.
+        /// </summary>
         IReadOnlyList<IModule> Modules { get; }
 
+        /// <summary>
+        /// Add module in given type.
+        /// </summary>
+        /// <param name="type">Target module type.</param>
+        /// <param name="module">Module instance</param>
+        /// <returns></returns>
         IModuleHostBuilder AddModule(Type type, IModule module);
 
+        /// <summary>
+        /// Get module in given type.
+        /// </summary>
+        /// <param name="type">Target module type.</param>
+        /// <returns>Module instance, null when no module in the type.</returns>
         IModule? GetModule(Type type);
 
+        /// <summary>
+        /// Use a building middleware.
+        /// </summary>
+        /// <param name="type">Executing order type.</param>
+        /// <param name="middleware">Middleware.</param>
+        /// <returns></returns>
         IModuleHostBuilder UseMiddleware(ModuleHostBuilderMiddlewareType type, Action<IModuleHostBuilder, IServiceCollection> middleware);
 
+        /// <summary>
+        /// Build the modules and the module host in service collection.
+        /// </summary>
+        /// <param name="services">Target service collection.</param>
         void Build(IServiceCollection services);
-
-        #region Extension Methods for Module
-
-        public IModuleHostBuilder AddModule<T>(T module) where T : class, IModule => AddModule(typeof(T), module);
-
-        public IModuleHostBuilder AddModule<T>()
-            where T : class, IModule, new() => AddModule(new T());
-
-        public IModuleHostBuilder AddModule<T, TOption>(T module, Action<TOption>? setupOptions = null, Action<TOption, IServiceProvider>? configureOptions = null)
-            where T : class, IModule<IModuleService, TOption> where TOption : class
-        {
-            if (setupOptions is not null)
-            {
-                module.SetupOptions(setupOptions);
-            }
-            if (configureOptions is not null)
-            {
-                module.ConfigureOptions(configureOptions);
-            }
-            AddModule(module);
-            return this;
-        }
-
-        public IModuleHostBuilder AddModule<T, TOption>(Action<TOption>? setupOptions = null, Action<TOption, IServiceProvider>? configureOptions = null)
-            where T : class, IModule<IModuleService, TOption>, new() where TOption : class => AddModule(new T(), setupOptions, configureOptions);
-
-        public IModuleHostBuilder TryAddModule(Type type, Func<IModule> module)
-        {
-            if (GetModule(type) is null)
-            {
-                AddModule(type, module());
-            }
-            return this;
-        }
-
-        public IModuleHostBuilder TryAddModule<T>(Func<T> module)
-            where T : class, IModule => TryAddModule(typeof(T), () => module());
-
-        public IModuleHostBuilder TryAddModule<T>()
-            where T : class, IModule, new() => TryAddModule(() => new T());
-
-        public IModuleHostBuilder TryAddModule<T, TOption>(Func<T> module, Action<TOption>? setupOptions = null, Action<TOption, IServiceProvider>? configureOptions = null)
-            where T : class, IModule<IModuleService, TOption> where TOption : class
-        {
-            var type = typeof(T);
-            if (GetModule(type) is null)
-            {
-                var mod = module();
-                if (setupOptions is not null)
-                {
-                    mod.SetupOptions(setupOptions);
-                }
-                if (configureOptions is not null)
-                {
-                    mod.ConfigureOptions(configureOptions);
-                }
-                AddModule(type, mod);
-            }
-            return this;
-        }
-
-        public IModuleHostBuilder TryAddModule<T, TOption>(Action<TOption>? setupOptions = null, Action<TOption, IServiceProvider>? configureOptions = null)
-            where T : class, IModule<IModuleService, TOption>, new() where TOption : class => TryAddModule(() => new T(), setupOptions, configureOptions);
-
-        #endregion
-
-        public IModuleHostBuilder UsePreMiddleware(Action<IModuleHostBuilder, IServiceCollection> middleware) => UseMiddleware(ModuleHostBuilderMiddlewareType.Pre, middleware);
-
-        public IModuleHostBuilder UsePostMiddleware(Action<IModuleHostBuilder, IServiceCollection> middleware) => UseMiddleware(ModuleHostBuilderMiddlewareType.Post, middleware);
     }
 }

@@ -37,11 +37,11 @@ namespace StardustDL.AspNet.IdentityServer
             };
         }
 
-        public override void RegisterAspNetService(IServiceCollection services)
+        public override void RegisterAspNetServices(IServiceCollection services)
         {
-            base.RegisterAspNetService(services);
+            base.RegisterAspNetServices(services);
 
-            var options = GetSetupOptions();
+            var options = GetSetupOptions(new IdentityServerModuleOption());
 
             services.AddDbContext<IdentityDbContext>(o =>
             {

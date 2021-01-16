@@ -19,7 +19,7 @@ defaults:
 env:
   dotnet-version: "5.0.x"
   node-version: "12.x"
-  build_version: "0.0.1-preview.${{ github.run_number }}"
+  build_version: "0.0.2-preview.${{ github.run_number }}"
 
 jobs:
   docker:

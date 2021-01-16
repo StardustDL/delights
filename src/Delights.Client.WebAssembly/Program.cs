@@ -31,7 +31,7 @@ namespace Delights.Client.WebAssembly
 
             await using(var provider = builder.Services.BuildServiceProvider())
             {
-                await provider.GetRazorComponentClientModuleHost().LoadResouces();
+                await provider.GetRazorComponentClientModuleHost().LoadResources();
             }
 
             await builder.Build().RunAsync();

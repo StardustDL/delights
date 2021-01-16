@@ -39,11 +39,14 @@ namespace Modulight.Modules.Server.GraphQL.Bridges
         }
     }
 
-    public class BridgeAspNetModuleService : IModuleService
+    internal class BridgeAspNetModuleService : IModuleService
     {
 
     }
 
+    /// <summary>
+    /// Options for GraphQL-AspNet bridge module.
+    /// </summary>
     public class BridgeAspNetModuleOption
     {
 

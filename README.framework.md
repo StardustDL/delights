@@ -86,7 +86,7 @@ This works for normal cases, but if you use WebAssembly target, no prerenderring
 // WebAssemblyHostBuilder builder;
 await using(var provider = builder.Services.BuildServiceProvider())
 {
-    await provider.GetRazorComponentClientModuleHost().LoadResouces();
+    await provider.GetRazorComponentClientModuleHost().LoadResources();
 }
 await builder.Build().RunAsync();
 ```

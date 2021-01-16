@@ -1,14 +1,17 @@
 ﻿namespace Modulight.Modules.Server.GraphQL
 {
+    /// <summary>
+    /// Specifies the contract for graphql module options.
+    /// </summary>
     public interface IGraphQLServerModuleOption
     {
         /// <summary>
-        /// SchemaName, if empty, default to Manifest.Name
+        /// SchemaName
         /// </summary>
         string SchemaName { get; set; }
 
         /// <summary>
-        /// Endpoint route, if empty, default to /graphql/{SchemaName}
+        /// Endpoint route
         /// </summary>
         string Endpoint { get; set; }
     }

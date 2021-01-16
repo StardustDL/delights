@@ -7,6 +7,7 @@
 		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 		<PackageLicenseExpression>MPL-2.0</PackageLicenseExpression>
 		<Authors>StardustDL</Authors>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<Description>Basic types for GraphQL server modules in Modulight modular framework.</Description>
 		<PackageProjectUrl>https://github.com/StardustDL/delights</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/StardustDL/delights</RepositoryUrl>
@@ -14,8 +15,8 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-    <PackageReference Include="HotChocolate.Data" Version="11.0.7" />
-		<PackageReference Include="HotChocolate.AspNetCore" Version="11.0.7" />
+    <PackageReference Include="HotChocolate.Data" Version="11.0.8" />
+		<PackageReference Include="HotChocolate.AspNetCore" Version="11.0.8" />
 	</ItemGroup>
 
 	<ItemGroup>

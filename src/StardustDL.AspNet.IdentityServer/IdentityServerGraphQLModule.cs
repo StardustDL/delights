@@ -20,7 +20,7 @@ namespace StardustDL.AspNet.IdentityServer
 {
     public class IdentityServerGraphQLModule : GraphQLServerModule<IdentityServerGraphQLModuleService, IdentityServerGraphQLModuleOption>
     {
-        public override Type? QueryType => typeof(ModuleQuery);
+        public override Type QueryType => typeof(ModuleQuery);
 
         public IdentityServerGraphQLModule() : base()
         {

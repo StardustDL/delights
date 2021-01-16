@@ -15,10 +15,19 @@ namespace Modulight.Modules.Client.RazorComponents.UI
     // This class can be registered as scoped DI service and then injected into Blazor
     // components for use.
 
+    /// <summary>
+    /// Basic implement for <see cref="IModuleUI"/>.
+    /// </summary>
     public abstract class ModuleUI : IDisposable, IAsyncDisposable, IModuleUI
     {
         Dictionary<string, Lazy<Task<IJSObjectReference>>> JSInvokers { get; } = new Dictionary<string, Lazy<Task<IJSObjectReference>>>();
 
+        /// <summary>
+        /// Create a module UI instance.
+        /// </summary>
+        /// <param name="jsRuntime"></param>
+        /// <param name="logger"></param>
+        /// <param name="rootPath">UI route root path.</param>
         public ModuleUI(IJSRuntime jsRuntime, ILogger<ModuleUI> logger, string rootPath = "")
         {
             RootPath = rootPath;
@@ -26,13 +35,14 @@ namespace Modulight.Modules.Client.RazorComponents.UI
             Logger = logger;
         }
 
+        /// <inheritdoc/>
+
         public virtual RenderFragment? Icon => null;
 
-        /// <summary>
-        /// Empty for no page module
-        /// </summary>
+        /// <inheritdoc/>
         public string RootPath { get; }
 
+        /// <inheritdoc/>
         public virtual bool Contains(string path)
         {
             if (RootPath is "")
@@ -43,12 +53,22 @@ namespace Modulight.Modules.Client.RazorComponents.UI
             return path.StartsWith($"{RootPath}/");
         }
 
+        /// <inheritdoc/>
         public UIResource[] Resources { get; protected set; } = Array.Empty<UIResource>();
 
+        /// <summary>
+        /// JS runtime.
+        /// </summary>
         protected IJSRuntime JSRuntime { get; }
 
         private ILogger<ModuleUI> Logger { get; }
 
+        /// <summary>
+        /// Get a lazy javascript module at /_content/{<paramref name="assemblyName"/>}/{<paramref name="jsPath"/>}.
+        /// </summary>
+        /// <param name="jsPath">Javascript file path.</param>
+        /// <param name="assemblyName">Assembly name, null for the assembly which current module defined.</param>
+        /// <returns></returns>
         protected Task<IJSObjectReference> GetJSModule(string jsPath, string? assemblyName = null)
         {
             if (assemblyName is null)
@@ -66,10 +86,15 @@ namespace Modulight.Modules.Client.RazorComponents.UI
             return JSInvokers[id].Value;
         }
 
+        /// <summary>
+        /// Get default javascript module with default name "module.js".
+        /// </summary>
+        /// <returns></returns>
         protected virtual Task<IJSObjectReference> GetEntryJSModule() => GetJSModule("module.js");
 
         #region Dispose
 
+        /// <inheritdoc/>
         protected virtual async ValueTask DisposeAsyncCore()
         {
             foreach (var invoker in JSInvokers)
@@ -84,6 +109,7 @@ namespace Modulight.Modules.Client.RazorComponents.UI
             JSInvokers.Clear();
         }
 
+        /// <inheritdoc/>
         public async ValueTask DisposeAsync()
         {
             await DisposeAsyncCore();
@@ -94,6 +120,7 @@ namespace Modulight.Modules.Client.RazorComponents.UI
 
         private bool _disposedValue;
 
+        /// <inheritdoc/>
         protected virtual void Dispose(bool disposing)
         {
             if (!_disposedValue)
@@ -114,6 +141,7 @@ namespace Modulight.Modules.Client.RazorComponents.UI
             }
         }
 
+        /// <inheritdoc/>
         public void Dispose()
         {
             Dispose(disposing: true);

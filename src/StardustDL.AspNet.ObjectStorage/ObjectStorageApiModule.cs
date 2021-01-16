@@ -29,9 +29,9 @@ namespace StardustDL.AspNet.ObjectStorage
             };
         }
 
-        public override void RegisterAspNetService(IServiceCollection services)
+        public override void RegisterAspNetServices(IServiceCollection services)
         {
-            base.RegisterAspNetService(services);
+            base.RegisterAspNetServices(services);
             services.AddControllers().ConfigureApplicationPartManager(apm =>
             {
                 apm.ApplicationParts.Add(new AssemblyPart(typeof(ObjectStorageApiModule).Assembly));

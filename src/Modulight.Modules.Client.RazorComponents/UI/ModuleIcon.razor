@@ -13,9 +13,15 @@ else
 }
 
 @code {
+    /// <summary>
+    /// Module.
+    /// </summary>
     [Parameter]
     public IRazorComponentClientModule? Module { get; set; }
 
+    /// <summary>
+    /// Fallback when the module has no icon.
+    /// </summary>
     [Parameter]
     public RenderFragment? Fallback { get; set; }
 
