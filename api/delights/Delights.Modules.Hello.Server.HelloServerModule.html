@@ -188,7 +188,8 @@
   <h6><strong>Assembly</strong>: Delights.Modules.Hello.Server.dll</h6>
   <h5 id="Delights_Modules_Hello_Server_HelloServerModule_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class HelloServerModule : GraphQLServerModule&lt;ModuleService, ModuleOption&gt;, IModule&lt;ModuleService, ModuleOption&gt;, IModule&lt;ModuleService&gt;, IGraphQLServerModule, IModule</code></pre>
+    <pre><code class="lang-csharp hljs">[Module(Url = null, Author = null, Description = null)]
+public class HelloServerModule : GraphQLServerModule&lt;ModuleService, ModuleOption&gt;, IModule&lt;ModuleService, ModuleOption&gt;, IModule&lt;ModuleService&gt;, IGraphQLServerModule, IModule</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>

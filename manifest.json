@@ -354,7 +354,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Hello.HelloModule.html",
-          "hash": "AbkcOut+d02rXBeGQ7HWVQ=="
+          "hash": "BLvq1g6hLL1OHABxYXGypA=="
         }
       },
       "is_incremental": false,
@@ -414,7 +414,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Hello.Server.HelloServerModule.html",
-          "hash": "0gxONizRm5RjZr9ES+uV6A=="
+          "hash": "5j6YDkttQmcisQ8oGA4XxQ=="
         }
       },
       "is_incremental": false,
@@ -654,7 +654,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.ModuleManager.ModuleManagerModule.html",
-          "hash": "vgsOrmPFl97e0zeYh9QDbw=="
+          "hash": "J14QpP0TUuPhxw0f813tQw=="
         }
       },
       "is_incremental": false,
@@ -714,7 +714,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.ModuleManager.Server.ModuleManagerServerModule.html",
-          "hash": "wKx9N2OnXlUr9OdgdEbMzQ=="
+          "hash": "5G32XgiqTFT5syH9WQqamA=="
         }
       },
       "is_incremental": false,
@@ -854,11 +854,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/delights/Delights.UI.UIModule.yml",
+      "source_relative_path": "api/delights/Delights.UI.UiModule.yml",
       "output": {
         ".html": {
-          "relative_path": "api/delights/Delights.UI.UIModule.html",
-          "hash": "GdDAhI0I4EwW87p9OpiyMw=="
+          "relative_path": "api/delights/Delights.UI.UiModule.html",
+          "hash": "N//m7EOJagcW9kusiDCWjg=="
         }
       },
       "is_incremental": false,
@@ -870,7 +870,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.UI.html",
-          "hash": "ACR/uY28QQhA12KuKTyzvQ=="
+          "hash": "i43Lg1n9EsWnOG79yo4C+g=="
         }
       },
       "is_incremental": false,
@@ -894,7 +894,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/toc.html",
-          "hash": "he0o6i/v7ToJ9VWrrZeecA=="
+          "hash": "TvLM3w7Ow/EAbO5c2vhdfQ=="
         }
       },
       "is_incremental": false,
@@ -926,11 +926,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.yml",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.yml",
       "output": {
         ".html": {
-          "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.html",
-          "hash": "QirCtLVDhDOfF/YRjfeEwA=="
+          "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.html",
+          "hash": "thKk7Pvjb/FwpGDpxnQ6ow=="
         }
       },
       "is_incremental": false,
@@ -938,11 +938,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModuleOption.yml",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModuleOption.yml",
       "output": {
         ".html": {
-          "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModuleOption.html",
-          "hash": "KzTtmgI115WzVomK1cEaOQ=="
+          "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModuleOption.html",
+          "hash": "/fH0MScJ1J/lc71NJipgug=="
         }
       },
       "is_incremental": false,
@@ -950,11 +950,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModuleService.yml",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModuleService.yml",
       "output": {
         ".html": {
-          "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModuleService.html",
-          "hash": "jdkJaU6jDK9W3yyLfhgzXQ=="
+          "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModuleService.html",
+          "hash": "8iQVG5IQTIeefpeCabibWw=="
         }
       },
       "is_incremental": false,
@@ -966,7 +966,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerModule.html",
-          "hash": "N8d3t0aZUd0Q5H/rJ07XuA=="
+          "hash": "UPOOx6qBLubSZUih+D38KA=="
         }
       },
       "is_incremental": false,
@@ -1002,7 +1002,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.ModuleExtensions.html",
-          "hash": "ohdIiRyC9hjJ6weuEevIvA=="
+          "hash": "RSxOzO7nAxlsD2Rqn0s2Ew=="
         }
       },
       "is_incremental": false,
@@ -1014,7 +1014,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.ModuleQuery.html",
-          "hash": "R1omrkhG+s5Np/qVqPu6+w=="
+          "hash": "A375nUOQAaTnjkOXLfCnmA=="
         }
       },
       "is_incremental": false,
@@ -1026,7 +1026,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.html",
-          "hash": "EnyyX0eOtKY7aOqPY4HV8g=="
+          "hash": "699u/pEp2wBO6Ncp0ZNGkw=="
         }
       },
       "is_incremental": false,
@@ -1034,11 +1034,23 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.BucketService.yml",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.IBucketService.yml",
       "output": {
         ".html": {
-          "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.BucketService.html",
-          "hash": "GheqClk7fkvQxMQukFJG4g=="
+          "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.IBucketService.html",
+          "hash": "2YTn/7lzXFgxSCMc5+4Q7w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.IObjectService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.IObjectService.html",
+          "hash": "FgLOrLf14H/QbcqJtWikQQ=="
         }
       },
       "is_incremental": false,
@@ -1050,19 +1062,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ModuleExtensions.html",
-          "hash": "j3/9aAn9s0PCyTwBYq/KjQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectService.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectService.html",
-          "hash": "82ht0oyNprWuYieUetmBVg=="
+          "hash": "m+UJxjZp/tomsGqGpqRN6w=="
         }
       },
       "is_incremental": false,
@@ -1074,7 +1074,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageApiModule.html",
-          "hash": "DjjKjKzozsglCdxb2g/Cng=="
+          "hash": "OdY6GotATesQYhJ7OiXc1A=="
         }
       },
       "is_incremental": false,
@@ -1086,7 +1086,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageApiModuleOption.html",
-          "hash": "zFG4YiZ7INcDmkNc/n85ng=="
+          "hash": "x4he/KQ5pGub5r01yyCupA=="
         }
       },
       "is_incremental": false,
@@ -1098,7 +1098,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageApiService.html",
-          "hash": "MJsGE8EBpd34ENrUBRRDIg=="
+          "hash": "+Cpjts7AgXOueziTQK6U8A=="
         }
       },
       "is_incremental": false,
@@ -1110,7 +1110,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageController.html",
-          "hash": "Nt9uhmq1oSiBGvgDlQx1Vg=="
+          "hash": "VJHVguYr9liqUlhPfoEkbw=="
         }
       },
       "is_incremental": false,
@@ -1122,7 +1122,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageModule.html",
-          "hash": "4WnrNf41u7KxtKFmKnZlVQ=="
+          "hash": "VAC1cPtlXWSYlKKQqSiMkA=="
         }
       },
       "is_incremental": false,
@@ -1134,7 +1134,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageModuleOption.html",
-          "hash": "+KC0vU+I1HuNdSqaxGvJGg=="
+          "hash": "+f2C4p2WZ783oRp5NvxgAg=="
         }
       },
       "is_incremental": false,
@@ -1146,7 +1146,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageService.html",
-          "hash": "HJZ0VBkXddVAZPDXPDxvbw=="
+          "hash": "2RTkulQIuxsfpozInqjTeA=="
         }
       },
       "is_incremental": false,
@@ -1158,7 +1158,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.html",
-          "hash": "uliLUdSfRUpymmqzgOOgXA=="
+          "hash": "07Qq4Fve4zGJ3RqKGEhyfA=="
         }
       },
       "is_incremental": false,
@@ -1182,7 +1182,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/toc.html",
-          "hash": "5S/LPSIs40T3SVxp4UlfQQ=="
+          "hash": "9CfSwenNTSZx8j6pgrM3Jw=="
         }
       },
       "is_incremental": false,
@@ -1230,7 +1230,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-3.html",
-          "hash": "psoqXCCSAkC3PVIZobvKQw=="
+          "hash": "pl0O8bEgM79dhCC2qWKgug=="
         }
       },
       "is_incremental": false,
@@ -1374,7 +1374,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.DefaultModuleHostBuilder.html",
-          "hash": "LpzT9hnV+QpdHYTUHCVk5w=="
+          "hash": "3c5vlYecUy8ttbXFuNfpbg=="
         }
       },
       "is_incremental": false,
@@ -1446,7 +1446,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Module-1.html",
-          "hash": "ZBwl6j7035AZSqHDnFFjHA=="
+          "hash": "Q/0DT+y5OLPxudzqRFb6vQ=="
         }
       },
       "is_incremental": false,
@@ -1458,7 +1458,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Module-2.html",
-          "hash": "ONv2eZYGSjolv46XgNgEHA=="
+          "hash": "Ts/a6FPbLgOfrJOLFJ09og=="
         }
       },
       "is_incremental": false,
@@ -1542,7 +1542,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Server.AspNet.AspNetServerModule-2.html",
-          "hash": "cESUnoyPUR6CnZ4EPOH8zQ=="
+          "hash": "FLBEIiy2lyVFPSKh/qducw=="
         }
       },
       "is_incremental": false,
@@ -1602,7 +1602,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.GraphQLServerModule-2.html",
-          "hash": "zzr5kDgBUhQEhHBdUGT4nQ=="
+          "hash": "YysV+O/FYQakFQ991ABjaw=="
         }
       },
       "is_incremental": false,
@@ -1614,7 +1614,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.GraphQLServerModuleExtensions.html",
-          "hash": "WIYdSXddbMKEPbVqp1K2TQ=="
+          "hash": "aoO5pypZsJbcBOJVRaJyNQ=="
         }
       },
       "is_incremental": false,

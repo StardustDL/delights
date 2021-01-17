@@ -83,7 +83,8 @@
   
   <h1 id="StardustDL_AspNet_ObjectStorage_ObjectStorageService" data-uid="StardustDL.AspNet.ObjectStorage.ObjectStorageService" class="text-break">Class ObjectStorageService
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Services for <a class="xref" href="StardustDL.AspNet.ObjectStorage.ObjectStorageModule.html">ObjectStorageModule</a>.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -128,7 +129,8 @@
   </h3>
   <a id="StardustDL_AspNet_ObjectStorage_ObjectStorageService__ctor_" data-uid="StardustDL.AspNet.ObjectStorage.ObjectStorageService.#ctor*"></a>
   <h4 id="StardustDL_AspNet_ObjectStorage_ObjectStorageService__ctor_Microsoft_Extensions_Options_IOptions_StardustDL_AspNet_ObjectStorage_ObjectStorageModuleOption__" data-uid="StardustDL.AspNet.ObjectStorage.ObjectStorageService.#ctor(Microsoft.Extensions.Options.IOptions{StardustDL.AspNet.ObjectStorage.ObjectStorageModuleOption})">ObjectStorageService(IOptions&lt;ObjectStorageModuleOption&gt;)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Create the instance.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -151,40 +153,16 @@
       </tr>
     </tbody>
   </table>
-  <h3 id="properties">Properties
-  </h3>
-  <a id="StardustDL_AspNet_ObjectStorage_ObjectStorageService_Options_" data-uid="StardustDL.AspNet.ObjectStorage.ObjectStorageService.Options*"></a>
-  <h4 id="StardustDL_AspNet_ObjectStorage_ObjectStorageService_Options" data-uid="StardustDL.AspNet.ObjectStorage.ObjectStorageService.Options">Options</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ObjectStorageModuleOption Options { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="StardustDL.AspNet.ObjectStorage.ObjectStorageModuleOption.html">ObjectStorageModuleOption</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="methods">Methods
   </h3>
   <a id="StardustDL_AspNet_ObjectStorage_ObjectStorageService_Bucket_" data-uid="StardustDL.AspNet.ObjectStorage.ObjectStorageService.Bucket*"></a>
   <h4 id="StardustDL_AspNet_ObjectStorage_ObjectStorageService_Bucket_System_String_" data-uid="StardustDL.AspNet.ObjectStorage.ObjectStorageService.Bucket(System.String)">Bucket(String)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Get a bucket service by name.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public BucketService Bucket(string bucketName)</code></pre>
+    <pre><code class="lang-csharp hljs">public IBucketService Bucket(string bucketName)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -213,7 +191,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="StardustDL.AspNet.ObjectStorage.BucketService.html">BucketService</a></td>
+        <td><a class="xref" href="StardustDL.AspNet.ObjectStorage.IBucketService.html">IBucketService</a></td>
         <td></td>
       </tr>
     </tbody>

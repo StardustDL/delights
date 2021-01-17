@@ -2252,64 +2252,64 @@ references:
   commentId: F:Delights.UI.Shared.IconNames.Slides
   fullName: Delights.UI.Shared.IconNames.Slides
   nameWithType: IconNames.Slides
-- uid: Delights.UI.UIModule
-  name: UIModule
-  href: api/delights/Delights.UI.UIModule.html
-  commentId: T:Delights.UI.UIModule
-  fullName: Delights.UI.UIModule
-  nameWithType: UIModule
-- uid: Delights.UI.UIModule.#ctor
-  name: UIModule()
-  href: api/delights/Delights.UI.UIModule.html#Delights_UI_UIModule__ctor
-  commentId: M:Delights.UI.UIModule.#ctor
-  fullName: Delights.UI.UIModule.UIModule()
-  nameWithType: UIModule.UIModule()
-- uid: Delights.UI.UIModule.#ctor*
-  name: UIModule
-  href: api/delights/Delights.UI.UIModule.html#Delights_UI_UIModule__ctor_
-  commentId: Overload:Delights.UI.UIModule.#ctor
+- uid: Delights.UI.UiModule
+  name: UiModule
+  href: api/delights/Delights.UI.UiModule.html
+  commentId: T:Delights.UI.UiModule
+  fullName: Delights.UI.UiModule
+  nameWithType: UiModule
+- uid: Delights.UI.UiModule.#ctor
+  name: UiModule()
+  href: api/delights/Delights.UI.UiModule.html#Delights_UI_UiModule__ctor
+  commentId: M:Delights.UI.UiModule.#ctor
+  fullName: Delights.UI.UiModule.UiModule()
+  nameWithType: UiModule.UiModule()
+- uid: Delights.UI.UiModule.#ctor*
+  name: UiModule
+  href: api/delights/Delights.UI.UiModule.html#Delights_UI_UiModule__ctor_
+  commentId: Overload:Delights.UI.UiModule.#ctor
   isSpec: "True"
-  fullName: Delights.UI.UIModule.UIModule
-  nameWithType: UIModule.UIModule
-- uid: Delights.UI.UIModule.RegisterService(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName: Delights.UI.UiModule.UiModule
+  nameWithType: UiModule.UiModule
+- uid: Delights.UI.UiModule.RegisterService(Microsoft.Extensions.DependencyInjection.IServiceCollection)
   name: RegisterService(IServiceCollection)
-  href: api/delights/Delights.UI.UIModule.html#Delights_UI_UIModule_RegisterService_Microsoft_Extensions_DependencyInjection_IServiceCollection_
-  commentId: M:Delights.UI.UIModule.RegisterService(Microsoft.Extensions.DependencyInjection.IServiceCollection)
-  fullName: Delights.UI.UIModule.RegisterService(Microsoft.Extensions.DependencyInjection.IServiceCollection)
-  nameWithType: UIModule.RegisterService(IServiceCollection)
-- uid: Delights.UI.UIModule.RegisterService*
+  href: api/delights/Delights.UI.UiModule.html#Delights_UI_UiModule_RegisterService_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:Delights.UI.UiModule.RegisterService(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName: Delights.UI.UiModule.RegisterService(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: UiModule.RegisterService(IServiceCollection)
+- uid: Delights.UI.UiModule.RegisterService*
   name: RegisterService
-  href: api/delights/Delights.UI.UIModule.html#Delights_UI_UIModule_RegisterService_
-  commentId: Overload:Delights.UI.UIModule.RegisterService
+  href: api/delights/Delights.UI.UiModule.html#Delights_UI_UiModule_RegisterService_
+  commentId: Overload:Delights.UI.UiModule.RegisterService
   isSpec: "True"
-  fullName: Delights.UI.UIModule.RegisterService
-  nameWithType: UIModule.RegisterService
-- uid: Delights.UI.UIModule.RegisterUI(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName: Delights.UI.UiModule.RegisterService
+  nameWithType: UiModule.RegisterService
+- uid: Delights.UI.UiModule.RegisterUI(Microsoft.Extensions.DependencyInjection.IServiceCollection)
   name: RegisterUI(IServiceCollection)
-  href: api/delights/Delights.UI.UIModule.html#Delights_UI_UIModule_RegisterUI_Microsoft_Extensions_DependencyInjection_IServiceCollection_
-  commentId: M:Delights.UI.UIModule.RegisterUI(Microsoft.Extensions.DependencyInjection.IServiceCollection)
-  fullName: Delights.UI.UIModule.RegisterUI(Microsoft.Extensions.DependencyInjection.IServiceCollection)
-  nameWithType: UIModule.RegisterUI(IServiceCollection)
-- uid: Delights.UI.UIModule.RegisterUI*
+  href: api/delights/Delights.UI.UiModule.html#Delights_UI_UiModule_RegisterUI_Microsoft_Extensions_DependencyInjection_IServiceCollection_
+  commentId: M:Delights.UI.UiModule.RegisterUI(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  fullName: Delights.UI.UiModule.RegisterUI(Microsoft.Extensions.DependencyInjection.IServiceCollection)
+  nameWithType: UiModule.RegisterUI(IServiceCollection)
+- uid: Delights.UI.UiModule.RegisterUI*
   name: RegisterUI
-  href: api/delights/Delights.UI.UIModule.html#Delights_UI_UIModule_RegisterUI_
-  commentId: Overload:Delights.UI.UIModule.RegisterUI
+  href: api/delights/Delights.UI.UiModule.html#Delights_UI_UiModule_RegisterUI_
+  commentId: Overload:Delights.UI.UiModule.RegisterUI
   isSpec: "True"
-  fullName: Delights.UI.UIModule.RegisterUI
-  nameWithType: UIModule.RegisterUI
-- uid: Delights.UI.UIModule.Setup(Modulight.Modules.IModuleHostBuilder)
+  fullName: Delights.UI.UiModule.RegisterUI
+  nameWithType: UiModule.RegisterUI
+- uid: Delights.UI.UiModule.Setup(Modulight.Modules.IModuleHostBuilder)
   name: Setup(IModuleHostBuilder)
-  href: api/delights/Delights.UI.UIModule.html#Delights_UI_UIModule_Setup_Modulight_Modules_IModuleHostBuilder_
-  commentId: M:Delights.UI.UIModule.Setup(Modulight.Modules.IModuleHostBuilder)
-  fullName: Delights.UI.UIModule.Setup(Modulight.Modules.IModuleHostBuilder)
-  nameWithType: UIModule.Setup(IModuleHostBuilder)
-- uid: Delights.UI.UIModule.Setup*
+  href: api/delights/Delights.UI.UiModule.html#Delights_UI_UiModule_Setup_Modulight_Modules_IModuleHostBuilder_
+  commentId: M:Delights.UI.UiModule.Setup(Modulight.Modules.IModuleHostBuilder)
+  fullName: Delights.UI.UiModule.Setup(Modulight.Modules.IModuleHostBuilder)
+  nameWithType: UiModule.Setup(IModuleHostBuilder)
+- uid: Delights.UI.UiModule.Setup*
   name: Setup
-  href: api/delights/Delights.UI.UIModule.html#Delights_UI_UIModule_Setup_
-  commentId: Overload:Delights.UI.UIModule.Setup
+  href: api/delights/Delights.UI.UiModule.html#Delights_UI_UiModule_Setup_
+  commentId: Overload:Delights.UI.UiModule.Setup
   isSpec: "True"
-  fullName: Delights.UI.UIModule.Setup
-  nameWithType: UIModule.Setup
+  fullName: Delights.UI.UiModule.Setup
+  nameWithType: UiModule.Setup
 - uid: Modulight.Modules
   name: Modulight.Modules
   href: api/modulight/Modulight.Modules.html
@@ -4646,76 +4646,76 @@ references:
   isSpec: "True"
   fullName: StardustDL.AspNet.IdentityServer.Data.IdentityDbContext.IdentityDbContext
   nameWithType: IdentityDbContext.IdentityDbContext
-- uid: StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule
-  name: IdentityServerGraphQLModule
-  href: api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.html
-  commentId: T:StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule
-  fullName: StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule
-  nameWithType: IdentityServerGraphQLModule
-- uid: StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.#ctor
-  name: IdentityServerGraphQLModule()
-  href: api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.html#StardustDL_AspNet_IdentityServer_IdentityServerGraphQLModule__ctor
-  commentId: M:StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.#ctor
-  fullName: StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.IdentityServerGraphQLModule()
-  nameWithType: IdentityServerGraphQLModule.IdentityServerGraphQLModule()
-- uid: StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.#ctor*
-  name: IdentityServerGraphQLModule
-  href: api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.html#StardustDL_AspNet_IdentityServer_IdentityServerGraphQLModule__ctor_
-  commentId: Overload:StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.#ctor
+- uid: StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule
+  name: IdentityServerGraphqlModule
+  href: api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.html
+  commentId: T:StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule
+  fullName: StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule
+  nameWithType: IdentityServerGraphqlModule
+- uid: StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.#ctor
+  name: IdentityServerGraphqlModule()
+  href: api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.html#StardustDL_AspNet_IdentityServer_IdentityServerGraphqlModule__ctor
+  commentId: M:StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.#ctor
+  fullName: StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.IdentityServerGraphqlModule()
+  nameWithType: IdentityServerGraphqlModule.IdentityServerGraphqlModule()
+- uid: StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.#ctor*
+  name: IdentityServerGraphqlModule
+  href: api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.html#StardustDL_AspNet_IdentityServer_IdentityServerGraphqlModule__ctor_
+  commentId: Overload:StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.#ctor
   isSpec: "True"
-  fullName: StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.IdentityServerGraphQLModule
-  nameWithType: IdentityServerGraphQLModule.IdentityServerGraphQLModule
-- uid: StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.MapEndpoint(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.IServiceProvider)
+  fullName: StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.IdentityServerGraphqlModule
+  nameWithType: IdentityServerGraphqlModule.IdentityServerGraphqlModule
+- uid: StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.MapEndpoint(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.IServiceProvider)
   name: MapEndpoint(IEndpointRouteBuilder, IServiceProvider)
-  href: api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.html#StardustDL_AspNet_IdentityServer_IdentityServerGraphQLModule_MapEndpoint_Microsoft_AspNetCore_Routing_IEndpointRouteBuilder_System_IServiceProvider_
-  commentId: M:StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.MapEndpoint(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.IServiceProvider)
-  fullName: StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.MapEndpoint(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, System.IServiceProvider)
-  nameWithType: IdentityServerGraphQLModule.MapEndpoint(IEndpointRouteBuilder, IServiceProvider)
-- uid: StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.MapEndpoint*
+  href: api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.html#StardustDL_AspNet_IdentityServer_IdentityServerGraphqlModule_MapEndpoint_Microsoft_AspNetCore_Routing_IEndpointRouteBuilder_System_IServiceProvider_
+  commentId: M:StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.MapEndpoint(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder,System.IServiceProvider)
+  fullName: StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.MapEndpoint(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder, System.IServiceProvider)
+  nameWithType: IdentityServerGraphqlModule.MapEndpoint(IEndpointRouteBuilder, IServiceProvider)
+- uid: StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.MapEndpoint*
   name: MapEndpoint
-  href: api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.html#StardustDL_AspNet_IdentityServer_IdentityServerGraphQLModule_MapEndpoint_
-  commentId: Overload:StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.MapEndpoint
+  href: api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.html#StardustDL_AspNet_IdentityServer_IdentityServerGraphqlModule_MapEndpoint_
+  commentId: Overload:StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.MapEndpoint
   isSpec: "True"
-  fullName: StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.MapEndpoint
-  nameWithType: IdentityServerGraphQLModule.MapEndpoint
-- uid: StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.QueryType
+  fullName: StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.MapEndpoint
+  nameWithType: IdentityServerGraphqlModule.MapEndpoint
+- uid: StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.QueryType
   name: QueryType
-  href: api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.html#StardustDL_AspNet_IdentityServer_IdentityServerGraphQLModule_QueryType
-  commentId: P:StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.QueryType
-  fullName: StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.QueryType
-  nameWithType: IdentityServerGraphQLModule.QueryType
-- uid: StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.QueryType*
+  href: api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.html#StardustDL_AspNet_IdentityServer_IdentityServerGraphqlModule_QueryType
+  commentId: P:StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.QueryType
+  fullName: StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.QueryType
+  nameWithType: IdentityServerGraphqlModule.QueryType
+- uid: StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.QueryType*
   name: QueryType
-  href: api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.html#StardustDL_AspNet_IdentityServer_IdentityServerGraphQLModule_QueryType_
-  commentId: Overload:StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.QueryType
+  href: api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.html#StardustDL_AspNet_IdentityServer_IdentityServerGraphqlModule_QueryType_
+  commentId: Overload:StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.QueryType
   isSpec: "True"
-  fullName: StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.QueryType
-  nameWithType: IdentityServerGraphQLModule.QueryType
-- uid: StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.Setup(Modulight.Modules.IModuleHostBuilder)
+  fullName: StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.QueryType
+  nameWithType: IdentityServerGraphqlModule.QueryType
+- uid: StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.Setup(Modulight.Modules.IModuleHostBuilder)
   name: Setup(IModuleHostBuilder)
-  href: api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.html#StardustDL_AspNet_IdentityServer_IdentityServerGraphQLModule_Setup_Modulight_Modules_IModuleHostBuilder_
-  commentId: M:StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.Setup(Modulight.Modules.IModuleHostBuilder)
-  fullName: StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.Setup(Modulight.Modules.IModuleHostBuilder)
-  nameWithType: IdentityServerGraphQLModule.Setup(IModuleHostBuilder)
-- uid: StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.Setup*
+  href: api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.html#StardustDL_AspNet_IdentityServer_IdentityServerGraphqlModule_Setup_Modulight_Modules_IModuleHostBuilder_
+  commentId: M:StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.Setup(Modulight.Modules.IModuleHostBuilder)
+  fullName: StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.Setup(Modulight.Modules.IModuleHostBuilder)
+  nameWithType: IdentityServerGraphqlModule.Setup(IModuleHostBuilder)
+- uid: StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.Setup*
   name: Setup
-  href: api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.html#StardustDL_AspNet_IdentityServer_IdentityServerGraphQLModule_Setup_
-  commentId: Overload:StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.Setup
+  href: api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.html#StardustDL_AspNet_IdentityServer_IdentityServerGraphqlModule_Setup_
+  commentId: Overload:StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.Setup
   isSpec: "True"
-  fullName: StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModule.Setup
-  nameWithType: IdentityServerGraphQLModule.Setup
-- uid: StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModuleOption
-  name: IdentityServerGraphQLModuleOption
-  href: api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModuleOption.html
-  commentId: T:StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModuleOption
-  fullName: StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModuleOption
-  nameWithType: IdentityServerGraphQLModuleOption
-- uid: StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModuleService
-  name: IdentityServerGraphQLModuleService
-  href: api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModuleService.html
-  commentId: T:StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModuleService
-  fullName: StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModuleService
-  nameWithType: IdentityServerGraphQLModuleService
+  fullName: StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.Setup
+  nameWithType: IdentityServerGraphqlModule.Setup
+- uid: StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModuleOption
+  name: IdentityServerGraphqlModuleOption
+  href: api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModuleOption.html
+  commentId: T:StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModuleOption
+  fullName: StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModuleOption
+  nameWithType: IdentityServerGraphqlModuleOption
+- uid: StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModuleService
+  name: IdentityServerGraphqlModuleService
+  href: api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModuleService.html
+  commentId: T:StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModuleService
+  fullName: StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModuleService
+  nameWithType: IdentityServerGraphqlModuleService
 - uid: StardustDL.AspNet.IdentityServer.IdentityServerModule
   name: IdentityServerModule
   href: api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerModule.html
@@ -4766,15 +4766,15 @@ references:
   commentId: T:StardustDL.AspNet.IdentityServer.ModuleExtensions
   fullName: StardustDL.AspNet.IdentityServer.ModuleExtensions
   nameWithType: ModuleExtensions
-- uid: StardustDL.AspNet.IdentityServer.ModuleExtensions.AddIdentityServerGraphQLModule(Modulight.Modules.IModuleHostBuilder,System.Action{StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModuleOption},System.Action{StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModuleOption,System.IServiceProvider})
-  name: AddIdentityServerGraphQLModule(IModuleHostBuilder, Action<IdentityServerGraphQLModuleOption>, Action<IdentityServerGraphQLModuleOption, IServiceProvider>)
-  href: api/extensions/StardustDL.AspNet.IdentityServer.ModuleExtensions.html#StardustDL_AspNet_IdentityServer_ModuleExtensions_AddIdentityServerGraphQLModule_Modulight_Modules_IModuleHostBuilder_System_Action_StardustDL_AspNet_IdentityServer_IdentityServerGraphQLModuleOption__System_Action_StardustDL_AspNet_IdentityServer_IdentityServerGraphQLModuleOption_System_IServiceProvider__
-  commentId: M:StardustDL.AspNet.IdentityServer.ModuleExtensions.AddIdentityServerGraphQLModule(Modulight.Modules.IModuleHostBuilder,System.Action{StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModuleOption},System.Action{StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModuleOption,System.IServiceProvider})
-  name.vb: AddIdentityServerGraphQLModule(IModuleHostBuilder, Action(Of IdentityServerGraphQLModuleOption), Action(Of IdentityServerGraphQLModuleOption, IServiceProvider))
-  fullName: StardustDL.AspNet.IdentityServer.ModuleExtensions.AddIdentityServerGraphQLModule(Modulight.Modules.IModuleHostBuilder, System.Action<StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModuleOption>, System.Action<StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModuleOption, System.IServiceProvider>)
-  fullName.vb: StardustDL.AspNet.IdentityServer.ModuleExtensions.AddIdentityServerGraphQLModule(Modulight.Modules.IModuleHostBuilder, System.Action(Of StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModuleOption), System.Action(Of StardustDL.AspNet.IdentityServer.IdentityServerGraphQLModuleOption, System.IServiceProvider))
-  nameWithType: ModuleExtensions.AddIdentityServerGraphQLModule(IModuleHostBuilder, Action<IdentityServerGraphQLModuleOption>, Action<IdentityServerGraphQLModuleOption, IServiceProvider>)
-  nameWithType.vb: ModuleExtensions.AddIdentityServerGraphQLModule(IModuleHostBuilder, Action(Of IdentityServerGraphQLModuleOption), Action(Of IdentityServerGraphQLModuleOption, IServiceProvider))
+- uid: StardustDL.AspNet.IdentityServer.ModuleExtensions.AddIdentityServerGraphQLModule(Modulight.Modules.IModuleHostBuilder,System.Action{StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModuleOption},System.Action{StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModuleOption,System.IServiceProvider})
+  name: AddIdentityServerGraphQLModule(IModuleHostBuilder, Action<IdentityServerGraphqlModuleOption>, Action<IdentityServerGraphqlModuleOption, IServiceProvider>)
+  href: api/extensions/StardustDL.AspNet.IdentityServer.ModuleExtensions.html#StardustDL_AspNet_IdentityServer_ModuleExtensions_AddIdentityServerGraphQLModule_Modulight_Modules_IModuleHostBuilder_System_Action_StardustDL_AspNet_IdentityServer_IdentityServerGraphqlModuleOption__System_Action_StardustDL_AspNet_IdentityServer_IdentityServerGraphqlModuleOption_System_IServiceProvider__
+  commentId: M:StardustDL.AspNet.IdentityServer.ModuleExtensions.AddIdentityServerGraphQLModule(Modulight.Modules.IModuleHostBuilder,System.Action{StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModuleOption},System.Action{StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModuleOption,System.IServiceProvider})
+  name.vb: AddIdentityServerGraphQLModule(IModuleHostBuilder, Action(Of IdentityServerGraphqlModuleOption), Action(Of IdentityServerGraphqlModuleOption, IServiceProvider))
+  fullName: StardustDL.AspNet.IdentityServer.ModuleExtensions.AddIdentityServerGraphQLModule(Modulight.Modules.IModuleHostBuilder, System.Action<StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModuleOption>, System.Action<StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModuleOption, System.IServiceProvider>)
+  fullName.vb: StardustDL.AspNet.IdentityServer.ModuleExtensions.AddIdentityServerGraphQLModule(Modulight.Modules.IModuleHostBuilder, System.Action(Of StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModuleOption), System.Action(Of StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModuleOption, System.IServiceProvider))
+  nameWithType: ModuleExtensions.AddIdentityServerGraphQLModule(IModuleHostBuilder, Action<IdentityServerGraphqlModuleOption>, Action<IdentityServerGraphqlModuleOption, IServiceProvider>)
+  nameWithType.vb: ModuleExtensions.AddIdentityServerGraphQLModule(IModuleHostBuilder, Action(Of IdentityServerGraphqlModuleOption), Action(Of IdentityServerGraphqlModuleOption, IServiceProvider))
 - uid: StardustDL.AspNet.IdentityServer.ModuleExtensions.AddIdentityServerGraphQLModule*
   name: AddIdentityServerGraphQLModule
   href: api/extensions/StardustDL.AspNet.IdentityServer.ModuleExtensions.html#StardustDL_AspNet_IdentityServer_ModuleExtensions_AddIdentityServerGraphQLModule_
@@ -4836,77 +4836,200 @@ references:
   commentId: N:StardustDL.AspNet.ObjectStorage
   fullName: StardustDL.AspNet.ObjectStorage
   nameWithType: StardustDL.AspNet.ObjectStorage
-- uid: StardustDL.AspNet.ObjectStorage.BucketService
-  name: BucketService
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.BucketService.html
-  commentId: T:StardustDL.AspNet.ObjectStorage.BucketService
-  fullName: StardustDL.AspNet.ObjectStorage.BucketService
-  nameWithType: BucketService
-- uid: StardustDL.AspNet.ObjectStorage.BucketService.Exists(System.Threading.CancellationToken)
+- uid: StardustDL.AspNet.ObjectStorage.IBucketService
+  name: IBucketService
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IBucketService.html
+  commentId: T:StardustDL.AspNet.ObjectStorage.IBucketService
+  fullName: StardustDL.AspNet.ObjectStorage.IBucketService
+  nameWithType: IBucketService
+- uid: StardustDL.AspNet.ObjectStorage.IBucketService.Exists(System.Threading.CancellationToken)
   name: Exists(CancellationToken)
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.BucketService.html#StardustDL_AspNet_ObjectStorage_BucketService_Exists_System_Threading_CancellationToken_
-  commentId: M:StardustDL.AspNet.ObjectStorage.BucketService.Exists(System.Threading.CancellationToken)
-  fullName: StardustDL.AspNet.ObjectStorage.BucketService.Exists(System.Threading.CancellationToken)
-  nameWithType: BucketService.Exists(CancellationToken)
-- uid: StardustDL.AspNet.ObjectStorage.BucketService.Exists*
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IBucketService.html#StardustDL_AspNet_ObjectStorage_IBucketService_Exists_System_Threading_CancellationToken_
+  commentId: M:StardustDL.AspNet.ObjectStorage.IBucketService.Exists(System.Threading.CancellationToken)
+  fullName: StardustDL.AspNet.ObjectStorage.IBucketService.Exists(System.Threading.CancellationToken)
+  nameWithType: IBucketService.Exists(CancellationToken)
+- uid: StardustDL.AspNet.ObjectStorage.IBucketService.Exists*
   name: Exists
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.BucketService.html#StardustDL_AspNet_ObjectStorage_BucketService_Exists_
-  commentId: Overload:StardustDL.AspNet.ObjectStorage.BucketService.Exists
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IBucketService.html#StardustDL_AspNet_ObjectStorage_IBucketService_Exists_
+  commentId: Overload:StardustDL.AspNet.ObjectStorage.IBucketService.Exists
   isSpec: "True"
-  fullName: StardustDL.AspNet.ObjectStorage.BucketService.Exists
-  nameWithType: BucketService.Exists
-- uid: StardustDL.AspNet.ObjectStorage.BucketService.Make(System.Threading.CancellationToken)
+  fullName: StardustDL.AspNet.ObjectStorage.IBucketService.Exists
+  nameWithType: IBucketService.Exists
+- uid: StardustDL.AspNet.ObjectStorage.IBucketService.Make(System.Threading.CancellationToken)
   name: Make(CancellationToken)
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.BucketService.html#StardustDL_AspNet_ObjectStorage_BucketService_Make_System_Threading_CancellationToken_
-  commentId: M:StardustDL.AspNet.ObjectStorage.BucketService.Make(System.Threading.CancellationToken)
-  fullName: StardustDL.AspNet.ObjectStorage.BucketService.Make(System.Threading.CancellationToken)
-  nameWithType: BucketService.Make(CancellationToken)
-- uid: StardustDL.AspNet.ObjectStorage.BucketService.Make*
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IBucketService.html#StardustDL_AspNet_ObjectStorage_IBucketService_Make_System_Threading_CancellationToken_
+  commentId: M:StardustDL.AspNet.ObjectStorage.IBucketService.Make(System.Threading.CancellationToken)
+  fullName: StardustDL.AspNet.ObjectStorage.IBucketService.Make(System.Threading.CancellationToken)
+  nameWithType: IBucketService.Make(CancellationToken)
+- uid: StardustDL.AspNet.ObjectStorage.IBucketService.Make*
   name: Make
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.BucketService.html#StardustDL_AspNet_ObjectStorage_BucketService_Make_
-  commentId: Overload:StardustDL.AspNet.ObjectStorage.BucketService.Make
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IBucketService.html#StardustDL_AspNet_ObjectStorage_IBucketService_Make_
+  commentId: Overload:StardustDL.AspNet.ObjectStorage.IBucketService.Make
   isSpec: "True"
-  fullName: StardustDL.AspNet.ObjectStorage.BucketService.Make
-  nameWithType: BucketService.Make
-- uid: StardustDL.AspNet.ObjectStorage.BucketService.Name
+  fullName: StardustDL.AspNet.ObjectStorage.IBucketService.Make
+  nameWithType: IBucketService.Make
+- uid: StardustDL.AspNet.ObjectStorage.IBucketService.Name
   name: Name
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.BucketService.html#StardustDL_AspNet_ObjectStorage_BucketService_Name
-  commentId: P:StardustDL.AspNet.ObjectStorage.BucketService.Name
-  fullName: StardustDL.AspNet.ObjectStorage.BucketService.Name
-  nameWithType: BucketService.Name
-- uid: StardustDL.AspNet.ObjectStorage.BucketService.Name*
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IBucketService.html#StardustDL_AspNet_ObjectStorage_IBucketService_Name
+  commentId: P:StardustDL.AspNet.ObjectStorage.IBucketService.Name
+  fullName: StardustDL.AspNet.ObjectStorage.IBucketService.Name
+  nameWithType: IBucketService.Name
+- uid: StardustDL.AspNet.ObjectStorage.IBucketService.Name*
   name: Name
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.BucketService.html#StardustDL_AspNet_ObjectStorage_BucketService_Name_
-  commentId: Overload:StardustDL.AspNet.ObjectStorage.BucketService.Name
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IBucketService.html#StardustDL_AspNet_ObjectStorage_IBucketService_Name_
+  commentId: Overload:StardustDL.AspNet.ObjectStorage.IBucketService.Name
   isSpec: "True"
-  fullName: StardustDL.AspNet.ObjectStorage.BucketService.Name
-  nameWithType: BucketService.Name
-- uid: StardustDL.AspNet.ObjectStorage.BucketService.Object(System.String)
+  fullName: StardustDL.AspNet.ObjectStorage.IBucketService.Name
+  nameWithType: IBucketService.Name
+- uid: StardustDL.AspNet.ObjectStorage.IBucketService.Object(System.String)
   name: Object(String)
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.BucketService.html#StardustDL_AspNet_ObjectStorage_BucketService_Object_System_String_
-  commentId: M:StardustDL.AspNet.ObjectStorage.BucketService.Object(System.String)
-  fullName: StardustDL.AspNet.ObjectStorage.BucketService.Object(System.String)
-  nameWithType: BucketService.Object(String)
-- uid: StardustDL.AspNet.ObjectStorage.BucketService.Object*
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IBucketService.html#StardustDL_AspNet_ObjectStorage_IBucketService_Object_System_String_
+  commentId: M:StardustDL.AspNet.ObjectStorage.IBucketService.Object(System.String)
+  fullName: StardustDL.AspNet.ObjectStorage.IBucketService.Object(System.String)
+  nameWithType: IBucketService.Object(String)
+- uid: StardustDL.AspNet.ObjectStorage.IBucketService.Object*
   name: Object
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.BucketService.html#StardustDL_AspNet_ObjectStorage_BucketService_Object_
-  commentId: Overload:StardustDL.AspNet.ObjectStorage.BucketService.Object
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IBucketService.html#StardustDL_AspNet_ObjectStorage_IBucketService_Object_
+  commentId: Overload:StardustDL.AspNet.ObjectStorage.IBucketService.Object
   isSpec: "True"
-  fullName: StardustDL.AspNet.ObjectStorage.BucketService.Object
-  nameWithType: BucketService.Object
-- uid: StardustDL.AspNet.ObjectStorage.BucketService.Remove(System.Threading.CancellationToken)
+  fullName: StardustDL.AspNet.ObjectStorage.IBucketService.Object
+  nameWithType: IBucketService.Object
+- uid: StardustDL.AspNet.ObjectStorage.IBucketService.Remove(System.Threading.CancellationToken)
   name: Remove(CancellationToken)
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.BucketService.html#StardustDL_AspNet_ObjectStorage_BucketService_Remove_System_Threading_CancellationToken_
-  commentId: M:StardustDL.AspNet.ObjectStorage.BucketService.Remove(System.Threading.CancellationToken)
-  fullName: StardustDL.AspNet.ObjectStorage.BucketService.Remove(System.Threading.CancellationToken)
-  nameWithType: BucketService.Remove(CancellationToken)
-- uid: StardustDL.AspNet.ObjectStorage.BucketService.Remove*
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IBucketService.html#StardustDL_AspNet_ObjectStorage_IBucketService_Remove_System_Threading_CancellationToken_
+  commentId: M:StardustDL.AspNet.ObjectStorage.IBucketService.Remove(System.Threading.CancellationToken)
+  fullName: StardustDL.AspNet.ObjectStorage.IBucketService.Remove(System.Threading.CancellationToken)
+  nameWithType: IBucketService.Remove(CancellationToken)
+- uid: StardustDL.AspNet.ObjectStorage.IBucketService.Remove*
   name: Remove
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.BucketService.html#StardustDL_AspNet_ObjectStorage_BucketService_Remove_
-  commentId: Overload:StardustDL.AspNet.ObjectStorage.BucketService.Remove
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IBucketService.html#StardustDL_AspNet_ObjectStorage_IBucketService_Remove_
+  commentId: Overload:StardustDL.AspNet.ObjectStorage.IBucketService.Remove
   isSpec: "True"
-  fullName: StardustDL.AspNet.ObjectStorage.BucketService.Remove
-  nameWithType: BucketService.Remove
+  fullName: StardustDL.AspNet.ObjectStorage.IBucketService.Remove
+  nameWithType: IBucketService.Remove
+- uid: StardustDL.AspNet.ObjectStorage.IObjectService
+  name: IObjectService
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IObjectService.html
+  commentId: T:StardustDL.AspNet.ObjectStorage.IObjectService
+  fullName: StardustDL.AspNet.ObjectStorage.IObjectService
+  nameWithType: IObjectService
+- uid: StardustDL.AspNet.ObjectStorage.IObjectService.BucketName
+  name: BucketName
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IObjectService.html#StardustDL_AspNet_ObjectStorage_IObjectService_BucketName
+  commentId: P:StardustDL.AspNet.ObjectStorage.IObjectService.BucketName
+  fullName: StardustDL.AspNet.ObjectStorage.IObjectService.BucketName
+  nameWithType: IObjectService.BucketName
+- uid: StardustDL.AspNet.ObjectStorage.IObjectService.BucketName*
+  name: BucketName
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IObjectService.html#StardustDL_AspNet_ObjectStorage_IObjectService_BucketName_
+  commentId: Overload:StardustDL.AspNet.ObjectStorage.IObjectService.BucketName
+  isSpec: "True"
+  fullName: StardustDL.AspNet.ObjectStorage.IObjectService.BucketName
+  nameWithType: IObjectService.BucketName
+- uid: StardustDL.AspNet.ObjectStorage.IObjectService.Exists(System.Threading.CancellationToken)
+  name: Exists(CancellationToken)
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IObjectService.html#StardustDL_AspNet_ObjectStorage_IObjectService_Exists_System_Threading_CancellationToken_
+  commentId: M:StardustDL.AspNet.ObjectStorage.IObjectService.Exists(System.Threading.CancellationToken)
+  fullName: StardustDL.AspNet.ObjectStorage.IObjectService.Exists(System.Threading.CancellationToken)
+  nameWithType: IObjectService.Exists(CancellationToken)
+- uid: StardustDL.AspNet.ObjectStorage.IObjectService.Exists*
+  name: Exists
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IObjectService.html#StardustDL_AspNet_ObjectStorage_IObjectService_Exists_
+  commentId: Overload:StardustDL.AspNet.ObjectStorage.IObjectService.Exists
+  isSpec: "True"
+  fullName: StardustDL.AspNet.ObjectStorage.IObjectService.Exists
+  nameWithType: IObjectService.Exists
+- uid: StardustDL.AspNet.ObjectStorage.IObjectService.Get(System.Threading.CancellationToken)
+  name: Get(CancellationToken)
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IObjectService.html#StardustDL_AspNet_ObjectStorage_IObjectService_Get_System_Threading_CancellationToken_
+  commentId: M:StardustDL.AspNet.ObjectStorage.IObjectService.Get(System.Threading.CancellationToken)
+  fullName: StardustDL.AspNet.ObjectStorage.IObjectService.Get(System.Threading.CancellationToken)
+  nameWithType: IObjectService.Get(CancellationToken)
+- uid: StardustDL.AspNet.ObjectStorage.IObjectService.Get*
+  name: Get
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IObjectService.html#StardustDL_AspNet_ObjectStorage_IObjectService_Get_
+  commentId: Overload:StardustDL.AspNet.ObjectStorage.IObjectService.Get
+  isSpec: "True"
+  fullName: StardustDL.AspNet.ObjectStorage.IObjectService.Get
+  nameWithType: IObjectService.Get
+- uid: StardustDL.AspNet.ObjectStorage.IObjectService.Name
+  name: Name
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IObjectService.html#StardustDL_AspNet_ObjectStorage_IObjectService_Name
+  commentId: P:StardustDL.AspNet.ObjectStorage.IObjectService.Name
+  fullName: StardustDL.AspNet.ObjectStorage.IObjectService.Name
+  nameWithType: IObjectService.Name
+- uid: StardustDL.AspNet.ObjectStorage.IObjectService.Name*
+  name: Name
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IObjectService.html#StardustDL_AspNet_ObjectStorage_IObjectService_Name_
+  commentId: Overload:StardustDL.AspNet.ObjectStorage.IObjectService.Name
+  isSpec: "True"
+  fullName: StardustDL.AspNet.ObjectStorage.IObjectService.Name
+  nameWithType: IObjectService.Name
+- uid: StardustDL.AspNet.ObjectStorage.IObjectService.Put(System.IO.Stream,System.Int64,System.String,System.Threading.CancellationToken)
+  name: Put(Stream, Int64, String, CancellationToken)
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IObjectService.html#StardustDL_AspNet_ObjectStorage_IObjectService_Put_System_IO_Stream_System_Int64_System_String_System_Threading_CancellationToken_
+  commentId: M:StardustDL.AspNet.ObjectStorage.IObjectService.Put(System.IO.Stream,System.Int64,System.String,System.Threading.CancellationToken)
+  fullName: StardustDL.AspNet.ObjectStorage.IObjectService.Put(System.IO.Stream, System.Int64, System.String, System.Threading.CancellationToken)
+  nameWithType: IObjectService.Put(Stream, Int64, String, CancellationToken)
+- uid: StardustDL.AspNet.ObjectStorage.IObjectService.Put*
+  name: Put
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IObjectService.html#StardustDL_AspNet_ObjectStorage_IObjectService_Put_
+  commentId: Overload:StardustDL.AspNet.ObjectStorage.IObjectService.Put
+  isSpec: "True"
+  fullName: StardustDL.AspNet.ObjectStorage.IObjectService.Put
+  nameWithType: IObjectService.Put
+- uid: StardustDL.AspNet.ObjectStorage.IObjectService.Remove(System.Threading.CancellationToken)
+  name: Remove(CancellationToken)
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IObjectService.html#StardustDL_AspNet_ObjectStorage_IObjectService_Remove_System_Threading_CancellationToken_
+  commentId: M:StardustDL.AspNet.ObjectStorage.IObjectService.Remove(System.Threading.CancellationToken)
+  fullName: StardustDL.AspNet.ObjectStorage.IObjectService.Remove(System.Threading.CancellationToken)
+  nameWithType: IObjectService.Remove(CancellationToken)
+- uid: StardustDL.AspNet.ObjectStorage.IObjectService.Remove*
+  name: Remove
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IObjectService.html#StardustDL_AspNet_ObjectStorage_IObjectService_Remove_
+  commentId: Overload:StardustDL.AspNet.ObjectStorage.IObjectService.Remove
+  isSpec: "True"
+  fullName: StardustDL.AspNet.ObjectStorage.IObjectService.Remove
+  nameWithType: IObjectService.Remove
+- uid: StardustDL.AspNet.ObjectStorage.IObjectService.Stat(System.Threading.CancellationToken)
+  name: Stat(CancellationToken)
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IObjectService.html#StardustDL_AspNet_ObjectStorage_IObjectService_Stat_System_Threading_CancellationToken_
+  commentId: M:StardustDL.AspNet.ObjectStorage.IObjectService.Stat(System.Threading.CancellationToken)
+  fullName: StardustDL.AspNet.ObjectStorage.IObjectService.Stat(System.Threading.CancellationToken)
+  nameWithType: IObjectService.Stat(CancellationToken)
+- uid: StardustDL.AspNet.ObjectStorage.IObjectService.Stat*
+  name: Stat
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IObjectService.html#StardustDL_AspNet_ObjectStorage_IObjectService_Stat_
+  commentId: Overload:StardustDL.AspNet.ObjectStorage.IObjectService.Stat
+  isSpec: "True"
+  fullName: StardustDL.AspNet.ObjectStorage.IObjectService.Stat
+  nameWithType: IObjectService.Stat
+- uid: StardustDL.AspNet.ObjectStorage.IObjectService.TemporaryGetUrl(System.Threading.CancellationToken)
+  name: TemporaryGetUrl(CancellationToken)
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IObjectService.html#StardustDL_AspNet_ObjectStorage_IObjectService_TemporaryGetUrl_System_Threading_CancellationToken_
+  commentId: M:StardustDL.AspNet.ObjectStorage.IObjectService.TemporaryGetUrl(System.Threading.CancellationToken)
+  fullName: StardustDL.AspNet.ObjectStorage.IObjectService.TemporaryGetUrl(System.Threading.CancellationToken)
+  nameWithType: IObjectService.TemporaryGetUrl(CancellationToken)
+- uid: StardustDL.AspNet.ObjectStorage.IObjectService.TemporaryGetUrl*
+  name: TemporaryGetUrl
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IObjectService.html#StardustDL_AspNet_ObjectStorage_IObjectService_TemporaryGetUrl_
+  commentId: Overload:StardustDL.AspNet.ObjectStorage.IObjectService.TemporaryGetUrl
+  isSpec: "True"
+  fullName: StardustDL.AspNet.ObjectStorage.IObjectService.TemporaryGetUrl
+  nameWithType: IObjectService.TemporaryGetUrl
+- uid: StardustDL.AspNet.ObjectStorage.IObjectService.TemporaryPutUrl(System.Threading.CancellationToken)
+  name: TemporaryPutUrl(CancellationToken)
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IObjectService.html#StardustDL_AspNet_ObjectStorage_IObjectService_TemporaryPutUrl_System_Threading_CancellationToken_
+  commentId: M:StardustDL.AspNet.ObjectStorage.IObjectService.TemporaryPutUrl(System.Threading.CancellationToken)
+  fullName: StardustDL.AspNet.ObjectStorage.IObjectService.TemporaryPutUrl(System.Threading.CancellationToken)
+  nameWithType: IObjectService.TemporaryPutUrl(CancellationToken)
+- uid: StardustDL.AspNet.ObjectStorage.IObjectService.TemporaryPutUrl*
+  name: TemporaryPutUrl
+  href: api/extensions/StardustDL.AspNet.ObjectStorage.IObjectService.html#StardustDL_AspNet_ObjectStorage_IObjectService_TemporaryPutUrl_
+  commentId: Overload:StardustDL.AspNet.ObjectStorage.IObjectService.TemporaryPutUrl
+  isSpec: "True"
+  fullName: StardustDL.AspNet.ObjectStorage.IObjectService.TemporaryPutUrl
+  nameWithType: IObjectService.TemporaryPutUrl
 - uid: StardustDL.AspNet.ObjectStorage.ModuleExtensions
   name: ModuleExtensions
   href: api/extensions/StardustDL.AspNet.ObjectStorage.ModuleExtensions.html
@@ -4945,77 +5068,6 @@ references:
   isSpec: "True"
   fullName: StardustDL.AspNet.ObjectStorage.ModuleExtensions.AddObjectStorageModule
   nameWithType: ModuleExtensions.AddObjectStorageModule
-- uid: StardustDL.AspNet.ObjectStorage.ObjectService
-  name: ObjectService
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.ObjectService.html
-  commentId: T:StardustDL.AspNet.ObjectStorage.ObjectService
-  fullName: StardustDL.AspNet.ObjectStorage.ObjectService
-  nameWithType: ObjectService
-- uid: StardustDL.AspNet.ObjectStorage.ObjectService.ContentType
-  name: ContentType
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.ObjectService.html#StardustDL_AspNet_ObjectStorage_ObjectService_ContentType
-  commentId: P:StardustDL.AspNet.ObjectStorage.ObjectService.ContentType
-  fullName: StardustDL.AspNet.ObjectStorage.ObjectService.ContentType
-  nameWithType: ObjectService.ContentType
-- uid: StardustDL.AspNet.ObjectStorage.ObjectService.ContentType*
-  name: ContentType
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.ObjectService.html#StardustDL_AspNet_ObjectStorage_ObjectService_ContentType_
-  commentId: Overload:StardustDL.AspNet.ObjectStorage.ObjectService.ContentType
-  isSpec: "True"
-  fullName: StardustDL.AspNet.ObjectStorage.ObjectService.ContentType
-  nameWithType: ObjectService.ContentType
-- uid: StardustDL.AspNet.ObjectStorage.ObjectService.Info
-  name: Info
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.ObjectService.html#StardustDL_AspNet_ObjectStorage_ObjectService_Info
-  commentId: P:StardustDL.AspNet.ObjectStorage.ObjectService.Info
-  fullName: StardustDL.AspNet.ObjectStorage.ObjectService.Info
-  nameWithType: ObjectService.Info
-- uid: StardustDL.AspNet.ObjectStorage.ObjectService.Info*
-  name: Info
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.ObjectService.html#StardustDL_AspNet_ObjectStorage_ObjectService_Info_
-  commentId: Overload:StardustDL.AspNet.ObjectStorage.ObjectService.Info
-  isSpec: "True"
-  fullName: StardustDL.AspNet.ObjectStorage.ObjectService.Info
-  nameWithType: ObjectService.Info
-- uid: StardustDL.AspNet.ObjectStorage.ObjectService.LastModified
-  name: LastModified
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.ObjectService.html#StardustDL_AspNet_ObjectStorage_ObjectService_LastModified
-  commentId: P:StardustDL.AspNet.ObjectStorage.ObjectService.LastModified
-  fullName: StardustDL.AspNet.ObjectStorage.ObjectService.LastModified
-  nameWithType: ObjectService.LastModified
-- uid: StardustDL.AspNet.ObjectStorage.ObjectService.LastModified*
-  name: LastModified
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.ObjectService.html#StardustDL_AspNet_ObjectStorage_ObjectService_LastModified_
-  commentId: Overload:StardustDL.AspNet.ObjectStorage.ObjectService.LastModified
-  isSpec: "True"
-  fullName: StardustDL.AspNet.ObjectStorage.ObjectService.LastModified
-  nameWithType: ObjectService.LastModified
-- uid: StardustDL.AspNet.ObjectStorage.ObjectService.Metadata
-  name: Metadata
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.ObjectService.html#StardustDL_AspNet_ObjectStorage_ObjectService_Metadata
-  commentId: P:StardustDL.AspNet.ObjectStorage.ObjectService.Metadata
-  fullName: StardustDL.AspNet.ObjectStorage.ObjectService.Metadata
-  nameWithType: ObjectService.Metadata
-- uid: StardustDL.AspNet.ObjectStorage.ObjectService.Metadata*
-  name: Metadata
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.ObjectService.html#StardustDL_AspNet_ObjectStorage_ObjectService_Metadata_
-  commentId: Overload:StardustDL.AspNet.ObjectStorage.ObjectService.Metadata
-  isSpec: "True"
-  fullName: StardustDL.AspNet.ObjectStorage.ObjectService.Metadata
-  nameWithType: ObjectService.Metadata
-- uid: StardustDL.AspNet.ObjectStorage.ObjectService.Size
-  name: Size
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.ObjectService.html#StardustDL_AspNet_ObjectStorage_ObjectService_Size
-  commentId: P:StardustDL.AspNet.ObjectStorage.ObjectService.Size
-  fullName: StardustDL.AspNet.ObjectStorage.ObjectService.Size
-  nameWithType: ObjectService.Size
-- uid: StardustDL.AspNet.ObjectStorage.ObjectService.Size*
-  name: Size
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.ObjectService.html#StardustDL_AspNet_ObjectStorage_ObjectService_Size_
-  commentId: Overload:StardustDL.AspNet.ObjectStorage.ObjectService.Size
-  isSpec: "True"
-  fullName: StardustDL.AspNet.ObjectStorage.ObjectService.Size
-  nameWithType: ObjectService.Size
 - uid: StardustDL.AspNet.ObjectStorage.ObjectStorageApiModule
   name: ObjectStorageApiModule
   href: api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageApiModule.html
@@ -5147,19 +5199,6 @@ references:
   isSpec: "True"
   fullName: StardustDL.AspNet.ObjectStorage.ObjectStorageController.Get
   nameWithType: ObjectStorageController.Get
-- uid: StardustDL.AspNet.ObjectStorage.ObjectStorageController.Options
-  name: Options
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageController.html#StardustDL_AspNet_ObjectStorage_ObjectStorageController_Options
-  commentId: P:StardustDL.AspNet.ObjectStorage.ObjectStorageController.Options
-  fullName: StardustDL.AspNet.ObjectStorage.ObjectStorageController.Options
-  nameWithType: ObjectStorageController.Options
-- uid: StardustDL.AspNet.ObjectStorage.ObjectStorageController.Options*
-  name: Options
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageController.html#StardustDL_AspNet_ObjectStorage_ObjectStorageController_Options_
-  commentId: Overload:StardustDL.AspNet.ObjectStorage.ObjectStorageController.Options
-  isSpec: "True"
-  fullName: StardustDL.AspNet.ObjectStorage.ObjectStorageController.Options
-  nameWithType: ObjectStorageController.Options
 - uid: StardustDL.AspNet.ObjectStorage.ObjectStorageController.Put(System.String,System.String,Microsoft.AspNetCore.Http.IFormFile)
   name: Put(String, String, IFormFile)
   href: api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageController.html#StardustDL_AspNet_ObjectStorage_ObjectStorageController_Put_System_String_System_String_Microsoft_AspNetCore_Http_IFormFile_
@@ -5173,19 +5212,6 @@ references:
   isSpec: "True"
   fullName: StardustDL.AspNet.ObjectStorage.ObjectStorageController.Put
   nameWithType: ObjectStorageController.Put
-- uid: StardustDL.AspNet.ObjectStorage.ObjectStorageController.Service
-  name: Service
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageController.html#StardustDL_AspNet_ObjectStorage_ObjectStorageController_Service
-  commentId: P:StardustDL.AspNet.ObjectStorage.ObjectStorageController.Service
-  fullName: StardustDL.AspNet.ObjectStorage.ObjectStorageController.Service
-  nameWithType: ObjectStorageController.Service
-- uid: StardustDL.AspNet.ObjectStorage.ObjectStorageController.Service*
-  name: Service
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageController.html#StardustDL_AspNet_ObjectStorage_ObjectStorageController_Service_
-  commentId: Overload:StardustDL.AspNet.ObjectStorage.ObjectStorageController.Service
-  isSpec: "True"
-  fullName: StardustDL.AspNet.ObjectStorage.ObjectStorageController.Service
-  nameWithType: ObjectStorageController.Service
 - uid: StardustDL.AspNet.ObjectStorage.ObjectStorageModule
   name: ObjectStorageModule
   href: api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageModule.html
@@ -5298,16 +5324,3 @@ references:
   isSpec: "True"
   fullName: StardustDL.AspNet.ObjectStorage.ObjectStorageService.Bucket
   nameWithType: ObjectStorageService.Bucket
-- uid: StardustDL.AspNet.ObjectStorage.ObjectStorageService.Options
-  name: Options
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageService.html#StardustDL_AspNet_ObjectStorage_ObjectStorageService_Options
-  commentId: P:StardustDL.AspNet.ObjectStorage.ObjectStorageService.Options
-  fullName: StardustDL.AspNet.ObjectStorage.ObjectStorageService.Options
-  nameWithType: ObjectStorageService.Options
-- uid: StardustDL.AspNet.ObjectStorage.ObjectStorageService.Options*
-  name: Options
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageService.html#StardustDL_AspNet_ObjectStorage_ObjectStorageService_Options_
-  commentId: Overload:StardustDL.AspNet.ObjectStorage.ObjectStorageService.Options
-  isSpec: "True"
-  fullName: StardustDL.AspNet.ObjectStorage.ObjectStorageService.Options
-  nameWithType: ObjectStorageService.Options
