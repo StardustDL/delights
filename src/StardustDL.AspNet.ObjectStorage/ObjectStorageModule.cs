@@ -11,23 +11,28 @@ using System.Runtime.CompilerServices;
 
 namespace StardustDL.AspNet.ObjectStorage
 {
+    /// <summary>
+    /// A module to provide object storage related services.
+    /// </summary>
+    [Module(Description = "Provide object storage services.", Url = "https://github.com/StardustDL/delights", Author = "StardustDL")]
     public class ObjectStorageModule : Module<ObjectStorageService, ObjectStorageModuleOption>
     {
+        /// <summary>
+        /// Create the instance.
+        /// </summary>
         public ObjectStorageModule() : base()
         {
-            Manifest = Manifest with
-            {
-                Name = "ObjectStorageProvider",
-                DisplayName = "Object Storage Provider",
-                Description = "Provide object storage services.",
-                Url = "https://github.com/StardustDL/delights",
-                Author = "StardustDL",
-            };
         }
     }
 
+    /// <summary>
+    /// Services for <see cref="ObjectStorageModule"/>.
+    /// </summary>
     public class ObjectStorageService : IModuleService
     {
+        /// <summary>
+        /// Create the instance.
+        /// </summary>
         public ObjectStorageService(IOptions<ObjectStorageModuleOption> options)
         {
             Options = options.Value;
@@ -42,24 +47,44 @@ namespace StardustDL.AspNet.ObjectStorage
             }
         }
 
-        public ObjectStorageModuleOption Options { get; }
+        ObjectStorageModuleOption Options { get; }
 
         MinioClient Client { get; }
 
-        public BucketService Bucket(string bucketName)
+        /// <summary>
+        /// Get a bucket service by name.
+        /// </summary>
+        /// <param name="bucketName"></param>
+        /// <returns></returns>
+        public IBucketService Bucket(string bucketName)
         {
             return new BucketService(bucketName, Client);
         }
     }
 
+    /// <summary>
+    /// Options for <see cref="ObjectStorageModule"/>.
+    /// </summary>
     public class ObjectStorageModuleOption
     {
+        /// <summary>
+        /// Minio endpoint.
+        /// </summary>
         public string Endpoint { get; set; } = "";
 
+        /// <summary>
+        /// Minio access key.
+        /// </summary>
         public string AccessKey { get; set; } = "";
 
+        /// <summary>
+        /// Minio secret key.
+        /// </summary>
         public string SecretKey { get; set; } = "";
 
+        /// <summary>
+        /// Enable SSL.
+        /// </summary>
         public bool Ssl { get; set; } = false;
     }
 }

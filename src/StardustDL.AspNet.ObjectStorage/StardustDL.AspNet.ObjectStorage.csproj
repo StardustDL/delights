@@ -3,6 +3,15 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MPL-2.0</PackageLicenseExpression>
+    <Authors>StardustDL</Authors>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Description>Object storage service provider based on Minio.</Description>
+    <PackageProjectUrl>https://github.com/StardustDL/delights</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/StardustDL/delights</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>

@@ -104,6 +104,19 @@ namespace Modulight.Modules
     public class ModuleAttribute : Attribute
     {
         /// <summary>
+        /// Set module manifest.
+        /// </summary>
+        public ModuleAttribute() : this(null) { }
+
+        /// <summary>
+        /// Set module manifest.
+        /// </summary>
+        public ModuleAttribute(string? name = null)
+        {
+            Name = name;
+        }
+
+        /// <summary>
         /// Name
         /// </summary>
         public string? Name { get; init; }

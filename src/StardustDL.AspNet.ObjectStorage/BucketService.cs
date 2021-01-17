@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace StardustDL.AspNet.ObjectStorage
 {
-    public class BucketService
+    class BucketService : IBucketService
     {
         internal BucketService(string name, MinioClient client)
         {
@@ -26,7 +26,7 @@ namespace StardustDL.AspNet.ObjectStorage
             await Client.RemoveBucketAsync(Name, cancellationToken: cancellationToken);
         }
 
-        public ObjectService Object(string name)
+        public IObjectService Object(string name)
         {
             return new ObjectService(Name, name, Client);
         }

@@ -23,18 +23,11 @@ using System.Threading.Tasks;
 
 namespace StardustDL.AspNet.IdentityServer
 {
+    [Module(Description = "Provide Identity Server services.", Url = "https://github.com/StardustDL/delights", Author = "StardustDL")]
     public class IdentityServerModule : AspNetServerModule<IdentityServerService, IdentityServerModuleOption>
     {
         public IdentityServerModule() : base()
         {
-            Manifest = Manifest with
-            {
-                Name = "IdentityServerProvider",
-                DisplayName = "Identity Server",
-                Description = "Provide Identity Server services.",
-                Url = "https://github.com/StardustDL/delights",
-                Author = "StardustDL",
-            };
         }
 
         public override void RegisterAspNetServices(IServiceCollection services)

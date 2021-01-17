@@ -1,26 +1,14 @@
 ﻿using Minio;
 using Minio.Exceptions;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace StardustDL.AspNet.ObjectStorage
 {
-    public class ObjectService
+    class ObjectService : IObjectService
     {
-        public record Info
-        {
-            public long Size { get; init; }
-
-            public DateTime LastModified { get; init; }
-
-            public string ContentType { get; init; } = "";
-
-            public IReadOnlyDictionary<string, string> Metadata { get; init; } = new Dictionary<string, string>();
-        }
-
         internal ObjectService(string bucketName, string name, MinioClient client)
         {
             Client = client;
@@ -47,10 +35,10 @@ namespace StardustDL.AspNet.ObjectStorage
             return true;
         }
 
-        public async Task<Info> Stat(CancellationToken cancellationToken = default)
+        public async Task<ObjectInfo> Stat(CancellationToken cancellationToken = default)
         {
             var stat = await Client.StatObjectAsync(BucketName, Name, cancellationToken: cancellationToken);
-            return new Info
+            return new ObjectInfo
             {
                 ContentType = stat.ContentType,
                 LastModified = stat.LastModified,

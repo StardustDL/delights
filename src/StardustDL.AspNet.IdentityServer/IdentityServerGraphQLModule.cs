@@ -18,20 +18,13 @@ using System.Threading.Tasks;
 
 namespace StardustDL.AspNet.IdentityServer
 {
-    public class IdentityServerGraphQLModule : GraphQLServerModule<IdentityServerGraphQLModuleService, IdentityServerGraphQLModuleOption>
+    [Module(Description = "Provide GraphQL endpoints for identity server.", Url = "https://github.com/StardustDL/delights", Author = "StardustDL")]
+    public class IdentityServerGraphqlModule : GraphQLServerModule<IdentityServerGraphqlModuleService, IdentityServerGraphqlModuleOption>
     {
         public override Type QueryType => typeof(ModuleQuery);
 
-        public IdentityServerGraphQLModule() : base()
+        public IdentityServerGraphqlModule() : base()
         {
-            Manifest = Manifest with
-            {
-                Name = "IdentityServerGraphQLProvider",
-                DisplayName = "Identity Server GraphQL",
-                Description = $"Provide GraphQL services for identity server",
-                Url = "https://github.com/StardustDL/delights",
-                Author = "StardustDL",
-            };
         }
 
         public override GraphQLEndpointConventionBuilder MapEndpoint(IEndpointRouteBuilder builder, IServiceProvider provider)
@@ -53,17 +46,17 @@ namespace StardustDL.AspNet.IdentityServer
             return await service.GetToken(userName, password);
         }
 
-        public async Task<string> GetUid([Service] IdentityServerService service)
+        public string GetUid([Service] IdentityServerService service)
         {
-            return service.SignInManager.Context.User.Identity.GetSubjectId();
+            return service.SignInManager.Context.User.Identity?.GetSubjectId() ?? "";
         }
     }
 
-    public class IdentityServerGraphQLModuleService : IModuleService
+    public class IdentityServerGraphqlModuleService : IModuleService
     {
     }
 
-    public class IdentityServerGraphQLModuleOption : GraphQLServerModuleOption
+    public class IdentityServerGraphqlModuleOption : GraphQLServerModuleOption
     {
     }
 }

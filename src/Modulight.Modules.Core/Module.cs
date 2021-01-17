@@ -30,7 +30,7 @@ namespace Modulight.Modules
 
         /// <summary>
         /// <inheritdoc/>
-        /// Auto-register <typeparamref name="TService"/> as scoped service.
+        /// It will register <typeparamref name="TService"/> as scoped service as default.
         /// </summary>
         public virtual void RegisterService(IServiceCollection services)
         {

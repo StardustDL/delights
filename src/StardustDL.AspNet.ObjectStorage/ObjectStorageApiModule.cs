@@ -15,20 +15,20 @@ using System.Runtime.CompilerServices;
 
 namespace StardustDL.AspNet.ObjectStorage
 {
+    /// <summary>
+    /// A module to provide API controllers <see cref="ObjectStorageController"/> for object storage.
+    /// </summary>
+    [Module(Description = "Provide API controllers for object storage.", Url = "https://github.com/StardustDL/delights", Author = "StardustDL")]
     public class ObjectStorageApiModule : AspNetServerModule<ObjectStorageApiService, ObjectStorageApiModuleOption>
     {
+        /// <summary>
+        /// Create the instance.
+        /// </summary>
         public ObjectStorageApiModule() : base()
         {
-            Manifest = Manifest with
-            {
-                Name = "ObjectStorageApiProvider",
-                DisplayName = "Object Storage API Provider",
-                Description = $"Provide API controller at /{ObjectStorageController.RouteName} for object storage.",
-                Url = "https://github.com/StardustDL/delights",
-                Author = "StardustDL",
-            };
         }
 
+        /// <inheritdoc/>
         public override void RegisterAspNetServices(IServiceCollection services)
         {
             base.RegisterAspNetServices(services);
@@ -38,6 +38,7 @@ namespace StardustDL.AspNet.ObjectStorage
             });
         }
 
+        /// <inheritdoc/>
         public override void Setup(IModuleHostBuilder host)
         {
             base.Setup(host);
@@ -45,18 +46,36 @@ namespace StardustDL.AspNet.ObjectStorage
         }
     }
 
+    /// <summary>
+    /// Services for <see cref="ObjectStorageApiModule"/>.
+    /// </summary>
     public class ObjectStorageApiService : IModuleService
     {
+        /// <summary>
+        /// Get the URL in the controller <see cref="ObjectStorageController"/> for a specified object.
+        /// </summary>
+        /// <param name="bucketName"></param>
+        /// <param name="objectName"></param>
+        /// <returns></returns>
         public string GetObjectUrl(string bucketName, string objectName)
         {
             return $"{ObjectStorageController.RouteName}/{bucketName}/{objectName}";
         }
     }
 
+    /// <summary>
+    /// Services for <see cref="ObjectStorageApiModule"/>.
+    /// </summary>
     public class ObjectStorageApiModuleOption
     {
+        /// <summary>
+        /// Enable put methods.
+        /// </summary>
         public bool AllowPut { get; set; } = false;
 
+        /// <summary>
+        /// Enable get methods.
+        /// </summary>
         public bool AllowGet { get; set; } = true;
     }
 }

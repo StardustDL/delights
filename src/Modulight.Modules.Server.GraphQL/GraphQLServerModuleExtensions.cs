@@ -37,6 +37,7 @@ namespace Modulight.Modules.Server.GraphQL
         /// Map all registered graphql server module's endpoints.
         /// </summary>
         /// <param name="builder"></param>
+        /// <param name="postMapEndpoint">Action to configure mapped GraphQL endpoints.</param>
         /// <returns></returns>
         public static IEndpointRouteBuilder MapGraphQLServerModuleEndpoints(this IEndpointRouteBuilder builder, Action<IGraphQLServerModule, GraphQLEndpointConventionBuilder>? postMapEndpoint = null)
         {

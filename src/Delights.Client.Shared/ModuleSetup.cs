@@ -14,7 +14,7 @@ namespace Delights.Client.Shared
         {
             var builder = Modulight.Modules.ModuleHostBuilder.CreateDefaultBuilder()
                 .UseRazorComponentClientModules()
-                .AddModule<UI.UIModule>()
+                .AddModule<UI.UiModule>()
                 .AddHelloModule(configureOptions: (o, sp) =>
                 {
                     var serverConfiguration = sp.GetRequiredService<IOptions<ServerConfiguration>>().Value;

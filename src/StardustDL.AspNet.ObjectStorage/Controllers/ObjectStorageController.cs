@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace StardustDL.AspNet.ObjectStorage
 {
+    /// <summary>
+    /// Controller for object storage.
+    /// </summary>
     [Area(RouteName)]
     [Route("/" + RouteName)]
     [ApiController]
@@ -16,15 +19,28 @@ namespace StardustDL.AspNet.ObjectStorage
     {
         internal const string RouteName = nameof(ObjectStorageApiModule);
 
+        /// <summary>
+        /// Create the controller.
+        /// </summary>
+        /// <param name="service"></param>
+        /// <param name="options"></param>
         public ObjectStorageController(ObjectStorageService service, IOptions<ObjectStorageApiModuleOption> options)
         {
             Service = service;
             Options = options.Value;
         }
 
-        public ObjectStorageService Service { get; }
+        ObjectStorageService Service { get; }
 
-        public ObjectStorageApiModuleOption Options { get; }
+        ObjectStorageApiModuleOption Options { get; }
+
+        /// <summary>
+        /// Upload a file.
+        /// </summary>
+        /// <param name="bucketName"></param>
+        /// <param name="objectName"></param>
+        /// <param name="file"></param>
+        /// <returns></returns>
 
         [HttpPut("{bucketName}/{objectName}")]
         public async Task<ActionResult> Put(string bucketName, string objectName, IFormFile file)
@@ -39,6 +55,12 @@ namespace StardustDL.AspNet.ObjectStorage
             return Ok();
         }
 
+        /// <summary>
+        /// Download a file.
+        /// </summary>
+        /// <param name="bucketName"></param>
+        /// <param name="objectName"></param>
+        /// <returns></returns>
         [HttpGet("{bucketName}/{objectName}")]
         public async Task<ActionResult> Get(string bucketName, string objectName)
         {

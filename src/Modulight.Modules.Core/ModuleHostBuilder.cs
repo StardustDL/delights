@@ -26,7 +26,7 @@ namespace Modulight.Modules
     public class DefaultModuleHostBuilder : IModuleHostBuilder
     {
         /// <summary>
-        /// Module descriptors registered modules.
+        /// Module descriptors for registered modules.
         /// </summary>
         protected Dictionary<Type, IModule> Descriptors { get; } = new Dictionary<Type, IModule>();
 
