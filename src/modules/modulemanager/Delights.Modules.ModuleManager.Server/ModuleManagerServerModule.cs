@@ -36,7 +36,7 @@ namespace Delights.Modules.ModuleManager.Server
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<ModuleManifest> GetModules([Service] IModuleHost collection)
+        public IQueryable<ModuleManifest> GetModules([ScopedService] IModuleHost collection)
         {
             return collection.Modules.Select(m => m.Manifest).AsQueryable();
         }

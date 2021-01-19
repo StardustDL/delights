@@ -30,9 +30,9 @@ namespace Delights.UI
             services.AddAntDesign();
         }
 
-        public override void RegisterService(IServiceCollection services)
+        public override void RegisterServices(IServiceCollection services)
         {
-            base.RegisterService(services);
+            base.RegisterServices(services);
             services.AddHttpClient();
         }
 

@@ -1,9 +1,11 @@
 ﻿using HotChocolate;
 using HotChocolate.AspNetCore.Extensions;
+using HotChocolate.Data;
 using IdentityServer4.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.ApplicationParts;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Modulight.Modules;
@@ -41,12 +43,12 @@ namespace StardustDL.AspNet.IdentityServer
 
     public class ModuleQuery
     {
-        public async Task<string> GetToken(string userName, string password, [Service] IdentityServerService service)
+        public async Task<string> GetToken(string userName, string password, [ScopedService] IdentityServerService service)
         {
             return await service.GetToken(userName, password);
         }
 
-        public string GetUid([Service] IdentityServerService service)
+        public string GetUid([ScopedService] IdentityServerService service)
         {
             return service.SignInManager.Context.User.Identity?.GetSubjectId() ?? "";
         }

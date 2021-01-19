@@ -95,7 +95,7 @@ namespace Modulight.Modules
             foreach (var (type, module) in Descriptors)
             {
                 services.AddSingleton(type, module);
-                module.RegisterService(services);
+                module.RegisterServices(services);
             }
 
             PostBuild(services);

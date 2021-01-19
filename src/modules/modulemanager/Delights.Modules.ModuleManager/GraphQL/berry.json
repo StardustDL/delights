@@ -1,1 +1,1 @@
-{"Schemas":[{"Name":"ModuleManagerGraphQL","Type":"http","File":"ModuleManagerGraphQL.graphql","Url":"https://localhost:5001/graphql/ModuleManager"}],"ClientName":"ModuleManagerGraphQLClient"}
+{"Schemas":[{"Name":"ModuleManagerGraphQL","Type":"http","File":"ModuleManagerGraphQL.graphql","Url":"https://localhost:5001/graphql/ModuleManagerServer"}],"ClientName":"ModuleManagerGraphQLClient"}

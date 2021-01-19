@@ -48,6 +48,16 @@ namespace Delights.Api
 
             var builder = ModuleHostBuilder.CreateDefaultBuilder().UseAspNetServerModules().UseGraphQLServerModules();
 
+            /*builder.AddIdentityServerModule(o =>
+            {
+                o.ConfigureDbContext = options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection"));
+                o.ConfigureIdentity = options => options.SignIn.RequireConfirmedAccount = false;
+                o.ConfigureIdentityServer = options => Configuration.GetSection("IdentityServer:Options").Bind(options);
+                o.ConfigureApiAuthorization = options => Configuration.GetSection("IdentityServer").Bind(options);
+                o.JwtAudiences = new string[] { "Delights.ApiAPI" };
+            }).AddIdentityServerGraphQLModule()*/
+
             builder.AddObjectStorageModule((o) =>
                 {
                     o.Endpoint = "localhost:9000";
@@ -56,17 +66,7 @@ namespace Delights.Api
                 })
                 .AddObjectStorageApiModule();
 
-            builder.AddIdentityServerModule(o =>
-            {
-                o.ConfigureDbContext = options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection"));
-                o.ConfigureIdentity = options => options.SignIn.RequireConfirmedAccount = false;
-                o.ConfigureIdentityServer = options => Configuration.GetSection("IdentityServer:Options").Bind(options);
-                o.ConfigureApiAuthorization = options => Configuration.GetSection("IdentityServer").Bind(options);
-                o.JwtAudiences = new string[] { "Delights.ApiAPI" };
-            })
-                .AddIdentityServerGraphQLModule()
-                .AddHelloModule()
+            builder.AddHelloModule()
                 .AddModuleManagerModule();
 
             builder.Build(services);

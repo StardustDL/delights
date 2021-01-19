@@ -39,7 +39,7 @@ namespace Modulight.Modules.Client.RazorComponents
         }
 
         /// <inheritdoc/>
-        public override void RegisterService(IServiceCollection services)
+        public override void RegisterServices(IServiceCollection services)
         {
             RegisterUIService(services);
             RegisterOptions(services);

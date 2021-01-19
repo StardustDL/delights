@@ -22,7 +22,7 @@ namespace Modulight.Modules
         /// Register services for module.
         /// </summary>
         /// <param name="services">Service collection</param>
-        void RegisterService(IServiceCollection services);
+        void RegisterServices(IServiceCollection services);
 
         /// <summary>
         /// Get module service from service provider.

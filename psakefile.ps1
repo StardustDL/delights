@@ -27,7 +27,7 @@ Function GenerateGraphQL($moduleName) {
 
     $apiname = $moduleName + "GraphQL"
     
-    Exec { dotnet graphql init https://localhost:5001/graphql/$moduleName -n $apiname -p "GraphQL" }
+    Exec { dotnet graphql init https://localhost:5001/graphql/${moduleName}Server -n $apiname -p "GraphQL" }
 
     Set-Location "GraphQL"
 
@@ -75,24 +75,23 @@ Task Pack {
     Exec -maxRetries 10 { dotnet pack -c Release /p:Version=$build_version -o ./packages }
 }
 
+Function PublishPackages($source, $key) {
+    Exec { dotnet nuget push ./packages/Modulight.Modules.Core.$build_version.nupkg -s $source -k $key --skip-duplicate }
+    Exec { dotnet nuget push ./packages/Modulight.Modules.Client.RazorComponents.$build_version.nupkg -s $source -k $key --skip-duplicate }
+    Exec { dotnet nuget push ./packages/Modulight.Modules.Server.AspNet.$build_version.nupkg -s $source -k $key --skip-duplicate }
+    Exec { dotnet nuget push ./packages/Modulight.Modules.Server.GraphQL.$build_version.nupkg -s $source -k $key --skip-duplicate }
+    Exec { dotnet nuget push ./packages/StardustDL.AspNet.ObjectStorage.$build_version.nupkg -s $source -k $key --skip-duplicate }
+}
+
 Task publish-packages {
     Exec { dotnet nuget add source https://sparkshine.pkgs.visualstudio.com/StardustDL/_packaging/feed/nuget/v3/index.json -n ownpkgs }
     Exec { dotnet nuget update source ownpkgs -u sparkshine -p $NUGET_AUTH_TOKEN --store-password-in-clear-text }
-    Exec { dotnet nuget push ./packages/Modulight.Modules.Core.$build_version.nupkg -s ownpkgs -k az --skip-duplicate }
-    Exec { dotnet nuget push ./packages/Modulight.Modules.Client.RazorComponents.$build_version.nupkg -s ownpkgs -k az --skip-duplicate }
-    Exec { dotnet nuget push ./packages/Modulight.Modules.Server.AspNet.$build_version.nupkg -s ownpkgs -k az --skip-duplicate }
-    Exec { dotnet nuget push ./packages/Modulight.Modules.Server.GraphQL.$build_version.nupkg -s ownpkgs -k az --skip-duplicate }
-    Exec { dotnet nuget push ./packages/StardustDL.AspNet.ObjectStorage.$build_version.nupkg -s ownpkgs -k az --skip-duplicate }
+    PublishPackages ownpkgs az
 }
 
 Task publish-packages-release {
-    Exec { dotnet nuget push ./packages/Modulight.Modules.Core.$build_version.nupkg  -s https://api.nuget.org/v3/index.json -k $NUGET_AUTH_TOKEN --skip-duplicate }
-    Exec { dotnet nuget push ./packages/Modulight.Modules.Client.RazorComponents.$build_version.nupkg  -s https://api.nuget.org/v3/index.json -k $NUGET_AUTH_TOKEN --skip-duplicate }
-    Exec { dotnet nuget push ./packages/Modulight.Modules.Server.AspNet.$build_version.nupkg  -s https://api.nuget.org/v3/index.json -k $NUGET_AUTH_TOKEN --skip-duplicate }
-    Exec { dotnet nuget push ./packages/Modulight.Modules.Server.GraphQL.$build_version.nupkg  -s https://api.nuget.org/v3/index.json -k $NUGET_AUTH_TOKEN --skip-duplicate }
-    Exec { dotnet nuget push ./packages/StardustDL.AspNet.ObjectStorage.$build_version.nupkg  -s https://api.nuget.org/v3/index.json -k $NUGET_AUTH_TOKEN --skip-duplicate }
+    PublishPackages https://api.nuget.org/v3/index.json $NUGET_AUTH_TOKEN
 }
-
 
 Task Api {
     Exec { dotnet run -p ./src/Delights.Api }
@@ -100,48 +99,6 @@ Task Api {
 
 Task Client {
     Exec { dotnet run -p ./src/Delights.Client }
-}
-
-Task new-module {
-    Assert ($name -ne $null) '$name should not be null'
-    $lowerName = ($name).tolower()
-    Write-Output "Generating module: $name, route path: $lowerName"
-
-    Copy-Item src/modules/hello src/modules/$lowerName -Recurse
-    Set-Location src/modules/$lowerName
-
-    Function ReplaceContent($fileName) {
-        $raw = Get-Content $fileName
-        $result = $raw.Replace("Hello", $name).Replace("hello", $lowerName)
-        Write-Output $result | Out-File $fileName
-    }
-
-    ReplaceContent Delights.Modules.Hello/Module.cs
-    ReplaceContent Delights.Modules.Hello/ModuleOption.cs
-    ReplaceContent Delights.Modules.Hello/Delights.Modules.Hello.csproj
-    ReplaceContent Delights.Modules.Hello.Server/Module.cs
-    ReplaceContent Delights.Modules.Hello.Server/ModuleOption.cs
-    ReplaceContent Delights.Modules.Hello.Server/Delights.Modules.Hello.Server.csproj
-    ReplaceContent Delights.Modules.Hello.UI/_Imports.razor
-    ReplaceContent Delights.Modules.Hello.UI/Pages/Index.razor
-    ReplaceContent Delights.Modules.Hello.UI/Delights.Modules.Hello.UI.csproj
-    ReplaceContent Delights.Modules.Hello.Core/Delights.Modules.Hello.Core.csproj
-    ReplaceContent Delights.Modules.Hello.Core/SharedManifest.cs
-    ReplaceContent Delights.Modules.Hello/GraphQL/berry.json
-
-
-    mv Delights.Modules.Hello/GraphQL/HelloGraphQL.graphql Delights.Modules.Hello/GraphQL/${name}GraphQL.graphql
-    mv Delights.Modules.Hello/Delights.Modules.Hello.csproj Delights.Modules.Hello/Delights.Modules.$name.csproj
-    mv Delights.Modules.Hello.Core/Delights.Modules.Hello.Core.csproj Delights.Modules.Hello.Core/Delights.Modules.$name.Core.csproj
-    mv Delights.Modules.Hello.Server/Delights.Modules.Hello.Server.csproj Delights.Modules.Hello.Server/Delights.Modules.$name.Server.csproj
-    mv Delights.Modules.Hello.UI/Delights.Modules.Hello.UI.csproj Delights.Modules.Hello.UI/Delights.Modules.$name.UI.csproj
-
-    mv Delights.Modules.Hello Delights.Modules.$name
-    mv Delights.Modules.Hello.Server Delights.Modules.$name.Server
-    mv Delights.Modules.Hello.UI Delights.Modules.$name.UI
-    mv Delights.Modules.Hello.Core Delights.Modules.$name.Core
-
-    Set-Location ../../..
 }
 
 Task gen-gql {
@@ -152,16 +109,6 @@ Task gen-gql {
 # invoke-psake new-module -parameters @{"name"="Hello"}
 
 Task update-gql {
-    Start-Job -Name "api" -ScriptBlock { dotnet run -p ./src/Delights.Api  }
-    Start-Sleep -Seconds 5
-
-    Exec -maxRetries 10 { GenerateGraphQL Hello }
-    Exec -maxRetries 10 { GenerateGraphQL ModuleManager }
-
-    Stop-Job -Name "api"
-}
-
-Task update-gql-d {
 
     GenerateGraphQL Hello
     GenerateGraphQL ModuleManager

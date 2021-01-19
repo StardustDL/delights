@@ -57,9 +57,9 @@ namespace Modulight.Modules.Server.AspNet
         public virtual void RegisterAspNetServices(IServiceCollection services) { }
 
         /// <inheritdoc/>
-        public override void RegisterService(IServiceCollection services)
+        public override void RegisterServices(IServiceCollection services)
         {
-            base.RegisterService(services);
+            base.RegisterServices(services);
             RegisterAspNetServices(services);
         }
     }

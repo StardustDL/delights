@@ -55,6 +55,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Delights.Modules.Shared", "
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Delights.Modules.ModuleManager.Shared", "src\modules\modulemanager\Delights.Modules.ModuleManager.Shared\Delights.Modules.ModuleManager.Shared.shproj", "{0A72DFB0-5B98-4EEB-A2FA-BAECC7F04D89}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StardustDL.AspNet.ItemMetadataServer", "src\StardustDL.AspNet.ItemMetadataServer\StardustDL.AspNet.ItemMetadataServer.csproj", "{CACB9937-D0A3-458B-BE98-67471F0873D0}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{0140b3c5-ad7e-47e6-b6f6-0d876ad3cfd3}*SharedItemsImports = 13
@@ -143,6 +145,10 @@ Global
 		{28B2788D-9EF5-4226-92D9-B694767B57C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{28B2788D-9EF5-4226-92D9-B694767B57C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28B2788D-9EF5-4226-92D9-B694767B57C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CACB9937-D0A3-458B-BE98-67471F0873D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CACB9937-D0A3-458B-BE98-67471F0873D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CACB9937-D0A3-458B-BE98-67471F0873D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CACB9937-D0A3-458B-BE98-67471F0873D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -167,6 +173,7 @@ Global
 		{058AB875-CB8C-4A40-A154-E42C7FFDF4A1} = {3C385D87-CD57-48DE-9724-91489F24356D}
 		{0140B3C5-AD7E-47E6-B6F6-0D876AD3CFD3} = {0C012303-205C-4886-8F91-DF223124E1E9}
 		{0A72DFB0-5B98-4EEB-A2FA-BAECC7F04D89} = {ACEBD1CB-4315-4A1D-BE67-56A9168B6099}
+		{CACB9937-D0A3-458B-BE98-67471F0873D0} = {17A43292-B8B1-4657-B6A5-019C9C28DC64}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BEC8D602-768F-4E83-8C66-022EE9BE6CED}

@@ -36,7 +36,7 @@ namespace StardustDL.AspNet.IdentityServer
 
             var options = GetSetupOptions(new IdentityServerModuleOption());
 
-            services.AddDbContext<IdentityDbContext>(o =>
+            services.AddDbContext<Data.IdentityDbContext>(o =>
             {
                 if (options.ConfigureDbContext is not null)
                     options.ConfigureDbContext(o);
@@ -47,7 +47,7 @@ namespace StardustDL.AspNet.IdentityServer
                 if (options.ConfigureIdentity is not null)
                     options.ConfigureIdentity(o);
             })
-                .AddEntityFrameworkStores<IdentityDbContext>();
+                .AddEntityFrameworkStores<Data.IdentityDbContext>();
 
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear(); // avoid ms-default mapping, it will change sub claim's type name
 
@@ -56,7 +56,7 @@ namespace StardustDL.AspNet.IdentityServer
                 if (options.ConfigureIdentityServer is not null)
                     options.ConfigureIdentityServer(o);
             })
-                .AddApiAuthorization<ApplicationUser, IdentityDbContext>(o =>
+                .AddApiAuthorization<ApplicationUser, Data.IdentityDbContext>(o =>
                 {
                     if (options.ConfigureApiAuthorization is not null)
                         options.ConfigureApiAuthorization(o);

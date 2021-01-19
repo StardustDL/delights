@@ -88,9 +88,9 @@ namespace Modulight.Modules.Server.GraphQL
         }
 
         /// <inheritdoc/>
-        public override void RegisterService(IServiceCollection services)
+        public override void RegisterServices(IServiceCollection services)
         {
-            base.RegisterService(services);
+            base.RegisterServices(services);
             RegisterGraphQLService(services);
         }
 

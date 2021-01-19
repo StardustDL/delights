@@ -33,9 +33,9 @@ namespace Delights.Modules.ModuleManager
         {
         }
 
-        public override void RegisterService(IServiceCollection services)
+        public override void RegisterServices(IServiceCollection services)
         {
-            base.RegisterService(services);
+            base.RegisterServices(services);
             services.AddHttpClient(
                 "ModuleManagerGraphQLClient", (sp, client) =>
                 {
