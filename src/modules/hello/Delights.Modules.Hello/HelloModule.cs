@@ -38,9 +38,9 @@ namespace Delights.Modules.Hello
             };
         }
 
-        public override void RegisterService(IServiceCollection services)
+        public override void RegisterServices(IServiceCollection services)
         {
-            base.RegisterService(services);
+            base.RegisterServices(services);
             services.AddHttpClient(
                 "HelloGraphQLClient", (sp, client) =>
                 {

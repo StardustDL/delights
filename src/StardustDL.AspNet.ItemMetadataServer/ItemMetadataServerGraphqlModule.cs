@@ -50,7 +50,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<ItemMetadata> GetItems([Service] ItemMetadataServerService service)
+        public IQueryable<Item> GetItems([Service] ItemMetadataServerService service)
         {
             return service.GetAllItems();
         }
@@ -86,37 +86,37 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return await service.AddCategory(mutation);
         }
 
-        public async Task<ItemMetadata> CreateItem(ItemMetadataMutation mutation, [Service] ItemMetadataServerService service)
+        public async Task<Item> CreateItem(ItemMetadataMutation mutation, [Service] ItemMetadataServerService service)
         {
             return await service.AddItem(mutation);
         }
 
-        public async Task<Tag> DeleteTag(string id, [Service] ItemMetadataServerService service)
+        public async Task<Tag?> DeleteTag(string id, [Service] ItemMetadataServerService service)
         {
             return await service.RemoveTag(id);
         }
 
-        public async Task<Category> DeleteCategory(string id, [Service] ItemMetadataServerService service)
+        public async Task<Category?> DeleteCategory(string id, [Service] ItemMetadataServerService service)
         {
             return await service.RemoveCategory(id);
         }
 
-        public async Task<ItemMetadata> DeleteItem(string id, [Service] ItemMetadataServerService service)
+        public async Task<Item?> DeleteItem(string id, [Service] ItemMetadataServerService service)
         {
             return await service.RemoveItem(id);
         }
 
-        public async Task<Tag> UpdateTag(TagMutation mutation, [Service] ItemMetadataServerService service)
+        public async Task<Tag?> UpdateTag(TagMutation mutation, [Service] ItemMetadataServerService service)
         {
             return await service.UpdateTag(mutation);
         }
 
-        public async Task<Category> UpdateCategory(CategoryMutation mutation, [Service] ItemMetadataServerService service)
+        public async Task<Category?> UpdateCategory(CategoryMutation mutation, [Service] ItemMetadataServerService service)
         {
             return await service.UpdateCategory(mutation);
         }
 
-        public async Task<ItemMetadata> UpdateItem(ItemMetadataMutation mutation, [Service] ItemMetadataServerService service)
+        public async Task<Item?> UpdateItem(ItemMetadataMutation mutation, [Service] ItemMetadataServerService service)
         {
             return await service.UpdateItem(mutation);
         }

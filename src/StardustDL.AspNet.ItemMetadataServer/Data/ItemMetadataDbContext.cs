@@ -18,7 +18,7 @@ namespace StardustDL.AspNet.ItemMetadataServer.Data
         {
         }
 
-        public DbSet<ItemMetadata> Items { get; set; }
+        public DbSet<Item> Items { get; set; }
 
         public DbSet<Category> Categories { get; set; }
 
