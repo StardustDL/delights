@@ -12,6 +12,7 @@ using Modulight.Modules.Server.GraphQL;
 using Modulight.Modules.Services;
 using StardustDL.AspNet.ItemMetadataServer.Data;
 using StardustDL.AspNet.ItemMetadataServer.Models;
+using StardustDL.AspNet.ItemMetadataServer.Models.Actions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,8 @@ namespace StardustDL.AspNet.ItemMetadataServer
     public class ItemMetadataServerGraphqlModule : GraphQLServerModule<ItemMetadataServerGraphqlModuleService, ItemMetadataServerGraphqlModuleOption>
     {
         public override Type QueryType => typeof(ModuleQuery);
+
+        public override Type? MutationType => typeof(ModuleMutation);
 
         public ItemMetadataServerGraphqlModule() : base()
         {
@@ -43,44 +46,79 @@ namespace StardustDL.AspNet.ItemMetadataServer
 
     public class ModuleQuery
     {
-        [UseDbContext(typeof(ItemMetadataDbContext))]
         [UsePaging]
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<ItemMetadata> GetItems([ScopedService] ItemMetadataDbContext context)
+        public IQueryable<ItemMetadata> GetItems([Service] ItemMetadataServerService service)
         {
-            return context.Items;
+            return service.GetAllItems();
         }
 
-        [UseDbContext(typeof(ItemMetadataDbContext))]
         [UsePaging]
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<Category> GetCategories([ScopedService] ItemMetadataDbContext context)
+        public IQueryable<Category> GetCategories([Service] ItemMetadataServerService service)
         {
-            return context.Categories;
+            return service.GetAllCategories();
         }
 
-        [UseDbContext(typeof(ItemMetadataDbContext))]
         [UsePaging]
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<Domain> GetDomains([ScopedService] ItemMetadataDbContext context)
+        public IQueryable<Tag> GetTags([Service] ItemMetadataServerService service)
         {
-            return context.Domains;
+            return service.GetAllTags();
+        }
+    }
+
+    public class ModuleMutation
+    {
+        public async Task<Tag> CreateTag(TagMutation mutation, [Service] ItemMetadataServerService service)
+        {
+            return await service.AddTag(mutation);
         }
 
-        [UseDbContext(typeof(ItemMetadataDbContext))]
-        [UsePaging]
-        [UseProjection]
-        [UseFiltering]
-        [UseSorting]
-        public IQueryable<Tag> GetTags([ScopedService] ItemMetadataDbContext context)
+        public async Task<Category> CreateCategory(CategoryMutation mutation, [Service] ItemMetadataServerService service)
         {
-            return context.Tags;
+            return await service.AddCategory(mutation);
+        }
+
+        public async Task<ItemMetadata> CreateItem(ItemMetadataMutation mutation, [Service] ItemMetadataServerService service)
+        {
+            return await service.AddItem(mutation);
+        }
+
+        public async Task<Tag> DeleteTag(string id, [Service] ItemMetadataServerService service)
+        {
+            return await service.RemoveTag(id);
+        }
+
+        public async Task<Category> DeleteCategory(string id, [Service] ItemMetadataServerService service)
+        {
+            return await service.RemoveCategory(id);
+        }
+
+        public async Task<ItemMetadata> DeleteItem(string id, [Service] ItemMetadataServerService service)
+        {
+            return await service.RemoveItem(id);
+        }
+
+        public async Task<Tag> UpdateTag(TagMutation mutation, [Service] ItemMetadataServerService service)
+        {
+            return await service.UpdateTag(mutation);
+        }
+
+        public async Task<Category> UpdateCategory(CategoryMutation mutation, [Service] ItemMetadataServerService service)
+        {
+            return await service.UpdateCategory(mutation);
+        }
+
+        public async Task<ItemMetadata> UpdateItem(ItemMetadataMutation mutation, [Service] ItemMetadataServerService service)
+        {
+            return await service.UpdateItem(mutation);
         }
     }
 

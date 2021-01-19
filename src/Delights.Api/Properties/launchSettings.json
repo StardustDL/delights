@@ -20,7 +20,7 @@
     "Delights.Api": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "graphql/ModuleManagerServer",
+      "launchUrl": "graphql/ItemMetadataServerGraphql",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

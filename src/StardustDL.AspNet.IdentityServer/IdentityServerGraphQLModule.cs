@@ -43,12 +43,12 @@ namespace StardustDL.AspNet.IdentityServer
 
     public class ModuleQuery
     {
-        public async Task<string> GetToken(string userName, string password, [ScopedService] IdentityServerService service)
+        public async Task<string> GetToken(string userName, string password, [Service] IdentityServerService service)
         {
             return await service.GetToken(userName, password);
         }
 
-        public string GetUid([ScopedService] IdentityServerService service)
+        public string GetUid([Service] IdentityServerService service)
         {
             return service.SignInManager.Context.User.Identity?.GetSubjectId() ?? "";
         }

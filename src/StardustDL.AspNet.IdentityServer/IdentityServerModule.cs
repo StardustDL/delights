@@ -78,9 +78,10 @@ namespace StardustDL.AspNet.IdentityServer
 
     public class IdentityServerService : IModuleService
     {
-        public IdentityServerService(IServiceProvider services, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IdentityServerTools identityServerTools, IOptions<IdentityServerModuleOption> options)
+        public IdentityServerService(IServiceProvider services, IdentityDbContext dbContext,UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IdentityServerTools identityServerTools, IOptions<IdentityServerModuleOption> options)
         {
             Services = services;
+            DbContext = dbContext;
             UserManager = userManager;
             IdentityServerTools = identityServerTools;
             SignInManager = signInManager;
@@ -90,6 +91,8 @@ namespace StardustDL.AspNet.IdentityServer
         public IdentityServerTools IdentityServerTools { get; }
 
         public IServiceProvider Services { get; }
+
+        public IdentityDbContext DbContext { get; }
 
         public UserManager<ApplicationUser> UserManager { get; }
 
@@ -129,10 +132,9 @@ namespace StardustDL.AspNet.IdentityServer
 
         public async Task Initialize(ApplicationUser firstUser, string firstUserPassword)
         {
-            var context = Services.GetRequiredService<Data.IdentityDbContext>();
-            await context.Database.EnsureCreatedAsync();
-            await context.Database.MigrateAsync();
-            if (!await context.Users.AnyAsync())
+            await DbContext.Database.EnsureCreatedAsync();
+            await DbContext.Database.MigrateAsync();
+            if (!await DbContext.Users.AnyAsync())
             {
                 var result = await UserManager.CreateAsync(firstUser, firstUserPassword);
 
@@ -142,7 +144,7 @@ namespace StardustDL.AspNet.IdentityServer
                 }
             }
 
-            await context.SaveChangesAsync();
+            await DbContext.SaveChangesAsync();
         }
     }
 

@@ -22,8 +22,6 @@ namespace StardustDL.AspNet.ItemMetadataServer.Data
 
         public DbSet<Category> Categories { get; set; }
 
-        public DbSet<Domain> Domains { get; set; }
-
         public DbSet<Tag> Tags { get; set; }
     }
 }

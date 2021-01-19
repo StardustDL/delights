@@ -11,7 +11,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return modules;
         }
 
-        public static IModuleHostBuilder AddItemMetadataServerGraphQLModule(this IModuleHostBuilder modules, Action<ItemMetadataServerGraphqlModuleOption>? setupOptions = null, Action<ItemMetadataServerGraphqlModuleOption, IServiceProvider>? configureOptions = null)
+        public static IModuleHostBuilder AddItemMetadataServerGraphqlModule(this IModuleHostBuilder modules, Action<ItemMetadataServerGraphqlModuleOption>? setupOptions = null, Action<ItemMetadataServerGraphqlModuleOption, IServiceProvider>? configureOptions = null)
         {
             modules.TryAddModule<ItemMetadataServerGraphqlModule, ItemMetadataServerGraphqlModuleOption>(setupOptions, configureOptions);
             return modules;

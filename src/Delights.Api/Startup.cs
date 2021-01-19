@@ -21,6 +21,7 @@ using System.Threading.Tasks;
 using Modulight.Modules;
 using Modulight.Modules.Server.AspNet;
 using StardustDL.AspNet.ObjectStorage;
+using StardustDL.AspNet.ItemMetadataServer;
 using StardustDL.AspNet.IdentityServer;
 using Microsoft.EntityFrameworkCore;
 
@@ -65,6 +66,13 @@ namespace Delights.Api
                     o.SecretKey = "password";
                 })
                 .AddObjectStorageApiModule();
+
+            builder.AddItemMetadataServerModule(o =>
+            {
+                o.ConfigureDbContext = options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("ItemMetadataConnection"));
+            })
+                .AddItemMetadataServerGraphqlModule();
 
             builder.AddHelloModule()
                 .AddModuleManagerModule();

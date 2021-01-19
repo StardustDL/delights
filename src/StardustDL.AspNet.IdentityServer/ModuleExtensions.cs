@@ -11,7 +11,7 @@ namespace StardustDL.AspNet.IdentityServer
             return modules;
         }
 
-        public static IModuleHostBuilder AddIdentityServerGraphQLModule(this IModuleHostBuilder modules, Action<IdentityServerGraphqlModuleOption>? setupOptions = null, Action<IdentityServerGraphqlModuleOption, IServiceProvider>? configureOptions = null)
+        public static IModuleHostBuilder AddIdentityServerGraphqlModule(this IModuleHostBuilder modules, Action<IdentityServerGraphqlModuleOption>? setupOptions = null, Action<IdentityServerGraphqlModuleOption, IServiceProvider>? configureOptions = null)
         {
             modules.TryAddModule<IdentityServerGraphqlModule, IdentityServerGraphqlModuleOption>(setupOptions, configureOptions);
             return modules;
