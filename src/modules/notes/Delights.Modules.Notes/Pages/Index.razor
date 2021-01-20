@@ -1,15 +1,52 @@
 @page "/notes"
 @inherits BasePage<Delights.Modules.Notes.NotesModule>
-@inject MessageService MessageService
 @inject Notes.ModuleService Service
-@inject IModuleHost ModuleCollection
 
 <PageInfo Title="Notes"></PageInfo>
 
+<PagingList Page="CurrentPage" Data="Data" OnNextPage="OnNextPage" OnPreviousPage="OnPreviousPage">
+    <ItemTemplate>
+        <NoteListItem MetadataId="@context"></NoteListItem>
+    </ItemTemplate>
+</PagingList>
+
 @code{
+    const int PageCount = 10;
+
+    IPageInfo? CurrentPage { get; set; }
+
+    IList<string>? Data { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
+
+        var result = await Service.GraphQLClient.GetMetadataIdsAsync(first: PageCount);
+        Update(result.Data);
+    }
+
+    void Update(IGetMetadataIds? data)
+    {
+        if (data is not null)
+        {
+            CurrentPage = data.Metadata.PageInfo;
+            Data = data.Metadata.Nodes.Select(x => x.Id).ToArray();
+        }
+    }
+
+    async Task OnNextPage()
+    {
+        var result = await Service.GraphQLClient.GetMetadataIdsAsync(
+            first: PageCount,
+            after: CurrentPage?.EndCursor ?? "");
+        Update(result.Data);
+    }
+
+    async Task OnPreviousPage()
+    {
+        var result = await Service.GraphQLClient.GetMetadataIdsAsync(
+            last: PageCount,
+            before: CurrentPage?.StartCursor ?? "");
+        Update(result.Data);
     }
 }

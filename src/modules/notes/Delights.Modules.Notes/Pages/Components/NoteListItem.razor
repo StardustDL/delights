@@ -1,0 +1,43 @@
+﻿@inject Notes.ModuleService Service
+
+@if (Note is not null)
+{
+    <ListItem @key="@MetadataId" Style="display: block">
+        <ListItemMeta Avatar="@("")">
+            <TitleTemplate>
+                <h4>
+                    <a href="" style="color:black">
+                        <span>@Note.Title</span>
+                    </a>
+                </h4>
+                <div>
+                    <NoteMetadataDisplay Value="@Note" />
+                </div>
+            </TitleTemplate>
+        </ListItemMeta>
+
+        <p>
+            @Note.Content
+        </p>
+    </ListItem>
+}
+else
+{
+    <span>Loading...</span>
+}
+
+@code {
+    [Parameter]
+    public string? MetadataId { get; set; }
+
+    INote? Note { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        var result = await Service.GraphQLClient.GetNoteByMetadataIdAsync(MetadataId);
+        Note = result.Data?.NoteByMetadataId;
+        StateHasChanged();
+    }
+}

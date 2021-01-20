@@ -1,0 +1,48 @@
+﻿@typeparam TItem
+
+@if (Data is not null)
+{
+    <AntList DataSource="Data" Header="@Header">
+        <ChildContent Context="item">
+            @if (ItemTemplate is not null)
+            {
+                @ItemTemplate(item)
+            }
+        </ChildContent>
+
+    </AntList>
+
+    @if (Page is not null)
+    {
+        <div class="text-center m-1">
+            @if (Page.HasPreviousPage)
+            {
+                <Button OnClick="OnPreviousPage">Previous</Button>
+            }
+            @if (Page.HasNextPage)
+            {
+                <Button OnClick="OnNextPage">Next</Button>
+            }
+        </div>
+    }
+}
+
+@code {
+    [Parameter]
+    public IPageInfo? Page { get; set; }
+
+    [Parameter]
+    public IList<TItem>? Data { get; set; }
+
+    [Parameter]
+    public RenderFragment? Header { get; set; }
+
+    [Parameter]
+    public RenderFragment<TItem>? ItemTemplate { get; set; }
+
+    [Parameter]
+    public EventCallback OnNextPage { get; set; }
+
+    [Parameter]
+    public EventCallback OnPreviousPage { get; set; }
+}

@@ -68,7 +68,6 @@ EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{0140b3c5-ad7e-47e6-b6f6-0d876ad3cfd3}*SharedItemsImports = 13
-		src\modules\hello\Delights.Modules.Hello.Shared\Delights.Modules.Hello.Shared.projitems*{058ab875-cb8c-4a40-a154-e42c7ffdf4a1}*SharedItemsImports = 13
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{08c0899f-43af-496e-95cf-22f8816ea69f}*SharedItemsImports = 5
 		src\modules\modulemanager\Delights.Modules.ModuleManager.Shared\Delights.Modules.ModuleManager.Shared.projitems*{08c0899f-43af-496e-95cf-22f8816ea69f}*SharedItemsImports = 5
 		src\modules\modulemanager\Delights.Modules.ModuleManager.Shared\Delights.Modules.ModuleManager.Shared.projitems*{0a72dfb0-5b98-4eeb-a2fa-baecc7f04d89}*SharedItemsImports = 13
@@ -78,12 +77,8 @@ Global
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{69cdbf1c-094d-49e3-b2b1-667787b1a4e1}*SharedItemsImports = 5
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{84a4dc85-7120-4eaf-ba6e-a999fa97356d}*SharedItemsImports = 5
 		src\modules\modulemanager\Delights.Modules.ModuleManager.Shared\Delights.Modules.ModuleManager.Shared.projitems*{84a4dc85-7120-4eaf-ba6e-a999fa97356d}*SharedItemsImports = 5
-		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{ab7abb0a-734a-4a06-8ba2-374e586a96dc}*SharedItemsImports = 5
-		src\modules\hello\Delights.Modules.Hello.Shared\Delights.Modules.Hello.Shared.projitems*{ab7abb0a-734a-4a06-8ba2-374e586a96dc}*SharedItemsImports = 5
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{c2432c09-5e38-4aef-8561-aba5b54b777a}*SharedItemsImports = 5
 		src\modules\notes\Delights.Modules.Notes.Shared\Delights.Modules.Notes.Shared.projitems*{c2432c09-5e38-4aef-8561-aba5b54b777a}*SharedItemsImports = 5
-		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{cbe41e90-70af-4b89-9929-caa8a74b7c3b}*SharedItemsImports = 5
-		src\modules\hello\Delights.Modules.Hello.Shared\Delights.Modules.Hello.Shared.projitems*{cbe41e90-70af-4b89-9929-caa8a74b7c3b}*SharedItemsImports = 5
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

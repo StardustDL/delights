@@ -1,9 +1,152 @@
-query getNotes {
-  notes {
+query getMetadataIds($first:Int,$after:String,$last:Int,$before:String){
+  metadata(first: $first, after: $after, last: $last, before: $before,order: {
+    creationTime: DESC
+  }) {
+    pageInfo {
+      ...pageInfo
+    }
     nodes {
       id
-      title
-      content
     }
   }
+}
+
+query getMetadataIdsByTag($inputName:String!,$first:Int,$after:String,$last:Int,$before:String){
+  metadataByTag(name: $inputName, first: $first, after: $after, last: $last, before: $before, order: {
+    creationTime: DESC
+  }) {
+    pageInfo {
+      ...pageInfo
+    }
+    nodes {
+      id
+    }
+  }
+}
+
+query getMetadataIdsByCategory($inputName:String!,$first:Int,$after:String,$last:Int,$before:String){
+  metadataByCategory(name: $inputName, first: $first, after: $after, last: $last, before: $before, order: {
+    creationTime: DESC
+  }) {
+    pageInfo {
+      ...pageInfo
+    }
+    nodes {
+      id
+    }
+  }
+}
+
+query getTags($first:Int,$after:String,$last:Int,$before:String){
+  tags(first: $first, after: $after, last: $last, before: $before, order: {
+    name: ASC
+  }) {
+    pageInfo {
+      ...pageInfo
+    }
+    nodes {
+      name
+    }
+  }
+}
+
+query getCategories($first:Int,$after:String,$last:Int,$before:String){
+  categories(first: $first, after: $after, last: $last, before: $before, order: {
+    name: ASC
+  }) {
+    pageInfo {
+      ...pageInfo
+    }
+    nodes {
+      name
+    }
+  }
+}
+
+query getNoteByMetadataId($id:String!){
+  noteByMetadataId(id: $id) {
+    ...note
+  }
+}
+
+query getNoteById($id:String!){
+  noteById(id: $id) {
+    ...note
+  }
+}
+
+mutation createNote($input:NoteMutationInput!) {
+  createNote(mutation: $input){
+    ...note
+  }
+}
+
+mutation updateNote($input:NoteMutationInput!) {
+  updateNote(mutation: $input){
+    ...note
+  }
+}
+
+mutation deleteNote($id:String!) {
+  deleteNote(id:$id){
+    ...note
+  }
+}
+
+mutation createCategory($inputName:String!) {
+  createCategory(name:$inputName){
+    name
+  }
+}
+
+mutation createTag($inputName:String!) {
+  createTag(name:$inputName){
+    name
+  }
+}
+
+mutation deleteCategory($inputName:String!) {
+  deleteCategory(name:$inputName){
+    name
+  }
+}
+
+mutation deleteTag($inputName:String!) {
+  deleteTag(name:$inputName){
+    name
+  }
+}
+
+mutation renameCategory($oldName: String!, $newName: String!) {
+  renameCategory(oldName: $oldName, newName: $newName) {
+    name
+  }
+}
+
+mutation renameTag($oldName: String!, $newName: String!) {
+  renameTag(oldName: $oldName, newName: $newName) {
+    name
+  }
+}
+
+fragment pageInfo on PageInfo {
+  hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+}
+
+fragment note on Note {
+  id
+    title
+    content
+    metadata {
+      accessTime
+      modificationTime
+      creationTime
+      attachments
+      remarks
+      category
+      tags
+    }
 }

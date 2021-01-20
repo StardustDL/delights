@@ -19,4 +19,4 @@ namespace Delights.Modules.Notes
             await js.InvokeVoidAsync("showPrompt", message);
         }
     }
-}
+    }

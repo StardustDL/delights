@@ -1,0 +1,67 @@
+﻿@if (Value is not null)
+{
+    <div class="d-flex flex-wrap justify-content-between" style="color:#999">
+        <div>
+            <small>
+                <span>
+                    <MdiIcon Type="calendar"></MdiIcon>
+                    <time datetime="@Value.Metadata.CreationTime"
+                          title="@(string.Format("Creation time: {0} / Modification time: {1}", Value.Metadata.CreationTime.ToString("yyyy-MM-dd HH:mm:ss"), Value.Metadata.ModificationTime.ToString("yyyy-MM-dd HH:mm:ss")))">
+                        @Value.Metadata.CreationTime.ToFriendlyString()
+                    </time>
+                </span>
+            </small>
+            @if (Value.Metadata.Category is not "")
+            {
+                <small class="m-1"></small>
+                <small>
+                    <span class="itemdisplay">
+                        <MdiIcon Type="folder"></MdiIcon>
+                        <a href="" style="color: inherit;">@Value.Metadata.Category</a>
+                    </span>
+                </small>
+            }
+            @if (Value.Metadata.Tags.Count > 0)
+            {
+                <small class="m-1"></small>
+                <small>
+                    <span>
+                        <MdiIcon Type="@(Value.Metadata.Tags.Count is 1 ? "tag" : "tag-multiple")"></MdiIcon>
+                        <span>
+                            @foreach (var key in Value.Metadata.Tags)
+                            {
+                                <a href="" style="color: inherit;">@key</a>
+                                <span>;</span>
+                            }
+                        </span>
+                    </span>
+                </small>
+            }
+        </div>
+
+        <div>
+            @if (!string.IsNullOrEmpty(Value.Content))
+            {
+                <small class="m-1"></small>
+                <small>
+                    <span>
+                        <MdiIcon Type="file-word"></MdiIcon>
+                        <span>@Utils.CountWordsString(Value.Content)</span>
+                    </span>
+                </small>
+                <small class="m-1"></small>
+                <small>
+                    <span>
+                        <MdiIcon Type="clock"></MdiIcon>
+                        <span>@Utils.ReadTimeString(Value.Content)</span>
+                    </span>
+                </small>
+            }
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public INote? Value { get; set; }
+}
