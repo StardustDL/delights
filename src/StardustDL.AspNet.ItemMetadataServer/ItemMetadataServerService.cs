@@ -51,17 +51,26 @@ namespace StardustDL.AspNet.ItemMetadataServer
 
         public async Task<Item?> GetItem(string? id)
         {
-            return await DbContext.Items.FindAsync(id);
+            var result = await DbContext.Items.FindAsync(id);
+            if (result is not null)
+                await ReloadItem(result);
+            return result;
         }
 
         public async Task<Category?> GetCategory(string? id)
         {
-            return await DbContext.Categories.FindAsync(id);
+            var result = await DbContext.Categories.FindAsync(id);
+            if (result is not null)
+                await ReloadCategory(result);
+            return result;
         }
 
         public async Task<Tag?> GetTag(string? id)
         {
-            return await DbContext.Tags.FindAsync(id);
+            var result = await DbContext.Tags.FindAsync(id);
+            if (result is not null)
+                await ReloadTag(result);
+            return result;
         }
 
         public async Task ReloadItem(Item value)
@@ -190,6 +199,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
                 CreationTime = value.CreationTime ?? DateTimeOffset.Now,
                 Domain = value.Domain ?? "",
                 Remarks = value.Remarks ?? "",
+                Attachments = value.Attachments ?? "",
                 Category = category,
             };
             if (value.TagIds is not null)
@@ -218,6 +228,8 @@ namespace StardustDL.AspNet.ItemMetadataServer
                     item.CreationTime = value.CreationTime.Value;
                 if (value.Remarks is not null)
                     item.Remarks = value.Remarks;
+                if (value.Attachments is not null)
+                    item.Attachments = value.Attachments;
                 if (value.CategoryId is not null)
                 {
                     var category = DbContext.Categories.Find(value.CategoryId);

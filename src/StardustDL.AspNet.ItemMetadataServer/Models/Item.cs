@@ -25,6 +25,8 @@ namespace StardustDL.AspNet.ItemMetadataServer.Models
 
         public ICollection<Tag>? Tags { get; set; }
 
+        public string Attachments { get; set; } = "";
+
         public ItemMetadata AsMetadata()
         {
             return new ItemMetadata
@@ -33,6 +35,7 @@ namespace StardustDL.AspNet.ItemMetadataServer.Models
                 ModificationTime = ModificationTime,
                 AccessTime = AccessTime,
                 Remarks = Remarks,
+                Attachments = Attachments,
                 Category = Category?.Name ?? "",
                 Tags = Tags?.Select(x => x.Name).ToArray() ?? Array.Empty<string>(),
             };
@@ -48,6 +51,8 @@ namespace StardustDL.AspNet.ItemMetadataServer.Models
         public DateTimeOffset AccessTime { get; init; }
 
         public string Remarks { get; init; } = "";
+
+        public string Attachments { get; init; } = "";
 
         public string Category { get; init; } = "";
 

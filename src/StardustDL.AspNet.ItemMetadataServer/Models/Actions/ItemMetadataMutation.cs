@@ -23,5 +23,7 @@ namespace StardustDL.AspNet.ItemMetadataServer.Models.Actions
         public string? CategoryId { get; init; }
 
         public string[]? TagIds { get; init; }
+
+        public string? Attachments { get; set; }
     }
 }
