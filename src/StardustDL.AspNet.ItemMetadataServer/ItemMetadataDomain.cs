@@ -2,6 +2,7 @@
 using StardustDL.AspNet.ItemMetadataServer.Models;
 using StardustDL.AspNet.ItemMetadataServer.Models.Actions;
 using StardustDL.AspNet.ItemMetadataServer.Models.Raws;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,6 +17,8 @@ namespace StardustDL.AspNet.ItemMetadataServer
 
         ModuleService Service { get; }
 
+        
+
         public ItemMetadataDomain(ModuleService service)
         {
             Service = service;
@@ -24,6 +27,32 @@ namespace StardustDL.AspNet.ItemMetadataServer
         public IQueryable<RawItem> QueryAllItems()
         {
             return Service.QueryAllItems().Where(x => x.Domain == DomainName);
+        }
+
+        public IQueryable<RawItem> QueryItemsByTag(string name)
+        {
+            var tag = Service.DbContext.Tags.Where(x => x.Name == name).FirstOrDefault();
+            if (tag is null)
+            {
+                return Array.Empty<RawItem>().AsQueryable();
+            }
+            else
+            {
+                return QueryAllItems().Where(x => x.Tags!.Contains(tag) == true);
+            }
+        }
+
+        public IQueryable<RawItem> QueryItemsByCategory(string name)
+        {
+            var tag = Service.DbContext.Categories.Where(x => x.Name == name).FirstOrDefault();
+            if (tag is null)
+            {
+                return Array.Empty<RawItem>().AsQueryable();
+            }
+            else
+            {
+                return QueryAllItems().Where(x => x.Category == tag);
+            }
         }
 
         public IQueryable<RawCategory> QueryAllCategories()
@@ -136,7 +165,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return null;
         }
 
-        public async Task<ItemMetadata> AddItemMetadata(ItemMetadataMutation value)
+        public async Task<ItemMetadata> AddMetadata(ItemMetadataMutation value)
         {
             value = value with
             {
@@ -152,7 +181,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return item.AsMetadata();
         }
 
-        public async Task<ItemMetadata?> UpdateItemMetadata(ItemMetadataMutation value)
+        public async Task<ItemMetadata?> UpdateMetadata(ItemMetadataMutation value)
         {
             var entity = await GetItem(value.Id);
             if (entity is not null)
@@ -171,7 +200,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return null;
         }
 
-        public async Task<ItemMetadata?> RemoveItemMetadata(string id)
+        public async Task<ItemMetadata?> RemoveMetadata(string id)
         {
             var entity = await GetItem(id);
             if (entity is not null)

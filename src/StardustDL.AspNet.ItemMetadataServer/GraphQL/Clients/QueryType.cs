@@ -16,7 +16,7 @@ namespace StardustDL.AspNet.ItemMetadataServer.GraphQL.Clients
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<RawTag> GetTags([Service] ItemMetadataDomain<T> service)
+        public virtual IQueryable<RawTag> GetTags([Service] ItemMetadataDomain<T> service)
         {
             return service.QueryAllTags();
         }
@@ -25,7 +25,7 @@ namespace StardustDL.AspNet.ItemMetadataServer.GraphQL.Clients
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<RawCategory> GetCategories([Service] ItemMetadataDomain<T> service)
+        public virtual IQueryable<RawCategory> GetCategories([Service] ItemMetadataDomain<T> service)
         {
             return service.QueryAllCategories();
         }
@@ -34,22 +34,40 @@ namespace StardustDL.AspNet.ItemMetadataServer.GraphQL.Clients
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<RawItem> GetMetadata([Service] ItemMetadataDomain<T> service)
+        public virtual IQueryable<RawItem> GetMetadata([Service] ItemMetadataDomain<T> service)
         {
             return service.QueryAllItems();
         }
 
-        public async Task<RawItem?> GetMetadataByMetadataId(string id, [Service] ItemMetadataDomain<T> service)
+        [UsePaging]
+        [UseProjection]
+        [UseFiltering]
+        [UseSorting]
+        public virtual IQueryable<RawItem> GetMetadataByTag(string name, [Service] ItemMetadataDomain<T> service)
+        {
+            return service.QueryItemsByTag(name);
+        }
+
+        [UsePaging]
+        [UseProjection]
+        [UseFiltering]
+        [UseSorting]
+        public virtual IQueryable<RawItem> GetMetadataByCategory(string name, [Service] ItemMetadataDomain<T> service)
+        {
+            return service.QueryItemsByCategory(name);
+        }
+
+        public virtual async Task<RawItem?> GetMetadataByMetadataId(string id, [Service] ItemMetadataDomain<T> service)
         {
             return await service.GetItem(id);
         }
 
-        public async Task<RawCategory?> GetCategory(string name, [Service] ItemMetadataDomain<T> service)
+        public virtual async Task<RawCategory?> GetCategory(string name, [Service] ItemMetadataDomain<T> service)
         {
             return await service.GetCategory(name);
         }
 
-        public async Task<RawTag?> GetTag(string name, [Service] ItemMetadataDomain<T> service)
+        public virtual async Task<RawTag?> GetTag(string name, [Service] ItemMetadataDomain<T> service)
         {
             return await service.GetTag(name);
         }

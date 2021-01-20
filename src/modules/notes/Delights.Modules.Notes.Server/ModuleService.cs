@@ -72,7 +72,7 @@ namespace Delights.Modules.Notes.Server
         public async Task<Note> AddNote(NoteMutation value)
         {
             var metadataMutation = value.Metadata ?? new StardustDL.AspNet.ItemMetadataServer.Models.Actions.ItemMetadataMutation();
-            var metadata = await MetadataDomain.AddItemMetadata(metadataMutation);
+            var metadata = await MetadataDomain.AddMetadata(metadataMutation);
 
             var tag = new RawNote
             {
@@ -101,7 +101,7 @@ namespace Delights.Modules.Notes.Server
                 ItemMetadata? metadata = null;
                 if(value.Metadata is not null)
                 {
-                    metadata = await MetadataDomain.UpdateItemMetadata(value.Metadata with
+                    metadata = await MetadataDomain.UpdateMetadata(value.Metadata with
                     {
                         Id = tag.MetadataId
                     });
@@ -121,7 +121,7 @@ namespace Delights.Modules.Notes.Server
             {
                 await ReloadRawNote(entity);
 
-                var metadata = await MetadataDomain.RemoveItemMetadata(entity.MetadataId!);
+                var metadata = await MetadataDomain.RemoveMetadata(entity.MetadataId!);
                 var result = await ToNote(entity, metadata);
                 DbContext.Notes.Remove(entity);
                 await DbContext.SaveChangesAsync();
