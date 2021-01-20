@@ -1,0 +1,9 @@
+query getNotes {
+  notes {
+    nodes {
+      id
+      title
+      content
+    }
+  }
+}

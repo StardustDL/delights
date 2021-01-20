@@ -1,0 +1,1 @@
+{"Schemas":[{"Name":"NotesGraphQL","Type":"http","File":"NotesGraphQL.graphql","Url":"https://localhost:5001/graphql/NotesServer"}],"ClientName":"NotesGraphQLClient"}

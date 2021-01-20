@@ -1,0 +1,15 @@
+@page "/notes"
+@inherits BasePage<Delights.Modules.Notes.NotesModule>
+@inject MessageService MessageService
+@inject Notes.ModuleService Service
+@inject IModuleHost ModuleCollection
+
+<PageTitle Value="Notes" />
+
+@code{
+
+    protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+    }
+}

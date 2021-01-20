@@ -63,6 +63,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delights.Modules.Notes.Serv
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Delights.Modules.Notes.Shared", "src\modules\notes\Delights.Modules.Notes.Shared\Delights.Modules.Notes.Shared.shproj", "{5A6F2210-8852-4D81-BA60-023A5DBAA281}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delights.Modules.Notes", "src\modules\notes\Delights.Modules.Notes\Delights.Modules.Notes.csproj", "{C2432C09-5E38-4AEF-8561-ABA5B54B777A}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{0140b3c5-ad7e-47e6-b6f6-0d876ad3cfd3}*SharedItemsImports = 13
@@ -78,6 +80,8 @@ Global
 		src\modules\modulemanager\Delights.Modules.ModuleManager.Shared\Delights.Modules.ModuleManager.Shared.projitems*{84a4dc85-7120-4eaf-ba6e-a999fa97356d}*SharedItemsImports = 5
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{ab7abb0a-734a-4a06-8ba2-374e586a96dc}*SharedItemsImports = 5
 		src\modules\hello\Delights.Modules.Hello.Shared\Delights.Modules.Hello.Shared.projitems*{ab7abb0a-734a-4a06-8ba2-374e586a96dc}*SharedItemsImports = 5
+		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{c2432c09-5e38-4aef-8561-aba5b54b777a}*SharedItemsImports = 5
+		src\modules\notes\Delights.Modules.Notes.Shared\Delights.Modules.Notes.Shared.projitems*{c2432c09-5e38-4aef-8561-aba5b54b777a}*SharedItemsImports = 5
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{cbe41e90-70af-4b89-9929-caa8a74b7c3b}*SharedItemsImports = 5
 		src\modules\hello\Delights.Modules.Hello.Shared\Delights.Modules.Hello.Shared.projitems*{cbe41e90-70af-4b89-9929-caa8a74b7c3b}*SharedItemsImports = 5
 	EndGlobalSection
@@ -162,6 +166,10 @@ Global
 		{41A07DC1-359F-4B2F-9CE9-84AE5C73A16C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41A07DC1-359F-4B2F-9CE9-84AE5C73A16C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41A07DC1-359F-4B2F-9CE9-84AE5C73A16C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2432C09-5E38-4AEF-8561-ABA5B54B777A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2432C09-5E38-4AEF-8561-ABA5B54B777A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2432C09-5E38-4AEF-8561-ABA5B54B777A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2432C09-5E38-4AEF-8561-ABA5B54B777A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -190,6 +198,7 @@ Global
 		{E8F7CB98-9F8D-472B-A926-4FB3E73672A3} = {0C012303-205C-4886-8F91-DF223124E1E9}
 		{41A07DC1-359F-4B2F-9CE9-84AE5C73A16C} = {E8F7CB98-9F8D-472B-A926-4FB3E73672A3}
 		{5A6F2210-8852-4D81-BA60-023A5DBAA281} = {E8F7CB98-9F8D-472B-A926-4FB3E73672A3}
+		{C2432C09-5E38-4AEF-8561-ABA5B54B777A} = {E8F7CB98-9F8D-472B-A926-4FB3E73672A3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BEC8D602-768F-4E83-8C66-022EE9BE6CED}

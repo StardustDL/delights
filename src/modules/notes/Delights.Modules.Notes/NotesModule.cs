@@ -4,19 +4,19 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Delights.Modules.ModuleManager.GraphQL;
+using Delights.Modules.Notes.GraphQL;
 using Microsoft.Extensions.Options;
 using StardustDL.RazorComponents.AntDesigns;
 using Modulight.Modules;
 using StardustDL.RazorComponents.MaterialDesignIcons;
 
-namespace Delights.Modules.ModuleManager
+namespace Delights.Modules.Notes
 {
 
     [Module(Url = Shared.SharedManifest.Url, Author = Shared.SharedManifest.Author, Description = SharedManifest.Description)]
-    public class ModuleManagerModule : RazorComponentClientModule<ModuleService, ModuleOption, ModuleUI>
+    public class NotesModule : RazorComponentClientModule<ModuleService, ModuleOption, ModuleUI>
     {
-        public ModuleManagerModule() : base()
+        public NotesModule() : base()
         {
         }
 
@@ -24,12 +24,12 @@ namespace Delights.Modules.ModuleManager
         {
             base.RegisterServices(services);
             services.AddHttpClient(
-                "ModuleManagerGraphQLClient", (sp, client) =>
+                "NotesGraphQLClient", (sp, client) =>
                 {
                     var option = sp.GetRequiredService<IOptions<ModuleOption>>().Value;
                     client.BaseAddress = new Uri(option.GraphQLEndpoint.TrimEnd('/') + $"/{Manifest.Name}Server");
                 });
-            services.AddModuleManagerGraphQLClient();
+            services.AddNotesGraphQLClient();
         }
 
         public override void Setup(Modulight.Modules.IModuleHostBuilder host)
