@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StardustDL.AspNet.ItemMetadataServer.Models
+namespace StardustDL.AspNet.ItemMetadataServer.Models.Raws
 {
-    public class Item
+    public class RawItem
     {
         public string? Id { get; set; }
 
@@ -21,9 +21,9 @@ namespace StardustDL.AspNet.ItemMetadataServer.Models
 
         public string Remarks { get; set; } = "";
 
-        public Category? Category { get; set; }
+        public RawCategory? Category { get; set; }
 
-        public ICollection<Tag>? Tags { get; set; }
+        public ICollection<RawTag>? Tags { get; set; }
 
         public string Attachments { get; set; } = "";
 
@@ -41,24 +41,5 @@ namespace StardustDL.AspNet.ItemMetadataServer.Models
                 Tags = Tags?.Select(x => x.Name).ToArray() ?? Array.Empty<string>(),
             };
         }
-    }
-
-    public record ItemMetadata
-    {
-        public DateTimeOffset CreationTime { get; init; }
-
-        public DateTimeOffset ModificationTime { get; init; }
-
-        public DateTimeOffset AccessTime { get; init; }
-
-        public string Id { get; set; } = "";
-
-        public string Remarks { get; init; } = "";
-
-        public string Attachments { get; init; } = "";
-
-        public string Category { get; init; } = "";
-
-        public string[] Tags { get; init; } = Array.Empty<string>();
     }
 }

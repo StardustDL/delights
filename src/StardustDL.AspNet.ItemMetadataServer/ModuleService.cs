@@ -3,8 +3,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Modulight.Modules.Services;
 using StardustDL.AspNet.ItemMetadataServer.Data;
-using StardustDL.AspNet.ItemMetadataServer.Models;
 using StardustDL.AspNet.ItemMetadataServer.Models.Actions;
+using StardustDL.AspNet.ItemMetadataServer.Models.Raws;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,22 +34,22 @@ namespace StardustDL.AspNet.ItemMetadataServer
             await DbContext.SaveChangesAsync();
         }
 
-        public IQueryable<Item> QueryAllItems()
+        public IQueryable<RawItem> QueryAllItems()
         {
             return DbContext.Items;
         }
 
-        public IQueryable<Category> QueryAllCategories()
+        public IQueryable<RawCategory> QueryAllCategories()
         {
             return DbContext.Categories;
         }
 
-        public IQueryable<Tag> QueryAllTags()
+        public IQueryable<RawTag> QueryAllTags()
         {
             return DbContext.Tags;
         }
 
-        public async Task<Item?> GetItem(string? id)
+        public async Task<RawItem?> GetItem(string? id)
         {
             var result = await DbContext.Items.FindAsync(id);
             if (result is not null)
@@ -57,7 +57,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return result;
         }
 
-        public async Task<Category?> GetCategory(string? id)
+        public async Task<RawCategory?> GetCategory(string? id)
         {
             var result = await DbContext.Categories.FindAsync(id);
             if (result is not null)
@@ -65,7 +65,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return result;
         }
 
-        public async Task<Tag?> GetTag(string? id)
+        public async Task<RawTag?> GetTag(string? id)
         {
             var result = await DbContext.Tags.FindAsync(id);
             if (result is not null)
@@ -73,9 +73,9 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return result;
         }
 
-        public async Task<Tag> AddTag(TagMutation value)
+        public async Task<RawTag> AddTag(RawTagMutation value)
         {
-            var tag = new Tag
+            var tag = new RawTag
             {
                 Id = value.Id ?? Guid.NewGuid().ToString(),
                 Name = value.Name ?? "",
@@ -88,7 +88,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return tag;
         }
 
-        public async Task<Tag?> UpdateTag(TagMutation value)
+        public async Task<RawTag?> UpdateTag(RawTagMutation value)
         {
             var tag = await GetTag(value.Id);
             if (tag is not null)
@@ -104,7 +104,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return tag;
         }
 
-        public async Task<Tag?> RemoveTag(string id)
+        public async Task<RawTag?> RemoveTag(string id)
         {
             var entity = await GetTag(id);
             if (entity is not null)
@@ -117,9 +117,9 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return entity;
         }
 
-        public async Task<Category> AddCategory(CategoryMutation value)
+        public async Task<RawCategory> AddCategory(RawCategoryMutation value)
         {
-            var category = new Category
+            var category = new RawCategory
             {
                 Id = value.Id ?? Guid.NewGuid().ToString(),
                 Name = value.Name ?? "",
@@ -132,7 +132,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return category;
         }
 
-        public async Task<Category?> UpdateCategory(CategoryMutation value)
+        public async Task<RawCategory?> UpdateCategory(RawCategoryMutation value)
         {
             var category = await GetCategory(value.Id);
             if (category is not null)
@@ -148,7 +148,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return category;
         }
 
-        public async Task<Category?> RemoveCategory(string id)
+        public async Task<RawCategory?> RemoveCategory(string id)
         {
             var entity = await GetCategory(id);
             if (entity is not null)
@@ -161,7 +161,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return entity;
         }
 
-        public async Task<Item> AddItem(ItemMutation value)
+        public async Task<RawItem> AddItem(RawItemMutation value)
         {
             if (value.CategoryId is null)
             {
@@ -169,7 +169,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
             }
 
             var category = DbContext.Categories.Find(value.CategoryId);
-            var item = new Item
+            var item = new RawItem
             {
                 Id = value.Id ?? Guid.NewGuid().ToString(),
                 AccessTime = value.AccessTime ?? DateTimeOffset.Now,
@@ -191,7 +191,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return item;
         }
 
-        public async Task<Item?> UpdateItem(ItemMutation value)
+        public async Task<RawItem?> UpdateItem(RawItemMutation value)
         {
             var item = await GetItem(value.Id);
             if (item is not null)
@@ -224,7 +224,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return item;
         }
 
-        public async Task<Item?> RemoveItem(string id)
+        public async Task<RawItem?> RemoveItem(string id)
         {
             var entity = await GetItem(id);
             if (entity is not null)
@@ -237,7 +237,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return entity;
         }
 
-        async Task ReloadItem(Item value)
+        async Task ReloadItem(RawItem value)
         {
             var entry = DbContext.Entry(value);
             await entry.ReloadAsync();
@@ -245,14 +245,14 @@ namespace StardustDL.AspNet.ItemMetadataServer
             await entry.Collection(x => x.Tags).LoadAsync();
         }
 
-        async Task ReloadTag(Tag value)
+        async Task ReloadTag(RawTag value)
         {
             var entry = DbContext.Entry(value);
             await entry.ReloadAsync();
             await entry.Collection(x => x.Items).LoadAsync();
         }
 
-        async Task ReloadCategory(Category value)
+        async Task ReloadCategory(RawCategory value)
         {
             var entry = DbContext.Entry(value);
             await entry.ReloadAsync();

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StardustDL.AspNet.ItemMetadataServer.Models.Actions
 {
-    public record ItemMutation
+    public record RawItemMutation
     {
         public string? Id { get; init; }
 

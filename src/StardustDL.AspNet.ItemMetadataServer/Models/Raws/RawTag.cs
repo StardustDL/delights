@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace StardustDL.AspNet.ItemMetadataServer.Models
+namespace StardustDL.AspNet.ItemMetadataServer.Models.Raws
 {
-    public class Tag
+    public class RawTag
     {
         public string? Id { get; set; }
 
@@ -11,6 +11,6 @@ namespace StardustDL.AspNet.ItemMetadataServer.Models
 
         public string Name { get; set; } = "";
 
-        public ICollection<Item>? Items { get; set; }
+        public ICollection<RawItem>? Items { get; set; }
     }
 }

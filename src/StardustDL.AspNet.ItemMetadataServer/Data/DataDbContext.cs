@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using StardustDL.AspNet.ItemMetadataServer.Models;
+using StardustDL.AspNet.ItemMetadataServer.Models.Raws;
 
 namespace StardustDL.AspNet.ItemMetadataServer.Data
 {
@@ -18,10 +18,10 @@ namespace StardustDL.AspNet.ItemMetadataServer.Data
         {
         }
 
-        public DbSet<Item> Items { get; set; }
+        public DbSet<RawItem> Items { get; set; }
 
-        public DbSet<Category> Categories { get; set; }
+        public DbSet<RawCategory> Categories { get; set; }
 
-        public DbSet<Tag> Tags { get; set; }
+        public DbSet<RawTag> Tags { get; set; }
     }
 }

@@ -10,6 +10,7 @@ using Delights.Modules.Notes.Server.Models;
 using StardustDL.AspNet.ItemMetadataServer;
 using StardustDL.AspNet.ItemMetadataServer.Models;
 using Delights.Modules.Notes.Server.Models.Actions;
+using StardustDL.AspNet.ItemMetadataServer.Models.Raws;
 
 namespace Delights.Modules.Notes.Server
 {
@@ -44,11 +45,6 @@ namespace Delights.Modules.Notes.Server
         public IQueryable<RawNote> QueryAllNotes()
         {
             return DbContext.Notes;
-        }
-
-        public IQueryable<Item> QueryAllMetadata()
-        {
-            return MetadataDomain.QueryAllItems();
         }
 
         public async Task<Note?> GetNote(string? id)

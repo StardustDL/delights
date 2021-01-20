@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Modulight.Modules;
 using StardustDL.AspNet.ItemMetadataServer;
 using Microsoft.Extensions.DependencyInjection;
+using HotChocolate.Execution.Configuration;
 
 namespace Delights.Modules.Notes.Server
 {

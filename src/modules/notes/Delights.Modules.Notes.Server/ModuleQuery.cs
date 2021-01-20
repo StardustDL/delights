@@ -5,12 +5,11 @@ using System.Linq;
 using Modulight.Modules;
 using Delights.Modules.Notes.Server.Models;
 using System.Threading.Tasks;
-using StardustDL.AspNet.ItemMetadataServer.Models;
+using StardustDL.AspNet.ItemMetadataServer.Models.Raws;
 
 namespace Delights.Modules.Notes.Server
 {
-
-    public class ModuleQuery
+    public class ModuleQuery : StardustDL.AspNet.ItemMetadataServer.GraphQL.Clients.QueryType<NotesServerModule>
     {
         [UsePaging]
         [UseProjection]
@@ -19,15 +18,6 @@ namespace Delights.Modules.Notes.Server
         public IQueryable<RawNote> GetNotes([Service] ModuleService service)
         {
             return service.QueryAllNotes();
-        }
-
-        [UsePaging]
-        [UseProjection]
-        [UseFiltering]
-        [UseSorting]
-        public IQueryable<Item> GetMetadata([Service] ModuleService service)
-        {
-            return service.QueryAllMetadata();
         }
 
         public async Task<Note?> GetNoteById(string id, [Service] ModuleService service)

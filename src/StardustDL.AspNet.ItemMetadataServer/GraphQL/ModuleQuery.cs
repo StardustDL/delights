@@ -1,7 +1,7 @@
 ﻿using HotChocolate;
 using HotChocolate.Data;
 using HotChocolate.Types;
-using StardustDL.AspNet.ItemMetadataServer.Models;
+using StardustDL.AspNet.ItemMetadataServer.Models.Raws;
 using System.Linq;
 
 namespace StardustDL.AspNet.ItemMetadataServer.GraphQL
@@ -12,7 +12,7 @@ namespace StardustDL.AspNet.ItemMetadataServer.GraphQL
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<Item> GetItems([Service] ItemMetadataServer.ModuleService service)
+        public IQueryable<RawItem> GetItems([Service] ItemMetadataServer.ModuleService service)
         {
             return service.QueryAllItems();
         }
@@ -21,7 +21,7 @@ namespace StardustDL.AspNet.ItemMetadataServer.GraphQL
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<Category> GetCategories([Service] ItemMetadataServer.ModuleService service)
+        public IQueryable<RawCategory> GetCategories([Service] ItemMetadataServer.ModuleService service)
         {
             return service.QueryAllCategories();
         }
@@ -30,7 +30,7 @@ namespace StardustDL.AspNet.ItemMetadataServer.GraphQL
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<Tag> GetTags([Service] ItemMetadataServer.ModuleService service)
+        public IQueryable<RawTag> GetTags([Service] ItemMetadataServer.ModuleService service)
         {
             return service.QueryAllTags();
         }

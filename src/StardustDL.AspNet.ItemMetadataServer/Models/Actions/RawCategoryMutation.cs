@@ -1,6 +1,6 @@
 ﻿namespace StardustDL.AspNet.ItemMetadataServer.Models.Actions
 {
-    public record TagMutation
+    public record RawCategoryMutation
     {
         public string? Id { get; init; }
 

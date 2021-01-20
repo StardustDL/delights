@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StardustDL.AspNet.ItemMetadataServer.Models;
 using StardustDL.AspNet.ItemMetadataServer.Models.Actions;
+using StardustDL.AspNet.ItemMetadataServer.Models.Raws;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,22 +21,22 @@ namespace StardustDL.AspNet.ItemMetadataServer
             Service = service;
         }
 
-        public IQueryable<Item> QueryAllItems()
+        public IQueryable<RawItem> QueryAllItems()
         {
             return Service.QueryAllItems().Where(x => x.Domain == DomainName);
         }
 
-        public IQueryable<Category> GetAllCategories()
+        public IQueryable<RawCategory> QueryAllCategories()
         {
             return Service.QueryAllCategories().Where(x => x.Domain == DomainName);
         }
 
-        public IQueryable<Tag> GetAllTags()
+        public IQueryable<RawTag> QueryAllTags()
         {
             return Service.QueryAllTags().Where(x => x.Domain == DomainName);
         }
 
-        public async Task<Item?> GetItem(string? id)
+        public async Task<RawItem?> GetItem(string? id)
         {
             var result = await Service.GetItem(id);
             if (result is not null && result.Domain == DomainName)
@@ -43,135 +44,94 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return null;
         }
 
-        public async Task<Category?> GetCategoryByName(string? name)
+        public async Task<RawCategory?> GetCategory(string? name)
         {
-            var result = await GetAllCategories().Where(x => x.Name == name).FirstOrDefaultAsync();
+            var result = await QueryAllCategories().Where(x => x.Name == name).Select(x => x.Id).FirstOrDefaultAsync();
             if (result is not null)
-                return result;
+                return await Service.GetCategory(result);
             return null;
         }
 
-        public async Task<Category?> GetCategory(string? id)
+        public async Task<RawTag?> GetTag(string? name)
         {
-            var result = await Service.GetCategory(id);
-            if (result is not null && result.Domain == DomainName)
-                return result;
-            return null;
-        }
-
-        public async Task<Tag?> GetTag(string? id)
-        {
-            var result = await Service.GetTag(id);
-            if (result is not null && result.Domain == DomainName)
-                return result;
-            return null;
-        }
-
-        public async Task<Tag?> GetTagByName(string? name)
-        {
-            var result = await GetAllTags().Where(x => x.Name == name).FirstOrDefaultAsync();
+            var result = await QueryAllTags().Where(x => x.Name == name).Select(x => x.Id).FirstOrDefaultAsync();
             if (result is not null)
-                return result;
+                return await Service.GetTag(result);
             return null;
         }
 
-        public async Task<Tag> AddTag(TagMutation value)
+        public async Task<RawTag> AddTag(string name)
         {
-            if (GetTagByName(value.Name) is not null)
+            if (await GetTag(name) is not null)
             {
                 throw new System.Exception("The name has existed.");
             }
-            return await Service.AddTag(value with
+            return await Service.AddTag(new RawTagMutation
             {
+                Name = name,
                 Domain = DomainName
             });
         }
 
-        public async Task<Tag?> UpdateTag(TagMutation value)
+        public async Task<RawTag?> RenameTag(string oldName, string newName)
         {
-            var entity = await GetTag(value.Id);
+            var entity = await GetTag(oldName);
             if (entity is not null)
             {
-                return await Service.UpdateTag(value with
+                return await Service.UpdateTag(new RawTagMutation
                 {
+                    Id = entity.Id,
+                    Name = newName,
                     Domain = DomainName
                 });
             }
             return null;
         }
 
-        public async Task<Tag?> RemoveTag(string id)
+        public async Task<RawTag?> RemoveTag(string name)
         {
-            var entity = await GetTag(id);
+            var entity = await GetTag(name);
             if (entity is not null)
             {
-                return await Service.RemoveTag(id);
+                return await Service.RemoveTag(entity.Id!);
             }
             return null;
         }
 
-        public async Task<Item> AddItem(ItemMutation value)
+        public async Task<RawCategory> AddCategory(string name)
         {
-            return await Service.AddItem(value with
-            {
-                Domain = DomainName
-            });
-        }
-
-        public async Task<Item?> UpdateItem(ItemMutation value)
-        {
-            var entity = await GetItem(value.Id);
-            if (entity is not null)
-            {
-                return await Service.UpdateItem(value with
-                {
-                    Domain = DomainName
-                });
-            }
-            return null;
-        }
-
-        public async Task<Item?> RemoveItem(string id)
-        {
-            var entity = await GetItem(id);
-            if (entity is not null)
-            {
-                return await Service.RemoveItem(id);
-            }
-            return null;
-        }
-
-        public async Task<Category> AddCategory(CategoryMutation value)
-        {
-            if (GetCategoryByName(value.Name) is not null)
+            if (await GetCategory(name) is not null)
             {
                 throw new System.Exception("The name has existed.");
             }
-            return await Service.AddCategory(value with
+            return await Service.AddCategory(new RawCategoryMutation
             {
+                Name = name,
                 Domain = DomainName
             });
         }
 
-        public async Task<Category?> UpdateCategory(CategoryMutation value)
+        public async Task<RawCategory?> RenameCategory(string oldName, string newName)
         {
-            var entity = await GetCategory(value.Id);
+            var entity = await GetCategory(oldName);
             if (entity is not null)
             {
-                return await Service.UpdateCategory(value with
+                return await Service.UpdateCategory(new RawCategoryMutation
                 {
+                    Id = entity.Id,
+                    Name = newName,
                     Domain = DomainName
                 });
             }
             return null;
         }
 
-        public async Task<Category?> RemoveCategory(string id)
+        public async Task<RawCategory?> RemoveCategory(string name)
         {
-            var entity = await GetCategory(id);
+            var entity = await GetCategory(name);
             if (entity is not null)
             {
-                return await Service.RemoveCategory(id);
+                return await Service.RemoveCategory(entity.Id!);
             }
             return null;
         }
@@ -184,10 +144,10 @@ namespace StardustDL.AspNet.ItemMetadataServer
             };
             var mutation = ToItemMutation(value);
             var (category, tags) = await PrepareCategoryAndTag(value.Category, value.Tags);
-            var item = await AddItem(mutation with
+            var item = await Service.AddItem(mutation with
             {
                 CategoryId = category?.Id,
-                TagIds = tags?.Select(x => x.Id!).ToArray()
+                TagIds = tags?.Select(x => x.Id!).ToArray(),
             });
             return item.AsMetadata();
         }
@@ -197,13 +157,13 @@ namespace StardustDL.AspNet.ItemMetadataServer
             var entity = await GetItem(value.Id);
             if (entity is not null)
             {
-                var (oldCategory, oldTags) = (entity.Category?.Id, entity.Tags?.Select(x => x.Id!).ToArray());
+                var (oldCategory, oldTags) = (entity.Category?.Name, entity.Tags?.Select(x => x.Name!).ToArray());
                 var mutation = ToItemMutation(value);
                 var (category, tags) = await PrepareCategoryAndTag(value.Category, value.Tags);
-                var item = await UpdateItem(mutation with
+                var item = await Service.UpdateItem(mutation with
                 {
                     CategoryId = category?.Id,
-                    TagIds = tags?.Select(x => x.Id!).ToArray()
+                    TagIds = tags?.Select(x => x.Id!).ToArray(),
                 });
                 await CleanCategoryAndTag(oldCategory, oldTags);
                 return item?.AsMetadata();
@@ -217,46 +177,40 @@ namespace StardustDL.AspNet.ItemMetadataServer
             if (entity is not null)
             {
                 var (oldCategory, oldTags) = (entity.Category?.Id, entity.Tags?.Select(x => x.Id!).ToArray());
-                var item = await RemoveItem(id);
+                var item = await Service.RemoveItem(id);
                 await CleanCategoryAndTag(oldCategory, oldTags);
                 return item?.AsMetadata();
             }
             return null;
         }
 
-        async Task<Category> GetOrCreateCategory(string name)
+        async Task<RawCategory> GetOrCreateCategory(string name)
         {
-            var value = await GetCategoryByName(name);
+            var value = await GetCategory(name);
             if (value is null)
             {
-                value = await AddCategory(new CategoryMutation
-                {
-                    Name = name
-                });
+                value = await AddCategory(name);
             }
             return value;
         }
 
-        async Task<Tag> GetOrCreateTag(string name)
+        async Task<RawTag> GetOrCreateTag(string name)
         {
-            var value = await GetTagByName(name);
+            var value = await GetTag(name);
             if (value is null)
             {
-                value = await AddTag(new TagMutation
-                {
-                    Name = name
-                });
+                value = await AddTag(name);
             }
             return value;
         }
 
-        async Task<(Category?, Tag[]?)> PrepareCategoryAndTag(string? categoryName, string[]? tagNames)
+        async Task<(RawCategory?, RawTag[]?)> PrepareCategoryAndTag(string? categoryName, string[]? tagNames)
         {
             var category = categoryName is null ? null : await GetOrCreateCategory(categoryName);
-            List<Tag>? tags = null;
+            List<RawTag>? tags = null;
             if (tagNames is not null)
             {
-                tags = new List<Tag>();
+                tags = new List<RawTag>();
 
                 foreach (var name in tagNames)
                 {
@@ -266,32 +220,32 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return (category, tags?.ToArray());
         }
 
-        async Task CleanCategoryAndTag(string? categoryId, string[]? tagIds)
+        async Task CleanCategoryAndTag(string? categoryName, string[]? tagNames)
         {
-            if (categoryId is not null)
+            if (categoryName is not null)
             {
-                var value = await GetCategory(categoryId);
+                var value = await GetCategory(categoryName);
                 if (value is not null && value.Items?.Count == 0)
                 {
-                    await RemoveCategory(categoryId);
+                    await RemoveCategory(categoryName);
                 }
             }
-            if (tagIds is not null)
+            if (tagNames is not null)
             {
-                foreach (var id in tagIds)
+                foreach (var name in tagNames)
                 {
-                    var value = await GetTag(id);
+                    var value = await GetTag(name);
                     if (value is not null && value.Items?.Count == 0)
                     {
-                        await RemoveTag(id);
+                        await RemoveTag(name);
                     }
                 }
             }
         }
 
-        ItemMutation ToItemMutation(ItemMetadataMutation mutation)
+        RawItemMutation ToItemMutation(ItemMetadataMutation mutation)
         {
-            return new ItemMutation
+            return new RawItemMutation
             {
                 AccessTime = mutation.AccessTime,
                 Attachments = mutation.Attachments,

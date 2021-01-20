@@ -5,7 +5,7 @@ using Delights.Modules.Notes.Server.Models.Actions;
 
 namespace Delights.Modules.Notes.Server
 {
-    public class ModuleMutation
+    public class ModuleMutation : StardustDL.AspNet.ItemMetadataServer.GraphQL.Clients.MutationType<NotesServerModule>
     {
         public async Task<Note> CreateNote(NoteMutation mutation, [Service] Notes.Server.ModuleService service)
         {
