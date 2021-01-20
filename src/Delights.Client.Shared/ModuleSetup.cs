@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using System;
 using Modulight.Modules;
+using Delights.Modules.Notes;
 
 namespace Delights.Client.Shared
 {
@@ -21,6 +22,11 @@ namespace Delights.Client.Shared
                     o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;
                 })
                 .AddModuleManagerModule(configureOptions: (o, sp) =>
+                {
+                    var serverConfiguration = sp.GetRequiredService<IOptions<ServerConfiguration>>().Value;
+                    o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;
+                })
+                .AddNotesModule(configureOptions: (o, sp) =>
                 {
                     var serverConfiguration = sp.GetRequiredService<IOptions<ServerConfiguration>>().Value;
                     o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;
