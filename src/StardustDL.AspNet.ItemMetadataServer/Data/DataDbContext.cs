@@ -11,10 +11,10 @@ using StardustDL.AspNet.ItemMetadataServer.Models;
 
 namespace StardustDL.AspNet.ItemMetadataServer.Data
 {
-    public class ItemMetadataDbContext : DbContext
+    public class DataDbContext : DbContext
     {
-        public ItemMetadataDbContext(
-            DbContextOptions<ItemMetadataDbContext> options) : base(options)
+        public DataDbContext(
+            DbContextOptions<DataDbContext> options) : base(options)
         {
         }
 

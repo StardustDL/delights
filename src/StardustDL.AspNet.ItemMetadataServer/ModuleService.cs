@@ -12,9 +12,9 @@ using System.Threading.Tasks;
 
 namespace StardustDL.AspNet.ItemMetadataServer
 {
-    public class ItemMetadataServerService : IModuleService
+    public class ModuleService : IModuleService
     {
-        public ItemMetadataServerService(IServiceProvider services, ItemMetadataDbContext dbContext, IOptions<ItemMetadataServerModuleOption> options)
+        public ModuleService(IServiceProvider services, DataDbContext dbContext, IOptions<ModuleOption> options)
         {
             Services = services;
             Options = options.Value;
@@ -23,9 +23,9 @@ namespace StardustDL.AspNet.ItemMetadataServer
 
         IServiceProvider Services { get; }
 
-        ItemMetadataServerModuleOption Options { get; }
+        ModuleOption Options { get; }
 
-        internal ItemMetadataDbContext DbContext { get; }
+        internal DataDbContext DbContext { get; }
 
         public async Task Initialize()
         {
@@ -34,17 +34,17 @@ namespace StardustDL.AspNet.ItemMetadataServer
             await DbContext.SaveChangesAsync();
         }
 
-        public IQueryable<Item> GetAllItems()
+        public IQueryable<Item> QueryAllItems()
         {
             return DbContext.Items;
         }
 
-        public IQueryable<Category> GetAllCategories()
+        public IQueryable<Category> QueryAllCategories()
         {
             return DbContext.Categories;
         }
 
-        public IQueryable<Tag> GetAllTags()
+        public IQueryable<Tag> QueryAllTags()
         {
             return DbContext.Tags;
         }
@@ -71,28 +71,6 @@ namespace StardustDL.AspNet.ItemMetadataServer
             if (result is not null)
                 await ReloadTag(result);
             return result;
-        }
-
-        public async Task ReloadItem(Item value)
-        {
-            var entry = DbContext.Entry(value);
-            await entry.ReloadAsync();
-            await entry.Reference(x => x.Category).LoadAsync();
-            await entry.Collection(x => x.Tags).LoadAsync();
-        }
-
-        public async Task ReloadTag(Tag value)
-        {
-            var entry = DbContext.Entry(value);
-            await entry.ReloadAsync();
-            await entry.Collection(x => x.Items).LoadAsync();
-        }
-
-        public async Task ReloadCategory(Category value)
-        {
-            var entry = DbContext.Entry(value);
-            await entry.ReloadAsync();
-            await entry.Collection(x => x.Items).LoadAsync();
         }
 
         public async Task<Tag> AddTag(TagMutation value)
@@ -183,7 +161,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return entity;
         }
 
-        public async Task<Item> AddItem(ItemMetadataMutation value)
+        public async Task<Item> AddItem(ItemMutation value)
         {
             if (value.CategoryId is null)
             {
@@ -213,7 +191,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return item;
         }
 
-        public async Task<Item?> UpdateItem(ItemMetadataMutation value)
+        public async Task<Item?> UpdateItem(ItemMutation value)
         {
             var item = await GetItem(value.Id);
             if (item is not null)
@@ -257,6 +235,28 @@ namespace StardustDL.AspNet.ItemMetadataServer
                 await DbContext.SaveChangesAsync();
             }
             return entity;
+        }
+
+        async Task ReloadItem(Item value)
+        {
+            var entry = DbContext.Entry(value);
+            await entry.ReloadAsync();
+            await entry.Reference(x => x.Category).LoadAsync();
+            await entry.Collection(x => x.Tags).LoadAsync();
+        }
+
+        async Task ReloadTag(Tag value)
+        {
+            var entry = DbContext.Entry(value);
+            await entry.ReloadAsync();
+            await entry.Collection(x => x.Items).LoadAsync();
+        }
+
+        async Task ReloadCategory(Category value)
+        {
+            var entry = DbContext.Entry(value);
+            await entry.ReloadAsync();
+            await entry.Collection(x => x.Items).LoadAsync();
         }
     }
 }

@@ -1,10 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace StardustDL.AspNet.ItemMetadataServer.Models.Actions
 {
-    public record ItemMetadataMutation
+    public record ItemMutation
     {
         public string? Id { get; init; }
+
+        public string? Domain { get; init; }
 
         public DateTimeOffset? CreationTime { get; init; }
 
@@ -14,9 +20,9 @@ namespace StardustDL.AspNet.ItemMetadataServer.Models.Actions
 
         public string? Remarks { get; init; }
 
-        public string? Category { get; init; }
+        public string? CategoryId { get; init; }
 
-        public string[]? Tags { get; init; }
+        public string[]? TagIds { get; init; }
 
         public string? Attachments { get; set; }
     }

@@ -31,6 +31,7 @@ namespace StardustDL.AspNet.ItemMetadataServer.Models
         {
             return new ItemMetadata
             {
+                Id = Id ?? "",
                 CreationTime = CreationTime,
                 ModificationTime = ModificationTime,
                 AccessTime = AccessTime,
@@ -49,6 +50,8 @@ namespace StardustDL.AspNet.ItemMetadataServer.Models
         public DateTimeOffset ModificationTime { get; init; }
 
         public DateTimeOffset AccessTime { get; init; }
+
+        public string Id { get; set; } = "";
 
         public string Remarks { get; init; } = "";
 

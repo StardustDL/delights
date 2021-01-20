@@ -24,6 +24,7 @@ using StardustDL.AspNet.ObjectStorage;
 using StardustDL.AspNet.ItemMetadataServer;
 using StardustDL.AspNet.IdentityServer;
 using Microsoft.EntityFrameworkCore;
+using Delights.Modules.Notes.Server;
 
 namespace Delights.Api
 {
@@ -75,7 +76,12 @@ namespace Delights.Api
                 .AddItemMetadataServerGraphqlModule();
 
             builder.AddHelloModule()
-                .AddModuleManagerModule();
+                .AddModuleManagerModule()
+                .AddNotesModule(o =>
+                {
+                    o.ConfigureDbContext = options =>
+                        options.UseSqlServer(Configuration.GetConnectionString("NotesConnection"));
+                });
 
             builder.Build(services);
         }

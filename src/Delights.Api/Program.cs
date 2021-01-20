@@ -6,7 +6,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Modulight.Modules;
 using StardustDL.AspNet.IdentityServer;
-using StardustDL.AspNet.ItemMetadataServer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,36 +29,15 @@ namespace Delights.Api
                     EmailConfirmed = true,
                     LockoutEnabled = false
                 }, "123P$d");*/
-                var ims = services.GetRequiredService<ItemMetadataServerService>();
-                await ims.Initialize();
-                /*var cg1 = await ims.AddCategory(new StardustDL.AspNet.ItemMetadataServer.Models.Actions.CategoryMutation
                 {
-                    Domain = "d1",
-                    Name = "c1"
-                });
-                var tg1 = await ims.AddTag(new StardustDL.AspNet.ItemMetadataServer.Models.Actions.TagMutation
+                    var ims = services.GetRequiredService<StardustDL.AspNet.ItemMetadataServer.ModuleService>();
+                    await ims.Initialize();
+                }
                 {
-                    Domain = "d1",
-                    Name = "t1",
-                });
-                var tg2 = await ims.AddTag(new StardustDL.AspNet.ItemMetadataServer.Models.Actions.TagMutation
-                {
-                    Domain = "d1",
-                    Name = "t2",
-                });
-                for (int i = 0; i < 10; i++)
-                {
-                    var it = await ims.AddItem(new StardustDL.AspNet.ItemMetadataServer.Models.Actions.ItemMetadataMutation
-                    {
-                        Domain = "d1",
-                        Remarks = $"item{i}",
-                        CategoryId = cg1.Id,
-                        TagIds = new string[]
-                        {
-                            i % 2 == 0 ? tg1.Id : tg2.Id
-                        }
-                    });
-                }*/
+                    var ims = services.GetRequiredService<Delights.Modules.Notes.Server.ModuleService>();
+                    await ims.Initialize();
+                }
+                
             }
 
             await host.RunAsync();
