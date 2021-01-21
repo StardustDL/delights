@@ -1,4 +1,6 @@
-﻿@if (Value is not null)
+﻿@inject Notes.ModuleService Service
+
+@if (Value is not null)
 {
     <div class="d-flex flex-wrap justify-content-between" style="color:#999">
         <div>
@@ -17,7 +19,7 @@
                 <small>
                     <span class="itemdisplay">
                         <MdiIcon Type="folder"></MdiIcon>
-                        <a href="" style="color: inherit;">@Value.Metadata.Category</a>
+                        <a href="@Service.UrlGenerator.Category(Value.Metadata.Category)" style="color: inherit;">@Value.Metadata.Category</a>
                     </span>
                 </small>
             }
@@ -30,8 +32,8 @@
                         <span>
                             @foreach (var key in Value.Metadata.Tags)
                             {
-                                <a href="" style="color: inherit;">@key</a>
-                                <span>;</span>
+                                <a href="@Service.UrlGenerator.Tag(key)" style="color: inherit;">@key</a>
+                                <span>,</span>
                             }
                         </span>
                     </span>

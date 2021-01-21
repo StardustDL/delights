@@ -97,6 +97,10 @@ Task Api {
     Exec { dotnet run -p ./src/Delights.Api }
 }
 
+Task Api-prod {
+    Exec { dotnet run -p ./src/Delights.Api -c Release --launch-profile "Delights.Api.Prod"}
+}
+
 Task Client {
     Exec { dotnet run -p ./src/Delights.Client }
 }

@@ -9,6 +9,7 @@ using Microsoft.Extensions.Options;
 using StardustDL.RazorComponents.AntDesigns;
 using Modulight.Modules;
 using StardustDL.RazorComponents.MaterialDesignIcons;
+using StardustDL.RazorComponents.Vditors;
 
 namespace Delights.Modules.Notes
 {
@@ -36,6 +37,7 @@ namespace Delights.Modules.Notes
         {
             base.Setup(host);
             host.AddAntDesignModule();
+            host.AddVditorModule();
             host.AddMaterialDesignIconModule();
         }
     }

@@ -7,9 +7,12 @@ namespace Delights.Modules.Notes
     {
         public INotesGraphQLClient GraphQLClient { get; }
 
+        public UrlGenerator UrlGenerator { get; }
+
         public ModuleService(INotesGraphQLClient graphQLClient)
         {
             GraphQLClient = graphQLClient;
+            UrlGenerator = new UrlGenerator();
         }
     }
 }

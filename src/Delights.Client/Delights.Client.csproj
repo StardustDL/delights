@@ -15,8 +15,4 @@
     <ProjectReference Include="..\Delights.Client.Shared\Delights.Client.Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
-
 </Project>

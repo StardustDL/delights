@@ -1,0 +1,159 @@
+﻿@page "/notes/create"
+@page "/notes/{id}/edit"
+
+@inherits BasePage<Delights.Modules.Notes.NotesModule>
+@inject Notes.ModuleService Service
+@inject MessageService MessageService
+@inject NavigationManager NavigationManager
+
+<Loader OnLoad="@OnLoad" @ref="loader">
+    <Modulight.Modules.Client.RazorComponents.UI.PageInfo Title="@model!.Title">
+        <Extra>
+            <Button Type="@ButtonType.Primary" OnClick="OnSubmit">
+                @if (IsCreate)
+                {
+                    <MdiIcon Type="@IconNames.Create"></MdiIcon>
+                    <span>Create</span>
+                }
+                else
+                {
+                    <MdiIcon Type="@IconNames.Edit"></MdiIcon>
+                    <span>Update</span>
+                }
+            </Button>
+            @if (!IsCreate)
+            {
+                <Popconfirm Title="@("Are you sure delete this note?")" OnConfirm="OnDelete" Placement="@PlacementType.BottomRight">
+                    <Button Danger>
+                        <MdiIcon Type="@IconNames.Delete"></MdiIcon>
+                        <span>Delete</span>
+                    </Button>
+                </Popconfirm>
+            }
+        </Extra>
+    </Modulight.Modules.Client.RazorComponents.UI.PageInfo>
+
+    <Form @ref="form" Model="@model" Layout="@FormLayout.Vertical">
+        <FormItem Label="Title">
+            <Input @bind-Value="@context.Title" />
+        </FormItem>
+        <FormItem Label="Category">
+            <Input @bind-Value="@context.Category" />
+        </FormItem>
+        <FormItem Label="Tags">
+            <Input Placeholder="Input like a,b,c." @bind-Value="@context.Tags" />
+        </FormItem>
+        <FormItem Label="Content">
+            <Vditor.Editor @bind-Value="@context.Content"></Vditor.Editor>
+        </FormItem>
+    </Form>
+</Loader>
+
+@code {
+    [Parameter]
+    public string? Id { get; set; }
+
+    bool IsCreate => String.IsNullOrEmpty(Id);
+
+    class Model
+    {
+        public string Content { get; set; } = "";
+
+        public string Title { get; set; } = "";
+
+        public string Category { get; set; } = "";
+
+        public string Tags { get; set; } = "";
+    }
+
+    Model? model;
+
+    Form<Model> form;
+
+    private Loader loader;
+
+    private async Task OnLoad()
+    {
+        if (IsCreate)
+        {
+            model = new Model();
+        }
+        else
+        {
+            var result = await Service.GraphQLClient.GetNoteByIdAsync(Id!);
+            var note = result.Data?.NoteById!;
+            model = new Model
+            {
+                Content = note.Content,
+                Tags = string.Join(',', note.Metadata.Tags),
+                Category = note.Metadata.Category,
+                Title = note.Title
+            };
+        }
+    }
+
+    async Task OnDelete()
+    {
+        if (IsCreate)
+            return;
+        var pass = await Service.GraphQLClient.DeleteNoteAsync(Id!);
+        if (!pass.HasErrors)
+        {
+            _ = MessageService.Success("Deleted note successfully.");
+            NavigationManager.NavigateTo(Service.UrlGenerator.Notes());
+        }
+        else
+        {
+            _ = MessageService.Error("Failed to delete note.");
+        }
+    }
+
+    async Task OnSubmit()
+    {
+        if (!form.Validate())
+        {
+            _ = MessageService.Error("Invalid input.");
+            return;
+        }
+
+        var mutation = new NoteMutationInput
+        {
+            Title = model!.Title,
+            Content = model.Content,
+            Metadata = new ItemMetadataMutationInput
+            {
+                Category = model.Category.Trim(),
+                Tags = model.Tags.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                    .Select(x => x.Trim()).Where(x => !string.IsNullOrEmpty(x)).ToArray(),
+            }
+        };
+
+        if (IsCreate)
+        {
+            var pass = await Service.GraphQLClient.CreateNoteAsync(mutation);
+            if (!pass.HasErrors)
+            {
+                _ = MessageService.Success("Created note successfully.");
+                NavigationManager.NavigateTo(Service.UrlGenerator.Note(pass.Data!.CreateNote));
+            }
+            else
+            {
+                _ = MessageService.Error("Failed to create note.");
+            }
+        }
+        else
+        {
+            mutation.Id = Id!;
+            var pass = await Service.GraphQLClient.UpdateNoteAsync(mutation);
+            if (!pass.HasErrors)
+            {
+                _ = MessageService.Success("Updated note successfully.");
+                NavigationManager.NavigateTo(Service.UrlGenerator.Note(pass.Data!.UpdateNote));
+            }
+            else
+            {
+                _ = MessageService.Error("Failed to update note.");
+            }
+        }
+    }
+}

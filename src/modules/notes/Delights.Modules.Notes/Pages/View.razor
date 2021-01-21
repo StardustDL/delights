@@ -1,0 +1,59 @@
+﻿@page "/notes/{id}"
+
+@inherits BasePage<Delights.Modules.Notes.NotesModule>
+@inject Notes.ModuleService Service
+@inject MessageService MessageService
+@inject NavigationManager NavigationManager
+
+<Loader OnLoad="@OnLoad" @ref="loader" LoadKey="@Id">
+    <Modulight.Modules.Client.RazorComponents.UI.PageInfo Title="@Note!.Title">
+        <Tags>
+            <NoteMetadataDisplay Value="@Note" />
+        </Tags>
+        <Extra>
+            <ButtonLink Href="@Service.UrlGenerator.NoteEdit(Note)">
+                <MdiIcon Type="@IconNames.Edit"></MdiIcon>
+                <span>Edit</span>
+            </ButtonLink>
+            <Popconfirm Title="@($"Are you sure delete this note?")" OnConfirm="OnDelete" Placement="@PlacementType.BottomRight">
+                <Button Danger>
+                    <MdiIcon Type="@IconNames.Delete"></MdiIcon>
+                    <span>Delete</span>
+                </Button>
+            </Popconfirm>
+        </Extra>
+    </Modulight.Modules.Client.RazorComponents.UI.PageInfo>
+
+    <article class="markdown-body">
+        <Vditor.Preview Markdown="@Note.Content"></Vditor.Preview>
+    </article>
+</Loader>
+
+@code {
+    [Parameter]
+    public string? Id { get; set; }
+
+    INote? Note { get; set; }
+
+    private Loader loader;
+
+    private async Task OnLoad()
+    {
+        var result = await Service.GraphQLClient.GetNoteByIdAsync(Id!);
+        Note = result.Data?.NoteById;
+    }
+
+    async Task OnDelete()
+    {
+        var pass = await Service.GraphQLClient.DeleteNoteAsync(Id!);
+        if (!pass.HasErrors)
+        {
+            _ = MessageService.Success("Deleted note successfully.");
+            NavigationManager.NavigateTo(Service.UrlGenerator.Notes());
+        }
+        else
+        {
+            _ = MessageService.Error("Failed to delete note.");
+        }
+    }
+}

@@ -11,26 +11,31 @@ namespace Delights.Client.Shared
 {
     public static class ModuleSetup
     {
-        public static Modulight.Modules.IModuleHostBuilder CreateDefaultBuilder()
+        public static Modulight.Modules.IModuleHostBuilder CreateDefaultBuilder(bool isDev)
         {
             var builder = Modulight.Modules.ModuleHostBuilder.CreateDefaultBuilder()
                 .UseRazorComponentClientModules()
                 .AddModule<UI.UiModule>()
-                .AddHelloModule(configureOptions: (o, sp) =>
-                {
-                    var serverConfiguration = sp.GetRequiredService<IOptions<ServerConfiguration>>().Value;
-                    o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;
-                })
-                .AddModuleManagerModule(configureOptions: (o, sp) =>
-                {
-                    var serverConfiguration = sp.GetRequiredService<IOptions<ServerConfiguration>>().Value;
-                    o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;
-                })
                 .AddNotesModule(configureOptions: (o, sp) =>
                 {
                     var serverConfiguration = sp.GetRequiredService<IOptions<ServerConfiguration>>().Value;
                     o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;
                 });
+
+            if (isDev)
+            {
+                builder.AddHelloModule(configureOptions: (o, sp) =>
+                 {
+                     var serverConfiguration = sp.GetRequiredService<IOptions<ServerConfiguration>>().Value;
+                     o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;
+                 })
+                .AddModuleManagerModule(configureOptions: (o, sp) =>
+                {
+                    var serverConfiguration = sp.GetRequiredService<IOptions<ServerConfiguration>>().Value;
+                    o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;
+                });
+            }
+
 
             return builder;
         }

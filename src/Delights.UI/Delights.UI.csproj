@@ -25,10 +25,6 @@
 		<ProjectReference Include="..\Modulight.Modules.Client.RazorComponents\Modulight.Modules.Client.RazorComponents.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<Folder Include="Services\" />
-	</ItemGroup>
-
 	<Import Project="..\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems" Label="Shared" />
 
 </Project>

@@ -1,43 +1,69 @@
 ﻿@inject Notes.ModuleService Service
+@inject MessageService MessageService
+@inject NavigationManager NavigationManager
 
-@if (Note is not null)
-{
-    <ListItem @key="@MetadataId" Style="display: block">
-        <ListItemMeta Avatar="@("")">
-            <TitleTemplate>
-                <h4>
-                    <a href="" style="color:black">
-                        <span>@Note.Title</span>
-                    </a>
-                </h4>
-                <div>
-                    <NoteMetadataDisplay Value="@Note" />
-                </div>
-            </TitleTemplate>
-        </ListItemMeta>
+<Loader OnLoad="@OnLoad" @ref="loader" LoadKey="@MetadataId">
+    @if (!IsDeleted)
+    {
+        <ListItem @key="@MetadataId" Style="display: block">
+            <ListItemMeta Avatar="@("")">
+                <TitleTemplate>
+                    <h4>
+                        <a href="@Service.UrlGenerator.Note(Note!)" style="color:black">
+                            <span>@Note!.Title</span>
+                        </a>
+                    </h4>
+                    <div>
+                        <NoteMetadataDisplay Value="@Note" />
+                    </div>
+                </TitleTemplate>
+            </ListItemMeta>
 
-        <p>
-            @Note.Content
-        </p>
-    </ListItem>
-}
-else
-{
-    <span>Loading...</span>
-}
+            <p>
+                @Note!.Content[..1000]
+            </p>
+
+            <ButtonLink Href="@Service.UrlGenerator.NoteEdit(Note)">
+                <MdiIcon Type="@IconNames.Edit"></MdiIcon>
+                <span>Edit</span>
+            </ButtonLink>
+            <Popconfirm Title="@($"Are you sure delete this note?")" OnConfirm="OnDelete" Placement="@PlacementType.BottomRight">
+                <Button Danger>
+                    <MdiIcon Type="@IconNames.Delete"></MdiIcon>
+                    <span>Delete</span>
+                </Button>
+            </Popconfirm>
+        </ListItem>
+    }
+</Loader>
 
 @code {
     [Parameter]
     public string? MetadataId { get; set; }
 
+    bool IsDeleted { get; set; } = false;
+
     INote? Note { get; set; }
 
-    protected override async Task OnInitializedAsync()
-    {
-        await base.OnInitializedAsync();
+    private Loader loader;
 
-        var result = await Service.GraphQLClient.GetNoteByMetadataIdAsync(MetadataId);
+    private async Task OnLoad()
+    {
+        var result = await Service.GraphQLClient.GetNoteByMetadataIdAsync(MetadataId!);
         Note = result.Data?.NoteByMetadataId;
-        StateHasChanged();
+    }
+
+    private async Task OnDelete()
+    {
+        var pass = await Service.GraphQLClient.DeleteNoteAsync(Note!.Id);
+        if (!pass.HasErrors)
+        {
+            _ = MessageService.Success("Deleted note successfully.");
+            IsDeleted = true;
+        }
+        else
+        {
+            _ = MessageService.Error("Failed to delete note.");
+        }
     }
 }

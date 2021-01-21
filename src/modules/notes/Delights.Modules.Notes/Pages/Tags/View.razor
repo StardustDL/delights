@@ -1,17 +1,12 @@
-@page "/notes"
+@page "/notes/tags/{name}"
 @inherits BasePage<Delights.Modules.Notes.NotesModule>
 @inject Notes.ModuleService Service
 
-<Modulight.Modules.Client.RazorComponents.UI.PageInfo Title="Notes">
-    <Extra>
-        <ButtonLink Href="@Service.UrlGenerator.NoteCreate()">
-            <MdiIcon Type="@IconNames.Create"></MdiIcon>
-            <span>Create</span>
-        </ButtonLink>
-    </Extra>
+<Modulight.Modules.Client.RazorComponents.UI.PageInfo Title="@($"Tags - {Name}")">
+
 </Modulight.Modules.Client.RazorComponents.UI.PageInfo>
 
-<Loader OnLoad="@OnLoad" @ref="loader">
+<Loader OnLoad="@OnLoad" @ref="loader" LoadKey="@Name">
     <PagingList Page="CurrentPage" Data="Data" OnNextPage="OnNextPage" OnPreviousPage="OnPreviousPage">
         <ItemTemplate>
             <NoteListItem MetadataId="@context"></NoteListItem>
@@ -23,6 +18,9 @@
 @code{
     const int PageCount = 10;
 
+    [Parameter]
+    public string Name { get; set; }
+
     IPageInfo? CurrentPage { get; set; }
 
     IList<string>? Data { get; set; }
@@ -31,22 +29,22 @@
 
     private async Task OnLoad()
     {
-        var result = await Service.GraphQLClient.GetMetadataIdsAsync(first: PageCount);
+        var result = await Service.GraphQLClient.GetMetadataIdsByTagAsync(inputName: Name, first: PageCount);
         Update(result.Data);
     }
 
-    void Update(IGetMetadataIds? data)
+    void Update(IGetMetadataIdsByTag? data)
     {
         if (data is not null)
         {
-            CurrentPage = data.Metadata.PageInfo;
-            Data = data.Metadata.Nodes.Select(x => x.Id).ToArray();
+            CurrentPage = data.MetadataByTag.PageInfo;
+            Data = data.MetadataByTag.Nodes.Select(x => x.Id).ToArray();
         }
     }
 
     async Task OnNextPage()
     {
-        var result = await Service.GraphQLClient.GetMetadataIdsAsync(
+        var result = await Service.GraphQLClient.GetMetadataIdsByTagAsync(inputName: Name,
             first: PageCount,
             after: CurrentPage?.EndCursor ?? "");
         Update(result.Data);
@@ -54,7 +52,7 @@
 
     async Task OnPreviousPage()
     {
-        var result = await Service.GraphQLClient.GetMetadataIdsAsync(
+        var result = await Service.GraphQLClient.GetMetadataIdsByTagAsync(inputName: Name,
             last: PageCount,
             before: CurrentPage?.StartCursor ?? "");
         Update(result.Data);
