@@ -27,7 +27,7 @@
 </Modulight.Modules.Client.RazorComponents.UI.PageInfo>
 
 <Loader OnLoad="@OnLoad" @ref="loader">
-    <PagingList Page="CurrentPage" Data="Data" OnNextPage="OnNextPage" OnPreviousPage="OnPreviousPage">
+    <PagingList HasNextPage="CurrentPage?.HasNextPage ?? false" HasPreviousPage="CurrentPage?.HasPreviousPage ?? false" Data="Data" OnNextPage="OnNextPage" OnPreviousPage="OnPreviousPage">
         <ItemTemplate>
             <NoteListItem MetadataId="@context"></NoteListItem>
         </ItemTemplate>

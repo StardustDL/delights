@@ -5,15 +5,6 @@
     <Nullable>enable</Nullable>
     <BerryNamespace>$(RootNamespace).GraphQL</BerryNamespace>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Remove="GraphQL\module.graphql" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Watch Remove="GraphQL\module.graphql" />
-  </ItemGroup>
-
   
   <ItemGroup>
     <SupportedPlatform Include="browser" />
@@ -23,13 +14,11 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.2" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
     <PackageReference Include="Microsoft.Extensions.Http" Version="5.0.0" />
-    <PackageReference Include="StardustDL.RazorComponents.AntDesigns" Version="0.0.2-preview.7" />
-    <PackageReference Include="StardustDL.RazorComponents.Vditors" Version="0.0.2-preview.7" />
     <PackageReference Include="StrawberryShake" Version="11.0.0-preview.137" />
-    <PackageReference Include="StardustDL.RazorComponents.MaterialDesignIcons" Version="0.0.2-preview.7" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\modules\Delights.Modules.Client\Delights.Modules.Client.csproj" />
     <ProjectReference Include="..\..\..\Modulight.Modules.Client.RazorComponents\Modulight.Modules.Client.RazorComponents.csproj" />
   </ItemGroup>
 

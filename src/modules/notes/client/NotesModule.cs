@@ -10,6 +10,7 @@ using StardustDL.RazorComponents.AntDesigns;
 using Modulight.Modules;
 using StardustDL.RazorComponents.MaterialDesignIcons;
 using StardustDL.RazorComponents.Vditors;
+using Delights.Modules.Client;
 
 namespace Delights.Modules.Notes
 {
@@ -36,9 +37,7 @@ namespace Delights.Modules.Notes
         public override void Setup(Modulight.Modules.IModuleHostBuilder host)
         {
             base.Setup(host);
-            host.AddAntDesignModule();
-            host.AddVditorModule();
-            host.AddMaterialDesignIconModule();
+            host.AddClientModule();
         }
     }
 }

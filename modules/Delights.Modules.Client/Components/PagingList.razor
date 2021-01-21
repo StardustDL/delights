@@ -12,24 +12,24 @@
 
     </AntList>
 
-    @if (Page is not null)
-    {
-        <div class="text-center m-1">
-            @if (Page.HasPreviousPage)
-            {
-                <Button OnClick="OnPreviousPage">Previous</Button>
-            }
-            @if (Page.HasNextPage)
-            {
-                <Button OnClick="OnNextPage">Next</Button>
-            }
-        </div>
-    }
+    <div class="text-center m-1">
+        @if (HasPreviousPage)
+        {
+            <Button OnClick="OnPreviousPage">Previous</Button>
+        }
+        @if (HasNextPage)
+        {
+            <Button OnClick="OnNextPage">Next</Button>
+        }
+    </div>
 }
 
 @code {
     [Parameter]
-    public IPageInfo? Page { get; set; }
+    public bool HasNextPage { get; set; }
+
+    [Parameter]
+    public bool HasPreviousPage { get; set; }
 
     [Parameter]
     public IList<TItem>? Data { get; set; }

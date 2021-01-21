@@ -62,10 +62,10 @@ else
     public bool UseSpin { get; set; } = false;
 
     [Parameter]
-    public RenderFragment ChildContent { get; set; }
+    public RenderFragment? ChildContent { get; set; }
 
     [Parameter]
-    public RenderFragment FailingContent { get; set; }
+    public RenderFragment? FailingContent { get; set; }
 
     [Parameter]
     public string LoadKey { get; set; } = string.Empty;
@@ -79,7 +79,7 @@ else
     [Parameter]
     public bool AutoLoad { get; set; } = true;
 
-    private string LastLoadKey { get; set; } = null;
+    private string? LastLoadKey { get; set; } = null;
 
     public DataLoadingState State { get; set; } = DataLoadingState.Initialized;
 
