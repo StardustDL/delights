@@ -9,9 +9,9 @@ namespace Delights.Modules.Notes
 
         public string NoteCreate() => "/notes/create";
 
-        public string Note(INote note) => $"/notes/{Uri.EscapeDataString(note.Id)}";
+        public string Note(IData note) => $"/notes/{Uri.EscapeDataString(note.Id)}";
 
-        public string NoteEdit(INote note) => $"/notes/{Uri.EscapeDataString(note.Id)}/edit";
+        public string NoteEdit(IData note) => $"/notes/{Uri.EscapeDataString(note.Id)}/edit";
 
         public string Categories() => $"/notes/categories";
 

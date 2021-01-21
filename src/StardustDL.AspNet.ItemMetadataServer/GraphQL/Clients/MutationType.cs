@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace StardustDL.AspNet.ItemMetadataServer.GraphQL.Clients
 {
-    public class MutationType<T>
+    public abstract class MutationType<T>
     {
         public virtual async Task<RawTag> CreateTag(string name, [Service] ItemMetadataDomain<T> service)
         {

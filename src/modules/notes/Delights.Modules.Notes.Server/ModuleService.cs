@@ -11,17 +11,16 @@ using StardustDL.AspNet.ItemMetadataServer;
 using StardustDL.AspNet.ItemMetadataServer.Models;
 using Delights.Modules.Notes.Server.Models.Actions;
 using StardustDL.AspNet.ItemMetadataServer.Models.Raws;
+using Delights.Modules.Server.Data;
 
 namespace Delights.Modules.Notes.Server
 {
-    public class ModuleService : IModuleService
+    public class ModuleService : DataModuleService<DataDbContext, RawNote, Note, NoteMutation, NotesServerModule>
     {
-        public ModuleService(IServiceProvider services, DataDbContext dbContext, ItemMetadataDomain<NotesServerModule> metadataDomain, IOptions<ModuleOption> options, ILogger<NotesServerModule> logger)
+        public ModuleService(IServiceProvider services, DataDbContext dbContext, ItemMetadataDomain<NotesServerModule> metadataDomain, IOptions<ModuleOption> options, ILogger<NotesServerModule> logger) : base(dbContext, metadataDomain)
         {
             Services = services;
             Options = options.Value;
-            DbContext = dbContext;
-            MetadataDomain = metadataDomain;
             Logger = logger;
         }
 
@@ -31,126 +30,31 @@ namespace Delights.Modules.Notes.Server
 
         ModuleOption Options { get; }
 
-        internal DataDbContext DbContext { get; }
-
-        ItemMetadataDomain<NotesServerModule> MetadataDomain { get; }
-
-        public async Task Initialize()
+        protected override Task<RawNote> CreateByMutation(NoteMutation mutation)
         {
-            await DbContext.Database.EnsureCreatedAsync();
-            await DbContext.Database.MigrateAsync();
-            await DbContext.SaveChangesAsync();
-        }
-
-        public IQueryable<RawNote> QueryAllNotes()
-        {
-            return DbContext.Notes;
-        }
-
-        public async Task<Note?> GetNote(string? id)
-        {
-            var result = await DbContext.Notes.FindAsync(id);
-            if (result is not null)
+            return Task.FromResult(new RawNote
             {
-                await ReloadRawNote(result);
-                return await ToNote(result);
-            }
-            return null;
+                Title = mutation.Title ?? "",
+                Content = mutation.Content ?? "",
+            });
         }
 
-        public async Task<Note?> GetNoteByMetadataID(string? id)
+        protected override Task ApplyMutation(RawNote raw, NoteMutation mutation)
         {
-            var result = await DbContext.Notes.Where(x => x.MetadataId == id).FirstOrDefaultAsync();
-            if (result is not null)
-            {
-                await ReloadRawNote(result);
-                return await ToNote(result);
-            }
-            return null;
+            if (mutation.Title is not null)
+                raw.Title = mutation.Title;
+            if (mutation.Content is not null)
+                raw.Content = mutation.Content;
+            return Task.CompletedTask;
         }
 
-        public async Task<Note> AddNote(NoteMutation value)
+        protected override Task<Note> RawToData(RawNote raw)
         {
-            var metadataMutation = value.Metadata ?? new StardustDL.AspNet.ItemMetadataServer.Models.Actions.ItemMetadataMutation();
-            var metadata = await MetadataDomain.AddMetadata(metadataMutation);
-
-            var tag = new RawNote
-            {
-                Id = value.Id ?? Guid.NewGuid().ToString(),
-                Title = value.Title ?? "",
-                Content = value.Content ?? "",
-                MetadataId = metadata.Id,
-            };
-
-            DbContext.Notes.Add(tag);
-            await DbContext.SaveChangesAsync();
-
-            await ReloadRawNote(tag);
-            return await ToNote(tag, metadata);
-        }
-
-        public async Task<Note?> UpdateNote(NoteMutation value)
-        {
-            var tag = await DbContext.Notes.FindAsync(value.Id);
-            if (tag is not null)
-            {
-                if (value.Title is not null)
-                    tag.Title = value.Title;
-                if (value.Content is not null)
-                    tag.Content = value.Content;
-                ItemMetadata? metadata = null;
-                if(value.Metadata is not null)
-                {
-                    metadata = await MetadataDomain.UpdateMetadata(value.Metadata with
-                    {
-                        Id = tag.MetadataId
-                    });
-                }
-                await DbContext.SaveChangesAsync();
-
-                await ReloadRawNote(tag);
-                return await ToNote(tag, metadata);
-            }
-            return null;
-        }
-
-        public async Task<Note?> RemoveNote(string id)
-        {
-            var entity = await DbContext.Notes.FindAsync(id);
-            if (entity is not null)
-            {
-                await ReloadRawNote(entity);
-
-                var metadata = await MetadataDomain.RemoveMetadata(entity.MetadataId!);
-                var result = await ToNote(entity, metadata);
-                DbContext.Notes.Remove(entity);
-                await DbContext.SaveChangesAsync();
-                return result;
-            }
-            return null;
-        }
-
-        async Task ReloadRawNote(RawNote value)
-        {
-            var entry = DbContext.Entry(value);
-            await entry.ReloadAsync();
-        }
-
-        async Task<Note> ToNote(RawNote raw, ItemMetadata? metadata = null)
-        {
-            if (metadata is null)
-            {
-                metadata = (await MetadataDomain.GetItem(raw.MetadataId))?.AsMetadata();
-                if (metadata is null)
-                    metadata = new ItemMetadata();
-            }
-            return new Note
+            return Task.FromResult(new Note
             {
                 Content = raw.Content,
                 Title = raw.Title,
-                Id = raw.Id ?? "",
-                Metadata = metadata
-            };
+            });
         }
     }
 }

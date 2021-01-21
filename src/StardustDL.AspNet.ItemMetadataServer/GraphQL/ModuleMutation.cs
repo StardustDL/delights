@@ -17,7 +17,7 @@ namespace StardustDL.AspNet.ItemMetadataServer.GraphQL
             return await service.AddCategory(mutation);
         }
 
-        public async Task<RawItem> CreateItem(RawItemMutation mutation, [Service] ItemMetadataServer.ModuleService service)
+        public async Task<RawItemMetadata> CreateItem(RawItemMutation mutation, [Service] ItemMetadataServer.ModuleService service)
         {
             return await service.AddItem(mutation);
         }
@@ -32,7 +32,7 @@ namespace StardustDL.AspNet.ItemMetadataServer.GraphQL
             return await service.RemoveCategory(id);
         }
 
-        public async Task<RawItem?> DeleteItem(string id, [Service] ItemMetadataServer.ModuleService service)
+        public async Task<RawItemMetadata?> DeleteItem(string id, [Service] ItemMetadataServer.ModuleService service)
         {
             return await service.RemoveItem(id);
         }
@@ -47,7 +47,7 @@ namespace StardustDL.AspNet.ItemMetadataServer.GraphQL
             return await service.UpdateCategory(mutation);
         }
 
-        public async Task<RawItem?> UpdateItem(RawItemMutation mutation, [Service] ItemMetadataServer.ModuleService service)
+        public async Task<RawItemMetadata?> UpdateItem(RawItemMutation mutation, [Service] ItemMetadataServer.ModuleService service)
         {
             return await service.UpdateItem(mutation);
         }

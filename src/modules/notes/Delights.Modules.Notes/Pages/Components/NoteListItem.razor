@@ -43,19 +43,19 @@
 
     bool IsDeleted { get; set; } = false;
 
-    INote? Note { get; set; }
+    IData? Note { get; set; }
 
     private Loader loader;
 
     private async Task OnLoad()
     {
-        var result = await Service.GraphQLClient.GetNoteByMetadataIdAsync(MetadataId!);
-        Note = result.Data?.NoteByMetadataId;
+        var result = await Service.GraphQLClient.GetDataByMetadataIdAsync(MetadataId!);
+        Note = result.Data?.DataByMetadataId;
     }
 
     private async Task OnDelete()
     {
-        var pass = await Service.GraphQLClient.DeleteNoteAsync(Note!.Id);
+        var pass = await Service.GraphQLClient.DeleteDataAsync(Note!.Id);
         if (!pass.HasErrors)
         {
             _ = MessageService.Success("Deleted note successfully.");

@@ -12,7 +12,7 @@ namespace StardustDL.AspNet.ItemMetadataServer.GraphQL
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public IQueryable<RawItem> GetItems([Service] ItemMetadataServer.ModuleService service)
+        public IQueryable<RawItemMetadata> GetItems([Service] ItemMetadataServer.ModuleService service)
         {
             return service.QueryAllItems();
         }

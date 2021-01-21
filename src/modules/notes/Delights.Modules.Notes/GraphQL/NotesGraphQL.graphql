@@ -4,23 +4,23 @@ schema {
 }
 
 type ModuleQuery {
-  notes(first: Int after: String last: Int before: String where: RawNoteFilterInput order: [RawNoteSortInput!]): RawNoteConnection
-  noteById(id: String!): Note
-  noteByMetadataId(id: String!): Note
+  rawData(first: Int after: String last: Int before: String where: RawNoteFilterInput order: [RawNoteSortInput!]): RawNoteConnection
+  dataById(id: String!): Note
+  dataByMetadataId(id: String!): Note
   tags(first: Int after: String last: Int before: String where: RawTagFilterInput order: [RawTagSortInput!]): RawTagConnection
   categories(first: Int after: String last: Int before: String where: RawCategoryFilterInput order: [RawCategorySortInput!]): RawCategoryConnection
-  metadata(first: Int after: String last: Int before: String where: RawItemFilterInput order: [RawItemSortInput!]): RawItemConnection
-  metadataByTag(first: Int after: String last: Int before: String name: String! where: RawItemFilterInput order: [RawItemSortInput!]): RawItemConnection
-  metadataByCategory(first: Int after: String last: Int before: String name: String! where: RawItemFilterInput order: [RawItemSortInput!]): RawItemConnection
-  metadataByMetadataId(id: String!): RawItem
+  metadata(first: Int after: String last: Int before: String where: RawItemMetadataFilterInput order: [RawItemMetadataSortInput!]): RawItemMetadataConnection
+  metadataByTag(first: Int after: String last: Int before: String name: String! where: RawItemMetadataFilterInput order: [RawItemMetadataSortInput!]): RawItemMetadataConnection
+  metadataByCategory(first: Int after: String last: Int before: String name: String! where: RawItemMetadataFilterInput order: [RawItemMetadataSortInput!]): RawItemMetadataConnection
+  metadataByMetadataId(id: String!): RawItemMetadata
   category(name: String!): RawCategory
   tag(name: String!): RawTag
 }
 
 type ModuleMutation {
-  createNote(mutation: NoteMutationInput!): Note!
-  deleteNote(id: String!): Note
-  updateNote(mutation: NoteMutationInput!): Note
+  createData(mutation: NoteMutationInput!): Note!
+  deleteData(id: String!): Note
+  updateData(mutation: NoteMutationInput!): Note
   createTag(name: String!): RawTag!
   createCategory(name: String!): RawCategory!
   deleteTag(name: String!): RawTag
@@ -30,27 +30,27 @@ type ModuleMutation {
 }
 
 type RawNote {
-  id: String
-  metadataId: String
   title: String!
   content: String!
+  id: String
+  metadataId: String
 }
 
 type RawTag {
   id: String
   domain: String!
   name: String!
-  items: [RawItem!]
+  items: [RawItemMetadata!]
 }
 
 type RawCategory {
   id: String
   domain: String!
   name: String!
-  items: [RawItem!]
+  items: [RawItemMetadata!]
 }
 
-type RawItem {
+type RawItemMetadata {
   asMetadata: ItemMetadata!
   id: String
   domain: String!
@@ -66,17 +66,17 @@ type RawItem {
 input RawNoteFilterInput {
   and: [RawNoteFilterInput!]
   or: [RawNoteFilterInput!]
-  id: StringOperationFilterInput
-  metadataId: StringOperationFilterInput
   title: StringOperationFilterInput
   content: StringOperationFilterInput
+  id: StringOperationFilterInput
+  metadataId: StringOperationFilterInput
 }
 
 input RawNoteSortInput {
-  id: SortEnumType
-  metadataId: SortEnumType
   title: SortEnumType
   content: SortEnumType
+  id: SortEnumType
+  metadataId: SortEnumType
 }
 
 input RawTagFilterInput {
@@ -85,7 +85,7 @@ input RawTagFilterInput {
   id: StringOperationFilterInput
   domain: StringOperationFilterInput
   name: StringOperationFilterInput
-  items: ListFilterInputTypeOfRawItemFilterInput
+  items: ListFilterInputTypeOfRawItemMetadataFilterInput
 }
 
 input RawTagSortInput {
@@ -100,7 +100,7 @@ input RawCategoryFilterInput {
   id: StringOperationFilterInput
   domain: StringOperationFilterInput
   name: StringOperationFilterInput
-  items: ListFilterInputTypeOfRawItemFilterInput
+  items: ListFilterInputTypeOfRawItemMetadataFilterInput
 }
 
 input RawCategorySortInput {
@@ -109,9 +109,9 @@ input RawCategorySortInput {
   name: SortEnumType
 }
 
-input RawItemFilterInput {
-  and: [RawItemFilterInput!]
-  or: [RawItemFilterInput!]
+input RawItemMetadataFilterInput {
+  and: [RawItemMetadataFilterInput!]
+  or: [RawItemMetadataFilterInput!]
   id: StringOperationFilterInput
   domain: StringOperationFilterInput
   creationTime: ComparableDateTimeOffsetOperationFilterInput
@@ -123,7 +123,7 @@ input RawItemFilterInput {
   attachments: StringOperationFilterInput
 }
 
-input RawItemSortInput {
+input RawItemMetadataSortInput {
   id: SortEnumType
   domain: SortEnumType
   creationTime: SortEnumType
@@ -165,13 +165,13 @@ type RawCategoryConnection {
 }
 
 "A connection to a list of items."
-type RawItemConnection {
+type RawItemMetadataConnection {
   "Information to aid in pagination."
   pageInfo: PageInfo!
   "A list of edges."
-  edges: [RawItemEdge!]
+  edges: [RawItemMetadataEdge!]
   "A flattened list of the nodes."
-  nodes: [RawItem!]
+  nodes: [RawItemMetadata!]
 }
 
 input StringOperationFilterInput {
@@ -194,10 +194,10 @@ enum SortEnumType {
   DESC
 }
 
-input ListFilterInputTypeOfRawItemFilterInput {
-  all: RawItemFilterInput
-  none: RawItemFilterInput
-  some: RawItemFilterInput
+input ListFilterInputTypeOfRawItemMetadataFilterInput {
+  all: RawItemMetadataFilterInput
+  none: RawItemMetadataFilterInput
+  some: RawItemMetadataFilterInput
   any: Boolean
 }
 
@@ -260,25 +260,25 @@ type RawCategoryEdge {
 }
 
 "An edge in a connection."
-type RawItemEdge {
+type RawItemMetadataEdge {
   "A cursor for use in pagination."
   cursor: String!
   "The item at the end of the edge."
-  node: RawItem!
+  node: RawItemMetadata!
 }
 
 input NoteMutationInput {
-  id: String
-  metadata: ItemMetadataMutationInput
   title: String
   content: String
+  id: String
+  metadata: ItemMetadataMutationInput
 }
 
 type Note {
-  id: String!
-  metadata: ItemMetadata!
   title: String!
   content: String!
+  id: String!
+  metadata: ItemMetadata!
 }
 
 type ItemMetadata {

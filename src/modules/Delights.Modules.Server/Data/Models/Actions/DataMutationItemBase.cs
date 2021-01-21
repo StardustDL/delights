@@ -5,16 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Delights.Modules.Notes.Server.Models.Actions
+namespace Delights.Modules.Server.Data.Models.Actions
 {
-    public record NoteMutation
+    public abstract record DataMutationItemBase
     {
         public string? Id { get; init; }
 
         public ItemMetadataMutation? Metadata { get; init; }
-
-        public string? Title { get; init; }
-
-        public string? Content { get; init; }
     }
 }

@@ -5,6 +5,8 @@ using Modulight.Modules;
 using StardustDL.AspNet.ItemMetadataServer;
 using Microsoft.Extensions.DependencyInjection;
 using HotChocolate.Execution.Configuration;
+using Delights.Modules.Notes.Server.Models;
+using Delights.Modules.Notes.Server.Models.Actions;
 
 namespace Delights.Modules.Notes.Server
 {
@@ -37,5 +39,13 @@ namespace Delights.Modules.Notes.Server
                     options.ConfigureDbContext(o);
             });
         }
+    }
+
+    public class ModuleQuery : Modules.Server.Data.GraphQL.QueryType<NotesServerModule, ModuleService, RawNote, Note, NoteMutation>
+    {
+    }
+
+    public class ModuleMutation : Modules.Server.Data.GraphQL.MutationType<NotesServerModule, ModuleService, RawNote, Note, NoteMutation>
+    {
     }
 }

@@ -11,6 +11,6 @@ namespace StardustDL.AspNet.ItemMetadataServer.Models.Raws
 
         public string Name { get; set; } = "";
 
-        public ICollection<RawItem>? Items { get; set; }
+        public ICollection<RawItemMetadata>? Items { get; set; }
     }
 }

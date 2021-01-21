@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StardustDL.AspNet.ItemMetadataServer.Models.Raws
 {
-    public class RawItem
+    public class RawItemMetadata
     {
         public string? Id { get; set; }
 

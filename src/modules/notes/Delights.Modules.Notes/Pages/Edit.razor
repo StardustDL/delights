@@ -75,7 +75,7 @@
     [Parameter]
     public string? Id { get; set; }
 
-    INote? Note { get; set; }
+    IData? Note { get; set; }
 
     bool IsCreate => String.IsNullOrEmpty(Id);
 
@@ -104,8 +104,8 @@
         }
         else
         {
-            var result = await Service.GraphQLClient.GetNoteByIdAsync(Id!);
-            Note = result.Data?.NoteById!;
+            var result = await Service.GraphQLClient.GetDataByIdAsync(Id!);
+            Note = result.Data?.DataById!;
             model = new Model
             {
                 Content = Note.Content,
@@ -120,7 +120,7 @@
     {
         if (IsCreate)
             return;
-        var pass = await Service.GraphQLClient.DeleteNoteAsync(Id!);
+        var pass = await Service.GraphQLClient.DeleteDataAsync(Id!);
         if (!pass.HasErrors)
         {
             _ = MessageService.Success("Deleted note successfully.");
@@ -154,11 +154,11 @@
 
         if (IsCreate)
         {
-            var pass = await Service.GraphQLClient.CreateNoteAsync(mutation);
+            var pass = await Service.GraphQLClient.CreateDataAsync(mutation);
             if (!pass.HasErrors)
             {
                 _ = MessageService.Success("Created note successfully.");
-                NavigationManager.NavigateTo(Service.UrlGenerator.Note(pass.Data!.CreateNote));
+                NavigationManager.NavigateTo(Service.UrlGenerator.Note(pass.Data!.CreateData));
             }
             else
             {
@@ -168,11 +168,11 @@
         else
         {
             mutation.Id = Id!;
-            var pass = await Service.GraphQLClient.UpdateNoteAsync(mutation);
+            var pass = await Service.GraphQLClient.UpdateDataAsync(mutation);
             if (!pass.HasErrors)
             {
                 _ = MessageService.Success("Updated note successfully.");
-                NavigationManager.NavigateTo(Service.UrlGenerator.Note(pass.Data!.UpdateNote));
+                NavigationManager.NavigateTo(Service.UrlGenerator.Note(pass.Data!.UpdateData));
             }
             else
             {

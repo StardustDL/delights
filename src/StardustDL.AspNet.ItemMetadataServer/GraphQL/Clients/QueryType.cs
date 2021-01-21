@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace StardustDL.AspNet.ItemMetadataServer.GraphQL.Clients
 {
-    public class QueryType<T>
+    public abstract class QueryType<T>
     {
         [UsePaging]
         [UseProjection]
@@ -34,7 +34,7 @@ namespace StardustDL.AspNet.ItemMetadataServer.GraphQL.Clients
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public virtual IQueryable<RawItem> GetMetadata([Service] ItemMetadataDomain<T> service)
+        public virtual IQueryable<RawItemMetadata> GetMetadata([Service] ItemMetadataDomain<T> service)
         {
             return service.QueryAllItems();
         }
@@ -43,7 +43,7 @@ namespace StardustDL.AspNet.ItemMetadataServer.GraphQL.Clients
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public virtual IQueryable<RawItem> GetMetadataByTag(string name, [Service] ItemMetadataDomain<T> service)
+        public virtual IQueryable<RawItemMetadata> GetMetadataByTag(string name, [Service] ItemMetadataDomain<T> service)
         {
             return service.QueryItemsByTag(name);
         }
@@ -52,12 +52,12 @@ namespace StardustDL.AspNet.ItemMetadataServer.GraphQL.Clients
         [UseProjection]
         [UseFiltering]
         [UseSorting]
-        public virtual IQueryable<RawItem> GetMetadataByCategory(string name, [Service] ItemMetadataDomain<T> service)
+        public virtual IQueryable<RawItemMetadata> GetMetadataByCategory(string name, [Service] ItemMetadataDomain<T> service)
         {
             return service.QueryItemsByCategory(name);
         }
 
-        public virtual async Task<RawItem?> GetMetadataByMetadataId(string id, [Service] ItemMetadataDomain<T> service)
+        public virtual async Task<RawItemMetadata?> GetMetadataByMetadataId(string id, [Service] ItemMetadataDomain<T> service)
         {
             return await service.GetItem(id);
         }

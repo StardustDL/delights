@@ -34,7 +34,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
             await DbContext.SaveChangesAsync();
         }
 
-        public IQueryable<RawItem> QueryAllItems()
+        public IQueryable<RawItemMetadata> QueryAllItems()
         {
             return DbContext.Items;
         }
@@ -49,7 +49,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return DbContext.Tags;
         }
 
-        public async Task<RawItem?> GetItem(string? id)
+        public async Task<RawItemMetadata?> GetItem(string? id)
         {
             var result = await DbContext.Items.FindAsync(id);
             if (result is not null)
@@ -161,7 +161,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return entity;
         }
 
-        public async Task<RawItem> AddItem(RawItemMutation value)
+        public async Task<RawItemMetadata> AddItem(RawItemMutation value)
         {
             if (value.CategoryId is null)
             {
@@ -169,7 +169,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
             }
 
             var category = DbContext.Categories.Find(value.CategoryId);
-            var item = new RawItem
+            var item = new RawItemMetadata
             {
                 Id = value.Id ?? Guid.NewGuid().ToString(),
                 AccessTime = value.AccessTime ?? DateTimeOffset.Now,
@@ -191,7 +191,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return item;
         }
 
-        public async Task<RawItem?> UpdateItem(RawItemMutation value)
+        public async Task<RawItemMetadata?> UpdateItem(RawItemMutation value)
         {
             var item = await GetItem(value.Id);
             if (item is not null)
@@ -224,7 +224,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return item;
         }
 
-        public async Task<RawItem?> RemoveItem(string id)
+        public async Task<RawItemMetadata?> RemoveItem(string id)
         {
             var entity = await GetItem(id);
             if (entity is not null)
@@ -237,7 +237,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return entity;
         }
 
-        async Task ReloadItem(RawItem value)
+        async Task ReloadItem(RawItemMetadata value)
         {
             var entry = DbContext.Entry(value);
             await entry.ReloadAsync();

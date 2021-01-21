@@ -24,17 +24,17 @@ namespace StardustDL.AspNet.ItemMetadataServer
             Service = service;
         }
 
-        public IQueryable<RawItem> QueryAllItems()
+        public IQueryable<RawItemMetadata> QueryAllItems()
         {
             return Service.QueryAllItems().Where(x => x.Domain == DomainName);
         }
 
-        public IQueryable<RawItem> QueryItemsByTag(string name)
+        public IQueryable<RawItemMetadata> QueryItemsByTag(string name)
         {
             var tag = Service.DbContext.Tags.Where(x => x.Name == name).FirstOrDefault();
             if (tag is null)
             {
-                return Array.Empty<RawItem>().AsQueryable();
+                return Array.Empty<RawItemMetadata>().AsQueryable();
             }
             else
             {
@@ -42,12 +42,12 @@ namespace StardustDL.AspNet.ItemMetadataServer
             }
         }
 
-        public IQueryable<RawItem> QueryItemsByCategory(string name)
+        public IQueryable<RawItemMetadata> QueryItemsByCategory(string name)
         {
             var tag = Service.DbContext.Categories.Where(x => x.Name == name).FirstOrDefault();
             if (tag is null)
             {
-                return Array.Empty<RawItem>().AsQueryable();
+                return Array.Empty<RawItemMetadata>().AsQueryable();
             }
             else
             {
@@ -65,7 +65,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
             return Service.QueryAllTags().Where(x => x.Domain == DomainName);
         }
 
-        public async Task<RawItem?> GetItem(string? id)
+        public async Task<RawItemMetadata?> GetItem(string? id)
         {
             var result = await Service.GetItem(id);
             if (result is not null && result.Domain == DomainName)

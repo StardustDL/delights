@@ -65,6 +65,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Delights.Modules.Notes.Shar
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.Notes", "src\modules\notes\Delights.Modules.Notes\Delights.Modules.Notes.csproj", "{C2432C09-5E38-4AEF-8561-ABA5B54B777A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.Server", "src\modules\Delights.Modules.Server\Delights.Modules.Server.csproj", "{B8B44EDC-8C0E-4D0F-BB77-15AD53202652}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{0140b3c5-ad7e-47e6-b6f6-0d876ad3cfd3}*SharedItemsImports = 13
@@ -160,6 +162,10 @@ Global
 		{C2432C09-5E38-4AEF-8561-ABA5B54B777A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2432C09-5E38-4AEF-8561-ABA5B54B777A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2432C09-5E38-4AEF-8561-ABA5B54B777A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8B44EDC-8C0E-4D0F-BB77-15AD53202652}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8B44EDC-8C0E-4D0F-BB77-15AD53202652}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8B44EDC-8C0E-4D0F-BB77-15AD53202652}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8B44EDC-8C0E-4D0F-BB77-15AD53202652}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -189,6 +195,7 @@ Global
 		{41A07DC1-359F-4B2F-9CE9-84AE5C73A16C} = {E8F7CB98-9F8D-472B-A926-4FB3E73672A3}
 		{5A6F2210-8852-4D81-BA60-023A5DBAA281} = {E8F7CB98-9F8D-472B-A926-4FB3E73672A3}
 		{C2432C09-5E38-4AEF-8561-ABA5B54B777A} = {E8F7CB98-9F8D-472B-A926-4FB3E73672A3}
+		{B8B44EDC-8C0E-4D0F-BB77-15AD53202652} = {0C012303-205C-4886-8F91-DF223124E1E9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BEC8D602-768F-4E83-8C66-022EE9BE6CED}
