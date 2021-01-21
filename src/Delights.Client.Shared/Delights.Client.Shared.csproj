@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\modules\notes\Delights.Modules.Notes\Delights.Modules.Notes.csproj" />
+    <ProjectReference Include="..\modules\notes\client\Delights.Modules.Notes.csproj" />
     <ProjectReference Include="..\Modulight.Modules.Client.RazorComponents\Modulight.Modules.Client.RazorComponents.csproj" />
     <ProjectReference Include="..\Delights.UI\Delights.UI.csproj" />
     <ProjectReference Include="..\modules\hello\Delights.Modules.Hello.UI\Delights.Modules.Hello.UI.csproj" />
-    <ProjectReference Include="..\modules\modulemanager\Delights.Modules.ModuleManager\Delights.Modules.ModuleManager.csproj" />
+    <ProjectReference Include="..\modules\modulemanager\client\Delights.Modules.ModuleManager.csproj" />
   </ItemGroup>
 
 </Project>

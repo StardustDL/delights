@@ -11,10 +11,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Modulight.Modules.Server.GraphQL\Modulight.Modules.Server.GraphQL.csproj" />
+    <ProjectReference Include="..\..\..\StardustDL.AspNet.ItemMetadataServer\StardustDL.AspNet.ItemMetadataServer.csproj" />
+    <ProjectReference Include="..\..\Delights.Modules.Server\Delights.Modules.Server.csproj" />
   </ItemGroup>
 
-  <Import Project="..\..\Delights.Modules.Shared\Delights.Modules.Shared.projitems" Label="Shared" />
+  <Import Project="..\shared\Delights.Modules.Notes.Shared.projitems" Label="Shared" />
 
-  <Import Project="..\Delights.Modules.ModuleManager.Shared\Delights.Modules.ModuleManager.Shared.projitems" Label="Shared" />
+  <Import Project="..\..\Delights.Modules.Shared\Delights.Modules.Shared.projitems" Label="Shared" />
 
 </Project>

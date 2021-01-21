@@ -33,7 +33,7 @@
     <ProjectReference Include="..\..\..\Modulight.Modules.Client.RazorComponents\Modulight.Modules.Client.RazorComponents.csproj" />
   </ItemGroup>
 
-  <Import Project="..\Delights.Modules.Notes.Shared\Delights.Modules.Notes.Shared.projitems" Label="Shared" />
+  <Import Project="..\shared\Delights.Modules.Notes.Shared.projitems" Label="Shared" />
 
   <Import Project="..\..\Delights.Modules.Shared\Delights.Modules.Shared.projitems" Label="Shared" />
 
