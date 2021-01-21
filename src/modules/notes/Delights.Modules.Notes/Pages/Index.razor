@@ -3,7 +3,22 @@
 @inject Notes.ModuleService Service
 
 <Modulight.Modules.Client.RazorComponents.UI.PageInfo Title="Notes">
+    <Breadcrumb>
+        <Breadcrumb>
+            <BreadcrumbItem>
+                <BreadcrumbRootItem/>
+            </BreadcrumbItem>
+        </Breadcrumb>
+    </Breadcrumb>
     <Extra>
+        <ButtonLink Href="@Service.UrlGenerator.Categories()">
+            <MdiIcon Type="@IconNames.Category"></MdiIcon>
+            <span>Categories</span>
+        </ButtonLink>
+        <ButtonLink Href="@Service.UrlGenerator.Tags()">
+            <MdiIcon Type="@IconNames.Tags"></MdiIcon>
+            <span>Tags</span>
+        </ButtonLink>
         <ButtonLink Href="@Service.UrlGenerator.NoteCreate()">
             <MdiIcon Type="@IconNames.Create"></MdiIcon>
             <span>Create</span>

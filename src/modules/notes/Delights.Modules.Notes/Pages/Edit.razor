@@ -8,6 +8,28 @@
 
 <Loader OnLoad="@OnLoad" @ref="loader">
     <Modulight.Modules.Client.RazorComponents.UI.PageInfo Title="@model!.Title">
+        <Breadcrumb>
+            <Breadcrumb>
+                <BreadcrumbItem>
+                    <BreadcrumbRootItem />
+                </BreadcrumbItem>
+                @if (IsCreate)
+                {
+                    <BreadcrumbItem>
+                        <span>Create</span>
+                    </BreadcrumbItem>
+                }
+                else
+                {
+                    <BreadcrumbItem>
+                        <BreadcrumbNote Value="@Note" />
+                    </BreadcrumbItem>
+                    <BreadcrumbItem>
+                        <span>Edit</span>
+                    </BreadcrumbItem>
+                }
+            </Breadcrumb>
+        </Breadcrumb>
         <Extra>
             <Button Type="@ButtonType.Primary" OnClick="OnSubmit">
                 @if (IsCreate)
@@ -53,6 +75,8 @@
     [Parameter]
     public string? Id { get; set; }
 
+    INote? Note { get; set; }
+
     bool IsCreate => String.IsNullOrEmpty(Id);
 
     class Model
@@ -81,13 +105,13 @@
         else
         {
             var result = await Service.GraphQLClient.GetNoteByIdAsync(Id!);
-            var note = result.Data?.NoteById!;
+            Note = result.Data?.NoteById!;
             model = new Model
             {
-                Content = note.Content,
-                Tags = string.Join(',', note.Metadata.Tags),
-                Category = note.Metadata.Category,
-                Title = note.Title
+                Content = Note.Content,
+                Tags = string.Join(',', Note.Metadata.Tags),
+                Category = Note.Metadata.Category,
+                Title = Note.Title
             };
         }
     }

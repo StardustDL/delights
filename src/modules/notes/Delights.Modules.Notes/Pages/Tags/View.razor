@@ -3,7 +3,19 @@
 @inject Notes.ModuleService Service
 
 <Modulight.Modules.Client.RazorComponents.UI.PageInfo Title="@($"Tags - {Name}")">
-
+    <Breadcrumb>
+        <Breadcrumb>
+            <BreadcrumbItem>
+                <BreadcrumbRootItem />
+            </BreadcrumbItem>
+            <BreadcrumbItem>
+                <BreadcrumbTagsRootItem />
+            </BreadcrumbItem>
+            <BreadcrumbItem>
+                <BreadcrumbTag Name="@Name" />
+            </BreadcrumbItem>
+        </Breadcrumb>
+    </Breadcrumb>
 </Modulight.Modules.Client.RazorComponents.UI.PageInfo>
 
 <Loader OnLoad="@OnLoad" @ref="loader" LoadKey="@Name">

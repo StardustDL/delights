@@ -7,6 +7,16 @@
 
 <Loader OnLoad="@OnLoad" @ref="loader" LoadKey="@Id">
     <Modulight.Modules.Client.RazorComponents.UI.PageInfo Title="@Note!.Title">
+        <Breadcrumb>
+            <Breadcrumb>
+                <BreadcrumbItem>
+                    <BreadcrumbRootItem />
+                </BreadcrumbItem>
+                <BreadcrumbItem>
+                    <BreadcrumbNote Value="@Note" />
+                </BreadcrumbItem>
+            </Breadcrumb>
+        </Breadcrumb>
         <Tags>
             <NoteMetadataDisplay Value="@Note" />
         </Tags>

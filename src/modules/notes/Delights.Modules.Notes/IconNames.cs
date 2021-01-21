@@ -12,7 +12,9 @@
 
         public const string Category = "folder";
 
-        public const string Keywords = "tag-multiple";
+        public const string Tags = "tag-multiple";
+
+        public const string Tag = "tag";
 
         public const string Comment = "comment";
 

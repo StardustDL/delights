@@ -1,0 +1,11 @@
+﻿@inject Notes.ModuleService Service
+
+<a href="@Service.UrlGenerator.Note(Value!)">
+    <MdiIcon Type="@IconNames.Notes"></MdiIcon>
+    <span>@Value!.Title</span>
+</a>
+
+@code{
+    [Parameter]
+    public INote? Value { get; set; }
+}

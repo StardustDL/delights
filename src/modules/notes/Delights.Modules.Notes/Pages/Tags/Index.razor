@@ -1,0 +1,43 @@
+@page "/notes/tags"
+@inherits BasePage<Delights.Modules.Notes.NotesModule>
+@inject Notes.ModuleService Service
+
+<Modulight.Modules.Client.RazorComponents.UI.PageInfo Title="Tags">
+    <Breadcrumb>
+        <Breadcrumb>
+            <BreadcrumbItem>
+                <BreadcrumbRootItem />
+            </BreadcrumbItem>
+            <BreadcrumbItem>
+                <BreadcrumbTagsRootItem />
+            </BreadcrumbItem>
+        </Breadcrumb>
+    </Breadcrumb>
+</Modulight.Modules.Client.RazorComponents.UI.PageInfo>
+
+<Loader OnLoad="@OnLoad" @ref="loader">
+    <div>
+        @foreach (var v in Data!)
+        {
+            <Tag Class="m-1">
+                <a class="m-1" style="font-size: 18px" href="@Service.UrlGenerator.Tag(v)">@v</a>
+            </Tag>
+        }
+    </div>
+</Loader>
+
+@code{
+    const int PageCount = 10;
+
+    IPageInfo? CurrentPage { get; set; }
+
+    IList<string>? Data { get; set; }
+
+    private Loader loader;
+
+    private async Task OnLoad()
+    {
+        var result = await Service.GraphQLClient.GetTagsAsync();
+        Data = result.Data.Tags.Nodes.Select(x => x.Name).ToArray();
+    }
+}

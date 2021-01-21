@@ -17,8 +17,8 @@
             {
                 <small class="m-1"></small>
                 <small>
-                    <span class="itemdisplay">
-                        <MdiIcon Type="folder"></MdiIcon>
+                    <span>
+                        <MdiIcon Type="@IconNames.Category"></MdiIcon>
                         <a href="@Service.UrlGenerator.Category(Value.Metadata.Category)" style="color: inherit;">@Value.Metadata.Category</a>
                     </span>
                 </small>
@@ -28,7 +28,7 @@
                 <small class="m-1"></small>
                 <small>
                     <span>
-                        <MdiIcon Type="@(Value.Metadata.Tags.Count is 1 ? "tag" : "tag-multiple")"></MdiIcon>
+                        <MdiIcon Type="@(Value.Metadata.Tags.Count is 1 ? IconNames.Tag : IconNames.Tags)"></MdiIcon>
                         <span>
                             @foreach (var key in Value.Metadata.Tags)
                             {
