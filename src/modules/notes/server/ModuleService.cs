@@ -30,15 +30,6 @@ namespace Delights.Modules.Notes.Server
 
         ModuleOption Options { get; }
 
-        protected override Task<RawNote> CreateByMutation(NoteMutation mutation)
-        {
-            return Task.FromResult(new RawNote
-            {
-                Title = mutation.Title ?? "",
-                Content = mutation.Content ?? "",
-            });
-        }
-
         protected override Task ApplyMutation(RawNote raw, NoteMutation mutation)
         {
             if (mutation.Title is not null)
@@ -54,6 +45,17 @@ namespace Delights.Modules.Notes.Server
             {
                 Content = raw.Content,
                 Title = raw.Title,
+            });
+        }
+
+        protected override Task<NoteMutation> DataToMutation(Note data)
+        {
+            return Task.FromResult(new NoteMutation
+            {
+                Content = data.Content,
+                Title = data.Title,
+                Id = data.Id,
+                Metadata = data.Metadata.AsMutation(),
             });
         }
     }

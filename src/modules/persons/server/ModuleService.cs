@@ -30,17 +30,6 @@ namespace Delights.Modules.Persons.Server
 
         ModuleOption Options { get; }
 
-        protected override Task<RawPerson> CreateByMutation(PersonMutation mutation)
-        {
-            return Task.FromResult(new RawPerson
-            {
-                Name = mutation.Name ?? "",
-                Gender = mutation.Gender ?? PersonGender.Unknown,
-                Avatar = mutation.Avatar ?? "",
-                Profile = mutation.Profile ?? "",
-            });
-        }
-
         protected override Task ApplyMutation(RawPerson raw, PersonMutation mutation)
         {
             if (mutation.Name is not null)
@@ -62,6 +51,19 @@ namespace Delights.Modules.Persons.Server
                 Name = raw.Name,
                 Avatar = raw.Avatar,
                 Profile = raw.Profile,
+            });
+        }
+
+        protected override Task<PersonMutation> DataToMutation(Person data)
+        {
+            return Task.FromResult(new PersonMutation
+            {
+                Avatar = data.Avatar,
+                Gender = data.Gender,
+                Name = data.Name,
+                Profile = data.Profile,
+                Id = data.Id,
+                Metadata = data.Metadata.AsMutation(),
             });
         }
     }

@@ -30,16 +30,6 @@ namespace Delights.Modules.Bookkeeping.Server
 
         ModuleOption Options { get; }
 
-        protected override Task<RawAccountItem> CreateByMutation(AccountItemMutation mutation)
-        {
-            return Task.FromResult(new RawAccountItem
-            {
-                Title = mutation.Title ?? "",
-                AmountUnit = mutation.Amount?.Unit ?? AmountUnit.CNY,
-                AmountValue = mutation.Amount?.Value ?? 0,
-            });
-        }
-
         protected override Task ApplyMutation(RawAccountItem raw, AccountItemMutation mutation)
         {
             if (mutation.Title is not null)
@@ -64,6 +54,17 @@ namespace Delights.Modules.Bookkeeping.Server
                     Value = raw.AmountValue,
                 },
                 Title = raw.Title,
+            });
+        }
+
+        protected override Task<AccountItemMutation> DataToMutation(AccountItem data)
+        {
+            return Task.FromResult(new AccountItemMutation
+            {
+                Amount = data.Amount.AsMutation(),
+                Title = data.Title,
+                Id = data.Id,
+                Metadata = data.Metadata.AsMutation(),
             });
         }
     }

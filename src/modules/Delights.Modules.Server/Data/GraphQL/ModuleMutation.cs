@@ -19,5 +19,13 @@ namespace Delights.Modules.Server.Data.GraphQL
         {
             return await service.UpdateData(mutation);
         }
+
+        public virtual async Task<bool> LoadDump(string dumped, [Service] TService service)
+        {
+            var dd = await DumpedData.LoadFromString<T>(dumped);
+            if (dd is not null)
+                return await service.LoadDump(dd);
+            return false;
+        }
     }
 }

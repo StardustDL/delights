@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StardustDL.AspNet.ItemMetadataServer.Models.Actions;
+using System;
 
 namespace StardustDL.AspNet.ItemMetadataServer.Models
 {
@@ -19,5 +20,20 @@ namespace StardustDL.AspNet.ItemMetadataServer.Models
         public string Category { get; init; } = "";
 
         public string[] Tags { get; init; } = Array.Empty<string>();
+
+        public ItemMetadataMutation AsMutation()
+        {
+            return new ItemMetadataMutation
+            {
+                Id = Id,
+                CreationTime = CreationTime,
+                ModificationTime = ModificationTime,
+                AccessTime = AccessTime,
+                Remarks = Remarks,
+                Attachments = Attachments,
+                Category = Category,
+                Tags = Tags,
+            };
+        }
     }
 }

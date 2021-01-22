@@ -1,7 +1,10 @@
 ﻿using HotChocolate;
 using HotChocolate.Data;
 using HotChocolate.Types;
+using System;
+using System.IO;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Delights.Modules.Server.Data.GraphQL
@@ -25,6 +28,12 @@ namespace Delights.Modules.Server.Data.GraphQL
         public virtual async Task<T?> GetDataByMetadataId(string id, [Service] TService service)
         {
             return await service.GetDataByMetadataID(id);
+        }
+
+        public virtual async Task<string> GetDump([Service] TService service)
+        {
+            var result = await service.Dump();
+            return await result.DumpToString();
         }
     }
 }

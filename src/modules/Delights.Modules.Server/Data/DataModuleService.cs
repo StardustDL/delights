@@ -3,13 +3,16 @@ using Delights.Modules.Server.Data.Models.Actions;
 using Microsoft.EntityFrameworkCore;
 using StardustDL.AspNet.ItemMetadataServer;
 using StardustDL.AspNet.ItemMetadataServer.Models;
+using StardustDL.AspNet.ItemMetadataServer.Models.Raws;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace Delights.Modules.Server.Data
 {
-    public abstract class DataModuleService<TDb, TRaw, T, TMutation, TDomain> : IDataModuleService<TRaw, T, TMutation> where TDb : DbContext where TRaw : RawDataItemBase where T : DataItemBase where TMutation : DataMutationItemBase
+    public abstract class DataModuleService<TDb, TRaw, T, TMutation, TDomain> : IDataModuleService<TRaw, T, TMutation> where TDb : DbContext where TRaw : RawDataItemBase, new() where T : DataItemBase where TMutation : DataMutationItemBase
     {
         public DataModuleService(TDb dbContext, ItemMetadataDomain<TDomain> metadataDomain)
         {
@@ -29,7 +32,7 @@ namespace Delights.Modules.Server.Data
             var metadataMutation = value.Metadata ?? new StardustDL.AspNet.ItemMetadataServer.Models.Actions.ItemMetadataMutation();
             var metadata = await MetadataDomain.AddMetadata(metadataMutation);
 
-            var tag = await CreateByMutation(value);
+            var tag = await MutationToRaw(value);
             tag.Id = value.Id ?? Guid.NewGuid().ToString();
             tag.MetadataId = metadata.Id;
 
@@ -70,6 +73,30 @@ namespace Delights.Modules.Server.Data
         {
             await DbContext.Database.EnsureCreatedAsync();
             await DbContext.SaveChangesAsync();
+        }
+
+        public virtual async Task<DumpedData<T>> Dump()
+        {
+            List<T> data = new List<T>();
+            foreach (var id in QueryAllRawData().Select(x => x.Id))
+            {
+                var item = await GetData(id);
+                if (item is not null)
+                    data.Add(item);
+            }
+            return new DumpedData<T>
+            {
+                Data = data.ToArray(),
+            };
+        }
+
+        public virtual async Task<bool> LoadDump(DumpedData<T> dumpedData)
+        {
+            foreach (var item in dumpedData.Data)
+            {
+                await AddData(await DataToMutation(item));
+            }
+            return true;
         }
 
         public virtual IQueryable<TRaw> QueryAllRawData()
@@ -140,8 +167,15 @@ namespace Delights.Modules.Server.Data
 
         protected abstract Task<T> RawToData(TRaw raw);
 
+        protected abstract Task<TMutation> DataToMutation(T data);
+
         protected abstract Task ApplyMutation(TRaw raw, TMutation mutation);
 
-        protected abstract Task<TRaw> CreateByMutation(TMutation mutation);
+        protected virtual async Task<TRaw> MutationToRaw(TMutation mutation)
+        {
+            var raw = new TRaw();
+            await ApplyMutation(raw, mutation);
+            return raw;
+        }
     }
 }

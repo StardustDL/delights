@@ -26,6 +26,16 @@ namespace Delights.Modules.Bookkeeping.Server.Models
         public double Value { get; init; } = 0;
 
         public AmountUnit Unit { get; init; }
+
+
+        public Actions.AccountAmountMutation AsMutation()
+        {
+            return new Actions.AccountAmountMutation
+            {
+                Unit = Unit,
+                Value = Value,
+            };
+        }
     }
 
     public class RawAccountItem : RawDataItemBase

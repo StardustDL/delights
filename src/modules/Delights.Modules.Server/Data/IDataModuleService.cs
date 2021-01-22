@@ -10,6 +10,10 @@ namespace Delights.Modules.Server.Data
     {
         Task Initialize();
 
+        Task<DumpedData<T>> Dump();
+
+        Task<bool> LoadDump(DumpedData<T> dumpedData);
+
         IQueryable<TRaw> QueryAllRawData();
 
         Task<T?> GetData(string? id);
