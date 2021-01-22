@@ -1,0 +1,72 @@
+@page "/persons/categories/{name}"
+@inherits BasePage<Delights.Modules.Persons.PersonsModule>
+@inject Persons.ModuleService Service
+
+<Modulight.Modules.Client.RazorComponents.UI.PageInfo Title="@($"Categories - {Name}")">
+    <Breadcrumb>
+        <Breadcrumb>
+            <BreadcrumbItem>
+                <BreadcrumbRootItem />
+            </BreadcrumbItem>
+            <BreadcrumbItem>
+                <BreadcrumbCategoriesRootItem />
+            </BreadcrumbItem>
+            <BreadcrumbItem>
+                <BreadcrumbCategory Name="@Name" />
+            </BreadcrumbItem>
+        </Breadcrumb>
+    </Breadcrumb>
+</Modulight.Modules.Client.RazorComponents.UI.PageInfo>
+
+<Loader OnLoad="@OnLoad" @ref="loader" LoadKey="@Name">
+    <PagingList HasNextPage="CurrentPage?.HasNextPage ?? false" HasPreviousPage="CurrentPage?.HasPreviousPage ?? false" Data="Data" OnNextPage="OnNextPage" OnPreviousPage="OnPreviousPage">
+        <ItemTemplate>
+            <PersonListItem MetadataId="@context"></PersonListItem>
+        </ItemTemplate>
+    </PagingList>
+</Loader>
+
+
+@code{
+    const int PageCount = 10;
+
+    [Parameter]
+    public string Name { get; set; }
+
+    IPageInfo? CurrentPage { get; set; }
+
+    IList<string>? Data { get; set; }
+
+    private Loader loader;
+
+    private async Task OnLoad()
+    {
+        var result = await Service.GraphQLClient.GetMetadataIdsByCategoryAsync(inputName: Name, first: PageCount);
+        Update(result.Data);
+    }
+
+    void Update(IGetMetadataIdsByCategory? data)
+    {
+        if (data is not null)
+        {
+            CurrentPage = data.MetadataByCategory.PageInfo;
+            Data = data.MetadataByCategory.Nodes.Select(x => x.Id).ToArray();
+        }
+    }
+
+    async Task OnNextPage()
+    {
+        var result = await Service.GraphQLClient.GetMetadataIdsByCategoryAsync(inputName: Name,
+            first: PageCount,
+            after: CurrentPage?.EndCursor ?? "");
+        Update(result.Data);
+    }
+
+    async Task OnPreviousPage()
+    {
+        var result = await Service.GraphQLClient.GetMetadataIdsByCategoryAsync(inputName: Name,
+            last: PageCount,
+            before: CurrentPage?.StartCursor ?? "");
+        Update(result.Data);
+    }
+}

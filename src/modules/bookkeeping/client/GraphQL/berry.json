@@ -1,0 +1,1 @@
+{"Schemas":[{"Name":"BookkeepingGraphQL","Type":"http","File":"BookkeepingGraphQL.graphql","Url":"https://localhost:5001/graphql/BookkeepingServer"}],"ClientName":"BookkeepingGraphQLClient"}

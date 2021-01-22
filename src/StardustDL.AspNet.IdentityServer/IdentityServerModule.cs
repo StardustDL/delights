@@ -133,7 +133,6 @@ namespace StardustDL.AspNet.IdentityServer
         public async Task Initialize(ApplicationUser firstUser, string firstUserPassword)
         {
             await DbContext.Database.EnsureCreatedAsync();
-            await DbContext.Database.MigrateAsync();
             if (!await DbContext.Users.AnyAsync())
             {
                 var result = await UserManager.CreateAsync(firstUser, firstUserPassword);

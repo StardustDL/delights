@@ -1,0 +1,43 @@
+@page "/bookkeeping/categories"
+@inherits BasePage<Delights.Modules.Bookkeeping.BookkeepingModule>
+@inject Bookkeeping.ModuleService Service
+
+<Modulight.Modules.Client.RazorComponents.UI.PageInfo Title="Categories">
+    <Breadcrumb>
+        <Breadcrumb>
+            <BreadcrumbItem>
+                <BreadcrumbRootItem />
+            </BreadcrumbItem>
+            <BreadcrumbItem>
+                <BreadcrumbCategoriesRootItem />
+            </BreadcrumbItem>
+        </Breadcrumb>
+    </Breadcrumb>
+</Modulight.Modules.Client.RazorComponents.UI.PageInfo>
+
+<Loader OnLoad="@OnLoad" @ref="loader">
+    <div>
+        @foreach (var v in Data!)
+        {
+            <AntDesign.Tag Class="m-1">
+                <a class="m-1" style="font-size: 18px" href="@Service.UrlGenerator.Category(v)">@v</a>
+            </AntDesign.Tag>
+        }
+    </div>
+</Loader>
+
+@code{
+    const int PageCount = 10;
+
+    IPageInfo? CurrentPage { get; set; }
+
+    IList<string>? Data { get; set; }
+
+    private Loader loader;
+
+    private async Task OnLoad()
+    {
+        var result = await Service.GraphQLClient.GetCategoriesAsync();
+        Data = result.Data.Categories.Nodes.Select(x=>x.Name).ToArray();
+    }
+}

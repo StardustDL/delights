@@ -65,7 +65,6 @@ namespace Delights.Modules.Server.Data
         public virtual async Task Initialize()
         {
             await DbContext.Database.EnsureCreatedAsync();
-            await DbContext.Database.MigrateAsync();
             await DbContext.SaveChangesAsync();
         }
 

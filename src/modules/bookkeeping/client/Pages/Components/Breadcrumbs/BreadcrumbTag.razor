@@ -1,0 +1,11 @@
+﻿@inject Bookkeeping.ModuleService Service
+
+<a href="@Service.UrlGenerator.Tag(Name)">
+    <MdiIcon Type="@IconNames.Tag"></MdiIcon>
+    <span>@Name</span>
+</a>
+
+@code{
+    [Parameter]
+    public string Name { get; set; }
+}

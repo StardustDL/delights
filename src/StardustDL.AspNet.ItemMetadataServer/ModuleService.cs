@@ -30,7 +30,6 @@ namespace StardustDL.AspNet.ItemMetadataServer
         public async Task Initialize()
         {
             await DbContext.Database.EnsureCreatedAsync();
-            await DbContext.Database.MigrateAsync();
             await DbContext.SaveChangesAsync();
         }
 

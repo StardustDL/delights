@@ -1,0 +1,85 @@
+﻿@inject Bookkeeping.ModuleService Service
+@inject MessageService MessageService
+@inject NavigationManager NavigationManager
+
+<Loader OnLoad="@OnLoad" @ref="loader" LoadKey="@MetadataId">
+    @if (!IsDeleted)
+    {
+        <ListItem @key="@MetadataId" Style="display: block">
+            <ListItemMeta Avatar="@("")">
+                <TitleTemplate>
+                    <h4>
+                        <a href="@Service.UrlGenerator.(!)" style="color:black">
+                            <span>@AccountItem!.Title</span>
+                        </a>
+                    </h4>
+                    <div>
+                        <AccountItemMetadataDisplay Value="@AccountItem" />
+                    </div>
+                </TitleTemplate>
+            </ListItemMeta>
+            
+            <p>
+                <Statistic Title="@($"Value")" Value="AccountItem!.Amount.Value" Precision="2" Suffix="@(Enum.GetName<AmountUnit>(AccountItem!.Amount.Unit)?.ToUpperInvariant())"
+                           ValueStyle="@($"color: {(AccountItem!.Amount.Value >= 0 ? "#3f8600" : "#cf1322")};")">
+                    <PrefixTemplate>
+                        @if (AccountItem!.Amount.Value > 0)
+                        {
+                            <MdiIcon Type="arrow-up" />
+                        }
+                        else if (AccountItem!.Amount.Value < 0)
+                        {
+                            <MdiIcon Type="arrow-down" />
+                        }
+                        else
+                        {
+                            <MdiIcon Type="arrow-right" />
+                        }
+                    </PrefixTemplate>
+                </Statistic>
+            </p>
+
+            <ButtonLink Href="@Service.UrlGenerator.AccountItemEdit(AccountItem!)">
+                <MdiIcon Type="@IconNames.Edit"></MdiIcon>
+                <span>Edit</span>
+            </ButtonLink>
+            <Popconfirm Title="@($"Are you sure delete this?")" OnConfirm="OnDelete" Placement="@PlacementType.BottomRight">
+                <Button Danger>
+                    <MdiIcon Type="@IconNames.Delete"></MdiIcon>
+                    <span>Delete</span>
+                </Button>
+            </Popconfirm>
+        </ListItem>
+    }
+</Loader>
+
+@code {
+    [Parameter]
+    public string? MetadataId { get; set; }
+
+    bool IsDeleted { get; set; } = false;
+
+    IData? AccountItem { get; set; }
+
+    private Loader loader;
+
+    private async Task OnLoad()
+    {
+        var result = await Service.GraphQLClient.GetDataByMetadataIdAsync(MetadataId!);
+        AccountItem = result.Data?.DataByMetadataId;
+    }
+
+    private async Task OnDelete()
+    {
+        var pass = await Service.GraphQLClient.DeleteDataAsync(AccountItem!.Id);
+        if (!pass.HasErrors)
+        {
+            _ = MessageService.Success("Deleted successfully.");
+            IsDeleted = true;
+        }
+        else
+        {
+            _ = MessageService.Error("Failed to delete.");
+        }
+    }
+}

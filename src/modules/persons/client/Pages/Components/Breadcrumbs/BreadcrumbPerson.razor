@@ -1,0 +1,11 @@
+﻿@inject Persons.ModuleService Service
+
+<a href="@Service.UrlGenerator.Person(Value!)">
+    <MdiIcon Type="@IconNames.Person"></MdiIcon>
+    <span>@Value!.Name</span>
+</a>
+
+@code{
+    [Parameter]
+    public IData? Value { get; set; }
+}

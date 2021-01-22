@@ -1,0 +1,65 @@
+﻿@page "/bookkeeping/{id}"
+
+@inherits BasePage<Delights.Modules.Bookkeeping.BookkeepingModule>
+@inject Bookkeeping.ModuleService Service
+@inject MessageService MessageService
+@inject NavigationManager NavigationManager
+
+<Loader OnLoad="@OnLoad" @ref="loader" LoadKey="@Id">
+    <Modulight.Modules.Client.RazorComponents.UI.PageInfo Title="@AccountItem!.Title">
+        <Breadcrumb>
+            <Breadcrumb>
+                <BreadcrumbItem>
+                    <BreadcrumbRootItem />
+                </BreadcrumbItem>
+                <BreadcrumbItem>
+                    <BreadcrumbAccountItem Value="@AccountItem" />
+                </BreadcrumbItem>
+            </Breadcrumb>
+        </Breadcrumb>
+        <Tags>
+            <AccountItemMetadataDisplay Value="@AccountItem" />
+        </Tags>
+        <Extra>
+            <ButtonLink Href="@Service.UrlGenerator.AccountItemEdit(AccountItem!)">
+                <MdiIcon Type="@IconNames.Edit"></MdiIcon>
+                <span>Edit</span>
+            </ButtonLink>
+            <Popconfirm Title="@($"Are you sure delete this account item?")" OnConfirm="OnDelete" Placement="@PlacementType.BottomRight">
+                <Button Danger>
+                    <MdiIcon Type="@IconNames.Delete"></MdiIcon>
+                    <span>Delete</span>
+                </Button>
+            </Popconfirm>
+        </Extra>
+    </Modulight.Modules.Client.RazorComponents.UI.PageInfo>
+</Loader>
+
+@code {
+    [Parameter]
+    public string? Id { get; set; }
+
+    IData? AccountItem { get; set; }
+
+    private Loader loader;
+
+    private async Task OnLoad()
+    {
+        var result = await Service.GraphQLClient.GetDataByIdAsync(Id!);
+        AccountItem = result.Data?.DataById;
+    }
+
+    async Task OnDelete()
+    {
+        var pass = await Service.GraphQLClient.DeleteDataAsync(Id!);
+        if (!pass.HasErrors)
+        {
+            _ = MessageService.Success("Deleted account item successfully.");
+            NavigationManager.NavigateTo(Service.UrlGenerator.Bookkeeping());
+        }
+        else
+        {
+            _ = MessageService.Error("Failed to delete.");
+        }
+    }
+}

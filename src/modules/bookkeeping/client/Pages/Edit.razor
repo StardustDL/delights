@@ -1,0 +1,186 @@
+﻿@page "/bookkeeping/create"
+@page "/bookkeeping/{id}/edit"
+
+@inherits BasePage<Delights.Modules.Bookkeeping.BookkeepingModule>
+@inject Bookkeeping.ModuleService Service
+@inject MessageService MessageService
+@inject NavigationManager NavigationManager
+
+<Loader OnLoad="@OnLoad" @ref="loader">
+    <Modulight.Modules.Client.RazorComponents.UI.PageInfo Title="@model!.Title">
+        <Breadcrumb>
+            <Breadcrumb>
+                <BreadcrumbItem>
+                    <BreadcrumbRootItem />
+                </BreadcrumbItem>
+                @if (IsCreate)
+                {
+                    <BreadcrumbItem>
+                        <span>Create</span>
+                    </BreadcrumbItem>
+                }
+                else
+                {
+                    <BreadcrumbItem>
+                        <BreadcrumbAccountItem Value="@AccountItem" />
+                    </BreadcrumbItem>
+                    <BreadcrumbItem>
+                        <span>Edit</span>
+                    </BreadcrumbItem>
+                }
+            </Breadcrumb>
+        </Breadcrumb>
+        <Extra>
+            <Button Type="@ButtonType.Primary" OnClick="OnSubmit">
+                @if (IsCreate)
+                {
+                    <MdiIcon Type="@IconNames.Create"></MdiIcon>
+                    <span>Create</span>
+                }
+                else
+                {
+                    <MdiIcon Type="@IconNames.Edit"></MdiIcon>
+                    <span>Update</span>
+                }
+            </Button>
+            @if (!IsCreate)
+            {
+                <Popconfirm Title="@("Are you sure delete this account item?")" OnConfirm="OnDelete" Placement="@PlacementType.BottomRight">
+                    <Button Danger>
+                        <MdiIcon Type="@IconNames.Delete"></MdiIcon>
+                        <span>Delete</span>
+                    </Button>
+                </Popconfirm>
+            }
+        </Extra>
+    </Modulight.Modules.Client.RazorComponents.UI.PageInfo>
+
+    <Form @ref="form" Model="@model" Layout="@FormLayout.Vertical">
+        <FormItem Label="Title">
+            <Input @bind-Value="@context.Title" />
+        </FormItem>
+        <FormItem Label="Amount">
+            <InputNumber @bind-Value="@context.AmountValue" />
+        </FormItem>
+        <FormItem Label="Category">
+            <Input @bind-Value="@context.Category" Size="large"/>
+        </FormItem>
+        <FormItem Label="Tags">
+            <Input Placeholder="Input like a,b,c." @bind-Value="@context.Tags" />
+        </FormItem>
+    </Form>
+</Loader>
+
+@code {
+    [Parameter]
+    public string? Id { get; set; }
+
+    IData? AccountItem { get; set; }
+
+    bool IsCreate => String.IsNullOrEmpty(Id);
+
+    class Model
+    {
+        public double AmountValue { get; set; } = 0;
+
+        public string Title { get; set; } = "";
+
+        public string Category { get; set; } = "";
+
+        public string Tags { get; set; } = "";
+    }
+
+    Model? model;
+
+    Form<Model> form;
+
+    private Loader loader;
+
+    private async Task OnLoad()
+    {
+        if (IsCreate)
+        {
+            model = new Model();
+        }
+        else
+        {
+            var result = await Service.GraphQLClient.GetDataByIdAsync(Id!);
+            AccountItem = result.Data?.DataById!;
+            model = new Model
+            {
+                AmountValue = AccountItem.Amount.Value,
+                Tags = string.Join(',', AccountItem.Metadata.Tags),
+                Category = AccountItem.Metadata.Category,
+                Title = AccountItem.Title
+            };
+        }
+    }
+
+    async Task OnDelete()
+    {
+        if (IsCreate)
+            return;
+        var pass = await Service.GraphQLClient.DeleteDataAsync(Id!);
+        if (!pass.HasErrors)
+        {
+            _ = MessageService.Success("Deleted account item successfully.");
+            NavigationManager.NavigateTo(Service.UrlGenerator.Bookkeeping());
+        }
+        else
+        {
+            _ = MessageService.Error("Failed to delete account item.");
+        }
+    }
+
+    async Task OnSubmit()
+    {
+        if (!form.Validate())
+        {
+            _ = MessageService.Error("Invalid input.");
+            return;
+        }
+
+        var mutation = new AccountItemMutationInput
+        {
+            Title = model!.Title,
+            Amount = new AccountAmountMutationInput
+            {
+                Value = model.AmountValue
+            },
+            Metadata = new ItemMetadataMutationInput
+            {
+                Category = model.Category.Trim(),
+                Tags = model.Tags.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                    .Select(x => x.Trim()).Where(x => !string.IsNullOrEmpty(x)).ToArray(),
+            }
+        };
+
+        if (IsCreate)
+        {
+            var pass = await Service.GraphQLClient.CreateDataAsync(mutation);
+            if (!pass.HasErrors)
+            {
+                _ = MessageService.Success("Created successfully.");
+                NavigationManager.NavigateTo(Service.UrlGenerator.AccountItem(pass.Data!.CreateData));
+            }
+            else
+            {
+                _ = MessageService.Error("Failed to create.");
+            }
+        }
+        else
+        {
+            mutation.Id = Id!;
+            var pass = await Service.GraphQLClient.UpdateDataAsync(mutation);
+            if (!pass.HasErrors)
+            {
+                _ = MessageService.Success("Updated successfully.");
+                NavigationManager.NavigateTo(Service.UrlGenerator.AccountItem(pass.Data!.UpdateData));
+            }
+            else
+            {
+                _ = MessageService.Error("Failed to update.");
+            }
+        }
+    }
+}

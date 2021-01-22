@@ -1,0 +1,77 @@
+@page "/bookkeeping"
+@inherits BasePage<Delights.Modules.Bookkeeping.BookkeepingModule>
+@inject Bookkeeping.ModuleService Service
+
+<Modulight.Modules.Client.RazorComponents.UI.PageInfo Title="Bookkeeping">
+    <Breadcrumb>
+        <Breadcrumb>
+            <BreadcrumbItem>
+                <BreadcrumbRootItem/>
+            </BreadcrumbItem>
+        </Breadcrumb>
+    </Breadcrumb>
+    <Extra>
+        <ButtonLink Href="@Service.UrlGenerator.Categories()">
+            <MdiIcon Type="@IconNames.Category"></MdiIcon>
+            <span>Categories</span>
+        </ButtonLink>
+        <ButtonLink Href="@Service.UrlGenerator.Tags()">
+            <MdiIcon Type="@IconNames.Tags"></MdiIcon>
+            <span>Tags</span>
+        </ButtonLink>
+        <ButtonLink Href="@Service.UrlGenerator.AccountItemCreate()">
+            <MdiIcon Type="@IconNames.Create"></MdiIcon>
+            <span>Create</span>
+        </ButtonLink>
+    </Extra>
+</Modulight.Modules.Client.RazorComponents.UI.PageInfo>
+
+<Loader OnLoad="@OnLoad" @ref="loader">
+    <PagingList HasNextPage="CurrentPage?.HasNextPage ?? false" HasPreviousPage="CurrentPage?.HasPreviousPage ?? false" Data="Data" OnNextPage="OnNextPage" OnPreviousPage="OnPreviousPage">
+        <ItemTemplate>
+            <AccountItemListItem MetadataId="@context"></AccountItemListItem>
+        </ItemTemplate>
+    </PagingList>
+</Loader>
+
+
+@code{
+    const int PageCount = 10;
+
+    IPageInfo? CurrentPage { get; set; }
+
+    IList<string>? Data { get; set; }
+
+    private Loader loader;
+
+    private async Task OnLoad()
+    {
+        var result = await Service.GraphQLClient.GetMetadataIdsAsync(first: PageCount);
+        Update(result.Data);
+    }
+
+    void Update(IGetMetadataIds? data)
+    {
+        if (data is not null)
+        {
+            CurrentPage = data.Metadata.PageInfo;
+            Data = data.Metadata.Nodes.Select(x => x.Id).ToArray();
+        }
+    }
+
+    async Task OnNextPage()
+    {
+        var result = await Service.GraphQLClient.GetMetadataIdsAsync(
+            first: PageCount,
+            after: CurrentPage?.EndCursor ?? "");
+        Update(result.Data);
+    }
+
+    async Task OnPreviousPage()
+    {
+        var result = await Service.GraphQLClient.GetMetadataIdsAsync(
+            last: PageCount,
+            before: CurrentPage?.StartCursor ?? "");
+        Update(result.Data);
+    }
+}

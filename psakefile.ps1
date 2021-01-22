@@ -23,7 +23,7 @@ Function GenerateGraphQL($moduleName) {
 
     Set-Location src/modules/$lowerName
 
-    Set-Location Delights.Modules.$moduleName
+    Set-Location client
 
     $apiname = $moduleName + "GraphQL"
     
@@ -114,7 +114,9 @@ Task gen-gql {
 
 Task update-gql {
 
-    GenerateGraphQL Hello
+    # GenerateGraphQL Hello
     GenerateGraphQL ModuleManager
-
+    GenerateGraphQL Persons
+    GenerateGraphQL Notes
+    GenerateGraphQL Bookkeeping
 }

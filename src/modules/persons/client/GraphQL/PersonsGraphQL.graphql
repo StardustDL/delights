@@ -1,0 +1,329 @@
+schema {
+  query: ModuleQuery
+  mutation: ModuleMutation
+}
+
+type ModuleQuery {
+  rawData(first: Int after: String last: Int before: String where: RawPersonFilterInput order: [RawPersonSortInput!]): RawPersonConnection
+  dataById(id: String!): Person
+  dataByMetadataId(id: String!): Person
+  tags(first: Int after: String last: Int before: String where: RawTagFilterInput order: [RawTagSortInput!]): RawTagConnection
+  categories(first: Int after: String last: Int before: String where: RawCategoryFilterInput order: [RawCategorySortInput!]): RawCategoryConnection
+  metadata(first: Int after: String last: Int before: String where: RawItemMetadataFilterInput order: [RawItemMetadataSortInput!]): RawItemMetadataConnection
+  metadataByTag(first: Int after: String last: Int before: String name: String! where: RawItemMetadataFilterInput order: [RawItemMetadataSortInput!]): RawItemMetadataConnection
+  metadataByCategory(first: Int after: String last: Int before: String name: String! where: RawItemMetadataFilterInput order: [RawItemMetadataSortInput!]): RawItemMetadataConnection
+  metadataByMetadataId(id: String!): RawItemMetadata
+  category(name: String!): RawCategory
+  tag(name: String!): RawTag
+}
+
+type ModuleMutation {
+  createData(mutation: PersonMutationInput!): Person!
+  deleteData(id: String!): Person
+  updateData(mutation: PersonMutationInput!): Person
+  createTag(name: String!): RawTag!
+  createCategory(name: String!): RawCategory!
+  deleteTag(name: String!): RawTag
+  deleteCategory(name: String!): RawCategory
+  renameTag(oldName: String! newName: String!): RawTag
+  renameCategory(oldName: String! newName: String!): RawCategory
+}
+
+type RawPerson {
+  name: String!
+  gender: PersonGender!
+  id: String
+  metadataId: String
+}
+
+type RawTag {
+  id: String
+  domain: String!
+  name: String!
+  items: [RawItemMetadata!]
+}
+
+type RawCategory {
+  id: String
+  domain: String!
+  name: String!
+  items: [RawItemMetadata!]
+}
+
+type RawItemMetadata {
+  asMetadata: ItemMetadata!
+  id: String
+  domain: String!
+  creationTime: DateTime!
+  modificationTime: DateTime!
+  accessTime: DateTime!
+  remarks: String!
+  category: RawCategory
+  tags: [RawTag!]
+  attachments: String!
+}
+
+input RawPersonFilterInput {
+  and: [RawPersonFilterInput!]
+  or: [RawPersonFilterInput!]
+  name: StringOperationFilterInput
+  gender: PersonGenderOperationFilterInput
+  id: StringOperationFilterInput
+  metadataId: StringOperationFilterInput
+}
+
+input RawPersonSortInput {
+  name: SortEnumType
+  gender: SortEnumType
+  id: SortEnumType
+  metadataId: SortEnumType
+}
+
+input RawTagFilterInput {
+  and: [RawTagFilterInput!]
+  or: [RawTagFilterInput!]
+  id: StringOperationFilterInput
+  domain: StringOperationFilterInput
+  name: StringOperationFilterInput
+  items: ListFilterInputTypeOfRawItemMetadataFilterInput
+}
+
+input RawTagSortInput {
+  id: SortEnumType
+  domain: SortEnumType
+  name: SortEnumType
+}
+
+input RawCategoryFilterInput {
+  and: [RawCategoryFilterInput!]
+  or: [RawCategoryFilterInput!]
+  id: StringOperationFilterInput
+  domain: StringOperationFilterInput
+  name: StringOperationFilterInput
+  items: ListFilterInputTypeOfRawItemMetadataFilterInput
+}
+
+input RawCategorySortInput {
+  id: SortEnumType
+  domain: SortEnumType
+  name: SortEnumType
+}
+
+input RawItemMetadataFilterInput {
+  and: [RawItemMetadataFilterInput!]
+  or: [RawItemMetadataFilterInput!]
+  id: StringOperationFilterInput
+  domain: StringOperationFilterInput
+  creationTime: ComparableDateTimeOffsetOperationFilterInput
+  modificationTime: ComparableDateTimeOffsetOperationFilterInput
+  accessTime: ComparableDateTimeOffsetOperationFilterInput
+  remarks: StringOperationFilterInput
+  category: RawCategoryFilterInput
+  tags: ListFilterInputTypeOfRawTagFilterInput
+  attachments: StringOperationFilterInput
+}
+
+input RawItemMetadataSortInput {
+  id: SortEnumType
+  domain: SortEnumType
+  creationTime: SortEnumType
+  modificationTime: SortEnumType
+  accessTime: SortEnumType
+  remarks: SortEnumType
+  category: RawCategorySortInput
+  attachments: SortEnumType
+}
+
+"A connection to a list of items."
+type RawPersonConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of edges."
+  edges: [RawPersonEdge!]
+  "A flattened list of the nodes."
+  nodes: [RawPerson!]
+}
+
+"A connection to a list of items."
+type RawTagConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of edges."
+  edges: [RawTagEdge!]
+  "A flattened list of the nodes."
+  nodes: [RawTag!]
+}
+
+"A connection to a list of items."
+type RawCategoryConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of edges."
+  edges: [RawCategoryEdge!]
+  "A flattened list of the nodes."
+  nodes: [RawCategory!]
+}
+
+"A connection to a list of items."
+type RawItemMetadataConnection {
+  "Information to aid in pagination."
+  pageInfo: PageInfo!
+  "A list of edges."
+  edges: [RawItemMetadataEdge!]
+  "A flattened list of the nodes."
+  nodes: [RawItemMetadata!]
+}
+
+input StringOperationFilterInput {
+  and: [StringOperationFilterInput!]
+  or: [StringOperationFilterInput!]
+  eq: String
+  neq: String
+  contains: String
+  ncontains: String
+  in: [String]
+  nin: [String]
+  startsWith: String
+  nstartsWith: String
+  endsWith: String
+  nendsWith: String
+}
+
+input PersonGenderOperationFilterInput {
+  eq: PersonGender
+  neq: PersonGender
+  in: [PersonGender!]
+  nin: [PersonGender!]
+}
+
+enum SortEnumType {
+  ASC
+  DESC
+}
+
+input ListFilterInputTypeOfRawItemMetadataFilterInput {
+  all: RawItemMetadataFilterInput
+  none: RawItemMetadataFilterInput
+  some: RawItemMetadataFilterInput
+  any: Boolean
+}
+
+input ComparableDateTimeOffsetOperationFilterInput {
+  eq: DateTime
+  neq: DateTime
+  in: [DateTime!]
+  nin: [DateTime!]
+  gt: DateTime
+  ngt: DateTime
+  gte: DateTime
+  ngte: DateTime
+  lt: DateTime
+  nlt: DateTime
+  lte: DateTime
+  nlte: DateTime
+}
+
+input ListFilterInputTypeOfRawTagFilterInput {
+  all: RawTagFilterInput
+  none: RawTagFilterInput
+  some: RawTagFilterInput
+  any: Boolean
+}
+
+"Information about pagination in a connection."
+type PageInfo {
+  "Indicates whether more edges exist following the set defined by the clients arguments."
+  hasNextPage: Boolean!
+  "Indicates whether more edges exist prior the set defined by the clients arguments."
+  hasPreviousPage: Boolean!
+  "When paginating backwards, the cursor to continue."
+  startCursor: String
+  "When paginating forwards, the cursor to continue."
+  endCursor: String
+}
+
+"An edge in a connection."
+type RawPersonEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: RawPerson!
+}
+
+"An edge in a connection."
+type RawTagEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: RawTag!
+}
+
+"An edge in a connection."
+type RawCategoryEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: RawCategory!
+}
+
+"An edge in a connection."
+type RawItemMetadataEdge {
+  "A cursor for use in pagination."
+  cursor: String!
+  "The item at the end of the edge."
+  node: RawItemMetadata!
+}
+
+input PersonMutationInput {
+  name: String
+  gender: PersonGender
+  id: String
+  metadata: ItemMetadataMutationInput
+}
+
+type Person {
+  name: String!
+  gender: PersonGender!
+  id: String!
+  metadata: ItemMetadata!
+}
+
+enum PersonGender {
+  UNKNOWN
+  MALE
+  FEMALE
+}
+
+type ItemMetadata {
+  creationTime: DateTime!
+  modificationTime: DateTime!
+  accessTime: DateTime!
+  id: String!
+  remarks: String!
+  attachments: String!
+  category: String!
+  tags: [String!]!
+}
+
+"The `DateTime` scalar represents an ISO-8601 compliant date time type."
+scalar DateTime
+
+input ItemMetadataMutationInput {
+  id: String
+  creationTime: DateTime
+  modificationTime: DateTime
+  accessTime: DateTime
+  remarks: String
+  category: String
+  tags: [String!]
+  attachments: String
+}
+
+"The `@defer` directive may be provided for fragment spreads and inline fragments to inform the executor to delay the execution of the current fragment to indicate deprioritization of the current fragment. A query with `@defer` directive will cause the request to potentially return multiple responses, where non-deferred data is delivered in the initial response and data deferred is delivered in a subsequent response. `@include` and `@skip` take precedence over `@defer`."
+directive @defer("If this argument label has a value other than null, it will be passed on to the result of this defer directive. This label is intended to give client applications a way to identify to which fragment a deferred result belongs to." label: String "Deferred when true." if: Boolean) on FRAGMENT_SPREAD | INLINE_FRAGMENT
+
+"The `@stream` directive may be provided for a field of `List` type so that the backend can leverage technology such as asynchronous iterators to provide a partial list in the initial response, and additional list items in subsequent responses. `@include` and `@skip` take precedence over `@stream`."
+directive @stream("If this argument label has a value other than null, it will be passed on to the result of this stream directive. This label is intended to give client applications a way to identify to which fragment a streamed result belongs to." label: String "The initial elements that shall be send down to the consumer." initialCount: Int! "Streamed when true." if: Boolean!) on FIELD
+
+"The `@specifiedBy` directive is used within the type system definition language to provide a URL for specifying the behavior of custom scalar definitions."
+directive @specifiedBy("The specifiedBy URL points to a human-readable specification. This field will only read a result for scalar types." url: String!) on SCALAR

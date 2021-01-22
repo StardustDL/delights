@@ -25,6 +25,8 @@ using StardustDL.AspNet.ItemMetadataServer;
 using StardustDL.AspNet.IdentityServer;
 using Microsoft.EntityFrameworkCore;
 using Delights.Modules.Notes.Server;
+using Delights.Modules.Bookkeeping.Server;
+using Delights.Modules.Persons.Server;
 
 namespace Delights.Api
 {
@@ -77,11 +79,21 @@ namespace Delights.Api
 
             builder.AddHelloModule()
                 .AddModuleManagerModule()
+                .AddPersonsModule(o =>
+                {
+                    o.ConfigureDbContext = options =>
+                        options.UseSqlServer(Configuration.GetConnectionString("PersonsConnection"));
+                })
                 .AddNotesModule(o =>
                 {
                     o.ConfigureDbContext = options =>
                         options.UseSqlServer(Configuration.GetConnectionString("NotesConnection"));
-                });
+                })
+                .AddBookkeepingModule(o =>
+                 {
+                     o.ConfigureDbContext = options =>
+                         options.UseSqlServer(Configuration.GetConnectionString("BookkeepingConnection"));
+                 });
 
             builder.Build(services);
         }

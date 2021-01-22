@@ -1,0 +1,187 @@
+﻿@page "/persons/create"
+@page "/persons/{id}/edit"
+
+@inherits BasePage<Delights.Modules.Persons.PersonsModule>
+@inject Persons.ModuleService Service
+@inject MessageService MessageService
+@inject NavigationManager NavigationManager
+
+<Loader OnLoad="@OnLoad" @ref="loader">
+    <Modulight.Modules.Client.RazorComponents.UI.PageInfo Title="@model!.Name">
+        <Breadcrumb>
+            <Breadcrumb>
+                <BreadcrumbItem>
+                    <BreadcrumbRootItem />
+                </BreadcrumbItem>
+                @if (IsCreate)
+                {
+                    <BreadcrumbItem>
+                        <span>Create</span>
+                    </BreadcrumbItem>
+                }
+                else
+                {
+                    <BreadcrumbItem>
+                        <BreadcrumbPerson Value="@Person" />
+                    </BreadcrumbItem>
+                    <BreadcrumbItem>
+                        <span>Edit</span>
+                    </BreadcrumbItem>
+                }
+            </Breadcrumb>
+        </Breadcrumb>
+        <Extra>
+            <Button Type="@ButtonType.Primary" OnClick="OnSubmit">
+                @if (IsCreate)
+                {
+                    <MdiIcon Type="@IconNames.Create"></MdiIcon>
+                    <span>Create</span>
+                }
+                else
+                {
+                    <MdiIcon Type="@IconNames.Edit"></MdiIcon>
+                    <span>Update</span>
+                }
+            </Button>
+            @if (!IsCreate)
+            {
+                <Popconfirm Title="@("Are you sure delete this person?")" OnConfirm="OnDelete" Placement="@PlacementType.BottomRight">
+                    <Button Danger>
+                        <MdiIcon Type="@IconNames.Delete"></MdiIcon>
+                        <span>Delete</span>
+                    </Button>
+                </Popconfirm>
+            }
+        </Extra>
+    </Modulight.Modules.Client.RazorComponents.UI.PageInfo>
+
+    <Form @ref="form" Model="@model" Layout="@FormLayout.Vertical">
+        <FormItem Label="Name">
+            <Input @bind-Value="@context.Name" />
+        </FormItem>
+        <FormItem Label="Sex">
+            <RadioGroup @bind-Value="@context.Gender">
+                <Radio RadioButton Value="@(PersonGender.Unknown)">Unknown</Radio>
+                <Radio RadioButton Value="@(PersonGender.Male)"><MdiIcon Type="@IconNames.Male"/> Male</Radio>
+                <Radio RadioButton Value="@(PersonGender.Female)"><MdiIcon Type="@IconNames.Female" /> Female</Radio>
+            </RadioGroup>
+        </FormItem>
+        <FormItem Label="Category">
+            <Input @bind-Value="@context.Category" />
+        </FormItem>
+        <FormItem Label="Tags">
+            <Input Placeholder="Input like a,b,c." @bind-Value="@context.Tags" />
+        </FormItem>
+    </Form>
+</Loader>
+
+@code {
+    [Parameter]
+    public string? Id { get; set; }
+
+    IData? Person { get; set; }
+
+    bool IsCreate => String.IsNullOrEmpty(Id);
+
+    class Model
+    {
+        public string Name { get; set; } = "";
+
+        public PersonGender Gender { get; set; }
+
+        public string Category { get; set; } = "";
+
+        public string Tags { get; set; } = "";
+    }
+
+    Model? model;
+
+    Form<Model> form;
+
+    private Loader loader;
+
+    private async Task OnLoad()
+    {
+        if (IsCreate)
+        {
+            model = new Model();
+        }
+        else
+        {
+            var result = await Service.GraphQLClient.GetDataByIdAsync(Id!);
+            Person = result.Data?.DataById!;
+            model = new Model
+            {
+                Gender = Person.Gender,
+                Tags = string.Join(',', Person.Metadata.Tags),
+                Category = Person.Metadata.Category,
+                Name = Person.Name
+            };
+        }
+    }
+
+    async Task OnDelete()
+    {
+        if (IsCreate)
+            return;
+        var pass = await Service.GraphQLClient.DeleteDataAsync(Id!);
+        if (!pass.HasErrors)
+        {
+            _ = MessageService.Success("Deleted person successfully.");
+            NavigationManager.NavigateTo(Service.UrlGenerator.Persons());
+        }
+        else
+        {
+            _ = MessageService.Error("Failed to delete person.");
+        }
+    }
+
+    async Task OnSubmit()
+    {
+        if (!form.Validate())
+        {
+            _ = MessageService.Error("Invalid input.");
+            return;
+        }
+
+        var mutation = new PersonMutationInput
+        {
+            Name = model!.Name,
+            Gender = model.Gender,
+            Metadata = new ItemMetadataMutationInput
+            {
+                Category = model.Category.Trim(),
+                Tags = model.Tags.Split(',', StringSplitOptions.RemoveEmptyEntries)
+                    .Select(x => x.Trim()).Where(x => !string.IsNullOrEmpty(x)).ToArray(),
+            }
+        };
+
+        if (IsCreate)
+        {
+            var pass = await Service.GraphQLClient.CreateDataAsync(mutation);
+            if (!pass.HasErrors)
+            {
+                _ = MessageService.Success("Created person successfully.");
+                NavigationManager.NavigateTo(Service.UrlGenerator.Person(pass.Data!.CreateData));
+            }
+            else
+            {
+                _ = MessageService.Error("Failed to create person.");
+            }
+        }
+        else
+        {
+            mutation.Id = Id!;
+            var pass = await Service.GraphQLClient.UpdateDataAsync(mutation);
+            if (!pass.HasErrors)
+            {
+                _ = MessageService.Success("Updated person successfully.");
+                NavigationManager.NavigateTo(Service.UrlGenerator.Person(pass.Data!.UpdateData));
+            }
+            else
+            {
+                _ = MessageService.Error("Failed to update person.");
+            }
+        }
+    }
+}

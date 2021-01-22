@@ -1,0 +1,11 @@
+﻿@inject Bookkeeping.ModuleService Service
+
+<a href="@Service.UrlGenerator.AccountItem(Value!)">
+    <MdiIcon Type="@IconNames.Bookkeeping"></MdiIcon>
+    <span>@Value!.Title</span>
+</a>
+
+@code{
+    [Parameter]
+    public IData? Value { get; set; }
+}

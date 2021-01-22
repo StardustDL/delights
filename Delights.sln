@@ -67,23 +67,49 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.Notes", "s
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.Server", "src\modules\Delights.Modules.Server\Delights.Modules.Server.csproj", "{B8B44EDC-8C0E-4D0F-BB77-15AD53202652}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delights.Modules.Client", "modules\Delights.Modules.Client\Delights.Modules.Client.csproj", "{E67E56F5-BE7D-49D9-856D-1DEC79248933}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.Client", "modules\Delights.Modules.Client\Delights.Modules.Client.csproj", "{E67E56F5-BE7D-49D9-856D-1DEC79248933}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bookkeeping", "bookkeeping", "{ABD6FB14-A306-48EB-BF13-9B8FF913AF69}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Delights.Modules.Bookkeeping.Shared", "src\modules\bookkeeping\shared\Delights.Modules.Bookkeeping.Shared.shproj", "{B2E27FB4-3F40-40C2-A322-57504A016548}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.Bookkeeping", "src\modules\bookkeeping\client\Delights.Modules.Bookkeeping.csproj", "{72BDC22E-981B-46CA-BC72-9EC6B0D71142}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.Bookkeeping.Server", "src\modules\bookkeeping\server\Delights.Modules.Bookkeeping.Server.csproj", "{36DEEB7C-0C7D-47C3-BAC3-6873F05F6571}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "persons", "persons", "{B753EE81-896A-4284-A55A-696086D6257D}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Delights.Modules.Persons.Shared", "src\modules\persons\shared\Delights.Modules.Persons.Shared.shproj", "{06770D8F-22B3-4CF0-BA69-B1E4196C2624}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.Persons.Server", "src\modules\persons\server\Delights.Modules.Persons.Server.csproj", "{5364C2B4-75E6-442B-B7A5-BF36CF564574}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.Persons", "src\modules\persons\client\Delights.Modules.Persons.csproj", "{600498E4-8B69-4C2A-8D18-CA3DCCBD24E0}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{0140b3c5-ad7e-47e6-b6f6-0d876ad3cfd3}*SharedItemsImports = 13
 		src\modules\hello\Delights.Modules.Hello.Shared\Delights.Modules.Hello.Shared.projitems*{058ab875-cb8c-4a40-a154-e42c7ffdf4a1}*SharedItemsImports = 13
+		src\modules\persons\shared\Delights.Modules.Persons.Shared.projitems*{06770d8f-22b3-4cf0-ba69-b1e4196c2624}*SharedItemsImports = 13
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{08c0899f-43af-496e-95cf-22f8816ea69f}*SharedItemsImports = 5
 		src\modules\modulemanager\shared\Delights.Modules.ModuleManager.Shared.projitems*{08c0899f-43af-496e-95cf-22f8816ea69f}*SharedItemsImports = 5
 		src\modules\modulemanager\shared\Delights.Modules.ModuleManager.Shared.projitems*{0a72dfb0-5b98-4eeb-a2fa-baecc7f04d89}*SharedItemsImports = 13
+		src\modules\bookkeeping\shared\Delights.Modules.Bookkeeping.Shared.projitems*{36deeb7c-0c7d-47c3-bac3-6873f05f6571}*SharedItemsImports = 5
+		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{36deeb7c-0c7d-47c3-bac3-6873f05f6571}*SharedItemsImports = 5
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{41a07dc1-359f-4b2f-9ce9-84ae5c73a16c}*SharedItemsImports = 5
 		src\modules\notes\shared\Delights.Modules.Notes.Shared.projitems*{41a07dc1-359f-4b2f-9ce9-84ae5c73a16c}*SharedItemsImports = 5
+		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{5364c2b4-75e6-442b-b7a5-bf36cf564574}*SharedItemsImports = 5
+		src\modules\persons\shared\Delights.Modules.Persons.Shared.projitems*{5364c2b4-75e6-442b-b7a5-bf36cf564574}*SharedItemsImports = 5
 		src\modules\notes\shared\Delights.Modules.Notes.Shared.projitems*{5a6f2210-8852-4d81-ba60-023a5dbaa281}*SharedItemsImports = 13
+		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{600498e4-8b69-4c2a-8d18-ca3dccbd24e0}*SharedItemsImports = 5
+		src\modules\persons\shared\Delights.Modules.Persons.Shared.projitems*{600498e4-8b69-4c2a-8d18-ca3dccbd24e0}*SharedItemsImports = 5
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{69cdbf1c-094d-49e3-b2b1-667787b1a4e1}*SharedItemsImports = 5
+		src\modules\bookkeeping\shared\Delights.Modules.Bookkeeping.Shared.projitems*{72bdc22e-981b-46ca-bc72-9ec6b0d71142}*SharedItemsImports = 5
+		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{72bdc22e-981b-46ca-bc72-9ec6b0d71142}*SharedItemsImports = 5
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{84a4dc85-7120-4eaf-ba6e-a999fa97356d}*SharedItemsImports = 5
 		src\modules\modulemanager\shared\Delights.Modules.ModuleManager.Shared.projitems*{84a4dc85-7120-4eaf-ba6e-a999fa97356d}*SharedItemsImports = 5
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{ab7abb0a-734a-4a06-8ba2-374e586a96dc}*SharedItemsImports = 5
 		src\modules\hello\Delights.Modules.Hello.Shared\Delights.Modules.Hello.Shared.projitems*{ab7abb0a-734a-4a06-8ba2-374e586a96dc}*SharedItemsImports = 5
+		src\modules\bookkeeping\shared\Delights.Modules.Bookkeeping.Shared.projitems*{b2e27fb4-3f40-40c2-a322-57504a016548}*SharedItemsImports = 13
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{c2432c09-5e38-4aef-8561-aba5b54b777a}*SharedItemsImports = 5
 		src\modules\notes\shared\Delights.Modules.Notes.Shared.projitems*{c2432c09-5e38-4aef-8561-aba5b54b777a}*SharedItemsImports = 5
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{cbe41e90-70af-4b89-9929-caa8a74b7c3b}*SharedItemsImports = 5
@@ -183,6 +209,22 @@ Global
 		{E67E56F5-BE7D-49D9-856D-1DEC79248933}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E67E56F5-BE7D-49D9-856D-1DEC79248933}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E67E56F5-BE7D-49D9-856D-1DEC79248933}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72BDC22E-981B-46CA-BC72-9EC6B0D71142}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72BDC22E-981B-46CA-BC72-9EC6B0D71142}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72BDC22E-981B-46CA-BC72-9EC6B0D71142}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72BDC22E-981B-46CA-BC72-9EC6B0D71142}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36DEEB7C-0C7D-47C3-BAC3-6873F05F6571}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36DEEB7C-0C7D-47C3-BAC3-6873F05F6571}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36DEEB7C-0C7D-47C3-BAC3-6873F05F6571}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36DEEB7C-0C7D-47C3-BAC3-6873F05F6571}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5364C2B4-75E6-442B-B7A5-BF36CF564574}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5364C2B4-75E6-442B-B7A5-BF36CF564574}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5364C2B4-75E6-442B-B7A5-BF36CF564574}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5364C2B4-75E6-442B-B7A5-BF36CF564574}.Release|Any CPU.Build.0 = Release|Any CPU
+		{600498E4-8B69-4C2A-8D18-CA3DCCBD24E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{600498E4-8B69-4C2A-8D18-CA3DCCBD24E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{600498E4-8B69-4C2A-8D18-CA3DCCBD24E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{600498E4-8B69-4C2A-8D18-CA3DCCBD24E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -214,6 +256,14 @@ Global
 		{C2432C09-5E38-4AEF-8561-ABA5B54B777A} = {E8F7CB98-9F8D-472B-A926-4FB3E73672A3}
 		{B8B44EDC-8C0E-4D0F-BB77-15AD53202652} = {0C012303-205C-4886-8F91-DF223124E1E9}
 		{E67E56F5-BE7D-49D9-856D-1DEC79248933} = {0C012303-205C-4886-8F91-DF223124E1E9}
+		{ABD6FB14-A306-48EB-BF13-9B8FF913AF69} = {0C012303-205C-4886-8F91-DF223124E1E9}
+		{B2E27FB4-3F40-40C2-A322-57504A016548} = {ABD6FB14-A306-48EB-BF13-9B8FF913AF69}
+		{72BDC22E-981B-46CA-BC72-9EC6B0D71142} = {ABD6FB14-A306-48EB-BF13-9B8FF913AF69}
+		{36DEEB7C-0C7D-47C3-BAC3-6873F05F6571} = {ABD6FB14-A306-48EB-BF13-9B8FF913AF69}
+		{B753EE81-896A-4284-A55A-696086D6257D} = {0C012303-205C-4886-8F91-DF223124E1E9}
+		{06770D8F-22B3-4CF0-BA69-B1E4196C2624} = {B753EE81-896A-4284-A55A-696086D6257D}
+		{5364C2B4-75E6-442B-B7A5-BF36CF564574} = {B753EE81-896A-4284-A55A-696086D6257D}
+		{600498E4-8B69-4C2A-8D18-CA3DCCBD24E0} = {B753EE81-896A-4284-A55A-696086D6257D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BEC8D602-768F-4E83-8C66-022EE9BE6CED}

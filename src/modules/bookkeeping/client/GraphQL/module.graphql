@@ -1,0 +1,167 @@
+query getMetadataIds($first:Int,$after:String,$last:Int,$before:String){
+  metadata(first: $first, after: $after, last: $last, before: $before,order: {
+    creationTime: DESC
+  }) {
+    pageInfo {
+      ...pageInfo
+    }
+    nodes {
+      ...metadataId
+    }
+  }
+}
+
+query getMetadataIdsByTag($inputName:String!,$first:Int,$after:String,$last:Int,$before:String){
+  metadataByTag(name: $inputName, first: $first, after: $after, last: $last, before: $before, order: {
+    creationTime: DESC
+  }) {
+    pageInfo {
+      ...pageInfo
+    }
+    nodes {
+      ...metadataId
+    }
+  }
+}
+
+query getMetadataIdsByCategory($inputName:String!,$first:Int,$after:String,$last:Int,$before:String){
+  metadataByCategory(name: $inputName, first: $first, after: $after, last: $last, before: $before, order: {
+    creationTime: DESC
+  }) {
+    pageInfo {
+      ...pageInfo
+    }
+    nodes {
+      ...metadataId
+    }
+  }
+}
+
+query getTags($first:Int,$after:String,$last:Int,$before:String){
+  tags(first: $first, after: $after, last: $last, before: $before, order: {
+    name: ASC
+  }) {
+    pageInfo {
+      ...pageInfo
+    }
+    nodes {
+      ...tag
+    }
+  }
+}
+
+query getCategories($first:Int,$after:String,$last:Int,$before:String){
+  categories(first: $first, after: $after, last: $last, before: $before, order: {
+    name: ASC
+  }) {
+    pageInfo {
+      ...pageInfo
+    }
+    nodes {
+      ...category
+    }
+  }
+}
+
+mutation createCategory($inputName:String!) {
+  createCategory(name:$inputName){
+    ...category
+  }
+}
+
+mutation createTag($inputName:String!) {
+  createTag(name:$inputName){
+    ...tag
+  }
+}
+
+mutation deleteCategory($inputName:String!) {
+  deleteCategory(name:$inputName){
+    ...category
+  }
+}
+
+mutation deleteTag($inputName:String!) {
+  deleteTag(name:$inputName){
+    ...tag
+  }
+}
+
+mutation renameCategory($oldName: String!, $newName: String!) {
+  renameCategory(oldName: $oldName, newName: $newName) {
+    ...category
+  }
+}
+
+mutation renameTag($oldName: String!, $newName: String!) {
+  renameTag(oldName: $oldName, newName: $newName) {
+    ...tag
+  }
+}
+
+fragment pageInfo on PageInfo {
+  hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+}
+
+fragment tag on RawTag {
+  name
+}
+
+fragment category on RawCategory {
+  name
+}
+
+fragment metadataId on RawItemMetadata {
+  id
+}
+
+query getDataByMetadataId($id:String!){
+  dataByMetadataId(id: $id) {
+    ...data
+  }
+}
+
+query getDataById($id:String!){
+  dataById(id: $id) {
+    ...data
+  }
+}
+
+mutation createData($input:AccountItemMutationInput!) {
+  createData(mutation: $input){
+    ...data
+  }
+}
+
+mutation updateData($input:AccountItemMutationInput!) {
+  updateData(mutation: $input){
+    ...data
+  }
+}
+
+mutation deleteData($id:String!) {
+  deleteData(id:$id){
+    ...data
+  }
+}
+
+fragment data on AccountItem {
+  id
+    title
+    amount {
+      value
+      unit
+    }
+    metadata {
+      accessTime
+      modificationTime
+      creationTime
+      attachments
+      remarks
+      category
+      tags
+    }
+}

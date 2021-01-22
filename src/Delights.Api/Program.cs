@@ -37,7 +37,14 @@ namespace Delights.Api
                     var ims = services.GetRequiredService<Delights.Modules.Notes.Server.ModuleService>();
                     await ims.Initialize();
                 }
-                
+                {
+                    var ims = services.GetRequiredService<Delights.Modules.Persons.Server.ModuleService>();
+                    await ims.Initialize();
+                }
+                {
+                    var ims = services.GetRequiredService<Delights.Modules.Bookkeeping.Server.ModuleService>();
+                    await ims.Initialize();
+                }
             }
 
             await host.RunAsync();

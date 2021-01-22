@@ -6,6 +6,8 @@ using Microsoft.Extensions.Options;
 using System;
 using Modulight.Modules;
 using Delights.Modules.Notes;
+using Delights.Modules.Persons;
+using Delights.Modules.Bookkeeping;
 
 namespace Delights.Client.Shared
 {
@@ -20,7 +22,17 @@ namespace Delights.Client.Shared
                 {
                     var serverConfiguration = sp.GetRequiredService<IOptions<ServerConfiguration>>().Value;
                     o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;
-                });
+                })
+            .AddPersonsModule(configureOptions: (o, sp) =>
+             {
+                 var serverConfiguration = sp.GetRequiredService<IOptions<ServerConfiguration>>().Value;
+                 o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;
+             })
+            .AddBookkeepingModule(configureOptions: (o, sp) =>
+            {
+                var serverConfiguration = sp.GetRequiredService<IOptions<ServerConfiguration>>().Value;
+                o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;
+            });
 
             if (isDev)
             {

@@ -1,0 +1,65 @@
+﻿@inject Persons.ModuleService Service
+@inject MessageService MessageService
+@inject NavigationManager NavigationManager
+
+<Loader OnLoad="@OnLoad" @ref="loader" LoadKey="@MetadataId">
+    @if (!IsDeleted)
+    {
+        <ListItem @key="@MetadataId" Style="display: block">
+            <ListItemMeta Avatar="@("")">
+                <TitleTemplate>
+                    <h4>
+                        <a href="@Service.UrlGenerator.Person(Person!)" style="color:black">
+                            <span>@Person!.Name</span>
+                        </a>
+                    </h4>
+                    <div>
+                        <PersonMetadataDisplay Value="@Person" />
+                    </div>
+                </TitleTemplate>
+            </ListItemMeta>
+
+            <ButtonLink Href="@Service.UrlGenerator.PersonEdit(Person)">
+                <MdiIcon Type="@IconNames.Edit"></MdiIcon>
+                <span>Edit</span>
+            </ButtonLink>
+            <Popconfirm Title="@($"Are you sure delete this person?")" OnConfirm="OnDelete" Placement="@PlacementType.BottomRight">
+                <Button Danger>
+                    <MdiIcon Type="@IconNames.Delete"></MdiIcon>
+                    <span>Delete</span>
+                </Button>
+            </Popconfirm>
+        </ListItem>
+    }
+</Loader>
+
+@code {
+    [Parameter]
+    public string? MetadataId { get; set; }
+
+    bool IsDeleted { get; set; } = false;
+
+    IData? Person { get; set; }
+
+    private Loader loader;
+
+    private async Task OnLoad()
+    {
+        var result = await Service.GraphQLClient.GetDataByMetadataIdAsync(MetadataId!);
+        Person = result.Data?.DataByMetadataId;
+    }
+
+    private async Task OnDelete()
+    {
+        var pass = await Service.GraphQLClient.DeleteDataAsync(Person!.Id);
+        if (!pass.HasErrors)
+        {
+            _ = MessageService.Success("Deleted person successfully.");
+            IsDeleted = true;
+        }
+        else
+        {
+            _ = MessageService.Error("Failed to delete person.");
+        }
+    }
+}
