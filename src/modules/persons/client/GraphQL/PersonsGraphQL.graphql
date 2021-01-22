@@ -32,6 +32,8 @@ type ModuleMutation {
 type RawPerson {
   name: String!
   gender: PersonGender!
+  avatar: String!
+  profile: String!
   id: String
   metadataId: String
 }
@@ -68,6 +70,8 @@ input RawPersonFilterInput {
   or: [RawPersonFilterInput!]
   name: StringOperationFilterInput
   gender: PersonGenderOperationFilterInput
+  avatar: StringOperationFilterInput
+  profile: StringOperationFilterInput
   id: StringOperationFilterInput
   metadataId: StringOperationFilterInput
 }
@@ -75,6 +79,8 @@ input RawPersonFilterInput {
 input RawPersonSortInput {
   name: SortEnumType
   gender: SortEnumType
+  avatar: SortEnumType
+  profile: SortEnumType
   id: SortEnumType
   metadataId: SortEnumType
 }
@@ -277,6 +283,8 @@ type RawItemMetadataEdge {
 input PersonMutationInput {
   name: String
   gender: PersonGender
+  avatar: String
+  profile: String
   id: String
   metadata: ItemMetadataMutationInput
 }
@@ -284,6 +292,8 @@ input PersonMutationInput {
 type Person {
   name: String!
   gender: PersonGender!
+  avatar: String!
+  profile: String!
   id: String!
   metadata: ItemMetadata!
 }

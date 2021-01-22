@@ -9,34 +9,22 @@
             <ListItemMeta Avatar="@("")">
                 <TitleTemplate>
                     <h4>
-                        <a href="@Service.UrlGenerator.(!)" style="color:black">
+                        <a href="@Service.UrlGenerator.AccountItem(AccountItem!)" style="color:black">
                             <span>@AccountItem!.Title</span>
                         </a>
                     </h4>
-                    <div>
-                        <AccountItemMetadataDisplay Value="@AccountItem" />
-                    </div>
                 </TitleTemplate>
+                <DescriptionTemplate>
+                    <AccountItemMetadataDisplay Value="@AccountItem" />
+                </DescriptionTemplate>
             </ListItemMeta>
-            
+
+            <AmountDisplay Title="Value" Value="AccountItem!.Amount">
+
+            </AmountDisplay>
+
             <p>
-                <Statistic Title="@($"Value")" Value="AccountItem!.Amount.Value" Precision="2" Suffix="@(Enum.GetName<AmountUnit>(AccountItem!.Amount.Unit)?.ToUpperInvariant())"
-                           ValueStyle="@($"color: {(AccountItem!.Amount.Value >= 0 ? "#3f8600" : "#cf1322")};")">
-                    <PrefixTemplate>
-                        @if (AccountItem!.Amount.Value > 0)
-                        {
-                            <MdiIcon Type="arrow-up" />
-                        }
-                        else if (AccountItem!.Amount.Value < 0)
-                        {
-                            <MdiIcon Type="arrow-down" />
-                        }
-                        else
-                        {
-                            <MdiIcon Type="arrow-right" />
-                        }
-                    </PrefixTemplate>
-                </Statistic>
+                @AccountItem.Metadata.Remarks
             </p>
 
             <ButtonLink Href="@Service.UrlGenerator.AccountItemEdit(AccountItem!)">

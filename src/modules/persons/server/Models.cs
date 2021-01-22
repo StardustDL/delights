@@ -21,6 +21,10 @@ namespace Delights.Modules.Persons.Server.Models
         public string Name { get; init; } = "";
 
         public PersonGender Gender { get; init; }
+
+        public string Avatar { get; init; } = "";
+
+        public string Profile { get; init; } = "";
     }
 
     public class RawPerson : RawDataItemBase
@@ -28,6 +32,10 @@ namespace Delights.Modules.Persons.Server.Models
         public string Name { get; set; } = "";
 
         public PersonGender Gender { get; set; }
+
+        public string Avatar { get; set; } = "";
+
+        public string Profile { get; set; } = "";
     }
 }
 
@@ -38,5 +46,9 @@ namespace Delights.Modules.Persons.Server.Models.Actions
         public string? Name { get; init; }
 
         public PersonGender? Gender { get; init; }
+
+        public string? Avatar { get; init; }
+
+        public string? Profile { get; init; }
     }
 }

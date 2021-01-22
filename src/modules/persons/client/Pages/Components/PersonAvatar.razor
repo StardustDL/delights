@@ -1,0 +1,16 @@
+﻿@if (string.IsNullOrWhiteSpace(Value?.Avatar))
+{
+    <Avatar>
+        @Value?.Name
+    </Avatar>
+}
+else
+{
+    <Avatar Src="@Value.Avatar"></Avatar>
+}
+
+
+@code {
+    [Parameter]
+    public IData? Value { get; set; }
+}

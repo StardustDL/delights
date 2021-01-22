@@ -1,0 +1,25 @@
+﻿<Statistic Title="@Title" Value="Value.Value" Precision="2" Suffix="@(Enum.GetName<AmountUnit>(Value.Unit)?.ToUpperInvariant())"
+           ValueStyle="@($"color: {(Value.Value >= 0 ? "#3f8600" : "#cf1322")};")">
+    <PrefixTemplate>
+        @if (Value.Value > 0)
+        {
+            <MdiIcon Type="arrow-up" />
+        }
+        else if (Value.Value < 0)
+        {
+            <MdiIcon Type="arrow-down" />
+        }
+        else
+        {
+            <MdiIcon Type="arrow-right" />
+        }
+    </PrefixTemplate>
+</Statistic>
+
+@code {
+    [Parameter]
+    public IAccountAmount Value { get; set; }
+
+    [Parameter]
+    public string Title { get; set; } = "Amount";
+}

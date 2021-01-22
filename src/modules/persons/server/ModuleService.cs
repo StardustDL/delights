@@ -36,6 +36,8 @@ namespace Delights.Modules.Persons.Server
             {
                 Name = mutation.Name ?? "",
                 Gender = mutation.Gender ?? PersonGender.Unknown,
+                Avatar = mutation.Avatar ?? "",
+                Profile = mutation.Profile ?? "",
             });
         }
 
@@ -45,6 +47,10 @@ namespace Delights.Modules.Persons.Server
                 raw.Name = mutation.Name;
             if (mutation.Gender is not null)
                 raw.Gender = mutation.Gender.Value;
+            if (mutation.Avatar is not null)
+                raw.Avatar = mutation.Avatar;
+            if (mutation.Profile is not null)
+                raw.Profile = mutation.Profile;
             return Task.CompletedTask;
         }
 
@@ -54,6 +60,8 @@ namespace Delights.Modules.Persons.Server
             {
                 Gender = raw.Gender,
                 Name = raw.Name,
+                Avatar = raw.Avatar,
+                Profile = raw.Profile,
             });
         }
     }

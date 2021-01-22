@@ -7,6 +7,10 @@
 
 <Loader OnLoad="@OnLoad" @ref="loader" LoadKey="@Id">
     <Modulight.Modules.Client.RazorComponents.UI.PageInfo Title="@Person!.Name">
+        <TitleFragment>
+            <PersonAvatar Value="@Person"></PersonAvatar>
+            <span>@Person!.Name</span>
+        </TitleFragment>
         <Breadcrumb>
             <Breadcrumb>
                 <BreadcrumbItem>
@@ -25,7 +29,7 @@
                 <MdiIcon Type="@IconNames.Edit"></MdiIcon>
                 <span>Edit</span>
             </ButtonLink>
-            <Popconfirm Title="@($"Are you sure delete this person?")" OnConfirm="OnDelete" Placement="@PlacementType.BottomRight">
+            <Popconfirm Title="@($"Are you sure delete this?")" OnConfirm="OnDelete" Placement="@PlacementType.BottomRight">
                 <Button Danger>
                     <MdiIcon Type="@IconNames.Delete"></MdiIcon>
                     <span>Delete</span>
@@ -33,6 +37,10 @@
             </Popconfirm>
         </Extra>
     </Modulight.Modules.Client.RazorComponents.UI.PageInfo>
+
+    <article class="markdown-body">
+        <Vditor.Preview Markdown="@Person.Profile"></Vditor.Preview>
+    </article>
 </Loader>
 
 @code {
@@ -54,12 +62,12 @@
         var pass = await Service.GraphQLClient.DeleteDataAsync(Id!);
         if (!pass.HasErrors)
         {
-            _ = MessageService.Success("Deleted person successfully.");
+            _ = MessageService.Success("Deleted successfully.");
             NavigationManager.NavigateTo(Service.UrlGenerator.Persons());
         }
         else
         {
-            _ = MessageService.Error("Failed to delete person.");
+            _ = MessageService.Error("Failed to delete.");
         }
     }
 }

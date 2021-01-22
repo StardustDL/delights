@@ -59,6 +59,10 @@ namespace Delights.Modules.Server.Data
                 await ReloadRaw(result);
                 return await ToData(result);
             }
+            else if (id is not null)
+            {
+                await MetadataDomain.RemoveMetadata(id);
+            }
             return null;
         }
 

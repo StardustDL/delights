@@ -8,6 +8,10 @@
 
 <Loader OnLoad="@OnLoad" @ref="loader">
     <Modulight.Modules.Client.RazorComponents.UI.PageInfo Title="@model!.Name">
+        <TitleFragment>
+            <Avatar Src="@model!.Avatar"></Avatar>
+            <span>@model!.Name</span>
+        </TitleFragment>
         <Breadcrumb>
             <Breadcrumb>
                 <BreadcrumbItem>
@@ -45,7 +49,7 @@
             </Button>
             @if (!IsCreate)
             {
-                <Popconfirm Title="@("Are you sure delete this person?")" OnConfirm="OnDelete" Placement="@PlacementType.BottomRight">
+                <Popconfirm Title="@("Are you sure delete this?")" OnConfirm="OnDelete" Placement="@PlacementType.BottomRight">
                     <Button Danger>
                         <MdiIcon Type="@IconNames.Delete"></MdiIcon>
                         <span>Delete</span>
@@ -62,15 +66,21 @@
         <FormItem Label="Sex">
             <RadioGroup @bind-Value="@context.Gender">
                 <Radio RadioButton Value="@(PersonGender.Unknown)">Unknown</Radio>
-                <Radio RadioButton Value="@(PersonGender.Male)"><MdiIcon Type="@IconNames.Male"/> Male</Radio>
+                <Radio RadioButton Value="@(PersonGender.Male)"><MdiIcon Type="@IconNames.Male" /> Male</Radio>
                 <Radio RadioButton Value="@(PersonGender.Female)"><MdiIcon Type="@IconNames.Female" /> Female</Radio>
             </RadioGroup>
+        </FormItem>
+        <FormItem Label="Avatar">
+            <Input @bind-Value="@context.Avatar" />
         </FormItem>
         <FormItem Label="Category">
             <Input @bind-Value="@context.Category" />
         </FormItem>
         <FormItem Label="Tags">
             <Input Placeholder="Input like a,b,c." @bind-Value="@context.Tags" />
+        </FormItem>
+        <FormItem Label="Profile">
+            <Vditor.Editor @bind-Value="@context.Profile"></Vditor.Editor>
         </FormItem>
     </Form>
 </Loader>
@@ -89,9 +99,13 @@
 
         public PersonGender Gender { get; set; }
 
+        public string Avatar { get; set; } = "";
+
         public string Category { get; set; } = "";
 
         public string Tags { get; set; } = "";
+
+        public string Profile { get; set; } = "";
     }
 
     Model? model;
@@ -113,6 +127,8 @@
             model = new Model
             {
                 Gender = Person.Gender,
+                Avatar = Person.Avatar,
+                Profile = Person.Profile,
                 Tags = string.Join(',', Person.Metadata.Tags),
                 Category = Person.Metadata.Category,
                 Name = Person.Name
@@ -148,6 +164,8 @@
         {
             Name = model!.Name,
             Gender = model.Gender,
+            Avatar = model.Avatar,
+            Profile = model.Profile,
             Metadata = new ItemMetadataMutationInput
             {
                 Category = model.Category.Trim(),

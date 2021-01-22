@@ -33,6 +33,14 @@
             </Popconfirm>
         </Extra>
     </Modulight.Modules.Client.RazorComponents.UI.PageInfo>
+
+    <AmountDisplay Title="Value" Value="AccountItem!.Amount">
+
+    </AmountDisplay>
+
+    <article class="markdown-body">
+        <Vditor.Preview Markdown="@AccountItem.Metadata.Remarks"></Vditor.Preview>
+    </article>
 </Loader>
 
 @code {

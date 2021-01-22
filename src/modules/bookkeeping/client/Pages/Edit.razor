@@ -59,14 +59,20 @@
         <FormItem Label="Title">
             <Input @bind-Value="@context.Title" />
         </FormItem>
+        <FormItem Label="Datetime">
+            <DatePicker @bind-Value="@context.CreationTime" ShowTime="@true"/>
+        </FormItem>
         <FormItem Label="Amount">
             <InputNumber @bind-Value="@context.AmountValue" />
         </FormItem>
         <FormItem Label="Category">
-            <Input @bind-Value="@context.Category" Size="large"/>
+            <Input @bind-Value="@context.Category" Size="large" />
         </FormItem>
         <FormItem Label="Tags">
             <Input Placeholder="Input like a,b,c." @bind-Value="@context.Tags" />
+        </FormItem>
+        <FormItem Label="Remarks">
+            <Vditor.Editor @bind-Value="@context.Remarks"></Vditor.Editor>
         </FormItem>
     </Form>
 </Loader>
@@ -81,6 +87,8 @@
 
     class Model
     {
+        public DateTime CreationTime { get; set; } = DateTime.Now;
+
         public double AmountValue { get; set; } = 0;
 
         public string Title { get; set; } = "";
@@ -88,6 +96,8 @@
         public string Category { get; set; } = "";
 
         public string Tags { get; set; } = "";
+
+        public string Remarks { get; set; } = "";
     }
 
     Model? model;
@@ -111,6 +121,8 @@
                 AmountValue = AccountItem.Amount.Value,
                 Tags = string.Join(',', AccountItem.Metadata.Tags),
                 Category = AccountItem.Metadata.Category,
+                Remarks = AccountItem.Metadata.Remarks,
+                CreationTime = AccountItem.Metadata.CreationTime.DateTime,
                 Title = AccountItem.Title
             };
         }
@@ -123,12 +135,12 @@
         var pass = await Service.GraphQLClient.DeleteDataAsync(Id!);
         if (!pass.HasErrors)
         {
-            _ = MessageService.Success("Deleted account item successfully.");
+            _ = MessageService.Success("Deleted successfully.");
             NavigationManager.NavigateTo(Service.UrlGenerator.Bookkeeping());
         }
         else
         {
-            _ = MessageService.Error("Failed to delete account item.");
+            _ = MessageService.Error("Failed to delete.");
         }
     }
 
@@ -152,6 +164,8 @@
                 Category = model.Category.Trim(),
                 Tags = model.Tags.Split(',', StringSplitOptions.RemoveEmptyEntries)
                     .Select(x => x.Trim()).Where(x => !string.IsNullOrEmpty(x)).ToArray(),
+                Remarks = model.Remarks,
+                CreationTime = new DateTimeOffset(model.CreationTime),
             }
         };
 

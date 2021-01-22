@@ -6,24 +6,31 @@
     @if (!IsDeleted)
     {
         <ListItem @key="@MetadataId" Style="display: block">
-            <ListItemMeta Avatar="@("")">
+            <ListItemMeta>
+                <AvatarTemplate>
+                </AvatarTemplate>
                 <TitleTemplate>
                     <h4>
+                        <PersonAvatar Value="@Person"></PersonAvatar>
                         <a href="@Service.UrlGenerator.Person(Person!)" style="color:black">
-                            <span>@Person!.Name</span>
+                            <span>@Person.Name</span>
                         </a>
                     </h4>
-                    <div>
-                        <PersonMetadataDisplay Value="@Person" />
-                    </div>
                 </TitleTemplate>
+                <DescriptionTemplate>
+                    <PersonMetadataDisplay Value="@Person" />
+                </DescriptionTemplate>
             </ListItemMeta>
+
+            <p>
+                @Person!.Profile
+            </p>
 
             <ButtonLink Href="@Service.UrlGenerator.PersonEdit(Person)">
                 <MdiIcon Type="@IconNames.Edit"></MdiIcon>
                 <span>Edit</span>
             </ButtonLink>
-            <Popconfirm Title="@($"Are you sure delete this person?")" OnConfirm="OnDelete" Placement="@PlacementType.BottomRight">
+            <Popconfirm Title="@($"Are you sure delete?")" OnConfirm="OnDelete" Placement="@PlacementType.BottomRight">
                 <Button Danger>
                     <MdiIcon Type="@IconNames.Delete"></MdiIcon>
                     <span>Delete</span>
@@ -54,12 +61,12 @@
         var pass = await Service.GraphQLClient.DeleteDataAsync(Person!.Id);
         if (!pass.HasErrors)
         {
-            _ = MessageService.Success("Deleted person successfully.");
+            _ = MessageService.Success("Deleted successfully.");
             IsDeleted = true;
         }
         else
         {
-            _ = MessageService.Error("Failed to delete person.");
+            _ = MessageService.Error("Failed to delete.");
         }
     }
 }

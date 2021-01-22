@@ -152,6 +152,8 @@ fragment data on Person {
   id
     name
     gender
+    avatar
+    profile
     metadata {
       accessTime
       modificationTime
