@@ -21,11 +21,14 @@ namespace Delights.Modules.Server.Data
 
         public string Extra { get; init; } = "";
 
-        public async Task<string> DumpToString()
+        public string Base64 { get; init; } = "";
+
+        public async Task<DumpedData<T>> DumpToString()
         {
             using var stream = new MemoryStream();
             await JsonSerializer.SerializeAsync(stream, this);
-            return Convert.ToBase64String(stream.ToArray());
+            var base64 = Convert.ToBase64String(stream.ToArray());
+            return this with { Base64 = base64 };
         }
     }
 }

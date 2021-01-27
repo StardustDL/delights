@@ -63,6 +63,12 @@ query getCategories($first:Int,$after:String,$last:Int,$before:String){
   }
 }
 
+query getDump {
+    dump {
+        base64
+    }
+}
+
 mutation createCategory($inputName:String!) {
   createCategory(name:$inputName){
     ...category

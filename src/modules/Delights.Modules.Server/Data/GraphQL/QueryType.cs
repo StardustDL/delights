@@ -30,7 +30,7 @@ namespace Delights.Modules.Server.Data.GraphQL
             return await service.GetDataByMetadataID(id);
         }
 
-        public virtual async Task<string> GetDump([Service] TService service)
+        public virtual async Task<DumpedData<T>> GetDump([Service] TService service)
         {
             var result = await service.Dump();
             return await result.DumpToString();

@@ -50,6 +50,12 @@ query getTags($first:Int,$after:String,$last:Int,$before:String){
   }
 }
 
+query getDump {
+    dump {
+        base64
+    }
+}
+
 query getCategories($first:Int,$after:String,$last:Int,$before:String){
   categories(first: $first, after: $after, last: $last, before: $before, order: {
     name: ASC

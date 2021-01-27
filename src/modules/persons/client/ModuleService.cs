@@ -7,7 +7,7 @@ namespace Delights.Modules.Persons
 {
     public class ModuleService : IModuleService
     {
-        internal IPersonsGraphQLClient GraphQLClient { get; }
+        public IPersonsGraphQLClient GraphQLClient { get; }
 
         public UrlGenerator UrlGenerator { get; }
 

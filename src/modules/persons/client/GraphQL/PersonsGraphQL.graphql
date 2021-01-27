@@ -7,6 +7,7 @@ type ModuleQuery {
   rawData(first: Int after: String last: Int before: String where: RawPersonFilterInput order: [RawPersonSortInput!]): RawPersonConnection
   dataById(id: String!): Person
   dataByMetadataId(id: String!): Person
+  dump: DumpedDataOfPerson!
   tags(first: Int after: String last: Int before: String where: RawTagFilterInput order: [RawTagSortInput!]): RawTagConnection
   categories(first: Int after: String last: Int before: String where: RawCategoryFilterInput order: [RawCategorySortInput!]): RawCategoryConnection
   metadata(first: Int after: String last: Int before: String where: RawItemMetadataFilterInput order: [RawItemMetadataSortInput!]): RawItemMetadataConnection
@@ -21,6 +22,7 @@ type ModuleMutation {
   createData(mutation: PersonMutationInput!): Person!
   deleteData(id: String!): Person
   updateData(mutation: PersonMutationInput!): Person
+  loadDump(dumped: String!): Boolean!
   createTag(name: String!): RawTag!
   createCategory(name: String!): RawCategory!
   deleteTag(name: String!): RawTag
@@ -280,13 +282,11 @@ type RawItemMetadataEdge {
   node: RawItemMetadata!
 }
 
-input PersonMutationInput {
-  name: String
-  gender: PersonGender
-  avatar: String
-  profile: String
-  id: String
-  metadata: ItemMetadataMutationInput
+type DumpedDataOfPerson {
+  dumpToString: DumpedDataOfPerson!
+  data: [Person!]!
+  extra: String!
+  base64: String!
 }
 
 type Person {
@@ -298,6 +298,15 @@ type Person {
   metadata: ItemMetadata!
 }
 
+input PersonMutationInput {
+  name: String
+  gender: PersonGender
+  avatar: String
+  profile: String
+  id: String
+  metadata: ItemMetadataMutationInput
+}
+
 enum PersonGender {
   UNKNOWN
   MALE
@@ -305,6 +314,7 @@ enum PersonGender {
 }
 
 type ItemMetadata {
+  asMutation: ItemMetadataMutation!
   creationTime: DateTime!
   modificationTime: DateTime!
   accessTime: DateTime!
@@ -317,6 +327,17 @@ type ItemMetadata {
 
 "The `DateTime` scalar represents an ISO-8601 compliant date time type."
 scalar DateTime
+
+type ItemMetadataMutation {
+  id: String
+  creationTime: DateTime
+  modificationTime: DateTime
+  accessTime: DateTime
+  remarks: String
+  category: String
+  tags: [String!]
+  attachments: String
+}
 
 input ItemMetadataMutationInput {
   id: String

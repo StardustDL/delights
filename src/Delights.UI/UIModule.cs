@@ -50,8 +50,8 @@ namespace Delights.UI
         {
             Resources = new UIResource[]
             {
-                new UIResource(UIResourceType.StyleSheet, "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"),
-                new UIResource(UIResourceType.Script,"https://code.jquery.com/jquery-3.3.1.slim.min.js"),
+                new UIResource(UIResourceType.StyleSheet, "https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css"),
+                new UIResource(UIResourceType.Script,"https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.slim.min.js"),
             };
         }
 

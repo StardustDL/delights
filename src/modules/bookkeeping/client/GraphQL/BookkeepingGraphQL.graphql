@@ -7,6 +7,7 @@ type ModuleQuery {
   rawData(first: Int after: String last: Int before: String where: RawAccountItemFilterInput order: [RawAccountItemSortInput!]): RawAccountItemConnection
   dataById(id: String!): AccountItem
   dataByMetadataId(id: String!): AccountItem
+  dump: DumpedDataOfAccountItem!
   tags(first: Int after: String last: Int before: String where: RawTagFilterInput order: [RawTagSortInput!]): RawTagConnection
   categories(first: Int after: String last: Int before: String where: RawCategoryFilterInput order: [RawCategorySortInput!]): RawCategoryConnection
   metadata(first: Int after: String last: Int before: String where: RawItemMetadataFilterInput order: [RawItemMetadataSortInput!]): RawItemMetadataConnection
@@ -21,6 +22,7 @@ type ModuleMutation {
   createData(mutation: AccountItemMutationInput!): AccountItem!
   deleteData(id: String!): AccountItem
   updateData(mutation: AccountItemMutationInput!): AccountItem
+  loadDump(dumped: String!): Boolean!
   createTag(name: String!): RawTag!
   createCategory(name: String!): RawCategory!
   deleteTag(name: String!): RawTag
@@ -292,11 +294,11 @@ type RawItemMetadataEdge {
   node: RawItemMetadata!
 }
 
-input AccountItemMutationInput {
-  title: String
-  amount: AccountAmountMutationInput
-  id: String
-  metadata: ItemMetadataMutationInput
+type DumpedDataOfAccountItem {
+  dumpToString: DumpedDataOfAccountItem!
+  data: [AccountItem!]!
+  extra: String!
+  base64: String!
 }
 
 type AccountItem {
@@ -306,11 +308,19 @@ type AccountItem {
   metadata: ItemMetadata!
 }
 
+input AccountItemMutationInput {
+  title: String
+  amount: AccountAmountMutationInput
+  id: String
+  metadata: ItemMetadataMutationInput
+}
+
 enum AmountUnit {
   CNY
 }
 
 type ItemMetadata {
+  asMutation: ItemMetadataMutation!
   creationTime: DateTime!
   modificationTime: DateTime!
   accessTime: DateTime!
@@ -324,9 +334,15 @@ type ItemMetadata {
 "The `DateTime` scalar represents an ISO-8601 compliant date time type."
 scalar DateTime
 
-type AccountAmount {
-  value: Float!
-  unit: AmountUnit!
+type ItemMetadataMutation {
+  id: String
+  creationTime: DateTime
+  modificationTime: DateTime
+  accessTime: DateTime
+  remarks: String
+  category: String
+  tags: [String!]
+  attachments: String
 }
 
 input ItemMetadataMutationInput {
@@ -341,6 +357,17 @@ input ItemMetadataMutationInput {
 }
 
 input AccountAmountMutationInput {
+  value: Float
+  unit: AmountUnit
+}
+
+type AccountAmount {
+  asMutation: AccountAmountMutation!
+  value: Float!
+  unit: AmountUnit!
+}
+
+type AccountAmountMutation {
   value: Float
   unit: AmountUnit
 }

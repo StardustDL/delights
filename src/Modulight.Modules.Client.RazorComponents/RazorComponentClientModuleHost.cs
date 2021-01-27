@@ -71,14 +71,21 @@ namespace Modulight.Modules.Client.RazorComponents
                 var cui = module.GetUI(provider);
                 foreach (var resource in cui.Resources)
                 {
-                    switch (resource.Type)
+                    try
                     {
-                        case UIResourceType.Script:
-                            await ui.LoadScript(resource.Path);
-                            break;
-                        case UIResourceType.StyleSheet:
-                            await ui.LoadStyleSheet(resource.Path);
-                            break;
+                        switch (resource.Type)
+                        {
+                            case UIResourceType.Script:
+                                await ui.LoadScript(resource.Path);
+                                break;
+                            case UIResourceType.StyleSheet:
+                                await ui.LoadStyleSheet(resource.Path);
+                                break;
+                        }
+                    }
+                    catch (JSException ex)
+                    {
+                        Logger.LogError(ex, $"Failed to load resource {resource.Path} in module {module.Manifest.Name}");
                     }
                 }
             }
