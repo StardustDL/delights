@@ -66,7 +66,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Client.Shared.ModuleSetup.html",
-          "hash": "ikrUbU5x435LrBaQ/KyXZA=="
+          "hash": "044mjwb4cgxcGHnUhOMswA=="
         }
       },
       "is_incremental": false,
@@ -114,7 +114,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Client.Startup.html",
-          "hash": "6Gol9dbzSXbCbnlFwHSusA=="
+          "hash": "EwnhR8C+kRITNjziz0E8PQ=="
         }
       },
       "is_incremental": false,
@@ -187,6 +187,1506 @@
         ".html": {
           "relative_path": "api/delights/Delights.Client.html",
           "hash": "pHiCagk67oeRLebAIH3+5w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.BookkeepingModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.BookkeepingModule.html",
+          "hash": "9TuVuhLd5Hih69r9D6uivA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.AccountAmount.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.AccountAmount.html",
+          "hash": "ada4kzLakl/fgYKcXSGPrA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.AccountAmountMutationInput.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.AccountAmountMutationInput.html",
+          "hash": "+niAWJhKiQn5d/R1RrKbyw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.AccountAmountMutationInputSerializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.AccountAmountMutationInputSerializer.html",
+          "hash": "b7CKfHBiIKDrq7J7oWlw6Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.AccountItemMutationInput.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.AccountItemMutationInput.html",
+          "hash": "nwuBR42UqpCC28/bE89lLw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.AccountItemMutationInputSerializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.AccountItemMutationInputSerializer.html",
+          "hash": "+wpvpoOr+MLD8Fzp9RpOsw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.AmountUnit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.AmountUnit.html",
+          "hash": "8olCX009fRhDlHCPRYfxZg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.AmountUnitValueSerializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.AmountUnitValueSerializer.html",
+          "hash": "Or4FBQWA9HNimRdvsKja6Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.BookkeepingGraphQLClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.BookkeepingGraphQLClient.html",
+          "hash": "ij2is6MHYBOKyGAJ5eG8+Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.BookkeepingGraphQLClientServiceCollectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.BookkeepingGraphQLClientServiceCollectionExtensions.html",
+          "hash": "zgjXgTQmLPXpP4Bk0JofOQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.Category.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.Category.html",
+          "hash": "0JiA4z4IrKtCIU5z6jlkKA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.CreateCategory1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.CreateCategory1.html",
+          "hash": "WIij1/flKNZy70z0yQ97Gw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.CreateCategoryOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.CreateCategoryOperation.html",
+          "hash": "VAYpzCGg0MX3FEXnIid+Ow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.CreateCategoryResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.CreateCategoryResultParser.html",
+          "hash": "1EZZOc4f8khdoQyEP88uVw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.CreateData1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.CreateData1.html",
+          "hash": "JzHbWRHj5PLdOgYjA0+XeQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.CreateDataOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.CreateDataOperation.html",
+          "hash": "9eeYGlU9CZJIG4bSW05VnA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.CreateDataResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.CreateDataResultParser.html",
+          "hash": "LVDyUXHtrrhT76KQHA6GQQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.CreateTag1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.CreateTag1.html",
+          "hash": "P2w7yMmSSEnprqeG3UfPlA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.CreateTagOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.CreateTagOperation.html",
+          "hash": "+3q9p5Fsqo4dGOYYl0BpfA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.CreateTagResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.CreateTagResultParser.html",
+          "hash": "DSR/t5IvP0WubbaJZ636qw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.Data.html",
+          "hash": "dEDv/qyNlm6uBeac86sS0g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.DeleteCategory1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.DeleteCategory1.html",
+          "hash": "T6myKk2CiomtGjFDje+fTw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.DeleteCategoryOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.DeleteCategoryOperation.html",
+          "hash": "L/H3Ly3KKR+3Y+fz7jb8HQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.DeleteCategoryResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.DeleteCategoryResultParser.html",
+          "hash": "j0RiKfIvQEchXkcaTwjzKw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.DeleteData1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.DeleteData1.html",
+          "hash": "GAxqgZCNM/gJsIitUaM5RQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.DeleteDataOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.DeleteDataOperation.html",
+          "hash": "vI+ulVpVEXBwmKf4/5e1Sg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.DeleteDataResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.DeleteDataResultParser.html",
+          "hash": "AyeereSXzcbcg73bU1qeug=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.DeleteTag1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.DeleteTag1.html",
+          "hash": "7mBLGIokwr4+8YXQdJ+y4A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.DeleteTagOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.DeleteTagOperation.html",
+          "hash": "VewNptkMVXOh5PAMhRjHdg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.DeleteTagResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.DeleteTagResultParser.html",
+          "hash": "+eEsjadI/8ieWc+XSr0/Pg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.DumpedDataOfAccountItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.DumpedDataOfAccountItem.html",
+          "hash": "8uzuol3qbAA5Q8jUxmZKSw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetCategories.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetCategories.html",
+          "hash": "1w6S0sHA4mnT7TAOoz4+RQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetCategoriesOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetCategoriesOperation.html",
+          "hash": "YJQwRlugRrar4JZPwFAfKQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetCategoriesResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetCategoriesResultParser.html",
+          "hash": "D0hkacZCrGPMstxTVj7wnA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetDataById.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetDataById.html",
+          "hash": "X9bH9qx/P6YKhvLuWaV4PQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetDataByIdOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetDataByIdOperation.html",
+          "hash": "nRUB69AKQ47OvUETOTyjGQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetDataByIdResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetDataByIdResultParser.html",
+          "hash": "MSLMKAxktRwV/hdM4lkw9Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetDataByMetadataId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetDataByMetadataId.html",
+          "hash": "2xh6zt/7RyKYMqpwnE5kAA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetDataByMetadataIdOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetDataByMetadataIdOperation.html",
+          "hash": "02n3r1qQ/agRh78RrxAhUg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetDataByMetadataIdResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetDataByMetadataIdResultParser.html",
+          "hash": "K6ayKDGoQzb21+0LUggeLA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetDump.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetDump.html",
+          "hash": "+Xrb4VHZkXM3i1d01mnrKA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetDumpOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetDumpOperation.html",
+          "hash": "fbisLlPGTEVOIodwsJfSZw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetDumpResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetDumpResultParser.html",
+          "hash": "v6V8esSmtTqoYukbD3Qrxw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetMetadataIds.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetMetadataIds.html",
+          "hash": "iPg9uWowoWSU1n7OpQmG+w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetMetadataIdsByCategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetMetadataIdsByCategory.html",
+          "hash": "JzHo7E9NsZP7rvUgSjrLfw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetMetadataIdsByCategoryOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetMetadataIdsByCategoryOperation.html",
+          "hash": "IaioJuBVMnuH4ogre5UjXQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetMetadataIdsByCategoryResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetMetadataIdsByCategoryResultParser.html",
+          "hash": "8zfKrK0yav9BujtrTmd4uA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetMetadataIdsByTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetMetadataIdsByTag.html",
+          "hash": "FvAKmK5GMaPQUwrtvvk9TQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetMetadataIdsByTagOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetMetadataIdsByTagOperation.html",
+          "hash": "suvkSn/MedbfvohZ8rfKmg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetMetadataIdsByTagResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetMetadataIdsByTagResultParser.html",
+          "hash": "pNgSjWaC9s4RPkgxsm8NJg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetMetadataIdsOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetMetadataIdsOperation.html",
+          "hash": "DXE3qpYetQMV4OWZZiydVw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetMetadataIdsResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetMetadataIdsResultParser.html",
+          "hash": "U3xrDGCMT5Po3AN2jRQ7DA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetTags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetTags.html",
+          "hash": "Ua3ek8vqr4BbAIBA0dW0/A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetTagsOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetTagsOperation.html",
+          "hash": "nvbumouDCiA6nWuEO5gx/Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetTagsResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.GetTagsResultParser.html",
+          "hash": "pCwj+VfvacD6MPhVn1a7Tw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IAccountAmount.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IAccountAmount.html",
+          "hash": "zoPonn6l9whSlkGjHMUfOA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IBookkeepingGraphQLClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IBookkeepingGraphQLClient.html",
+          "hash": "lEO+a59uBRzn6dDhxxO8dA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.ICategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.ICategory.html",
+          "hash": "oWC32oZ3waBhXlRqi+0ILg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.ICreateCategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.ICreateCategory.html",
+          "hash": "6PR9HwZau+F1/LT0htcOcw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.ICreateData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.ICreateData.html",
+          "hash": "Qs7QAz8O4HusblWG65Zp9w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.ICreateTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.ICreateTag.html",
+          "hash": "LbfuYWzx+RZDgL6q+jHNcw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IData.html",
+          "hash": "Ixf9laCdFostPh6QbYGW+A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IDeleteCategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IDeleteCategory.html",
+          "hash": "kzqAe2jeuYKSjHy49cNRGw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IDeleteData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IDeleteData.html",
+          "hash": "WZfIMDEgCPn1h/eFV++EVA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IDeleteTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IDeleteTag.html",
+          "hash": "HpGHSC8Vo7KFLi8Frt9VUg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IDumpedDataOfAccountItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IDumpedDataOfAccountItem.html",
+          "hash": "0F1hh7z5H/FJCksz2ixYCw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IGetCategories.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IGetCategories.html",
+          "hash": "cZEDi57WJ4CexJyu+6NG3Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IGetDataById.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IGetDataById.html",
+          "hash": "AIhRnKgmzCHWVaMAgdoMvw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IGetDataByMetadataId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IGetDataByMetadataId.html",
+          "hash": "NLbfmn91ryDRcTm56npi7Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IGetDump.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IGetDump.html",
+          "hash": "WB5idiYWyKwaJS8McBzPBw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IGetMetadataIds.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IGetMetadataIds.html",
+          "hash": "vO1hRizkND4/lc0LHcO4ow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IGetMetadataIdsByCategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IGetMetadataIdsByCategory.html",
+          "hash": "P/DNK5jHtWJUKT3qVSjMVQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IGetMetadataIdsByTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IGetMetadataIdsByTag.html",
+          "hash": "pC9neaObKv4LhPxLvjrpmQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IGetTags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IGetTags.html",
+          "hash": "C5W50w/ZfCUnuzZFFVJo4g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IItemMetadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IItemMetadata.html",
+          "hash": "X+Q3WJ2W8XIFzM5SId5oPQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IMetadataId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IMetadataId.html",
+          "hash": "bYffMtMAcIhuv6sDArvOTQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IPageInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IPageInfo.html",
+          "hash": "FMpvD+WuQWBe8Tbj4Rpc2A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IRawCategoryConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IRawCategoryConnection.html",
+          "hash": "D/PnjHwAw7xNS4dJ6C+FNw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IRawItemMetadataConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IRawItemMetadataConnection.html",
+          "hash": "nzdRyFXbnvjrgXrMbzcaOg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IRawItemMetadataConnection1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IRawItemMetadataConnection1.html",
+          "hash": "lpgyrJj2fzgSzQ3NvkhNuA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IRawItemMetadataConnection2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IRawItemMetadataConnection2.html",
+          "hash": "I23Bt14tgOrRNN2hax4ZVw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IRawTagConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IRawTagConnection.html",
+          "hash": "37S7hwKr/ntcYcBuFZAjtA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IRenameCategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IRenameCategory.html",
+          "hash": "gWnQYJoHCGqNCV9gNYeySg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IRenameTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IRenameTag.html",
+          "hash": "LPJ3qbq+MQITLD/VQLrVaQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.ITag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.ITag.html",
+          "hash": "fl7Exr4w5UtByZmEllGtCw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IUpdateData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.IUpdateData.html",
+          "hash": "onxJwU6Z19EzECDA5dBueA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.ItemMetadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.ItemMetadata.html",
+          "hash": "J7kvf0FRXssn1k0wc/XXAA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.ItemMetadataMutationInput.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.ItemMetadataMutationInput.html",
+          "hash": "3hgrMcRWT/Zz78stdVkcOg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.ItemMetadataMutationInputSerializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.ItemMetadataMutationInputSerializer.html",
+          "hash": "T/38Jz4r95k0tDjAR13oVA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.MetadataId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.MetadataId.html",
+          "hash": "7/1B1iFL92RJ7gRr80pz+Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.Module.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.Module.html",
+          "hash": "uPWUbgUzj66FNKvjS4LlGQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.PageInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.PageInfo.html",
+          "hash": "yRImr2S34UjK1F4KpJ5qGg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.RawCategoryConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.RawCategoryConnection.html",
+          "hash": "EnJlYhjIDVMZG32yVz9AUg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.RawItemMetadataConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.RawItemMetadataConnection.html",
+          "hash": "HZ3THV+e7Alc8r9rjLyy8A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.RawItemMetadataConnection1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.RawItemMetadataConnection1.html",
+          "hash": "ojkU6MX1ybi85A9uTF6D5w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.RawItemMetadataConnection2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.RawItemMetadataConnection2.html",
+          "hash": "YVxftrrdLNEu9VA1EqgC6Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.RawTagConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.RawTagConnection.html",
+          "hash": "l5f29dOa84asUoXNTSaBEQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.RenameCategory1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.RenameCategory1.html",
+          "hash": "Uy83tfUGuHB1CiNZBFx8nQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.RenameCategoryOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.RenameCategoryOperation.html",
+          "hash": "yqhHQf5RxZ5Sm6DXSw9V9w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.RenameCategoryResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.RenameCategoryResultParser.html",
+          "hash": "2ZnVsSKfUcAx7FbjKhc2fQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.RenameTag1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.RenameTag1.html",
+          "hash": "9AiJGMMMb2HNzFwwmmEGQA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.RenameTagOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.RenameTagOperation.html",
+          "hash": "cL+QCV+/GSF9uqoL8h3U+Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.RenameTagResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.RenameTagResultParser.html",
+          "hash": "9/sPbh+fxJs3UEjmyk166w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.Tag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.Tag.html",
+          "hash": "62dyiM5D/fdCezG1VpJWTQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.UpdateData1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.UpdateData1.html",
+          "hash": "vVi02GR9d4vue4ZhhF/CIA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.UpdateDataOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.UpdateDataOperation.html",
+          "hash": "B3hD0LIzekUqzJEewhgQnA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.UpdateDataResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.UpdateDataResultParser.html",
+          "hash": "W8TjSXvakF7etTCzwKEpjA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.GraphQL.html",
+          "hash": "mpAy4e0hf5TmyOAMF0fzSw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.IconNames.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.IconNames.html",
+          "hash": "7Sj9qDSosQ4gp/qluiHJKg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.ModuleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.ModuleExtensions.html",
+          "hash": "kHNi3JekmzMRGLCQy2ap+w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.ModuleOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.ModuleOption.html",
+          "hash": "N9CZ8M7FqNRlNKXCL4PhpA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.ModuleService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.ModuleService.html",
+          "hash": "d5zbQ5PHS1Cdkk4u/PoO1w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.ModuleUI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.ModuleUI.html",
+          "hash": "nmHsQOU9if0PWeQHB36U8A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.BookkeepingServerModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.BookkeepingServerModule.html",
+          "hash": "aVOI3tMTYinz4UEH1obO8A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.Data.DataDbContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.Data.DataDbContext.html",
+          "hash": "RYBzpKvY+lfboo+6kDXrZg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.Data.html",
+          "hash": "uZHX/Ea+UEQF/CdLRgCmwQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.Models.AmountUnit.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.Models.AmountUnit.html",
+          "hash": "NdMEkjJYXYj59X1ElsaU3w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.Models.html",
+          "hash": "l3CRhZEhoKRcRwcwIqVwbg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.ModuleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.ModuleExtensions.html",
+          "hash": "Bl3XNO/FgoAeDHRhdOtiaw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.ModuleOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.ModuleOption.html",
+          "hash": "zg+mC2YzwykXS8zFdMbctg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.ModuleService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.ModuleService.html",
+          "hash": "XQFtsE3MkAzQ+EIHOrWtYw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.html",
+          "hash": "drHTfwPGq59RKbrvAt4FVw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.UrlGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.UrlGenerator.html",
+          "hash": "He4QdaiYkLSJSliYrgybeQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.Utils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.Utils.html",
+          "hash": "gwbZcESQ0sicBfkgJgwGxw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.html",
+          "hash": "i/yTq3iWQwTVulAPiGfU6w=="
         }
       },
       "is_incremental": false,
@@ -354,7 +1854,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Hello.HelloModule.html",
-          "hash": "BLvq1g6hLL1OHABxYXGypA=="
+          "hash": "wuE57835fxPEaEDru2i4Vw=="
         }
       },
       "is_incremental": false,
@@ -414,7 +1914,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Hello.Server.HelloServerModule.html",
-          "hash": "5j6YDkttQmcisQ8oGA4XxQ=="
+          "hash": "P0JqoJnx1x8OTZ9HryoQsw=="
         }
       },
       "is_incremental": false,
@@ -654,7 +2154,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.ModuleManager.ModuleManagerModule.html",
-          "hash": "J14QpP0TUuPhxw0f813tQw=="
+          "hash": "UE9Q1IK7o6aOeKC3YWqjCw=="
         }
       },
       "is_incremental": false,
@@ -714,7 +2214,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.ModuleManager.Server.ModuleManagerServerModule.html",
-          "hash": "5G32XgiqTFT5syH9WQqamA=="
+          "hash": "CiYWnqEqrs1RRB8KXs+1tw=="
         }
       },
       "is_incremental": false,
@@ -770,11 +2270,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.SharedManifest.yml",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.yml",
       "output": {
         ".html": {
-          "relative_path": "api/delights/Delights.Modules.ModuleManager.SharedManifest.html",
-          "hash": "qpZlOHDGT0O42xlcU58ybw=="
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.html",
+          "hash": "m1yxb9qj54DcF8D0wNGFhA=="
         }
       },
       "is_incremental": false,
@@ -782,11 +2282,2963 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.yml",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.Category.yml",
       "output": {
         ".html": {
-          "relative_path": "api/delights/Delights.Modules.ModuleManager.html",
-          "hash": "4SWfKuIybl6GZbcfX5Lisg=="
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.Category.html",
+          "hash": "/PBlsJhTFJuB7Kxr8Khmjg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.CreateCategory1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.CreateCategory1.html",
+          "hash": "ZTr1Db0Z+enpAS+DQvaSKA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.CreateCategoryOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.CreateCategoryOperation.html",
+          "hash": "fi267ib7HZNM3i+elSsYLg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.CreateCategoryResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.CreateCategoryResultParser.html",
+          "hash": "jcRwu1GmbHnni7mnisTz5w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.CreateData1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.CreateData1.html",
+          "hash": "r44uU6ohM/z6e4Qa1Ocrsg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.CreateDataOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.CreateDataOperation.html",
+          "hash": "7gQzDmQuXJ0+J51Bh0qnZQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.CreateDataResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.CreateDataResultParser.html",
+          "hash": "WWriK3hkDS207fU/Vq5oEw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.CreateTag1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.CreateTag1.html",
+          "hash": "mRjPrnA5LMFtOr5q2xZp1w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.CreateTagOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.CreateTagOperation.html",
+          "hash": "X+0UgXrrqivrK5b1rl/wBA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.CreateTagResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.CreateTagResultParser.html",
+          "hash": "pwQorkWwpJAsB13uAXymCQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.Data.html",
+          "hash": "a8U444SeToJtb02zwdPe+g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.DeleteCategory1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.DeleteCategory1.html",
+          "hash": "kBPYEz66rllfBFrBFEJF3w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.DeleteCategoryOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.DeleteCategoryOperation.html",
+          "hash": "FwwypB7fyMJ8QgFbZh+dNA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.DeleteCategoryResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.DeleteCategoryResultParser.html",
+          "hash": "kxUiQgGuFNejlrhKNFMXeQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.DeleteData1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.DeleteData1.html",
+          "hash": "AvPCBmbQCDlSeTMjpUBUng=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.DeleteDataOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.DeleteDataOperation.html",
+          "hash": "9RCpmdmPqMZUqjZfBALkaw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.DeleteDataResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.DeleteDataResultParser.html",
+          "hash": "4mUKlcexcDOUKk5PcaBKdQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.DeleteTag1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.DeleteTag1.html",
+          "hash": "pPR5wlWdw++45ICBkhvhOw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.DeleteTagOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.DeleteTagOperation.html",
+          "hash": "dnp+0wMJDWcsqwPOWgrAOw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.DeleteTagResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.DeleteTagResultParser.html",
+          "hash": "MGITnwnH6wxK6l9h0RwdtQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.DumpedDataOfNote.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.DumpedDataOfNote.html",
+          "hash": "i13zDe5lA5TDBX/gbklrCQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetCategories.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetCategories.html",
+          "hash": "WTDyUVziXFbQ3A7fXzbfLg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetCategoriesOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetCategoriesOperation.html",
+          "hash": "ozzFwHKDGAkhEC7UVdCthw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetCategoriesResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetCategoriesResultParser.html",
+          "hash": "Li3xLlR4IM5SPnd8bFrc+Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetDataById.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetDataById.html",
+          "hash": "aDz1UuMnLWU4vPWoHSOKbA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetDataByIdOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetDataByIdOperation.html",
+          "hash": "wcB8jk5X02O7PFZ5gMO+7Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetDataByIdResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetDataByIdResultParser.html",
+          "hash": "AGvu2neGQN+FihP+tetN3w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetDataByMetadataId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetDataByMetadataId.html",
+          "hash": "Xp0EtFtLozSA11S/aJeYcw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetDataByMetadataIdOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetDataByMetadataIdOperation.html",
+          "hash": "8L9jAekFYmUo0F47Vvx3GA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetDataByMetadataIdResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetDataByMetadataIdResultParser.html",
+          "hash": "7V36miIh8aHdIoQN/wIUag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetDump.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetDump.html",
+          "hash": "AMqbkkLVT9JHl7LsPDNbWg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetDumpOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetDumpOperation.html",
+          "hash": "EaIgkUFc469rm5eAbCDkaw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetDumpResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetDumpResultParser.html",
+          "hash": "PGYQc0an6v3yLYHrshuaAw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetMetadataIds.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetMetadataIds.html",
+          "hash": "xkODs9cCl4jGxHR0PclNgw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetMetadataIdsByCategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetMetadataIdsByCategory.html",
+          "hash": "Ia50RoCbX5lDSIJMv2kxGQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetMetadataIdsByCategoryOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetMetadataIdsByCategoryOperation.html",
+          "hash": "aAFFWSotV+6IVmCPooE/LQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetMetadataIdsByCategoryResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetMetadataIdsByCategoryResultParser.html",
+          "hash": "Cx1Q/So9Ku6gf7p79AT6Gg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetMetadataIdsByTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetMetadataIdsByTag.html",
+          "hash": "Qn+/WXEjr0lmRJIuJs5Bnw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetMetadataIdsByTagOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetMetadataIdsByTagOperation.html",
+          "hash": "oN8TsfGOQRp/jbTBEgyDiw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetMetadataIdsByTagResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetMetadataIdsByTagResultParser.html",
+          "hash": "DUqbfZQ8ZkC7ET8crQUAjQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetMetadataIdsOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetMetadataIdsOperation.html",
+          "hash": "ouxiCbyFYOEnHChv8sdqGg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetMetadataIdsResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetMetadataIdsResultParser.html",
+          "hash": "pBsKfSxpsFyMOvjNv9J3Rg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetTags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetTags.html",
+          "hash": "KwuQAaJNTyvMLgRQFeC6DQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetTagsOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetTagsOperation.html",
+          "hash": "iTxC8UJLgzlCCshmtd9MlA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetTagsResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.GetTagsResultParser.html",
+          "hash": "WUL3dBINhO5aKvqq1cHZ0g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.ICategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.ICategory.html",
+          "hash": "KngwtIeFTp16Qv6Kyz5Ibg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.ICreateCategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.ICreateCategory.html",
+          "hash": "EFCgckGpnJ5/Niq2r3UEHA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.ICreateData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.ICreateData.html",
+          "hash": "V2+IT6M094Td5J2Ws73v/Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.ICreateTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.ICreateTag.html",
+          "hash": "W1GtIdZn0w5AI/Gu5Y0TdQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IData.html",
+          "hash": "6x/ov5LoUa5ve+oeU7x3DQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IDeleteCategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IDeleteCategory.html",
+          "hash": "80g72aJm/ECpFVRwgGkRwA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IDeleteData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IDeleteData.html",
+          "hash": "PvInKfHJiuV2n2faU+k9Dg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IDeleteTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IDeleteTag.html",
+          "hash": "Ta7+hz6rBzZP68g7e28DxQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IDumpedDataOfNote.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IDumpedDataOfNote.html",
+          "hash": "HVfH+3gWPPdqPOE0pUDkSw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IGetCategories.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IGetCategories.html",
+          "hash": "75d8pUyesyWoZMfKBlHzDw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IGetDataById.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IGetDataById.html",
+          "hash": "h9VwlH/Ucyjvn/8iKQb+IA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IGetDataByMetadataId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IGetDataByMetadataId.html",
+          "hash": "S9WpmwqvsMEIkJmB3g1gAg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IGetDump.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IGetDump.html",
+          "hash": "eE1aPfGH4uU3eCa/JRZrQQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IGetMetadataIds.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IGetMetadataIds.html",
+          "hash": "8DgFGnzoKBFSWYinVk2BPg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IGetMetadataIdsByCategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IGetMetadataIdsByCategory.html",
+          "hash": "Pad5hwISEOlmFkSxv8hXpg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IGetMetadataIdsByTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IGetMetadataIdsByTag.html",
+          "hash": "g0PTq91fs52xqJ2umAZwFQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IGetTags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IGetTags.html",
+          "hash": "8DW+syRPtASOgUPpGy1xxw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IItemMetadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IItemMetadata.html",
+          "hash": "zT8ug+xw6Rk9ZiODLIdxvQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IMetadataId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IMetadataId.html",
+          "hash": "COLpv72NSMXZctu7QsPqLw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.INotesGraphQLClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.INotesGraphQLClient.html",
+          "hash": "J++jCiwPkSOF1vAh8LnKIw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IPageInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IPageInfo.html",
+          "hash": "Z4WltyJSt7LVIw+Ab8I85w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IRawCategoryConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IRawCategoryConnection.html",
+          "hash": "h/Qwpvfn81iQ5Gbkjnl/Tw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IRawItemMetadataConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IRawItemMetadataConnection.html",
+          "hash": "mxsIAvEy12auMkg79CPBLw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IRawItemMetadataConnection1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IRawItemMetadataConnection1.html",
+          "hash": "T2/qPmSxRMUFl+pVZ9wo0A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IRawItemMetadataConnection2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IRawItemMetadataConnection2.html",
+          "hash": "HIbne2I0cv2Is1g+yfD5Tw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IRawTagConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IRawTagConnection.html",
+          "hash": "BjewQoDkOY/amrSAm/+ikQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IRenameCategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IRenameCategory.html",
+          "hash": "SccDvu4mHbMpAEYT02u6qQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IRenameTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IRenameTag.html",
+          "hash": "4EXc4ZSNwQC57ycI3S44rQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.ITag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.ITag.html",
+          "hash": "K/2fvLBcXF0MP56UR7QyoA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IUpdateData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.IUpdateData.html",
+          "hash": "91fTIWy+x9jn69Fe2odZRg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.ItemMetadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.ItemMetadata.html",
+          "hash": "ZpGiL9rehMqgd/ftn7LzYg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.ItemMetadataMutationInput.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.ItemMetadataMutationInput.html",
+          "hash": "AsRoKH/PFdDHR2R1cg5edw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.ItemMetadataMutationInputSerializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.ItemMetadataMutationInputSerializer.html",
+          "hash": "yortR9+EZ1PwuTRCPYgUxg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.MetadataId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.MetadataId.html",
+          "hash": "VBFsLGKrnVLgjb35rhptBg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.Module.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.Module.html",
+          "hash": "ycgeoSe5zbYOkGMjdGq5pQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.NoteMutationInput.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.NoteMutationInput.html",
+          "hash": "X3J7jnDnLGCWZ5p1oiwQxQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.NoteMutationInputSerializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.NoteMutationInputSerializer.html",
+          "hash": "oPyrgjCvHA2ZKOCx5HFozw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.NotesGraphQLClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.NotesGraphQLClient.html",
+          "hash": "H8jQaEhd5t4GmsoUQvh8Yw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.NotesGraphQLClientServiceCollectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.NotesGraphQLClientServiceCollectionExtensions.html",
+          "hash": "GDGwSkvqaPUFFuw+JXiVeA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.PageInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.PageInfo.html",
+          "hash": "UumkQx1xYvWlOjRwXygwBA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.RawCategoryConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.RawCategoryConnection.html",
+          "hash": "TuRhXJcbUnHeUbFIvRkqeA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.RawItemMetadataConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.RawItemMetadataConnection.html",
+          "hash": "RmfiKg23rXCoZt/Qed2BZA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.RawItemMetadataConnection1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.RawItemMetadataConnection1.html",
+          "hash": "IU++2veIz0Qsijc0wb+Vxw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.RawItemMetadataConnection2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.RawItemMetadataConnection2.html",
+          "hash": "OowiTWp2zJc54K1SBCLU5w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.RawTagConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.RawTagConnection.html",
+          "hash": "mV8bWk6ikX3Lw3HHSFdySA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.RenameCategory1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.RenameCategory1.html",
+          "hash": "67xt2c/8yc5KmtJDghnf5g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.RenameCategoryOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.RenameCategoryOperation.html",
+          "hash": "13N7r/RREvEzQO1SMXCoaA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.RenameCategoryResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.RenameCategoryResultParser.html",
+          "hash": "UixBibc6NE5pJuUxAjrcTw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.RenameTag1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.RenameTag1.html",
+          "hash": "aylPHmucFTNLdHdwb1W9lw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.RenameTagOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.RenameTagOperation.html",
+          "hash": "+pS58GgJKER7EDFPzevkaw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.RenameTagResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.RenameTagResultParser.html",
+          "hash": "g1xIcTw1ilgP4bdLta52Pw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.Tag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.Tag.html",
+          "hash": "vxbr3GLFD7pq+vnIfRrxIA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.UpdateData1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.UpdateData1.html",
+          "hash": "YwuAU0qBWWCFsP4N+Gs8pg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.UpdateDataOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.UpdateDataOperation.html",
+          "hash": "iqYKi09VnIgCm2FycJbdzw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.UpdateDataResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.UpdateDataResultParser.html",
+          "hash": "EtnjOA4SfCvnfJSvwF0r3A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.GraphQL.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.GraphQL.html",
+          "hash": "e7IFju7v1a1AbJpGiKpgkw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.IconNames.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.IconNames.html",
+          "hash": "ylo+i3YON8EUyURINSkeDw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.ModuleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.ModuleExtensions.html",
+          "hash": "lhk+58Fd4A18Cbu7duprvQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.ModuleOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.ModuleOption.html",
+          "hash": "Rkts12QwDLH5V2BMXxmKuQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.ModuleService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.ModuleService.html",
+          "hash": "Qm4grSF+YAt9hi1UsbHnSw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.ModuleUI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.ModuleUI.html",
+          "hash": "HTbIj6767m4rMUt5zkRxhQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.NotesModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.NotesModule.html",
+          "hash": "WsilRXHJPMYZsjU8dvne9A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.Server.Data.DataDbContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.Server.Data.DataDbContext.html",
+          "hash": "fgJY0/M+BHs62aVcrbm07Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.Server.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.Server.Data.html",
+          "hash": "NtvLtGpKZNttISad+2UBUw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.Server.ModuleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.Server.ModuleExtensions.html",
+          "hash": "ShEl81ljuKbcWd8SJ+6kkQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.Server.ModuleOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.Server.ModuleOption.html",
+          "hash": "TxYDN2rLZ8JYmR3Ns6J7mQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.Server.ModuleService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.Server.ModuleService.html",
+          "hash": "/K5iAXCz232b4IZ0kKxALg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.Server.NotesServerModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.Server.NotesServerModule.html",
+          "hash": "alVK/G5ys8NXLhvsnVsWOQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.Server.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.Server.html",
+          "hash": "iwIKAQFT1IhKe7SBQsYKiA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.UrlGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.UrlGenerator.html",
+          "hash": "CpJQjJcZDulM1McKfThSlg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.Utils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.Utils.html",
+          "hash": "6zXQ3b1Y/vwN/B5Ap9vgeA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.html",
+          "hash": "re2dlWTPm8DZyzDs4wsZaQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.Category.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.Category.html",
+          "hash": "VQBi1yHxRlMCSb7RouTNlg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.CreateCategory1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.CreateCategory1.html",
+          "hash": "nAWYPG7H8WsMhKAIUWLxJg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.CreateCategoryOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.CreateCategoryOperation.html",
+          "hash": "jtFGlVu037qWPjehAtdyUQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.CreateCategoryResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.CreateCategoryResultParser.html",
+          "hash": "4c+pzebjW2veIUN5OGi/SQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.CreateData1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.CreateData1.html",
+          "hash": "DfU5mfqoSnt8tZYG/tiwXA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.CreateDataOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.CreateDataOperation.html",
+          "hash": "9AeTvmsdTh65nis7bm/Zag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.CreateDataResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.CreateDataResultParser.html",
+          "hash": "KcZBVTXUz/lT1VVodLoWqA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.CreateTag1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.CreateTag1.html",
+          "hash": "hHP3SELHQateCE3AVC8nHw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.CreateTagOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.CreateTagOperation.html",
+          "hash": "jFuUc5PAa86Vyd1R0qUKTg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.CreateTagResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.CreateTagResultParser.html",
+          "hash": "oWUDIy72yDOZiGL1Q9sW2Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.Data.html",
+          "hash": "bPYwCZEKZyRHepqVgnpRbg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.DeleteCategory1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.DeleteCategory1.html",
+          "hash": "NgFUHzCtNTiZTCQkL+qXDw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.DeleteCategoryOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.DeleteCategoryOperation.html",
+          "hash": "Y1FbMbGW3RUp/RCNdeAUhA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.DeleteCategoryResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.DeleteCategoryResultParser.html",
+          "hash": "fz92ScCOzIycImtjP4cwwQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.DeleteData1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.DeleteData1.html",
+          "hash": "b5AJ/35uQlgGbdXjd0nFSQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.DeleteDataOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.DeleteDataOperation.html",
+          "hash": "JAD/n9n3IzkAq4zOs62Lcw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.DeleteDataResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.DeleteDataResultParser.html",
+          "hash": "08lEumf5HvSw2eZGxApuzQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.DeleteTag1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.DeleteTag1.html",
+          "hash": "QT+oWfB5ANiarzXwdmlpzQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.DeleteTagOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.DeleteTagOperation.html",
+          "hash": "jdYucEFWxp+2lPdPdShypQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.DeleteTagResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.DeleteTagResultParser.html",
+          "hash": "iBBJ6a8vhkHEOOexAKItRQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.DumpedDataOfPerson.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.DumpedDataOfPerson.html",
+          "hash": "HV183sVALFCioDdUxGr09w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetCategories.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetCategories.html",
+          "hash": "B5wjpTpZYLEz8KIuVA1q5Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetCategoriesOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetCategoriesOperation.html",
+          "hash": "5Bh008aih2r4dYaxTNpGbA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetCategoriesResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetCategoriesResultParser.html",
+          "hash": "TYmbbrqB6sppzMRTH0lIPQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetDataById.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetDataById.html",
+          "hash": "1HsuHCmjvOZQpB94QNo1Iw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetDataByIdOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetDataByIdOperation.html",
+          "hash": "iIaZf94KhkP0Y0EFAws2eA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetDataByIdResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetDataByIdResultParser.html",
+          "hash": "jxhAJSd6s6i1Aqec6eYNoA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetDataByMetadataId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetDataByMetadataId.html",
+          "hash": "EAZySGNjRsNgxaN9b9qDQg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetDataByMetadataIdOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetDataByMetadataIdOperation.html",
+          "hash": "q8O3XoZTRzV54IWX83gyUA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetDataByMetadataIdResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetDataByMetadataIdResultParser.html",
+          "hash": "DGhgQFH0Swq8STKmQsCxRw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetDump.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetDump.html",
+          "hash": "fO0zXCUvZCZwUAXyg2zvoA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetDumpOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetDumpOperation.html",
+          "hash": "vEc+Cd6p+F1WM1GICWXy2g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetDumpResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetDumpResultParser.html",
+          "hash": "0w2fmCAz230iHyrZ6Ehzzw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetMetadataIds.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetMetadataIds.html",
+          "hash": "336Z2slgBNWHYyGScVz0jA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetMetadataIdsByCategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetMetadataIdsByCategory.html",
+          "hash": "IY/exwOzpBc7SXUoZB/+sw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetMetadataIdsByCategoryOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetMetadataIdsByCategoryOperation.html",
+          "hash": "zbv/4zPTUZfXvtG3qXLxTg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetMetadataIdsByCategoryResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetMetadataIdsByCategoryResultParser.html",
+          "hash": "/K2jSJzzQ1yuQxrlxCHRFg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetMetadataIdsByTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetMetadataIdsByTag.html",
+          "hash": "siZm3SSXGDoqvzyGzMr8DA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetMetadataIdsByTagOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetMetadataIdsByTagOperation.html",
+          "hash": "JfbAi9tPnjvDledWQ2Y4yg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetMetadataIdsByTagResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetMetadataIdsByTagResultParser.html",
+          "hash": "kgYlY4sp4EAts4s5ESTpHQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetMetadataIdsOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetMetadataIdsOperation.html",
+          "hash": "rq/6o4nIC6g52pMJsS6I+Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetMetadataIdsResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetMetadataIdsResultParser.html",
+          "hash": "drFKYMEUhtIoIYNurlfXhw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetTags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetTags.html",
+          "hash": "aKhuBqWAuczSoxHNyFYXKA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetTagsOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetTagsOperation.html",
+          "hash": "uT9P9Eg94ywp/uhmw8AJAA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetTagsResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.GetTagsResultParser.html",
+          "hash": "62UShy2XbRndpSXxVJH9Dw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.ICategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.ICategory.html",
+          "hash": "7OAWFblawyUqltvRiQLtTQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.ICreateCategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.ICreateCategory.html",
+          "hash": "shUWv+d7pe81nPLbjoMl6A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.ICreateData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.ICreateData.html",
+          "hash": "ZFqIvAT7rs4DQnIOi3ifwA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.ICreateTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.ICreateTag.html",
+          "hash": "uGNN/YY5MX7TzemHzrcZ0g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IData.html",
+          "hash": "TSesKyIjOVEcIfaUbZXK1Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IDeleteCategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IDeleteCategory.html",
+          "hash": "oP5f7X+/SeGFBKA001g2JA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IDeleteData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IDeleteData.html",
+          "hash": "bEPXSGiSkDajq2mpA8vRGw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IDeleteTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IDeleteTag.html",
+          "hash": "SLCLPrszynISQvXJNtGkQw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IDumpedDataOfPerson.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IDumpedDataOfPerson.html",
+          "hash": "LLACoMNIMA+529u/dnndIg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IGetCategories.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IGetCategories.html",
+          "hash": "rQwNoqkHHZOtys9MXkuEJw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IGetDataById.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IGetDataById.html",
+          "hash": "7jrS9mc6suIhc35klK/ung=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IGetDataByMetadataId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IGetDataByMetadataId.html",
+          "hash": "UKh3G6ArVUSD8HSPOgpCFQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IGetDump.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IGetDump.html",
+          "hash": "esnermEqddOD7IyQwVfA4Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IGetMetadataIds.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IGetMetadataIds.html",
+          "hash": "pmTCOfyeIo+3V6cnE80sDA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IGetMetadataIdsByCategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IGetMetadataIdsByCategory.html",
+          "hash": "GKiH03r+/T0ZKOP6O+01KQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IGetMetadataIdsByTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IGetMetadataIdsByTag.html",
+          "hash": "E5AG3WlJ/OnouQo9v1Y88A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IGetTags.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IGetTags.html",
+          "hash": "GNFXQPjytvW0sNhJWBNPBw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IItemMetadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IItemMetadata.html",
+          "hash": "EG+POl0cIlCB4r0uu1vtgg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IMetadataId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IMetadataId.html",
+          "hash": "9R6JYKoGO3Yh/uTNkeQkIA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IPageInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IPageInfo.html",
+          "hash": "wxxJTr8Dqe+54YG81haxXg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IPersonsGraphQLClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IPersonsGraphQLClient.html",
+          "hash": "I/cpGsEOkZIlXVyNCbGEGQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IRawCategoryConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IRawCategoryConnection.html",
+          "hash": "zhXmkNZ6AEvAeTNVqdZ7Sw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IRawItemMetadataConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IRawItemMetadataConnection.html",
+          "hash": "wfC3k2kmAWRAfCoT9NDLRQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IRawItemMetadataConnection1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IRawItemMetadataConnection1.html",
+          "hash": "sSYfnGjuY7RFzpWRx9YSgg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IRawItemMetadataConnection2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IRawItemMetadataConnection2.html",
+          "hash": "BH9i8LZ1uaHcmjD1mV9k0Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IRawTagConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IRawTagConnection.html",
+          "hash": "S0BrBrDPBEL8SoVh4RcH5Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IRenameCategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IRenameCategory.html",
+          "hash": "bwmkkZIhBVQAwmd0PZlb6w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IRenameTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IRenameTag.html",
+          "hash": "2K+PkJf4TYs0vdB92wLQdQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.ITag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.ITag.html",
+          "hash": "jYRrR0n38G57KQdL5D0IlQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IUpdateData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.IUpdateData.html",
+          "hash": "md6ZzYeFw+AlqF6WQ9+DKw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.ItemMetadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.ItemMetadata.html",
+          "hash": "AQRYKpuDbbK3krjFrMvyvQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.ItemMetadataMutationInput.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.ItemMetadataMutationInput.html",
+          "hash": "s09VMP4TL/9XjKTBwewWSA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.ItemMetadataMutationInputSerializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.ItemMetadataMutationInputSerializer.html",
+          "hash": "3mH3pwUMhsbZ9OjfiUucgQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.MetadataId.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.MetadataId.html",
+          "hash": "N+iVa1hW6mSDZHOhgg51WQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.Module.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.Module.html",
+          "hash": "fGahkz8trfcQB2W1DkH1mg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.PageInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.PageInfo.html",
+          "hash": "0/sayJIbk/kJJFxdCS8vMg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.PersonGender.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.PersonGender.html",
+          "hash": "rZDxXR1+8wzNiEJqO4Nlig=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.PersonGenderValueSerializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.PersonGenderValueSerializer.html",
+          "hash": "EMDg/cWCdPvuUXGByVtijQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.PersonMutationInput.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.PersonMutationInput.html",
+          "hash": "4X1aIa2j4Xt4CgW0kXFEsg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.PersonMutationInputSerializer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.PersonMutationInputSerializer.html",
+          "hash": "d+8SsPE+B/khAS+Yn9sA8g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.PersonsGraphQLClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.PersonsGraphQLClient.html",
+          "hash": "3xKQayK1LZBoWtFEiInnwg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.PersonsGraphQLClientServiceCollectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.PersonsGraphQLClientServiceCollectionExtensions.html",
+          "hash": "29i3ThOsXJ5N90+Uybtu7A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.RawCategoryConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.RawCategoryConnection.html",
+          "hash": "HCMtGBxbzxLG6yZSuRg4+A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.RawItemMetadataConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.RawItemMetadataConnection.html",
+          "hash": "3tkh4UjC9nfJnC8pz9mVSA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.RawItemMetadataConnection1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.RawItemMetadataConnection1.html",
+          "hash": "qM9n6pgx/HyCjztKi+gwHw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.RawItemMetadataConnection2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.RawItemMetadataConnection2.html",
+          "hash": "vKUUAIaNMWJ/8GBage4ajg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.RawTagConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.RawTagConnection.html",
+          "hash": "6dafIzpM1AccvtxZwB5OtQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.RenameCategory1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.RenameCategory1.html",
+          "hash": "o55YPJVUZmpInN/lbkLI/g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.RenameCategoryOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.RenameCategoryOperation.html",
+          "hash": "Q2CXT2yFrX/22KQUcUa+yA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.RenameCategoryResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.RenameCategoryResultParser.html",
+          "hash": "HC3fyqsRPrB+wa+JkxUGNg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.RenameTag1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.RenameTag1.html",
+          "hash": "iMKcoac3LhteuM+Brf7w1w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.RenameTagOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.RenameTagOperation.html",
+          "hash": "3DoPQI693fWGBfB7udz/tg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.RenameTagResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.RenameTagResultParser.html",
+          "hash": "71+TWWDHrz2ZpSKn2nEp5g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.Tag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.Tag.html",
+          "hash": "zr8w8eRB9DYtJqvbdWqAGw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.UpdateData1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.UpdateData1.html",
+          "hash": "Jt6aQy+kSZUnswujNievcw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.UpdateDataOperation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.UpdateDataOperation.html",
+          "hash": "rLI8JpS3LfY9tk6eX3xNBQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.UpdateDataResultParser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.UpdateDataResultParser.html",
+          "hash": "ok5JzT4iSi7Uzr/mgpGLJA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.GraphQL.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.GraphQL.html",
+          "hash": "iQnjoQyhavbwrZJrKfzDcQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.IconNames.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.IconNames.html",
+          "hash": "hs2Cd2U4QK85VcStFJBXrw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.ModuleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.ModuleExtensions.html",
+          "hash": "1haaZmkB68jHjgGD7UH/Pw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.ModuleOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.ModuleOption.html",
+          "hash": "8tT4iXugP1k8ICa//u0rEA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.ModuleService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.ModuleService.html",
+          "hash": "dAbewGeyr+oHUWr/ucQ9aw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.ModuleUI.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.ModuleUI.html",
+          "hash": "RmO6wZeK7J+qF8eBoiLjTw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.PersonsModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.PersonsModule.html",
+          "hash": "Vba9HaDsoCCRrimQ7ci4/Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.Server.Data.DataDbContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.Server.Data.DataDbContext.html",
+          "hash": "fepauz2VNAdEK2pApmYbiQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.Server.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.Server.Data.html",
+          "hash": "n9bduhyvXCyTAt0vyxgPSA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.Server.Models.PersonGender.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.Server.Models.PersonGender.html",
+          "hash": "Tzt1DaX/XlNDe1uU2fSuwg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.Server.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.Server.Models.html",
+          "hash": "5JyEkj8fCLMUblX/CZZ+VQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.Server.ModuleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.Server.ModuleExtensions.html",
+          "hash": "HzV9MtrWN9ONx4/RHyQvdQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.Server.ModuleOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.Server.ModuleOption.html",
+          "hash": "brm1u6ZD16f1uKfVkKqaKQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.Server.ModuleService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.Server.ModuleService.html",
+          "hash": "mGO2PvvVRykw61CUCftGlg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.Server.PersonsServerModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.Server.PersonsServerModule.html",
+          "hash": "VLfo0HJJWKamcKuossQVuA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.Server.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.Server.html",
+          "hash": "olMJa1bGXQoaq9j8KGi4eg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.UrlGenerator.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.UrlGenerator.html",
+          "hash": "gIKqhUCO5oRgH77YR4zsjw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.Utils.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.Utils.html",
+          "hash": "mokgUYAWSES3PMkY8FHtMg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.html",
+          "hash": "OZu3P78l31RdpRzjWZ9TiQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Server.Data.DataModuleService-5.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Server.Data.DataModuleService-5.html",
+          "hash": "SbRja8QbaqYgs5T8CDSauw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Server.Data.DumpedData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Server.Data.DumpedData.html",
+          "hash": "B5uRtewjK+/OmgemUVU1yw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Server.Data.GraphQL.MutationType-5.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Server.Data.GraphQL.MutationType-5.html",
+          "hash": "sJVlK+AFJeLHcAMJgTyAnQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Server.Data.GraphQL.QueryType-5.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Server.Data.GraphQL.QueryType-5.html",
+          "hash": "u7OHXmWQwK5hccAgb14wJw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Server.Data.GraphQL.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Server.Data.GraphQL.html",
+          "hash": "iasOcx4KfKeqP0y9lX4gBQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Server.Data.IDataModuleService-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Server.Data.IDataModuleService-3.html",
+          "hash": "2RfmzomHNwX7F7xIhgqLvA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Server.Data.Models.RawDataItemBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Server.Data.Models.RawDataItemBase.html",
+          "hash": "o9se6DT7GudRU5AUf+krPQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Server.Data.Models.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Server.Data.Models.html",
+          "hash": "SssVaBTcq9KywYDyWXWXcQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Server.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Server.Data.html",
+          "hash": "/H4G/1wsZMqGsQZEiTfstA=="
         }
       },
       "is_incremental": false,
@@ -858,7 +5310,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.UI.UiModule.html",
-          "hash": "N//m7EOJagcW9kusiDCWjg=="
+          "hash": "QosgbBbbdE5d4lZOJCbFpA=="
         }
       },
       "is_incremental": false,
@@ -894,7 +5346,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/toc.html",
-          "hash": "TvLM3w7Ow/EAbO5c2vhdfQ=="
+          "hash": "yFUY7JkQV/ZHShnS4BASNA=="
         }
       },
       "is_incremental": false,
@@ -930,7 +5382,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.html",
-          "hash": "thKk7Pvjb/FwpGDpxnQ6ow=="
+          "hash": "jz3zztDh7spUOuBUaU5uYw=="
         }
       },
       "is_incremental": false,
@@ -966,7 +5418,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerModule.html",
-          "hash": "UPOOx6qBLubSZUih+D38KA=="
+          "hash": "VPKmQu5Bn2dyis6IpeAtRQ=="
         }
       },
       "is_incremental": false,
@@ -1002,7 +5454,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.ModuleExtensions.html",
-          "hash": "RSxOzO7nAxlsD2Rqn0s2Ew=="
+          "hash": "hiJMk0tlF/CdgFFMnN1U8w=="
         }
       },
       "is_incremental": false,
@@ -1027,6 +5479,258 @@
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.html",
           "hash": "699u/pEp2wBO6Ncp0ZNGkw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.Data.DataDbContext.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.Data.DataDbContext.html",
+          "hash": "c0ffgtlXYi2+qTzopy1dcA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.Data.html",
+          "hash": "eBiJ9aWPErHiOOpUqaHgEw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.GraphQL.Clients.MutationType-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.GraphQL.Clients.MutationType-1.html",
+          "hash": "C0VmU+FXvGEw/vdPsmomLw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.GraphQL.Clients.QueryType-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.GraphQL.Clients.QueryType-1.html",
+          "hash": "/vYda76BxWl7KRVMmWrc1w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.GraphQL.Clients.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.GraphQL.Clients.html",
+          "hash": "1HzEtgNJZc2Lq5xIM9eQZQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.GraphQL.ItemMetadataServerGraphqlModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.GraphQL.ItemMetadataServerGraphqlModule.html",
+          "hash": "PTl7Ttn+4rll/SDZt6+C6w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.GraphQL.ModuleMutation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.GraphQL.ModuleMutation.html",
+          "hash": "IYE/c7j6V13dGe+w0OmDdA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.GraphQL.ModuleOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.GraphQL.ModuleOption.html",
+          "hash": "WsQgIIG4j6ie1f0M3xHDeQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.GraphQL.ModuleQuery.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.GraphQL.ModuleQuery.html",
+          "hash": "Bxce5wU7UuTuZjg5ZJGzxg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.GraphQL.ModuleService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.GraphQL.ModuleService.html",
+          "hash": "UG4QZ/8nqoKlWNNxYXwpVw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.GraphQL.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.GraphQL.html",
+          "hash": "02PmzUaxWVgPoeM6KXpRrA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.ItemMetadataDomain-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.ItemMetadataDomain-1.html",
+          "hash": "jWDsqTayTNYpzIiJW4Sghw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.ItemMetadataServerModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.ItemMetadataServerModule.html",
+          "hash": "CVWOUVFxFiSb2Tcco73ojg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.Models.Raws.RawCategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.Models.Raws.RawCategory.html",
+          "hash": "hOivgFYmvlrCbFH7Wwlnmg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.Models.Raws.RawItemMetadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.Models.Raws.RawItemMetadata.html",
+          "hash": "/T3RyBOCgmC5BzTqnGWDVA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.Models.Raws.RawTag.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.Models.Raws.RawTag.html",
+          "hash": "e+fMcqAyVz5/+o+m6P85QQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.Models.Raws.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.Models.Raws.html",
+          "hash": "schY1c7fdscwswTLJ+D2Xg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.ModuleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.ModuleExtensions.html",
+          "hash": "khVR0pfeQgNqUqOBCLH/gA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.ModuleOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.ModuleOption.html",
+          "hash": "MX3zqPwfNUNarFJ9OtjtDQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.ModuleService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.ModuleService.html",
+          "hash": "x72sR4nGnL9lmLuMLfTWhA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.html",
+          "hash": "iY3wf5uktvgKppJVLWL8Nw=="
         }
       },
       "is_incremental": false,
@@ -1074,7 +5778,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageApiModule.html",
-          "hash": "OdY6GotATesQYhJ7OiXc1A=="
+          "hash": "2qSOO/8M4wGq1YjJG1fjHw=="
         }
       },
       "is_incremental": false,
@@ -1122,7 +5826,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageModule.html",
-          "hash": "VAC1cPtlXWSYlKKQqSiMkA=="
+          "hash": "eO+0yu46ko5nmjzZToTXPw=="
         }
       },
       "is_incremental": false,
@@ -1182,7 +5886,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/toc.html",
-          "hash": "9CfSwenNTSZx8j6pgrM3Jw=="
+          "hash": "ah3M/7Xm9vdC/Mn0WRpnjA=="
         }
       },
       "is_incremental": false,
@@ -1194,7 +5898,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule-3.html",
-          "hash": "oXhe6VrFhfC7hDl+U9IqtQ=="
+          "hash": "EMQyu88trtWcmPZyIbR6Hg=="
         }
       },
       "is_incremental": false,
@@ -1206,7 +5910,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.html",
-          "hash": "zW3bRrZ2csyoP9SSGLYFtg=="
+          "hash": "R9i122L8QewvzgxioEm0KQ=="
         }
       },
       "is_incremental": false,
@@ -1230,7 +5934,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-3.html",
-          "hash": "pl0O8bEgM79dhCC2qWKgug=="
+          "hash": "suQn+2z+aGXpd0+KnUrADQ=="
         }
       },
       "is_incremental": false,
@@ -1266,7 +5970,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.BasePage.html",
-          "hash": "njjW+uv2kY61tlspP2Ou9A=="
+          "hash": "P8FVQBKSb8Yr7fBK+ClwQQ=="
         }
       },
       "is_incremental": false,
@@ -1298,11 +6002,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.PageParentBase.yml",
+      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.PageInfo.yml",
       "output": {
         ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.PageParentBase.html",
-          "hash": "li1Tkb1VOsUhYATm92sinw=="
+          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.PageInfo.html",
+          "hash": "FqbOaIFwIFOk0sibEpSZGw=="
         }
       },
       "is_incremental": false,
@@ -1310,11 +6014,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.PageTitle.yml",
+      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.PageParent.yml",
       "output": {
         ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.PageTitle.html",
-          "hash": "7J4WMAmszuZembmG488WAw=="
+          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.PageParent.html",
+          "hash": "I2wagsRnoDf7ye6NuPGnPA=="
         }
       },
       "is_incremental": false,
@@ -1326,7 +6030,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.UIResource.html",
-          "hash": "aN+i3AKnLxH8aqJ8LmTerg=="
+          "hash": "/qH86G3zBK5wrwr51jHtQQ=="
         }
       },
       "is_incremental": false,
@@ -1350,7 +6054,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.html",
-          "hash": "zdzaPHVUk+NOqh6JTt/eEA=="
+          "hash": "TmA3Zgw9T6Nam0thcT9xtQ=="
         }
       },
       "is_incremental": false,
@@ -1386,7 +6090,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.IModule-1.html",
-          "hash": "WzS1coMPokmxeKmzp2FNSA=="
+          "hash": "yjqeIWN6s4rY5KyS0aJ37A=="
         }
       },
       "is_incremental": false,
@@ -1398,7 +6102,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.IModule-2.html",
-          "hash": "Rf3oHe+Knwn24QYIhxW4AQ=="
+          "hash": "x4CeCptVlOGgnv564GKNIg=="
         }
       },
       "is_incremental": false,
@@ -1410,7 +6114,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.IModule.html",
-          "hash": "LYhcv4BHVV04OsQERV9NHA=="
+          "hash": "eJpXMdO/a3FuyxJiFftMPw=="
         }
       },
       "is_incremental": false,
@@ -1446,7 +6150,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Module-1.html",
-          "hash": "Q/0DT+y5OLPxudzqRFb6vQ=="
+          "hash": "SQ59VGhbR/GPfV8cmZzjwA=="
         }
       },
       "is_incremental": false,
@@ -1458,7 +6162,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Module-2.html",
-          "hash": "Ts/a6FPbLgOfrJOLFJ09og=="
+          "hash": "v645Nc9vYVypDBXyRrWFAQ=="
         }
       },
       "is_incremental": false,
@@ -1542,7 +6246,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Server.AspNet.AspNetServerModule-2.html",
-          "hash": "FLBEIiy2lyVFPSKh/qducw=="
+          "hash": "nQC+2SAiLokqSHGhkm2wdA=="
         }
       },
       "is_incremental": false,
@@ -1566,7 +6270,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Server.AspNet.IAspNetServerModule.html",
-          "hash": "j2w/yh0WqzSEO57own8vTA=="
+          "hash": "m+c55UpgbnSAg6303Efe8Q=="
         }
       },
       "is_incremental": false,
@@ -1602,7 +6306,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.GraphQLServerModule-2.html",
-          "hash": "YysV+O/FYQakFQ991ABjaw=="
+          "hash": "BIu57f+mCbd6Z/cxz+DAhQ=="
         }
       },
       "is_incremental": false,
@@ -1638,7 +6342,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.IGraphQLServerModule.html",
-          "hash": "FYfejaUchKS1Wzxszanm7w=="
+          "hash": "epSgkD9TPtzXlkY8Tw/9JA=="
         }
       },
       "is_incremental": false,
@@ -1746,7 +6450,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/toc.html",
-          "hash": "zQKS7v4lGaN58ID6d0u0LQ=="
+          "hash": "xyrhbqjnxPLzN3/vMIJvxg=="
         }
       },
       "is_incremental": false,
@@ -1824,7 +6528,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 139,
+          "total_file_count": 531,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
