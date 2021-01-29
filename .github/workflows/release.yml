@@ -14,7 +14,16 @@ env:
   build_version: "0.0.2"
 
 jobs:
-  docker:
+  invoke-docs:
+    needs: ci
+    runs-on: ubuntu-latest
+    steps:
+    - name: Invoke docs workflow
+      uses: benc-uk/workflow-dispatch@v1
+      with:
+        workflow: Docs
+        token: ${{ secrets.PA_TOKEN }}
+  deploy:
     runs-on: ubuntu-18.04
     steps:
     - name: Checkout

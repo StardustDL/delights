@@ -87,86 +87,41 @@ jobs:
       env:
         NUGET_AUTH_TOKEN: ${{ secrets.AZ_TOKEN }}
       run: Invoke-psake publish-packages
-    - name: Build API image
-      uses: docker/build-push-action@v2
-      with:
-        context: .
-        file: ./src/Delights.Api/Dockerfile
-        push: false
-        tags: |
-          stardustdl/delights:api
-    - name: Build client image
-      uses: docker/build-push-action@v2
-      with:
-        context: .
-        file: ./src/Delights.Client/Dockerfile
-        push: false
-        tags: |
-          stardustdl/delights:client
-    - name: Build WASM host client image
-      uses: docker/build-push-action@v2
-      with:
-        context: .
-        file: ./src/Delights.Client.WebAssembly.Host/Dockerfile
-        push: false
-        tags: |
-          stardustdl/delights:client-wasm-host
-  generate-docs:
+    # - name: Build API image
+    #   uses: docker/build-push-action@v2
+    #   with:
+    #     context: .
+    #     file: ./src/Delights.Api/Dockerfile
+    #     push: false
+    #     tags: |
+    #       stardustdl/delights:api
+    # - name: Build client image
+    #   uses: docker/build-push-action@v2
+    #   with:
+    #     context: .
+    #     file: ./src/Delights.Client/Dockerfile
+    #     push: false
+    #     tags: |
+    #       stardustdl/delights:client
+    # - name: Build WASM host client image
+    #   uses: docker/build-push-action@v2
+    #   with:
+    #     context: .
+    #     file: ./src/Delights.Client.WebAssembly.Host/Dockerfile
+    #     push: false
+    #     tags: |
+    #       stardustdl/delights:client-wasm-host
+  invoke-docs:
     needs: ci
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
-    runs-on: windows-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Setup dotnet
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: ${{ env.dotnet-version }}
-    - name: Setup dotnet
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: "3.1.x"
-    - name: Setup dotnet
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: "2.1.x"
-    - name: Setup NodeJS
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ env.node-version }}
-    - name: Setup psake
-      run: Set-PSRepository -Name PSGallery -InstallationPolicy Trusted; Install-Module -Name psake
-    - name: Build and Deploy packages
-      run: Invoke-psake cd
-    - name: Install docfx
-      run: choco install docfx -y
-    - name: Generate docs
-      run: docfx ./docs/docfx.json
-    - name: Upload docs
-      uses: actions/upload-artifact@v1
-      with:
-        name: docs
-        path: ./docs/_site
-  deploy-docs:
-    needs: generate-docs
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-      with:
-        persist-credentials: false
-    - name: Download docs
-      uses: actions/download-artifact@v2
-      with:
-        name: docs
-        path: ./docs/_site
-    - name: Deploy
+    - name: Invoke docs workflow
       if: ${{ env.DOCS == 'true' }}
-      uses: JamesIves/github-pages-deploy-action@3.7.1
+      uses: benc-uk/workflow-dispatch@v1
       with:
-        ACCESS_TOKEN: ${{ secrets.PA_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: ./docs/_site
+        workflow: Docs
+        token: ${{ secrets.PA_TOKEN }}
   invoke-cd:
     needs: deploy
     runs-on: ubuntu-latest

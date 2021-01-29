@@ -22,7 +22,7 @@ env:
   build_version: "0.0.2-preview.${{ github.run_number }}"
 
 jobs:
-  docker:
+  deploy:
     runs-on: ubuntu-18.04
     steps:
     - name: Checkout

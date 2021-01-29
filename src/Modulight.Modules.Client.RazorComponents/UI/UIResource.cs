@@ -1,4 +1,5 @@
 ﻿using Microsoft.JSInterop;
+using System;
 using System.Threading.Tasks;
 
 namespace Modulight.Modules.Client.RazorComponents.UI
@@ -43,5 +44,10 @@ namespace Modulight.Modules.Client.RazorComponents.UI
         /// Resource relative path.
         /// </summary>
         public string Path { get; set; } = string.Empty;
+
+        /// <summary>
+        /// Attributes for the resource.
+        /// </summary>
+        public string[] Attributes { get; set; } = Array.Empty<string>();
     }
 }
