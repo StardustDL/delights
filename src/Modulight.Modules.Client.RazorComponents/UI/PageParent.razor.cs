@@ -8,9 +8,10 @@ namespace Modulight.Modules.Client.RazorComponents.UI
     /// </summary>
     public partial class PageParent : ComponentBase
     {
-        private string _title = "";
+        private string _title = "", _icon = "";
         private IRazorComponentClientModule? _module;
-        private RenderFragment? _titleFragment, _breadcrumb, _subtitleFragment, _tags, _footer, _content, _extra;
+        private RenderFragment? _titleFragment, _breadcrumb, _subtitleFragment, _tags, _footer, _headerContent, _headerExtra, _iconFragment;
+        private RenderFragment? _headerFooter;
 
         /// <summary>
         /// Get or set page title.
@@ -27,6 +28,39 @@ namespace Modulight.Modules.Client.RazorComponents.UI
             }
         }
 
+        /// <summary>
+        /// Get or set page icon.
+        /// </summary>
+        public string Icon
+        {
+            get => _icon; set
+            {
+                if (_icon != value)
+                {
+                    _icon = value;
+                    StateHasChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Get or set page icon render fragment.
+        /// </summary>
+        public RenderFragment? IconFragment
+        {
+            get => _iconFragment; set
+            {
+                if (_iconFragment != value)
+                {
+                    _iconFragment = value;
+                    StateHasChanged();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Get or set page header title render fragment.
+        /// </summary>
         public RenderFragment? TitleFragment
         {
             get => _titleFragment; set
@@ -39,6 +73,9 @@ namespace Modulight.Modules.Client.RazorComponents.UI
             }
         }
 
+        /// <summary>
+        /// Get or set page header subtitle render fragment.
+        /// </summary>
         public RenderFragment? SubtitleFragment
         {
             get => _subtitleFragment; set
@@ -51,6 +88,9 @@ namespace Modulight.Modules.Client.RazorComponents.UI
             }
         }
 
+        /// <summary>
+        /// Get or set page header breadcrumb render fragment.
+        /// </summary>
         public RenderFragment? Breadcrumb
         {
             get => _breadcrumb; set
@@ -63,6 +103,9 @@ namespace Modulight.Modules.Client.RazorComponents.UI
             }
         }
 
+        /// <summary>
+        /// Get or set page header tags render fragment.
+        /// </summary>
         public RenderFragment? Tags
         {
             get => _tags; set
@@ -75,6 +118,9 @@ namespace Modulight.Modules.Client.RazorComponents.UI
             }
         }
 
+        /// <summary>
+        /// Get or set page footer render fragment.
+        /// </summary>
         public RenderFragment? Footer
         {
             get => _footer; set
@@ -87,25 +133,47 @@ namespace Modulight.Modules.Client.RazorComponents.UI
             }
         }
 
-        public RenderFragment? Content
+        /// <summary>
+        /// Get or set page header's footer render fragment.
+        /// </summary>
+        public RenderFragment? HeaderFooter
         {
-            get => _content; set
+            get => _headerFooter; set
             {
-                if (_content != value)
+                if (_headerFooter != value)
                 {
-                    _content = value;
+                    _headerFooter = value;
+                    StateHasChanged();
+                }
+
+            }
+        }
+
+        /// <summary>
+        /// Get or set page header content render fragment.
+        /// </summary>
+        public RenderFragment? HeaderContent
+        {
+            get => _headerContent; set
+            {
+                if (_headerContent != value)
+                {
+                    _headerContent = value;
                     StateHasChanged();
                 }
             }
         }
 
-        public RenderFragment? Extra
+        /// <summary>
+        /// Get or set page header extra render fragment.
+        /// </summary>
+        public RenderFragment? HeaderExtra
         {
-            get => _extra; set
+            get => _headerExtra; set
             {
-                if (_extra != value)
+                if (_headerExtra != value)
                 {
-                    _extra = value;
+                    _headerExtra = value;
                     StateHasChanged();
                 }
             }

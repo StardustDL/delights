@@ -20,7 +20,7 @@
         <Tags>
             <AccountItemMetadataDisplay Value="@AccountItem" />
         </Tags>
-        <Extra>
+        <HeaderExtra>
             <ButtonLink Href="@Service.UrlGenerator.AccountItemEdit(AccountItem!)">
                 <MdiIcon Type="@IconNames.Edit"></MdiIcon>
                 <span>Edit</span>
@@ -31,7 +31,7 @@
                     <span>Delete</span>
                 </Button>
             </Popconfirm>
-        </Extra>
+        </HeaderExtra>
     </Modulight.Modules.Client.RazorComponents.UI.PageInfo>
 
     <AmountDisplay Title="Value" Value="AccountItem!.Amount">
