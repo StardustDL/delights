@@ -15,7 +15,6 @@ env:
 
 jobs:
   invoke-docs:
-    needs: ci
     runs-on: ubuntu-latest
     steps:
     - name: Invoke docs workflow
@@ -70,27 +69,27 @@ jobs:
       env:
         NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
       run: Invoke-psake publish-packages-release
-    - name: Push API image
-      uses: docker/build-push-action@v2
-      with:
-        context: .
-        file: ./src/Delights.Api/Dockerfile
-        push: true
-        tags: |
-          stardustdl/delights:api
-    - name: Push client image
-      uses: docker/build-push-action@v2
-      with:
-        context: .
-        file: ./src/Delights.Client/Dockerfile
-        push: true
-        tags: |
-          stardustdl/delights:client
-    - name: Push WASM host client image
-      uses: docker/build-push-action@v2
-      with:
-        context: .
-        file: ./src/Delights.Client.WebAssembly.Host/Dockerfile
-        push: true
-        tags: |
-          stardustdl/delights:client-wasm-host
+    # - name: Push API image
+    #   uses: docker/build-push-action@v2
+    #   with:
+    #     context: .
+    #     file: ./src/Delights.Api/Dockerfile
+    #     push: true
+    #     tags: |
+    #       stardustdl/delights:api
+    # - name: Push client image
+    #   uses: docker/build-push-action@v2
+    #   with:
+    #     context: .
+    #     file: ./src/Delights.Client/Dockerfile
+    #     push: true
+    #     tags: |
+    #       stardustdl/delights:client
+    # - name: Push WASM host client image
+    #   uses: docker/build-push-action@v2
+    #   with:
+    #     context: .
+    #     file: ./src/Delights.Client.WebAssembly.Host/Dockerfile
+    #     push: true
+    #     tags: |
+    #       stardustdl/delights:client-wasm-host
