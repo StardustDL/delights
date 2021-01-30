@@ -48,7 +48,7 @@
     {
         await base.OnInitializedAsync();
 
-        ClientModules = ModuleCollection.Modules.Select(m => m.Manifest).ToList();
+        ClientModules = ModuleCollection.LoadedModules.Select(m => m.Manifest).ToList();
 
         try
         {

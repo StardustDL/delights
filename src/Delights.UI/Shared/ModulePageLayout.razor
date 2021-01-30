@@ -1,5 +1,6 @@
 ﻿@inherits LayoutComponentBase
 @layout MainLayout
+@inject IModuleHost ModuleHost
 
 <PageParent>
     <Microsoft.AspNetCore.Components.Web.Extensions.Head.Title Value="@($"{context.Title} - {context.Module?.Manifest.DisplayName} - Delights")"></Microsoft.AspNetCore.Components.Web.Extensions.Head.Title>

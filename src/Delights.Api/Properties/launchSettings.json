@@ -20,7 +20,7 @@
     "Delights.Api": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "graphql/NotesServer",
+      "launchUrl": "graphql/Notes",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
@@ -30,7 +30,7 @@
     "Delights.Api.Prod": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "graphql/NotesServer",
+      "launchUrl": "graphql/Notes",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Production"
       },

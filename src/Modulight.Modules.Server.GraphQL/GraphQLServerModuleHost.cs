@@ -16,7 +16,12 @@ namespace Modulight.Modules.Server.GraphQL
         /// <summary>
         /// Get all registered modules.
         /// </summary>
-        new IReadOnlyList<IGraphQLServerModule> Modules { get; }
+        new IEnumerable<Type> DefinedModules { get; }
+
+        /// <summary>
+        /// Get all registered modules.
+        /// </summary>
+        new IEnumerable<IGraphQLServerModule> LoadedModules { get; }
 
         /// <summary>
         /// Map all registered module's endpoints.
@@ -27,19 +32,15 @@ namespace Modulight.Modules.Server.GraphQL
         void MapEndpoints(IEndpointRouteBuilder builder, Action<IGraphQLServerModule, GraphQLEndpointConventionBuilder>? postMapEndpoint = null);
     }
 
-    internal class GraphQLServerModuleHost : DefaultModuleHost, IGraphQLServerModuleHost
+    internal class GraphQLServerModuleHost : ModuleHostFilter<IGraphQLServerModule>, IGraphQLServerModuleHost
     {
-        public GraphQLServerModuleHost(IServiceProvider services, IReadOnlyDictionary<Type, ModuleManifest> moduleTypes) : base(services,
-            new Dictionary<Type, ModuleManifest>(moduleTypes.Where(x => x.Key.IsModule<IGraphQLServerModule>())))
+        public GraphQLServerModuleHost(IModuleHost host) : base(host)
         {
-            Modules = base.Modules.Select(x => (IGraphQLServerModule)x).ToArray();
         }
-
-        public new IReadOnlyList<IGraphQLServerModule> Modules { get; }
 
         public void MapEndpoints(IEndpointRouteBuilder builder, Action<IGraphQLServerModule, GraphQLEndpointConventionBuilder>? postMapEndpoint = null)
         {
-            foreach (var module in Modules)
+            foreach (var module in LoadedModules)
             {
                 var gbuilder = module.MapEndpoint(builder);
                 if (gbuilder is not null && postMapEndpoint is not null)

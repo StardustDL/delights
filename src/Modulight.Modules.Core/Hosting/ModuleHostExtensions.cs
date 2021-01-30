@@ -15,6 +15,12 @@ namespace Modulight.Modules.Hosting
             return services.GetRequiredService<IModuleHost>();
         }
 
+        public static ModuleManifest GetManifest<TModule>(this IModuleHost host) where TModule : IModule => host.GetManifest(typeof(TModule));
+
+        public static T GetService<TModule, T>(this IModuleHost host, IServiceProvider provider) where T : notnull where TModule : IModule => host.GetService<T>(provider, typeof(TModule));
+
+        public static T GetOption<TModule, T>(this IModuleHost host, IServiceProvider provider) where T : class where TModule : IModule => host.GetOption<T>(provider, typeof(TModule));
+
         /// <summary>
         /// Add a typed module.
         /// </summary>

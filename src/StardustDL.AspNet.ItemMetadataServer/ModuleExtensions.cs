@@ -7,14 +7,14 @@ namespace StardustDL.AspNet.ItemMetadataServer
 {
     public static class ModuleExtensions
     {
-        public static IModuleHostBuilder AddItemMetadataServerModule(this IModuleHostBuilder builder, Action<ItemMetadataServerModuleStartupOption>? configureStartupOption = null)
+        public static IModuleHostBuilder AddItemMetadataServerModule(this IModuleHostBuilder builder, Action<ItemMetadataServerModuleStartupOption, IServiceProvider>? configureStartupOptions = null)
         {
             builder.AddModule<ItemMetadataServerModule>();
-            if (configureStartupOption is not null)
+            if (configureStartupOptions is not null)
             {
                 builder.ConfigureBuilderServices(services =>
                 {
-                    services.Configure(configureStartupOption);
+                    services.AddOptions<ItemMetadataServerModuleStartupOption>().Configure(configureStartupOptions);
                 });
             }
             return builder;

@@ -9,14 +9,14 @@
             <MenuItem Class="text-center p-0">
                 Delights
             </MenuItem>
-            @foreach (var module in ModuleHost.Modules.AllSpecifyModules<IRazorComponentClientModule>())
+            @foreach (var module in ModuleHost.LoadedModules.AllSpecifyModules<IRazorComponentClientModule>())
             {
                 var ui = module.GetUI(ServiceProvider);
-                if (ui.RootPath is not "")
+                if (ui is not null && ui.RootPath is not "")
                 {
                     <MenuItem>
                         <ModuleIcon Module="module" Fallback="@Fragments.DefaultModuleIcon"></ModuleIcon>
-                        <MenuLink href="@ui.RootPath">@module.Manifest.DisplayName</MenuLink>
+                        <MenuLink href="@ui.RootPath">@module?.Manifest.DisplayName</MenuLink>
                     </MenuItem>
                 }
             }

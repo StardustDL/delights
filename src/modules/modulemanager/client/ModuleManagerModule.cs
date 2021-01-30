@@ -9,34 +9,34 @@ using Microsoft.Extensions.Options;
 using StardustDL.RazorComponents.AntDesigns;
 using Modulight.Modules;
 using StardustDL.RazorComponents.MaterialDesignIcons;
+using Modulight.Modules.Hosting;
 
 namespace Delights.Modules.ModuleManager
 {
-
     [Module(Url = Shared.SharedManifest.Url, Author = Shared.SharedManifest.Author, Description = SharedManifest.Description)]
-    public class ModuleManagerModule : RazorComponentClientModule<ModuleService, ModuleOption, ModuleUI>
+    [ModuleStartup(typeof(Startup))]
+    [ModuleService(typeof(ModuleService))]
+    [ModuleUI(typeof(ModuleUI))]
+    //TODO: antd icon
+    public class ModuleManagerModule : RazorComponentClientModule<ModuleManagerModule>
     {
-        public ModuleManagerModule() : base()
+        public ModuleManagerModule(IModuleHost host) : base(host)
         {
         }
+    }
 
-        public override void RegisterServices(IServiceCollection services)
+    public class Startup : ModuleStartup
+    {
+        public override void ConfigureServices(IServiceCollection services)
         {
-            base.RegisterServices(services);
             services.AddHttpClient(
                 "ModuleManagerGraphQLClient", (sp, client) =>
                 {
                     var option = sp.GetRequiredService<IOptions<ModuleOption>>().Value;
-                    client.BaseAddress = new Uri(option.GraphQLEndpoint.TrimEnd('/') + $"/{Manifest.Name}Server");
+                    client.BaseAddress = new Uri(option.GraphQLEndpoint.TrimEnd('/') + $"/ModuleManager");
                 });
             services.AddModuleManagerGraphQLClient();
-        }
-
-        public override void Setup(Modulight.Modules.IModuleHostBuilder host)
-        {
-            base.Setup(host);
-            host.AddAntDesignModule();
-            host.AddMaterialDesignIconModule();
+            base.ConfigureServices(services);
         }
     }
 }

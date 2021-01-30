@@ -17,10 +17,31 @@ namespace Modulight.Modules
         Task Initialize();
 
         Task Shutdown();
+
+        ModuleManifest Manifest { get; }
     }
 
     public abstract class Module : IModule
     {
+        Lazy<ModuleManifest> _manifest;
+
+        public IModuleHost Host { get; }
+
+        public IServiceProvider Services { get; }
+
+        protected Module(IModuleHost host)
+        {
+            Host = host;
+            Services = host.Services;
+            _manifest = new Lazy<ModuleManifest>(() => Host.GetManifest(GetType()));
+        }
+
+        public ModuleManifest Manifest => _manifest.Value;
+
+        public T GetService<T>(IServiceProvider provider) where T : notnull => Host.GetService<T>(provider, GetType());
+
+        public T GetOption<T>(IServiceProvider provider) where T : class => Host.GetOption<T>(provider, GetType());
+
         public virtual Task Initialize() => Task.CompletedTask;
 
         public virtual Task Shutdown() => Task.CompletedTask;
@@ -28,26 +49,11 @@ namespace Modulight.Modules
 
     public abstract class Module<TModule> : Module
     {
-        Lazy<ModuleManifest> _manifest;
-
-        protected Module(IModuleHost host)
+        protected Module(IModuleHost host) : base(host)
         {
             Logger = host.GetLogger<TModule>();
-            Host = host;
-            Services = host.Services;
-            _manifest = new Lazy<ModuleManifest>(() => Host.GetManifest(this));
         }
 
         public ILogger<TModule> Logger { get; }
-
-        public IModuleHost Host { get; }
-
-        public IServiceProvider Services { get; }
-
-        public T GetService<T>(IServiceProvider provider) where T : notnull => Host.GetService<T>(provider, this);
-
-        public T GetOption<T>(IServiceProvider provider) where T : class => Host.GetOption<T>(provider, this);
-
-        public ModuleManifest Manifest => _manifest.Value;
     }
 }

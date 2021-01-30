@@ -11,7 +11,7 @@ namespace Modulight.Modules.Server.AspNet
         /// <inheritdoc/>
         public override void AfterBuild(IReadOnlyDictionary<Type, ModuleManifest> modules, IServiceCollection services)
         {
-            services.AddSingleton<IAspNetServerModuleHost>(sp => new AspNetServerModuleHost(sp, modules));
+            services.AddSingleton<IAspNetServerModuleHost>(sp => new AspNetServerModuleHost(sp.GetRequiredService<IModuleHost>()));
             base.AfterBuild(modules, services);
         }
     }

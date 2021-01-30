@@ -5,34 +5,36 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using System;
 using Modulight.Modules;
+/*
 using Delights.Modules.Notes;
 using Delights.Modules.Persons;
-using Delights.Modules.Bookkeeping;
+using Delights.Modules.Bookkeeping;*/
+using Modulight.Modules.Hosting;
 
 namespace Delights.Client.Shared
 {
     public static class ModuleSetup
     {
-        public static Modulight.Modules.IModuleHostBuilder CreateDefaultBuilder(bool isDev)
+        public static IModuleHostBuilder CreateDefaultBuilder(bool isDev)
         {
-            var builder = Modulight.Modules.ModuleHostBuilder.CreateDefaultBuilder()
+            var builder = ModuleHostBuilder.CreateDefaultBuilder()
                 .UseRazorComponentClientModules()
                 .AddModule<UI.UiModule>()
-                .AddNotesModule(configureOptions: (o, sp) =>
-                {
-                    var serverConfiguration = sp.GetRequiredService<IOptions<ServerConfiguration>>().Value;
-                    o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;
-                })
-            .AddPersonsModule(configureOptions: (o, sp) =>
-             {
-                 var serverConfiguration = sp.GetRequiredService<IOptions<ServerConfiguration>>().Value;
-                 o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;
-             })
-            .AddBookkeepingModule(configureOptions: (o, sp) =>
+            /*.AddNotesModule(configureOptions: (o, sp) =>
             {
                 var serverConfiguration = sp.GetRequiredService<IOptions<ServerConfiguration>>().Value;
                 o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;
-            });
+            })
+        .AddPersonsModule(configureOptions: (o, sp) =>
+         {
+             var serverConfiguration = sp.GetRequiredService<IOptions<ServerConfiguration>>().Value;
+             o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;
+         })
+        .AddBookkeepingModule(configureOptions: (o, sp) =>
+        {
+            var serverConfiguration = sp.GetRequiredService<IOptions<ServerConfiguration>>().Value;
+            o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;
+        })*/;
 
             if (isDev)
             {

@@ -12,7 +12,7 @@ namespace Modulight.Modules.Server.GraphQL
         /// <inheritdoc/>
         public override void AfterBuild(IReadOnlyDictionary<Type, ModuleManifest> modules, IServiceCollection services)
         {
-            services.AddSingleton<IGraphQLServerModuleHost>(sp => new GraphQLServerModuleHost(sp, modules));
+            services.AddSingleton<IGraphQLServerModuleHost>(sp => new GraphQLServerModuleHost(sp.GetRequiredService<IModuleHost>()));
             base.AfterBuild(modules, services);
         }
 

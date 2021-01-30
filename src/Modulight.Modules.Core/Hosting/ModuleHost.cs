@@ -17,68 +17,83 @@ namespace Modulight.Modules.Hosting
         /// <summary>
         /// Get all registered modules.
         /// </summary>
-        IReadOnlyList<IModule> Modules { get; }
+        IEnumerable<IModule> LoadedModules { get; }
 
+        IEnumerable<Type> DefinedModules { get; }
 
         IServiceProvider Services { get; }
 
         /// <summary>
         /// Get manifest for the module.
         /// </summary>
-        ModuleManifest GetManifest(IModule module);
+        ModuleManifest GetManifest(Type moduleType);
+
+        IModule GetModule(Type moduleType);
 
         Task Initialize();
 
         Task Shutdown();
 
-        T GetService<T>(IServiceProvider provider, IModule module) where T : notnull;
+        T GetService<T>(IServiceProvider provider, Type moduleType) where T : notnull;
 
-        T GetOption<T>(IServiceProvider provider, IModule module) where T : class;
+        T GetOption<T>(IServiceProvider provider, Type moduleType) where T : class;
 
         ILogger<TModule> GetLogger<TModule>();
     }
 
-    public class DefaultModuleHost : IModuleHost
+    internal class DefaultModuleHost : IModuleHost
     {
-        protected IReadOnlyDictionary<IModule, ModuleManifest> LoadedModules { get; }
+        IReadOnlyDictionary<Type, IModule> _LoadedModules { get; set; } = new Dictionary<Type, IModule>();
 
-        ISet<Type> LoadedModuleTypes { get; set; }
+        IReadOnlyDictionary<Type, ModuleManifest> _DefinedModules { get; set; }
 
-        public DefaultModuleHost(IServiceProvider services, IReadOnlyDictionary<Type, ModuleManifest> moduleTypes)
+        public DefaultModuleHost(IServiceProvider services, IReadOnlyDictionary<Type, ModuleManifest> definedModules)
         {
             Services = services;
-            var modules = new Dictionary<IModule, ModuleManifest>();
-            foreach (var (type, manifest) in moduleTypes)
-            {
-                modules.Add((IModule)Services.GetRequiredService(type), manifest);
-            }
-            LoadedModules = modules;
-            LoadedModuleTypes = new HashSet<Type>(moduleTypes.Keys);
-            Modules = modules.Keys.ToArray();
+
+            _DefinedModules = definedModules;
+            DefinedModules = _DefinedModules.Keys;
         }
 
         /// <inheritdoc/>
-        public virtual IReadOnlyList<IModule> Modules { get; protected set; }
+        public virtual IEnumerable<IModule> LoadedModules { get; protected set; } = Array.Empty<IModule>();
 
+        /// <inheritdoc/>
+        public virtual IEnumerable<Type> DefinedModules { get; protected set; }
+
+        /// <inheritdoc/>
         public virtual IServiceProvider Services { get; protected set; }
 
         /// <inheritdoc/>
-        public virtual ModuleManifest GetManifest(IModule module)
+        public virtual ModuleManifest GetManifest(Type moduleType)
         {
-            if (LoadedModules.TryGetValue(module, out var value))
+            if (_DefinedModules.TryGetValue(moduleType, out var value))
             {
                 return value;
             }
             else
             {
-                throw new Exception($"No such module: {module.GetType().FullName}.");
+                throw new Exception($"No such defined module: {moduleType.FullName}.");
             }
         }
 
         /// <inheritdoc/>
-        public virtual T GetService<T>(IServiceProvider provider, IModule module) where T : notnull
+        public virtual IModule GetModule(Type moduleType)
         {
-            var manifest = GetManifest(module);
+            if (_LoadedModules.TryGetValue(moduleType, out var value))
+            {
+                return value;
+            }
+            else
+            {
+                throw new Exception($"No such loaded module: {moduleType.FullName}.");
+            }
+        }
+
+        /// <inheritdoc/>
+        public virtual T GetService<T>(IServiceProvider provider, Type moduleType) where T : notnull
+        {
+            var manifest = GetManifest(moduleType);
             var type = typeof(T);
             if (manifest.Services.Any(x => x.Type == type))
             {
@@ -86,14 +101,14 @@ namespace Modulight.Modules.Hosting
             }
             else
             {
-                throw new Exception($"No such service for the module {module.GetType().FullName}: {type.FullName}.");
+                throw new Exception($"No such service for the module {moduleType.FullName}: {type.FullName}.");
             }
         }
 
         /// <inheritdoc/>
-        public virtual T GetOption<T>(IServiceProvider provider, IModule module) where T : class
+        public virtual T GetOption<T>(IServiceProvider provider, Type moduleType) where T : class
         {
-            var manifest = GetManifest(module);
+            var manifest = GetManifest(moduleType);
             var type = typeof(T);
             if (manifest.Options.Any(x => x == type))
             {
@@ -101,14 +116,22 @@ namespace Modulight.Modules.Hosting
             }
             else
             {
-                throw new Exception($"No such option for the module {module.GetType().FullName}: {type.FullName}.");
+                throw new Exception($"No such option for the module {moduleType.FullName}: {type.FullName}.");
             }
         }
 
         /// <inheritdoc/>
         public virtual async Task Initialize()
         {
-            foreach (var module in Modules)
+            var modules = new Dictionary<Type, IModule>();
+            foreach (var (type, _) in _DefinedModules)
+            {
+                modules.Add(type, (IModule)Services.GetRequiredService(type));
+            }
+            _LoadedModules = modules;
+            LoadedModules = _LoadedModules.Values;
+
+            foreach (var module in LoadedModules)
             {
                 await module.Initialize();
             }
@@ -117,7 +140,7 @@ namespace Modulight.Modules.Hosting
         /// <inheritdoc/>
         public virtual async Task Shutdown()
         {
-            foreach (var module in Modules)
+            foreach (var module in LoadedModules)
             {
                 await module.Shutdown();
             }
@@ -127,7 +150,7 @@ namespace Modulight.Modules.Hosting
         public virtual ILogger<TModule> GetLogger<TModule>()
         {
             var type = typeof(TModule);
-            if (LoadedModuleTypes.Contains(type))
+            if (_DefinedModules.ContainsKey(type))
             {
                 return Services.GetRequiredService<ILogger<TModule>>();
             }
@@ -136,5 +159,39 @@ namespace Modulight.Modules.Hosting
                 throw new Exception($"No such module: {type.FullName}.");
             }
         }
+    }
+
+    public class ModuleHostWrapper : IModuleHost
+    {
+        public ModuleHostWrapper(IModuleHost host)
+        {
+            Host = host;
+        }
+        public IModuleHost Host { get; }
+
+        public IEnumerable<IModule> LoadedModules => Host.LoadedModules;
+
+        public IEnumerable<Type> DefinedModules => Host.DefinedModules;
+
+        public IServiceProvider Services => Host.Services;
+
+        public ILogger<TModule> GetLogger<TModule>() => Host.GetLogger<TModule>();
+        public ModuleManifest GetManifest(Type moduleType) => Host.GetManifest(moduleType);
+        public IModule GetModule(Type moduleType) => Host.GetModule(moduleType);
+        public T GetOption<T>(IServiceProvider provider, Type moduleType) where T : class => Host.GetOption<T>(provider, moduleType);
+        public T GetService<T>(IServiceProvider provider, Type moduleType) where T : notnull => Host.GetService<T>(provider, moduleType);
+        public Task Initialize() => Host.Initialize();
+        public Task Shutdown() => Host.Shutdown();
+    }
+
+    public class ModuleHostFilter<TModule> : ModuleHostWrapper where TModule : IModule
+    {
+        public ModuleHostFilter(IModuleHost host) : base(host)
+        {
+        }
+
+        public new IEnumerable<TModule> LoadedModules => Host.LoadedModules.Where(x => x is TModule).Select(x => (TModule)x);
+
+        public new IEnumerable<Type> DefinedModules => Host.DefinedModules.Where(x => x.IsModule<TModule>());
     }
 }

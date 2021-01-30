@@ -1,13 +1,22 @@
 ﻿using System;
+using Microsoft.Extensions.DependencyInjection;
 using Modulight.Modules;
+using Modulight.Modules.Hosting;
 
 namespace Delights.Modules.ModuleManager
 {
     public static class ModuleExtensions
     {
-        public static Modulight.Modules.IModuleHostBuilder AddModuleManagerModule(this Modulight.Modules.IModuleHostBuilder modules, Action<ModuleOption>? setupOptions = null, Action<ModuleOption, IServiceProvider>? configureOptions = null)
+        public static IModuleHostBuilder AddModuleManagerModule(this IModuleHostBuilder modules, Action<ModuleOption, IServiceProvider>? configureOptions = null)
         {
-            modules.TryAddModule<ModuleManagerModule, ModuleOption>(setupOptions, configureOptions);
+            modules.AddModule<ModuleManagerModule>();
+            if (configureOptions is not null)
+            {
+                modules.ConfigureServices(services =>
+                {
+                    services.AddOptions<ModuleOption>().Configure(configureOptions);
+                });
+            }
             return modules;
         }
     }

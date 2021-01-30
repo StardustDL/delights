@@ -19,14 +19,14 @@ namespace Delights.Modules.Hello
 {
     public static class ModuleExtensions
     {
-        public static IModuleHostBuilder AddHelloModule(this IModuleHostBuilder modules, Action<ModuleOption>? configureOptions = null)
+        public static IModuleHostBuilder AddHelloModule(this IModuleHostBuilder modules, Action<ModuleOption, IServiceProvider>? configureOptions = null)
         {
             modules.AddModule<HelloModule>();
             if (configureOptions is not null)
             {
                 modules.ConfigureServices(services =>
                 {
-                    services.Configure(configureOptions);
+                    services.AddOptions<ModuleOption>().Configure(configureOptions);
                 });
             }
             return modules;

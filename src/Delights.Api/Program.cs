@@ -33,7 +33,7 @@ namespace Delights.Api
                     LockoutEnabled = false
                 }, "123P$d");*/
                 
-                {
+                /*{
                     var ims = services.GetRequiredService<Delights.Modules.Notes.Server.ModuleService>();
                     await ims.Initialize();
                 }
@@ -44,7 +44,7 @@ namespace Delights.Api
                 {
                     var ims = services.GetRequiredService<Delights.Modules.Bookkeeping.Server.ModuleService>();
                     await ims.Initialize();
-                }
+                }*/
             }
 
             await host.RunAsync();

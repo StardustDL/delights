@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Modulight.Modules.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;

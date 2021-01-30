@@ -1,9 +1,8 @@
 ﻿using Delights.Modules.ModuleManager.GraphQL;
-using Modulight.Modules.Services;
 
 namespace Delights.Modules.ModuleManager
 {
-    public class ModuleService : IModuleService
+    public class ModuleService
     {
         public IModuleManagerGraphQLClient GraphQLClient { get; }
 

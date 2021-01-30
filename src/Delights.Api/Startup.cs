@@ -24,9 +24,10 @@ using StardustDL.AspNet.ObjectStorage;
 using StardustDL.AspNet.ItemMetadataServer;
 using StardustDL.AspNet.IdentityServer;
 using Microsoft.EntityFrameworkCore;
-using Delights.Modules.Notes.Server;
+/*using Delights.Modules.Notes.Server;
 using Delights.Modules.Bookkeeping.Server;
-using Delights.Modules.Persons.Server;
+using Delights.Modules.Persons.Server;*/
+using Modulight.Modules.Hosting;
 
 namespace Delights.Api
 {
@@ -62,7 +63,7 @@ namespace Delights.Api
                 o.JwtAudiences = new string[] { "Delights.ApiAPI" };
             }).AddIdentityServerGraphQLModule()*/
 
-            builder.AddObjectStorageModule((o) =>
+            /*builder.AddObjectStorageModule((o) =>
                 {
                     o.Endpoint = "localhost:9000";
                     o.AccessKey = "user";
@@ -75,11 +76,11 @@ namespace Delights.Api
                 o.ConfigureDbContext = options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ItemMetadataConnection"));
             })
-                .AddItemMetadataServerGraphqlModule();
+                .AddItemMetadataServerGraphqlModule();*/
 
             builder.AddHelloModule()
                 .AddModuleManagerModule()
-                .AddPersonsModule(o =>
+                /*.AddPersonsModule(o =>
                 {
                     o.ConfigureDbContext = options =>
                         options.UseSqlServer(Configuration.GetConnectionString("PersonsConnection"));
@@ -93,7 +94,7 @@ namespace Delights.Api
                  {
                      o.ConfigureDbContext = options =>
                          options.UseSqlServer(Configuration.GetConnectionString("BookkeepingConnection"));
-                 });
+                 })*/;
 
             builder.Build(services);
         }

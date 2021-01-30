@@ -15,7 +15,12 @@ namespace Modulight.Modules.Server.AspNet
         /// <summary>
         /// Get all registered modules.
         /// </summary>
-        new IReadOnlyList<IAspNetServerModule> Modules { get; }
+        new IEnumerable<Type> DefinedModules { get; }
+
+        /// <summary>
+        /// Get all registered modules.
+        /// </summary>
+        new IEnumerable<IAspNetServerModule> LoadedModules { get; }
 
         /// <summary>
         /// Map all registered module's endpoints.
@@ -33,19 +38,15 @@ namespace Modulight.Modules.Server.AspNet
         void UseMiddlewares(IApplicationBuilder builder);
     }
 
-    internal class AspNetServerModuleHost : DefaultModuleHost, IAspNetServerModuleHost
+    internal class AspNetServerModuleHost : ModuleHostFilter<IAspNetServerModule>, IAspNetServerModuleHost
     {
-        public AspNetServerModuleHost(IServiceProvider services, IReadOnlyDictionary<Type, ModuleManifest> moduleTypes) : base(services,
-            new Dictionary<Type, ModuleManifest>(moduleTypes.Where(x => x.Key.IsModule<IAspNetServerModule>())))
+        public AspNetServerModuleHost(IModuleHost host) : base(host)
         {
-            Modules = base.Modules.Select(x => (IAspNetServerModule)x).ToArray();
         }
-
-        public new IReadOnlyList<IAspNetServerModule> Modules { get; }
 
         public void MapEndpoints(IEndpointRouteBuilder builder, Action<IAspNetServerModule, IEndpointRouteBuilder>? postMapEndpoint = null)
         {
-            foreach (var module in Modules)
+            foreach (var module in LoadedModules)
             {
                 module.MapEndpoint(builder);
                 if (postMapEndpoint is not null)
@@ -55,7 +56,7 @@ namespace Modulight.Modules.Server.AspNet
 
         public void UseMiddlewares(IApplicationBuilder builder)
         {
-            foreach (var module in Modules)
+            foreach (var module in LoadedModules)
             {
                 module.UseMiddleware(builder);
             }

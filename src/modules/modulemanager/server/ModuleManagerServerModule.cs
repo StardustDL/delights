@@ -2,15 +2,15 @@ using Modulight.Modules.Server.GraphQL;
 using System;
 using System.Collections.Generic;
 using Modulight.Modules;
+using Modulight.Modules.Hosting;
 
 namespace Delights.Modules.ModuleManager.Server
 {
     [Module(Url = Shared.SharedManifest.Url, Author = Shared.SharedManifest.Author, Description = SharedManifest.Description)]
-    public class ModuleManagerServerModule : GraphQLServerModule<ModuleService, ModuleOption>
+    [GraphQLModuleType("ModuleManager", typeof(ModuleQuery))]
+    public class ModuleManagerServerModule : GraphQLServerModule<ModuleManagerServerModule>
     {
-        public override Type QueryType => typeof(ModuleQuery);
-
-        public ModuleManagerServerModule() : base()
+        public ModuleManagerServerModule(IModuleHost host) : base(host)
         {
         }
     }

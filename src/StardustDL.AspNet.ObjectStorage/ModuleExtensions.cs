@@ -15,14 +15,14 @@ namespace StardustDL.AspNet.ObjectStorage
         /// </summary>
         /// <param name="modules"></param>
         /// <returns></returns>
-        public static IModuleHostBuilder AddObjectStorageModule(this IModuleHostBuilder modules, Action<ObjectStorageModuleOption>? configureOptions = null)
+        public static IModuleHostBuilder AddObjectStorageModule(this IModuleHostBuilder modules, Action<ObjectStorageModuleOption, IServiceProvider>? configureOptions = null)
         {
             modules.AddModule<ObjectStorageModule>();
             if (configureOptions is not null)
             {
                 modules.ConfigureServices(services =>
                 {
-                    services.Configure(configureOptions);
+                    services.AddOptions<ObjectStorageModuleOption>().Configure(configureOptions);
                 });
             }
             return modules;
@@ -33,14 +33,14 @@ namespace StardustDL.AspNet.ObjectStorage
         /// </summary>
         /// <param name="modules"></param>
         /// <returns></returns>
-        public static IModuleHostBuilder AddObjectStorageApiModule(this IModuleHostBuilder modules, Action<ObjectStorageApiModuleOption>? configureOptions = null)
+        public static IModuleHostBuilder AddObjectStorageApiModule(this IModuleHostBuilder modules, Action<ObjectStorageApiModuleOption, IServiceProvider>? configureOptions = null)
         {
             modules.AddModule<ObjectStorageApiModule>();
             if (configureOptions is not null)
             {
                 modules.ConfigureServices(services =>
                 {
-                    services.Configure(configureOptions);
+                    services.AddOptions<ObjectStorageApiModuleOption>().Configure(configureOptions);
                 });
             }
             return modules;

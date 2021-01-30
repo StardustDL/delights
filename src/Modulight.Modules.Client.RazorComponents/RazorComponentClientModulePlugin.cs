@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Modulight.Modules.Hosting;
 using System.Reflection;
+using Microsoft.AspNetCore.Components.WebAssembly.Services;
 
 namespace Modulight.Modules.Client.RazorComponents
 {
@@ -12,7 +13,8 @@ namespace Modulight.Modules.Client.RazorComponents
         /// <inheritdoc/>
         public override void AfterBuild(IReadOnlyDictionary<Type, ModuleManifest> modules, IServiceCollection services)
         {
-            services.AddSingleton<IRazorComponentClientModuleHost>(sp => new RazorComponentClientModuleHost(sp, modules));
+            services.AddSingleton<IRazorComponentClientModuleHost>(sp => new RazorComponentClientModuleHost(sp.GetRequiredService<IModuleHost>()));
+            services.AddScoped<LazyAssemblyLoader>();
             base.AfterBuild(modules, services);
         }
 
