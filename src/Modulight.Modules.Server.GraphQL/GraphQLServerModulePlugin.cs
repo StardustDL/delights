@@ -10,13 +10,13 @@ namespace Modulight.Modules.Server.GraphQL
     public sealed class GraphQLServerModulePlugin : ModuleHostBuilderPlugin
     {
         /// <inheritdoc/>
-        public override Task AfterBuild(IReadOnlyDictionary<Type, ModuleManifest> modules, IServiceCollection services)
+        public override void AfterBuild(IReadOnlyDictionary<Type, ModuleManifest> modules, IServiceCollection services)
         {
             services.AddSingleton<IGraphQLServerModuleHost>(sp => new GraphQLServerModuleHost(sp, modules));
-            return base.AfterBuild(modules, services);
+            base.AfterBuild(modules, services);
         }
 
-        public override Task AfterModule(Type module, ModuleManifest manifest, IModuleStartup? startup, IServiceCollection services)
+        public override void AfterModule(Type module, ModuleManifest manifest, IModuleStartup? startup, IServiceCollection services)
         {
             if (module.IsModule<IGraphQLServerModule>())
             {
@@ -36,7 +36,7 @@ namespace Modulight.Modules.Server.GraphQL
                     builder.AddFiltering().AddSorting().AddProjections();
                 }
             }
-            return base.AfterModule(module, manifest, startup, services);
+            base.AfterModule(module, manifest, startup, services);
         }
     }
 }

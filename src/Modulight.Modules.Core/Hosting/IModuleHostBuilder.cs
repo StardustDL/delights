@@ -29,11 +29,13 @@ namespace Modulight.Modules.Hosting
 
         IModuleHostBuilder ConfigureBuilderServices(Action<IServiceCollection> configureBuilderServices);
 
+        IModuleHostBuilder ConfigureServices(Action<IServiceCollection> configureServices);
+
         /// <summary>
         /// Build the modules and the module host in service collection.
         /// </summary>
         /// <param name="services">Target service collection.</param>
         /// <param name="builderServices">Service collection for builder.</param>
-        Task Build(IServiceCollection services, IServiceCollection? builderServices = null);
+        void Build(IServiceCollection services, IServiceCollection? builderServices = null);
     }
 }

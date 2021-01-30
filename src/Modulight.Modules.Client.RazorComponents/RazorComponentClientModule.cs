@@ -2,20 +2,18 @@
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Reflection;
+using Modulight.Modules.Hosting;
 
 namespace Modulight.Modules.Client.RazorComponents
 {
     /// <summary>
     /// Basic implement for <see cref="IRazorComponentClientModule"/>.
     /// </summary>
-    /// <typeparam name="TUIService"></typeparam>
-    /// <typeparam name="TOption"></typeparam>
-    /// <typeparam name="TUI"></typeparam>
-    public abstract class RazorComponentClientModule<TUIService, TOption, TUI> : Module, IRazorComponentClientModule
+    public abstract class RazorComponentClientModule<TModule> : Module<TModule>, IRazorComponentClientModule
     {
         Lazy<ModuleUIAttribute?> ModuleUIAttribute;
 
-        protected RazorComponentClientModule()
+        protected RazorComponentClientModule(IModuleHost host) : base(host)
         {
             ModuleUIAttribute = new Lazy<ModuleUIAttribute?>(() => GetType().GetCustomAttribute<ModuleUIAttribute>());
         }

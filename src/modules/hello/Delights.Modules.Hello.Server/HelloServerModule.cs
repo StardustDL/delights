@@ -1,5 +1,4 @@
 ﻿using Modulight.Modules.Server.GraphQL;
-using Modulight.Modules.Services;
 using HotChocolate;
 using HotChocolate.Data;
 using HotChocolate.Types;
@@ -8,24 +7,25 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Modulight.Modules;
+using Modulight.Modules.Hosting;
 
 namespace Delights.Modules.Hello.Server
 {
     public static class ModuleExtensions
     {
-        public static IModuleHostBuilder AddHelloModule(this IModuleHostBuilder modules, Action<ModuleOption>? setupOptions = null, Action<ModuleOption, IServiceProvider>? configureOptions = null)
+        public static IModuleHostBuilder AddHelloModule(this IModuleHostBuilder modules)
         {
-            modules.TryAddModule<HelloServerModule, ModuleOption>(setupOptions, configureOptions);
+            modules.AddModule<HelloServerModule>();
             return modules;
         }
     }
 
     [Module(Url = Shared.SharedManifest.Url, Author = Shared.SharedManifest.Author, Description = SharedManifest.Description)]
-    public class HelloServerModule : GraphQLServerModule<ModuleService, ModuleOption>
+    [GraphQLModuleType("Hello", typeof(ModuleQuery))]
+    [ModuleService(typeof(ModuleService))]
+    public class HelloServerModule : GraphQLServerModule<HelloServerModule>
     {
-        public override Type QueryType => typeof(ModuleQuery);
-
-        public HelloServerModule() : base()
+        public HelloServerModule(IModuleHost host) : base(host)
         {
         }
     }
@@ -48,7 +48,7 @@ namespace Delights.Modules.Hello.Server
         public string Content { get; init; } = "";
     }
 
-    public class ModuleService : IModuleService
+    public class ModuleService
     {
         public ModuleService(ILogger<HelloServerModule> logger) => Logger = logger;
 

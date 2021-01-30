@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Modulight.Modules.Services;
 using StardustDL.AspNet.ItemMetadataServer.Data;
 using StardustDL.AspNet.ItemMetadataServer.Models.Actions;
 using StardustDL.AspNet.ItemMetadataServer.Models.Raws;
@@ -12,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace StardustDL.AspNet.ItemMetadataServer
 {
-    public class ModuleService : IModuleService
+    public class ModuleService
     {
-        public ModuleService(IServiceProvider services, DataDbContext dbContext, IOptions<ModuleOption> options)
+        public ModuleService(IServiceProvider services, DataDbContext dbContext, IOptions<ItemMetadataServerModuleStartupOption> options)
         {
             Services = services;
             Options = options.Value;
@@ -23,15 +22,9 @@ namespace StardustDL.AspNet.ItemMetadataServer
 
         IServiceProvider Services { get; }
 
-        ModuleOption Options { get; }
+        ItemMetadataServerModuleStartupOption Options { get; }
 
         internal DataDbContext DbContext { get; }
-
-        public async Task Initialize()
-        {
-            await DbContext.Database.EnsureCreatedAsync();
-            await DbContext.SaveChangesAsync();
-        }
 
         public IQueryable<RawItemMetadata> QueryAllItems()
         {

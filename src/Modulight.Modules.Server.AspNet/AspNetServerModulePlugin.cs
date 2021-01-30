@@ -9,10 +9,10 @@ namespace Modulight.Modules.Server.AspNet
     public sealed class AspNetServerModulePlugin : ModuleHostBuilderPlugin
     {
         /// <inheritdoc/>
-        public override Task AfterBuild(IReadOnlyDictionary<Type, ModuleManifest> modules, IServiceCollection services)
+        public override void AfterBuild(IReadOnlyDictionary<Type, ModuleManifest> modules, IServiceCollection services)
         {
             services.AddSingleton<IAspNetServerModuleHost>(sp => new AspNetServerModuleHost(sp, modules));
-            return base.AfterBuild(modules, services);
+            base.AfterBuild(modules, services);
         }
     }
 }

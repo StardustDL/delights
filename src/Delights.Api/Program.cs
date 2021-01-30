@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Modulight.Modules;
+using Modulight.Modules.Hosting;
 using StardustDL.AspNet.IdentityServer;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,8 @@ namespace Delights.Api
         {
             var host = CreateHostBuilder(args).Build();
 
+            await host.Services.GetModuleHost().Initialize();
+
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
@@ -29,10 +32,7 @@ namespace Delights.Api
                     EmailConfirmed = true,
                     LockoutEnabled = false
                 }, "123P$d");*/
-                {
-                    var ims = services.GetRequiredService<StardustDL.AspNet.ItemMetadataServer.ModuleService>();
-                    await ims.Initialize();
-                }
+                
                 {
                     var ims = services.GetRequiredService<Delights.Modules.Notes.Server.ModuleService>();
                     await ims.Initialize();

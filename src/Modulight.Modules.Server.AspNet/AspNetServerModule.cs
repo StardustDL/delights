@@ -2,6 +2,7 @@
 using System;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Builder;
+using Modulight.Modules.Hosting;
 
 namespace Modulight.Modules.Server.AspNet
 {
@@ -30,8 +31,12 @@ namespace Modulight.Modules.Server.AspNet
     /// <summary>
     /// Basic implement for <see cref="IAspNetServerModule"/>
     /// </summary>
-    public abstract class AspNetServerModule : Module, IAspNetServerModule
+    public abstract class AspNetServerModule<TModule> : Module<TModule>, IAspNetServerModule
     {
+        protected AspNetServerModule(IModuleHost host) : base(host)
+        {
+        }
+
         /// <inheritdoc/>
         public virtual void MapEndpoint(IEndpointRouteBuilder builder) { }
 

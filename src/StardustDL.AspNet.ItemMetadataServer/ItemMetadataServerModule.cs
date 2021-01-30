@@ -2,32 +2,52 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Modulight.Modules;
+using Modulight.Modules.Hosting;
+using StardustDL.AspNet.ItemMetadataServer.Data;
+using System;
 using System.Runtime.CompilerServices;
 using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace StardustDL.AspNet.ItemMetadataServer
 {
     [Module(Description = "Provide Item Metadata Server services.", Url = "https://github.com/StardustDL/delights", Author = "StardustDL")]
-    public class ItemMetadataServerModule : Module<ModuleService, ModuleOption>
+    [ModuleStartup(typeof(Startup))]
+    [ModuleService(typeof(ModuleService))]
+    public class ItemMetadataServerModule : Module<ItemMetadataServerModule>
     {
-        public ItemMetadataServerModule() : base()
+        public ItemMetadataServerModule(IModuleHost host) : base(host)
         {
         }
 
-        public override void RegisterServices(IServiceCollection services)
+        public override async Task Initialize()
         {
-            base.RegisterServices(services);
+            using var scope = Services.CreateScope();
+            var dbContext = scope.ServiceProvider.GetRequiredService<DataDbContext>();
+            await dbContext.Database.EnsureCreatedAsync();
+            await dbContext.SaveChangesAsync();
+            await base.Initialize();
+        }
+    }
 
+    public class Startup : ModuleStartup
+    {
+        public Startup(IOptions<ItemMetadataServerModuleStartupOption> options) => Options = options.Value;
+
+        ItemMetadataServerModuleStartupOption Options { get; }
+
+        public override void ConfigureServices(IServiceCollection services)
+        {
             services.AddScoped(typeof(ItemMetadataDomain<>));
-
-            var options = GetSetupOptions(new ModuleOption());
 
             services.AddDbContext<Data.DataDbContext>(o =>
             {
-                if (options.ConfigureDbContext is not null)
-                    options.ConfigureDbContext(o);
+                if (Options.ConfigureDbContext is not null)
+                    Options.ConfigureDbContext(o);
             });
+            base.ConfigureServices(services);
         }
     }
 }

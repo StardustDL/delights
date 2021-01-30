@@ -41,6 +41,8 @@ namespace Modulight.Modules.Hosting
 
         protected List<Action<IServiceCollection>> BuilderServiceConfiguration { get; } = new List<Action<IServiceCollection>>();
 
+        protected List<Action<IServiceCollection>> ServiceConfiguration { get; } = new List<Action<IServiceCollection>>();
+
         /// <inheritdoc />
         public virtual IReadOnlyList<Type> Modules => ModuleDescriptors.AsReadOnly();
 
@@ -69,35 +71,35 @@ namespace Modulight.Modules.Hosting
             return this;
         }
 
-        protected virtual async Task BeforeBuild(IServiceCollection services, IReadOnlyList<IModuleHostBuilderPlugin> plugins)
+        protected virtual void BeforeBuild(IServiceCollection services, IReadOnlyList<IModuleHostBuilderPlugin> plugins)
         {
             foreach (var plugin in plugins)
             {
-                await plugin.BeforeBuild(this, services).ConfigureAwait(false);
+                plugin.BeforeBuild(this, services);
             }
         }
 
-        protected virtual async Task AfterBuild(IServiceCollection services, IReadOnlyDictionary<Type, ModuleManifest> modules, IReadOnlyList<IModuleHostBuilderPlugin> plugins)
+        protected virtual void AfterBuild(IServiceCollection services, IReadOnlyDictionary<Type, ModuleManifest> modules, IReadOnlyList<IModuleHostBuilderPlugin> plugins)
         {
             foreach (var plugin in plugins)
             {
-                await plugin.AfterBuild(modules, services).ConfigureAwait(false);
+                plugin.AfterBuild(modules, services);
             }
         }
 
-        protected virtual async Task BeforeModule(IServiceCollection services, Type module, ModuleManifest manifest, IReadOnlyList<IModuleHostBuilderPlugin> plugins)
+        protected virtual void BeforeModule(IServiceCollection services, Type module, ModuleManifest manifest, IReadOnlyList<IModuleHostBuilderPlugin> plugins)
         {
             foreach (var plugin in plugins)
             {
-                await plugin.BeforeModule(module, manifest, services).ConfigureAwait(false);
+                plugin.BeforeModule(module, manifest, services);
             }
         }
 
-        protected virtual async Task AfterModule(IServiceCollection services, Type module, ModuleManifest manifest, IModuleStartup? startup, IReadOnlyList<IModuleHostBuilderPlugin> plugins)
+        protected virtual void AfterModule(IServiceCollection services, Type module, ModuleManifest manifest, IModuleStartup? startup, IReadOnlyList<IModuleHostBuilderPlugin> plugins)
         {
             foreach (var plugin in plugins)
             {
-                await plugin.AfterModule(module, manifest, startup, services).ConfigureAwait(false);
+                plugin.AfterModule(module, manifest, startup, services);
             }
         }
 
@@ -163,7 +165,7 @@ namespace Modulight.Modules.Hosting
         }
 
         /// <inheritdoc />
-        public async Task Build(IServiceCollection services, IServiceCollection? builderServices = null)
+        public void Build(IServiceCollection services, IServiceCollection? builderServices = null)
         {
             var modules = ResolveModuleDependency();
             var plugins = new List<IModuleHostBuilderPlugin>();
@@ -172,7 +174,7 @@ namespace Modulight.Modules.Hosting
 
             builderServices ??= new ServiceCollection();
             builderServices.AddLogging().AddOptions();
-            foreach(var configure in BuilderServiceConfiguration)
+            foreach (var configure in BuilderServiceConfiguration)
             {
                 configure(builderServices);
             }
@@ -195,14 +197,18 @@ namespace Modulight.Modules.Hosting
             });
 
             services.AddLogging().AddOptions();
+            foreach (var configure in ServiceConfiguration)
+            {
+                configure(services);
+            }
 
-            await BeforeBuild(services, plugins).ConfigureAwait(false);
+            BeforeBuild(services, plugins);
 
             foreach (var (type, manifest, startupType) in modules)
             {
                 logger.LogInformation($"Processing module {type.FullName}.");
 
-                await BeforeModule(services, type, manifest, plugins);
+                BeforeModule(services, type, manifest, plugins);
 
                 services.AddSingleton(type);
                 foreach (var service in manifest.Services)
@@ -213,10 +219,10 @@ namespace Modulight.Modules.Hosting
                 if (startupType is not null)
                 {
                     startup = (IModuleStartup)builderService.GetRequiredService(startupType);
-                    await startup.ConfigureServices(services).ConfigureAwait(false);
+                    startup.ConfigureServices(services);
                 }
 
-                await AfterModule(services, type, manifest, startup, plugins);
+                AfterModule(services, type, manifest, startup, plugins);
 
                 logger.LogInformation($"Processed module {type.FullName}.");
             }
@@ -226,13 +232,20 @@ namespace Modulight.Modules.Hosting
 
             services.AddSingleton<IModuleHost>(sp => new DefaultModuleHost(sp, moduleDictionary));
 
-            await AfterBuild(services, moduleDictionary, plugins).ConfigureAwait(false);
+            AfterBuild(services, moduleDictionary, plugins);
         }
 
+        /// <inheritdoc />
         public IModuleHostBuilder ConfigureBuilderServices(Action<IServiceCollection> configureBuilderServices)
-        {
-            /// <inheritdoc />
+        {   
             BuilderServiceConfiguration.Add(configureBuilderServices);
+            return this;
+        }
+
+        /// <inheritdoc />
+        public IModuleHostBuilder ConfigureServices(Action<IServiceCollection> configureServices)
+        {
+            ServiceConfiguration.Add(configureServices);
             return this;
         }
     }

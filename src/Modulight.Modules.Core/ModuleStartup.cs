@@ -5,11 +5,11 @@ namespace Modulight.Modules
 {
     public interface IModuleStartup
     {
-        Task ConfigureServices(IServiceCollection services);
+        void ConfigureServices(IServiceCollection services);
     }
 
     public abstract class ModuleStartup : IModuleStartup
     {
-        public virtual Task ConfigureServices(IServiceCollection services) => Task.CompletedTask;
+        public virtual void ConfigureServices(IServiceCollection services) { }
     }
 }

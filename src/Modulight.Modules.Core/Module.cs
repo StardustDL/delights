@@ -28,18 +28,26 @@ namespace Modulight.Modules
 
     public abstract class Module<TModule> : Module
     {
+        Lazy<ModuleManifest> _manifest;
+
         protected Module(IModuleHost host)
         {
             Logger = host.GetLogger<TModule>();
             Host = host;
+            Services = host.Services;
+            _manifest = new Lazy<ModuleManifest>(() => Host.GetManifest(this));
         }
 
-        protected ILogger<TModule> Logger { get; }
+        public ILogger<TModule> Logger { get; }
 
-        protected IModuleHost Host { get; }
+        public IModuleHost Host { get; }
 
-        protected T GetService<T>(IServiceProvider provider) where T : notnull => Host.GetService<T>(provider, this);
+        public IServiceProvider Services { get; }
 
-        protected T GetOption<T>(IServiceProvider provider) where T : class => Host.GetOption<T>(provider, this);
+        public T GetService<T>(IServiceProvider provider) where T : notnull => Host.GetService<T>(provider, this);
+
+        public T GetOption<T>(IServiceProvider provider) where T : class => Host.GetOption<T>(provider, this);
+
+        public ModuleManifest Manifest => _manifest.Value;
     }
 }

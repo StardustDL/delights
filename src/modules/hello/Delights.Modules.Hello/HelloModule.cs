@@ -12,54 +12,59 @@ using Delights.Modules.Hello.GraphQL;
 using Microsoft.Extensions.Options;
 using Modulight.Modules;
 using StardustDL.RazorComponents.MaterialDesignIcons;
+using Modulight.Modules.Hosting;
+using Modulight.Modules.Client.RazorComponents.UI;
 
 namespace Delights.Modules.Hello
 {
     public static class ModuleExtensions
     {
-        public static IModuleHostBuilder AddHelloModule(this IModuleHostBuilder modules, Action<ModuleOption>? setupOptions = null, Action<ModuleOption, IServiceProvider>? configureOptions = null)
+        public static IModuleHostBuilder AddHelloModule(this IModuleHostBuilder modules, Action<ModuleOption>? configureOptions = null)
         {
-            modules.TryAddModule<HelloModule, ModuleOption>(setupOptions, configureOptions);
+            modules.AddModule<HelloModule>();
+            if (configureOptions is not null)
+            {
+                modules.ConfigureServices(services =>
+                {
+                    services.Configure(configureOptions);
+                });
+            }
             return modules;
         }
     }
 
     [Module(Url = Shared.SharedManifest.Url, Author = Shared.SharedManifest.Author, Description = SharedManifest.Description)]
-    public class HelloModule : RazorComponentClientModule<ModuleService, ModuleOption, ModuleUI>
+    [ModuleAssembly("Delights.Modules.Hello.UI")]
+    [ModuleStartup(typeof(Startup))]
+    [ModuleService(typeof(ModuleService))]
+    [ModuleUI(typeof(ModuleUI))]
+    //TODO: [ModuleDependency(typeof(StardustDL.RazorComponents.MaterialDesignIcons.Module))]
+    public class HelloModule : RazorComponentClientModule<HelloModule>
     {
-        public HelloModule() : base()
+        public HelloModule(IModuleHost host) : base(host)
         {
-            Manifest = Manifest with
-            {
-                Assemblies = new string[]
-                {
-                    $"{GetType().GetAssemblyName()}.UI"
-                },
-            };
         }
+    }
 
-        public override void RegisterServices(IServiceCollection services)
+    public class Startup : ModuleStartup
+    {
+        public override void ConfigureServices(IServiceCollection services)
         {
-            base.RegisterServices(services);
             services.AddHttpClient(
                 "HelloGraphQLClient", (sp, client) =>
                 {
                     var option = sp.GetRequiredService<IOptions<ModuleOption>>().Value;
-                    client.BaseAddress = new Uri(option.GraphQLEndpoint.TrimEnd('/') + $"/{Manifest.Name}Server");
+                    client.BaseAddress = new Uri(option.GraphQLEndpoint.TrimEnd('/') + $"/Hello");
                 });
             services.AddHelloGraphQLClient();
-        }
-
-        public override void Setup(IModuleHostBuilder host)
-        {
-            base.Setup(host);
-            host.AddMaterialDesignIconModule();
+            base.ConfigureServices(services);
         }
     }
 
+    [ModuleUIRootPath("hello")]
     public class ModuleUI : Modulight.Modules.Client.RazorComponents.UI.ModuleUI
     {
-        public ModuleUI(IJSRuntime jsRuntime, ILogger<Modulight.Modules.Client.RazorComponents.UI.ModuleUI> logger) : base(jsRuntime, logger, "hello")
+        public ModuleUI(IJSRuntime jsRuntime, ILogger<ModuleUI> logger) : base(jsRuntime, logger)
         {
         }
 
@@ -72,7 +77,7 @@ namespace Delights.Modules.Hello
         }
     }
 
-    public class ModuleService : Modulight.Modules.Services.IModuleService
+    public class ModuleService
     {
         public IHelloGraphQLClient GraphQLClient { get; }
 

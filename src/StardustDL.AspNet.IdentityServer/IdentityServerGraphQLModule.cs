@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Modulight.Modules;
+using Modulight.Modules.Hosting;
 using Modulight.Modules.Server.AspNet;
 using Modulight.Modules.Server.GraphQL;
 using System;
@@ -22,8 +23,11 @@ namespace StardustDL.AspNet.IdentityServer
     [Module(Description = "Provide GraphQL endpoints for identity server.", Url = "https://github.com/StardustDL/delights", Author = "StardustDL")]
     [ModuleDependency(typeof(IdentityServerModule))]
     [GraphQLModuleType("IdentityServer", typeof(ModuleQuery))]
-    public class IdentityServerGraphqlModule : GraphQLServerModule
+    public class IdentityServerGraphqlModule : GraphQLServerModule<IdentityServerGraphqlModule>
     {
+        public IdentityServerGraphqlModule(IModuleHost host) : base(host)
+        {
+        }
     }
 
     public class ModuleQuery

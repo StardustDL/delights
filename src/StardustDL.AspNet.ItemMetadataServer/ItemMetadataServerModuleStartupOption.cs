@@ -3,7 +3,7 @@ using System;
 
 namespace StardustDL.AspNet.ItemMetadataServer
 {
-    public class ModuleOption
+    public class ItemMetadataServerModuleStartupOption
     {
         public Action<DbContextOptionsBuilder>? ConfigureDbContext { get; set; }
     }

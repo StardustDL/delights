@@ -19,6 +19,9 @@ namespace Modulight.Modules.Hosting
         /// </summary>
         IReadOnlyList<IModule> Modules { get; }
 
+
+        IServiceProvider Services { get; }
+
         /// <summary>
         /// Get manifest for the module.
         /// </summary>
@@ -39,8 +42,6 @@ namespace Modulight.Modules.Hosting
     {
         protected IReadOnlyDictionary<IModule, ModuleManifest> LoadedModules { get; }
 
-        protected IServiceProvider Services { get; }
-
         ISet<Type> LoadedModuleTypes { get; set; }
 
         public DefaultModuleHost(IServiceProvider services, IReadOnlyDictionary<Type, ModuleManifest> moduleTypes)
@@ -58,6 +59,8 @@ namespace Modulight.Modules.Hosting
 
         /// <inheritdoc/>
         public virtual IReadOnlyList<IModule> Modules { get; protected set; }
+
+        public virtual IServiceProvider Services { get; protected set; }
 
         /// <inheritdoc/>
         public virtual ModuleManifest GetManifest(IModule module)

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Modulight.Modules;
+using Modulight.Modules.Hosting;
 using Modulight.Modules.Server.AspNet;
 using StardustDL.AspNet.IdentityServer.Models;
 using System.Collections.Generic;
@@ -16,8 +17,12 @@ namespace StardustDL.AspNet.IdentityServer
     [Module(Description = "Provide Identity Server services.", Url = "https://github.com/StardustDL/delights", Author = "StardustDL")]
     [ModuleService(typeof(IdentityServerService))]
     [ModuleStartup(typeof(Startup))]
-    public class IdentityServerModule : AspNetServerModule
+    public class IdentityServerModule : AspNetServerModule<IdentityServerModule>
     {
+        public IdentityServerModule(IModuleHost host) : base(host)
+        {
+        }
+
         public override void UseMiddleware(IApplicationBuilder builder)
         {
             base.UseMiddleware(builder);
@@ -35,7 +40,7 @@ namespace StardustDL.AspNet.IdentityServer
 
         IdentityServerModuleStartupOption Options { get; }
 
-        public override Task ConfigureServices(IServiceCollection services)
+        public override void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<Data.IdentityDbContext>(o =>
             {
@@ -65,7 +70,7 @@ namespace StardustDL.AspNet.IdentityServer
 
             services.AddAuthentication().AddIdentityServerJwt();
 
-            return base.ConfigureServices(services);
+            base.ConfigureServices(services);
         }
     }
 }

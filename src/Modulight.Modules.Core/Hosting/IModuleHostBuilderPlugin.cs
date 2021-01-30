@@ -7,20 +7,20 @@ namespace Modulight.Modules.Hosting
 {
     public interface IModuleHostBuilderPlugin
     {
-        Task AfterBuild(IReadOnlyDictionary<Type, ModuleManifest> modules, IServiceCollection services);
-        Task AfterModule(Type module, ModuleManifest manifest, IModuleStartup? startup, IServiceCollection services);
-        Task BeforeBuild(IModuleHostBuilder builder, IServiceCollection services);
-        Task BeforeModule(Type module, ModuleManifest manifest, IServiceCollection services);
+        void AfterBuild(IReadOnlyDictionary<Type, ModuleManifest> modules, IServiceCollection services);
+        void AfterModule(Type module, ModuleManifest manifest, IModuleStartup? startup, IServiceCollection services);
+        void BeforeBuild(IModuleHostBuilder builder, IServiceCollection services);
+        void BeforeModule(Type module, ModuleManifest manifest, IServiceCollection services);
     }
 
     public abstract class ModuleHostBuilderPlugin : IModuleHostBuilderPlugin
     {
-        public virtual Task BeforeBuild(IModuleHostBuilder builder, IServiceCollection services) => Task.CompletedTask;
+        public virtual void BeforeBuild(IModuleHostBuilder builder, IServiceCollection services) { }
 
-        public virtual Task AfterBuild(IReadOnlyDictionary<Type, ModuleManifest> modules, IServiceCollection services) => Task.CompletedTask;
+        public virtual void AfterBuild(IReadOnlyDictionary<Type, ModuleManifest> modules, IServiceCollection services) { }
 
-        public virtual Task BeforeModule(Type module, ModuleManifest manifest, IServiceCollection services) => Task.CompletedTask;
+        public virtual void BeforeModule(Type module, ModuleManifest manifest, IServiceCollection services) { }
 
-        public virtual Task AfterModule(Type module, ModuleManifest manifest, IModuleStartup? startup, IServiceCollection services) => Task.CompletedTask;
+        public virtual void AfterModule(Type module, ModuleManifest manifest, IModuleStartup? startup, IServiceCollection services) { }
     }
 }

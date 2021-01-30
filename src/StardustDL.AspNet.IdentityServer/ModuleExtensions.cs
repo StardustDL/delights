@@ -7,7 +7,7 @@ namespace StardustDL.AspNet.IdentityServer
 {
     public static class ModuleExtensions
     {
-        public static IModuleHostBuilder AddIdentityServerModule(this IModuleHostBuilder builder, Action<IdentityServerModuleStartupOption>? configureStartupOption = null, bool enableGraphQL = false)
+        public static IModuleHostBuilder AddIdentityServerModule(this IModuleHostBuilder builder, Action<IdentityServerModuleStartupOption>? configureStartupOption = null)
         {
             builder.AddModule<IdentityServerModule>();
             if (configureStartupOption is not null)
@@ -17,10 +17,13 @@ namespace StardustDL.AspNet.IdentityServer
                     services.Configure(configureStartupOption);
                 });
             }
-            if (enableGraphQL)
-            {
-                builder.AddModule<IdentityServerGraphqlModule>();
-            }
+
+            return builder;
+        }
+
+        public static IModuleHostBuilder AddIdentityServerGraphqlModule(this IModuleHostBuilder builder)
+        {
+            builder.AddModule<IdentityServerGraphqlModule>();
             return builder;
         }
     }

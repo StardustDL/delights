@@ -6,12 +6,13 @@ using Microsoft.Extensions.Options;
 using Minio;
 using Minio.DataModel;
 using Modulight.Modules;
+using Modulight.Modules.Hosting;
 using Modulight.Modules.Server.AspNet;
-using Modulight.Modules.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 
 namespace StardustDL.AspNet.ObjectStorage
 {
@@ -19,37 +20,34 @@ namespace StardustDL.AspNet.ObjectStorage
     /// A module to provide API controllers <see cref="ObjectStorageController"/> for object storage.
     /// </summary>
     [Module(Description = "Provide API controllers for object storage.", Url = "https://github.com/StardustDL/delights", Author = "StardustDL")]
-    public class ObjectStorageApiModule : AspNetServerModule<ObjectStorageApiService, ObjectStorageApiModuleOption>
+    [ModuleDependency(typeof(ObjectStorageModule))]
+    [ModuleService(typeof(ObjectStorageApiService))]
+    [ModuleOption(typeof(ObjectStorageApiModuleOption))]
+    [ModuleStartup(typeof(ApiStartup))]
+    public class ObjectStorageApiModule : AspNetServerModule<ObjectStorageApiModule>
     {
-        /// <summary>
-        /// Create the instance.
-        /// </summary>
-        public ObjectStorageApiModule() : base()
+        public ObjectStorageApiModule(IModuleHost host) : base(host)
         {
         }
+    }
 
-        /// <inheritdoc/>
-        public override void RegisterAspNetServices(IServiceCollection services)
+    public class ApiStartup : ModuleStartup
+    {
+        public override void ConfigureServices(IServiceCollection services)
         {
-            base.RegisterAspNetServices(services);
             services.AddControllers().ConfigureApplicationPartManager(apm =>
             {
                 apm.ApplicationParts.Add(new AssemblyPart(typeof(ObjectStorageApiModule).Assembly));
             });
-        }
 
-        /// <inheritdoc/>
-        public override void Setup(IModuleHostBuilder host)
-        {
-            base.Setup(host);
-            host.AddObjectStorageModule();
+            base.ConfigureServices(services);
         }
     }
 
     /// <summary>
     /// Services for <see cref="ObjectStorageApiModule"/>.
     /// </summary>
-    public class ObjectStorageApiService : IModuleService
+    public class ObjectStorageApiService
     {
         /// <summary>
         /// Get the URL in the controller <see cref="ObjectStorageController"/> for a specified object.

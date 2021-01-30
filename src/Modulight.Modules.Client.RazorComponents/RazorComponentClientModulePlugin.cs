@@ -10,14 +10,14 @@ namespace Modulight.Modules.Client.RazorComponents
     public sealed class RazorComponentClientModulePlugin : ModuleHostBuilderPlugin
     {
         /// <inheritdoc/>
-        public override Task AfterBuild(IReadOnlyDictionary<Type, ModuleManifest> modules, IServiceCollection services)
+        public override void AfterBuild(IReadOnlyDictionary<Type, ModuleManifest> modules, IServiceCollection services)
         {
             services.AddSingleton<IRazorComponentClientModuleHost>(sp => new RazorComponentClientModuleHost(sp, modules));
-            return base.AfterBuild(modules, services);
+            base.AfterBuild(modules, services);
         }
 
         /// <inheritdoc/>
-        public override Task AfterModule(Type module, ModuleManifest manifest, IModuleStartup? startup, IServiceCollection services)
+        public override void AfterModule(Type module, ModuleManifest manifest, IModuleStartup? startup, IServiceCollection services)
         {
             if (module.IsModule<IRazorComponentClientModule>())
             {
@@ -28,7 +28,7 @@ namespace Modulight.Modules.Client.RazorComponents
                     services.AddScoped(uiAttr.UIType);
                 }
             }
-            return base.AfterModule(module, manifest, startup, services);
+            base.AfterModule(module, manifest, startup, services);
         }
     }
 }

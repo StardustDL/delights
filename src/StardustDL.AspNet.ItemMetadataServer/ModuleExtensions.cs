@@ -1,19 +1,28 @@
-﻿using Modulight.Modules;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Modulight.Modules;
+using Modulight.Modules.Hosting;
 using System;
 
 namespace StardustDL.AspNet.ItemMetadataServer
 {
     public static class ModuleExtensions
     {
-        public static IModuleHostBuilder AddItemMetadataServerModule(this IModuleHostBuilder modules, Action<ModuleOption>? setupOptions = null, Action<ModuleOption, IServiceProvider>? configureOptions = null)
+        public static IModuleHostBuilder AddItemMetadataServerModule(this IModuleHostBuilder builder, Action<ItemMetadataServerModuleStartupOption>? configureStartupOption = null)
         {
-            modules.TryAddModule<ItemMetadataServerModule, ModuleOption>(setupOptions, configureOptions);
-            return modules;
+            builder.AddModule<ItemMetadataServerModule>();
+            if (configureStartupOption is not null)
+            {
+                builder.ConfigureBuilderServices(services =>
+                {
+                    services.Configure(configureStartupOption);
+                });
+            }
+            return builder;
         }
 
-        public static IModuleHostBuilder AddItemMetadataServerGraphqlModule(this IModuleHostBuilder modules, Action<GraphQL.ModuleOption>? setupOptions = null, Action<GraphQL.ModuleOption, IServiceProvider>? configureOptions = null)
+        public static IModuleHostBuilder AddItemMetadataServerGraphqlModule(this IModuleHostBuilder modules)
         {
-            modules.TryAddModule<GraphQL.ItemMetadataServerGraphqlModule, GraphQL.ModuleOption>(setupOptions, configureOptions);
+            modules.AddModule<GraphQL.ItemMetadataServerGraphqlModule>();
             return modules;
         }
     }
