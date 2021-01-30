@@ -1,20 +1,27 @@
-﻿using Modulight.Modules;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Modulight.Modules;
+using Modulight.Modules.Hosting;
 using System;
 
 namespace StardustDL.AspNet.IdentityServer
 {
     public static class ModuleExtensions
     {
-        public static IModuleHostBuilder AddIdentityServerModule(this IModuleHostBuilder modules, Action<IdentityServerModuleOption>? setupOptions = null, Action<IdentityServerModuleOption, IServiceProvider>? configureOptions = null)
+        public static IModuleHostBuilder AddIdentityServerModule(this IModuleHostBuilder builder, Action<IdentityServerModuleStartupOption>? configureStartupOption = null, bool enableGraphQL = false)
         {
-            modules.TryAddModule<IdentityServerModule, IdentityServerModuleOption>(setupOptions, configureOptions);
-            return modules;
-        }
-
-        public static IModuleHostBuilder AddIdentityServerGraphqlModule(this IModuleHostBuilder modules, Action<IdentityServerGraphqlModuleOption>? setupOptions = null, Action<IdentityServerGraphqlModuleOption, IServiceProvider>? configureOptions = null)
-        {
-            modules.TryAddModule<IdentityServerGraphqlModule, IdentityServerGraphqlModuleOption>(setupOptions, configureOptions);
-            return modules;
+            builder.AddModule<IdentityServerModule>();
+            if (configureStartupOption is not null)
+            {
+                builder.ConfigureBuilderServices(services =>
+                {
+                    services.Configure(configureStartupOption);
+                });
+            }
+            if (enableGraphQL)
+            {
+                builder.AddModule<IdentityServerGraphqlModule>();
+            }
+            return builder;
         }
     }
 }

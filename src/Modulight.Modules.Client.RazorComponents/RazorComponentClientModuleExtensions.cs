@@ -3,6 +3,8 @@ using System;
 using System.Linq;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.AspNetCore.Components.WebAssembly.Services;
+using Modulight.Modules.Hosting;
+using Modulight.Modules.Client.RazorComponents.UI;
 
 namespace Modulight.Modules.Client.RazorComponents
 {
@@ -19,12 +21,7 @@ namespace Modulight.Modules.Client.RazorComponents
         /// <returns></returns>
         public static IModuleHostBuilder UseRazorComponentClientModules(this IModuleHostBuilder modules)
         {
-            return modules.UsePostMiddleware((modules, services) =>
-            {
-                services.TryAddScoped<LazyAssemblyLoader>();
-                services.AddSingleton<IRazorComponentClientModuleHost>(sp => new RazorComponentClientModuleHost(sp,
-                    modules.Modules.AllSpecifyModules<IRazorComponentClientModule>().ToArray()));
-            });
+            return modules.UsePlugin<RazorComponentClientModulePlugin>();
         }
 
         /// <summary>
@@ -33,5 +30,13 @@ namespace Modulight.Modules.Client.RazorComponents
         /// <param name="provider"></param>
         /// <returns></returns>
         public static IRazorComponentClientModuleHost GetRazorComponentClientModuleHost(this IServiceProvider provider) => provider.GetRequiredService<IRazorComponentClientModuleHost>();
+
+        public static bool IsModuleUI(this Type type) => type.IsAssignableTo(typeof(IModuleUI));
+
+        public static void EnsureModuleUI(this Type type)
+        {
+            if (!type.IsModuleUI())
+                throw new Exception($"{type.FullName} is not a module ui.");
+        }
     }
 }

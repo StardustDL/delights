@@ -4,10 +4,47 @@ using Microsoft.JSInterop;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace Modulight.Modules.Client.RazorComponents.UI
 {
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = false)]
+    public class ModuleUIRootPathAttribute : Attribute
+    {
+        public ModuleUIRootPathAttribute(string rootPath)
+        {
+            RootPath = rootPath;
+        }
+
+        public string RootPath { get; init; }
+    }
+
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = false)]
+    public class ModuleUIResourceAttribute : Attribute
+    {
+        public ModuleUIResourceAttribute(UIResourceType type, string path)
+        {
+            Type = type;
+            Path = path;
+        }
+
+        /// <summary>
+        /// Resource type.
+        /// </summary>
+        public UIResourceType Type { get; init; }
+
+        /// <summary>
+        /// Resource relative path.
+        /// </summary>
+        public string Path { get; init; } = string.Empty;
+
+        /// <summary>
+        /// Attributes for the resource.
+        /// </summary>
+        public string[] Attributes { get; init; } = Array.Empty<string>();
+    }
+
     // This class provides an example of how JavaScript functionality can be wrapped
     // in a .NET class for easy consumption. The associated JavaScript module is
     // loaded on demand when first needed.
@@ -27,12 +64,27 @@ namespace Modulight.Modules.Client.RazorComponents.UI
         /// </summary>
         /// <param name="jsRuntime"></param>
         /// <param name="logger"></param>
-        /// <param name="rootPath">UI route root path.</param>
-        public ModuleUI(IJSRuntime jsRuntime, ILogger<ModuleUI> logger, string rootPath = "")
+        public ModuleUI(IJSRuntime jsRuntime, ILogger logger)
         {
-            RootPath = rootPath;
+            RootPath = "";
             JSRuntime = jsRuntime;
             Logger = logger;
+
+            var type = GetType();
+            {
+                var attr = type.GetCustomAttribute<ModuleUIRootPathAttribute>();
+                if (attr is not null)
+                    RootPath = attr.RootPath;
+            }
+            {
+                var attrs = type.GetCustomAttributes<ModuleUIResourceAttribute>();
+                List<UIResource> resources = new List<UIResource>();
+                foreach (var attr in attrs)
+                {
+                    resources.Add(new UIResource(attr.Type, attr.Path) { Attributes = attr.Attributes });
+                }
+                Resources = resources.ToArray();
+            }
         }
 
         /// <inheritdoc/>
@@ -54,14 +106,17 @@ namespace Modulight.Modules.Client.RazorComponents.UI
         }
 
         /// <inheritdoc/>
-        public UIResource[] Resources { get; protected set; } = Array.Empty<UIResource>();
+        public UIResource[] Resources { get; protected set; }
 
         /// <summary>
         /// JS runtime.
         /// </summary>
         protected IJSRuntime JSRuntime { get; }
 
-        private ILogger<ModuleUI> Logger { get; }
+        /// <summary>
+        /// Logger
+        /// </summary>
+        protected ILogger Logger { get; }
 
         /// <summary>
         /// Get a lazy javascript module at /_content/{<paramref name="assemblyName"/>}/{<paramref name="jsPath"/>}.

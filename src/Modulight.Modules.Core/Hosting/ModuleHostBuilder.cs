@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace Modulight.Modules.Hosting
@@ -37,6 +38,8 @@ namespace Modulight.Modules.Hosting
         /// Plugin descriptors for registered modules.
         /// </summary>
         protected List<Type> PluginDescriptors { get; } = new List<Type>();
+
+        protected List<Action<IServiceCollection>> BuilderServiceConfiguration { get; } = new List<Action<IServiceCollection>>();
 
         /// <inheritdoc />
         public virtual IReadOnlyList<Type> Modules => ModuleDescriptors.AsReadOnly();
@@ -90,17 +93,17 @@ namespace Modulight.Modules.Hosting
             }
         }
 
-        protected virtual async Task AfterModule(IServiceCollection services, Type module, ModuleManifest manifest, IReadOnlyList<IModuleHostBuilderPlugin> plugins)
+        protected virtual async Task AfterModule(IServiceCollection services, Type module, ModuleManifest manifest, IModuleStartup? startup, IReadOnlyList<IModuleHostBuilderPlugin> plugins)
         {
             foreach (var plugin in plugins)
             {
-                await plugin.AfterModule(module, manifest, services).ConfigureAwait(false);
+                await plugin.AfterModule(module, manifest, startup, services).ConfigureAwait(false);
             }
         }
 
-        List<(Type, ModuleManifest)> ResolveModuleDependency()
+        List<(Type Module, ModuleManifest Manifest, Type? Startup)> ResolveModuleDependency()
         {
-            var result = new List<(Type, ModuleManifest)>();
+            var result = new List<(Type Module, ModuleManifest Manifest, Type? Startup)>();
             Dictionary<Type, ModuleManifest> modules = new Dictionary<Type, ModuleManifest>();
             Dictionary<Type, int> inDegrees = new Dictionary<Type, int>();
 
@@ -135,7 +138,14 @@ namespace Modulight.Modules.Hosting
                 var cur = queue.Dequeue();
                 var manifest = modules[cur];
 
-                result.Add((cur, manifest));
+                var startupAttr = cur.GetCustomAttribute<ModuleStartupAttribute>(true);
+                Type? startup = null;
+                if (startupAttr is not null)
+                {
+                    startupAttr.StartupType.EnsureModuleStartup();
+                    startup = startupAttr.StartupType;
+                }
+                result.Add((cur, manifest, startup));
 
                 foreach (var dep in manifest.Dependencies)
                 {
@@ -158,14 +168,20 @@ namespace Modulight.Modules.Hosting
             var modules = ResolveModuleDependency();
             var plugins = new List<IModuleHostBuilderPlugin>();
 
+            Dictionary<Type, Type> moduleStartups = new Dictionary<Type, Type>();
+
             builderServices ??= new ServiceCollection();
             builderServices.AddLogging().AddOptions();
+            foreach(var configure in BuilderServiceConfiguration)
+            {
+                configure(builderServices);
+            }
 
             PluginDescriptors.ForEach(plugin => builderServices.AddSingleton(plugin));
             modules.ForEach(item =>
             {
-                if (item.Item2.Startup is not null)
-                    builderServices.AddSingleton(item.Item2.Startup);
+                if (item.Startup is not null)
+                    builderServices.AddSingleton(item.Startup);
             });
 
             using var builderService = builderServices.BuildServiceProvider();
@@ -182,7 +198,7 @@ namespace Modulight.Modules.Hosting
 
             await BeforeBuild(services, plugins).ConfigureAwait(false);
 
-            foreach (var (type, manifest) in modules)
+            foreach (var (type, manifest, startupType) in modules)
             {
                 logger.LogInformation($"Processing module {type.FullName}.");
 
@@ -193,13 +209,14 @@ namespace Modulight.Modules.Hosting
                 {
                     services.Add(new ServiceDescriptor(service.Type, service.Type, service.Lifetime));
                 }
-                if (manifest.Startup is not null)
+                IModuleStartup? startup = null;
+                if (startupType is not null)
                 {
-                    var startup = (IModuleStartup)builderService.GetRequiredService(manifest.Startup);
+                    startup = (IModuleStartup)builderService.GetRequiredService(startupType);
                     await startup.ConfigureServices(services).ConfigureAwait(false);
                 }
 
-                await AfterModule(services, type, manifest, plugins);
+                await AfterModule(services, type, manifest, startup, plugins);
 
                 logger.LogInformation($"Processed module {type.FullName}.");
             }
@@ -210,6 +227,13 @@ namespace Modulight.Modules.Hosting
             services.AddSingleton<IModuleHost>(sp => new DefaultModuleHost(sp, moduleDictionary));
 
             await AfterBuild(services, moduleDictionary, plugins).ConfigureAwait(false);
+        }
+
+        public IModuleHostBuilder ConfigureBuilderServices(Action<IServiceCollection> configureBuilderServices)
+        {
+            /// <inheritdoc />
+            BuilderServiceConfiguration.Add(configureBuilderServices);
+            return this;
         }
     }
 }

@@ -28,14 +28,11 @@ namespace Modulight.Modules
 
     public abstract class Module<TModule> : Module
     {
-        protected Module(IServiceProvider services)
+        protected Module(IModuleHost host)
         {
-            Services = services;
-            Logger = Services.GetRequiredService<ILogger<TModule>>();
-            Host = Services.GetRequiredService<IModuleHost>();
+            Logger = host.GetLogger<TModule>();
+            Host = host;
         }
-
-        protected IServiceProvider Services { get; }
 
         protected ILogger<TModule> Logger { get; }
 

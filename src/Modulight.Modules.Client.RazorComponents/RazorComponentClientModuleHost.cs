@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.JSInterop;
 using Modulight.Modules.Client.RazorComponents.UI;
+using Modulight.Modules.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -46,46 +47,48 @@ namespace Modulight.Modules.Client.RazorComponents
         Task LoadResources();
     }
 
-    internal class RazorComponentClientModuleHost : IRazorComponentClientModuleHost
+    internal class RazorComponentClientModuleHost : DefaultModuleHost, IRazorComponentClientModuleHost
     {
-        public RazorComponentClientModuleHost(IServiceProvider services, IReadOnlyList<IRazorComponentClientModule> modules)
+        public RazorComponentClientModuleHost(IServiceProvider services, IReadOnlyDictionary<Type, ModuleManifest> moduleTypes) : base(services,
+            new Dictionary<Type, ModuleManifest>(moduleTypes.Where(x => x.Key.IsModule<IRazorComponentClientModule>())))
         {
-            Services = services;
-            Modules = modules;
+            Modules = base.Modules.Select(x => (IRazorComponentClientModule)x).ToArray();
             Logger = Services.GetRequiredService<ILogger<RazorComponentClientModuleHost>>();
         }
 
-        public IServiceProvider Services { get; }
-
         public ILogger<RazorComponentClientModuleHost> Logger { get; }
 
-        public IReadOnlyList<IRazorComponentClientModule> Modules { get; }
+        public new IReadOnlyList<IRazorComponentClientModule> Modules { get; }
 
         public async Task LoadResources()
         {
             using var scope = Services.CreateScope();
             var provider = scope.ServiceProvider;
             await using var ui = new ModuleUILoader(provider.GetRequiredService<IJSRuntime>(), provider.GetRequiredService<ILogger<ModuleUI>>());
-            foreach (var module in Modules)
+            foreach (var (lmodule, manifest) in LoadedModules)
             {
+                var module = (IRazorComponentClientModule)lmodule;
                 var cui = module.GetUI(provider);
-                foreach (var resource in cui.Resources)
+                if (cui is not null)
                 {
-                    try
+                    foreach (var resource in cui.Resources)
                     {
-                        switch (resource.Type)
+                        try
                         {
-                            case UIResourceType.Script:
-                                await ui.LoadScript(resource.Path);
-                                break;
-                            case UIResourceType.StyleSheet:
-                                await ui.LoadStyleSheet(resource.Path);
-                                break;
+                            switch (resource.Type)
+                            {
+                                case UIResourceType.Script:
+                                    await ui.LoadScript(resource.Path);
+                                    break;
+                                case UIResourceType.StyleSheet:
+                                    await ui.LoadStyleSheet(resource.Path);
+                                    break;
+                            }
                         }
-                    }
-                    catch (JSException ex)
-                    {
-                        Logger.LogError(ex, $"Failed to load resource {resource.Path} in module {module.Manifest.Name}");
+                        catch (JSException ex)
+                        {
+                            Logger.LogError(ex, $"Failed to load resource {resource.Path} in module {manifest.Name}");
+                        }
                     }
                 }
             }
@@ -93,20 +96,27 @@ namespace Modulight.Modules.Client.RazorComponents
 
         public async Task Validate()
         {
+            using var scope = Services.CreateScope();
+            var provider = scope.ServiceProvider;
             HashSet<string> rootPaths = new HashSet<string>();
-            foreach (var module in Modules)
+            foreach (var (lmodule, manifest) in LoadedModules)
             {
-                var ui = module.GetUI(Services);
-                if (ui.RootPath is not "")
-                {
-                    if (rootPaths.Contains(ui.RootPath))
-                    {
-                        throw new Exception($"Same RootPath in modules: {ui.RootPath} @ {module.Manifest.Name}");
-                    }
-                    rootPaths.Add(ui.RootPath);
-                }
+                var module = (IRazorComponentClientModule)lmodule;
+                var cui = module.GetUI(provider);
 
-                await GetAssembliesForRouting($"/{ui.RootPath}", throwOnError: true);
+                if (cui is not null)
+                {
+                    if (cui.RootPath is not "")
+                    {
+                        if (rootPaths.Contains(cui.RootPath))
+                        {
+                            throw new Exception($"Same RootPath in modules: {cui.RootPath} @ {manifest.Name}");
+                        }
+                        rootPaths.Add(cui.RootPath);
+                    }
+
+                    await GetAssembliesForRouting($"/{cui.RootPath}", throwOnError: true);
+                }
             }
         }
 
@@ -122,21 +132,26 @@ namespace Modulight.Modules.Client.RazorComponents
 
             Queue<string> toLoad = new Queue<string>();
 
-            foreach (var module in Modules)
+            foreach (var (lmodule, manifest) in LoadedModules)
             {
                 cancellationToken.ThrowIfCancellationRequested();
 
-                toLoad.Enqueue(module.Manifest.EntryAssembly);
+                var module = (IRazorComponentClientModule)lmodule;
+
+                toLoad.Enqueue(manifest.EntryAssembly);
 
                 var ui = module.GetUI(provider);
 
-                if (ui.Contains(path))
+                if (ui is not null)
                 {
-                    foreach (var name in module.Manifest.Assemblies)
+                    if (ui.Contains(path))
                     {
-                        cancellationToken.ThrowIfCancellationRequested();
+                        foreach (var name in manifest.Assemblies)
+                        {
+                            cancellationToken.ThrowIfCancellationRequested();
 
-                        toLoad.Enqueue(name);
+                            toLoad.Enqueue(name);
+                        }
                     }
                 }
             }
@@ -203,7 +218,5 @@ namespace Modulight.Modules.Client.RazorComponents
 
             return results;
         }
-
-        IReadOnlyList<IServiceModule> IModuleHost.Modules => Modules;
     }
 }

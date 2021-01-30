@@ -3,6 +3,8 @@ using System;
 using System.Linq;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Builder;
+using Modulight.Modules.Hosting;
+using Modulight.Modules;
 
 namespace Modulight.Modules.Server.AspNet
 {
@@ -17,14 +19,7 @@ namespace Modulight.Modules.Server.AspNet
         /// </summary>
         /// <param name="modules"></param>
         /// <returns></returns>
-        public static IModuleHostBuilder UseAspNetServerModules(this IModuleHostBuilder modules)
-        {
-            return modules.UsePostMiddleware((modules, services) =>
-            {
-                services.AddSingleton<IAspNetServerModuleHost>(sp => new AspNetServerModuleHost(sp,
-                    modules.Modules.AllSpecifyModules<IAspNetServerModule>().ToArray()));
-            });
-        }
+        public static IModuleHostBuilder UseAspNetServerModules(this IModuleHostBuilder modules) => modules.UsePlugin<AspNetServerModulePlugin>();
 
         /// <summary>
         /// Get aspnet module host from service provider.

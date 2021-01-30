@@ -27,6 +27,8 @@ namespace Modulight.Modules.Hosting
 
         IModuleHostBuilder UsePlugin(Type type);
 
+        IModuleHostBuilder ConfigureBuilderServices(Action<IServiceCollection> configureBuilderServices);
+
         /// <summary>
         /// Build the modules and the module host in service collection.
         /// </summary>

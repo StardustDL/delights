@@ -8,7 +8,7 @@ namespace Modulight.Modules.Hosting
     public interface IModuleHostBuilderPlugin
     {
         Task AfterBuild(IReadOnlyDictionary<Type, ModuleManifest> modules, IServiceCollection services);
-        Task AfterModule(Type module, ModuleManifest manifest, IServiceCollection services);
+        Task AfterModule(Type module, ModuleManifest manifest, IModuleStartup? startup, IServiceCollection services);
         Task BeforeBuild(IModuleHostBuilder builder, IServiceCollection services);
         Task BeforeModule(Type module, ModuleManifest manifest, IServiceCollection services);
     }
@@ -21,6 +21,6 @@ namespace Modulight.Modules.Hosting
 
         public virtual Task BeforeModule(Type module, ModuleManifest manifest, IServiceCollection services) => Task.CompletedTask;
 
-        public virtual Task AfterModule(Type module, ModuleManifest manifest, IServiceCollection services) => Task.CompletedTask;
+        public virtual Task AfterModule(Type module, ModuleManifest manifest, IModuleStartup? startup, IServiceCollection services) => Task.CompletedTask;
     }
 }

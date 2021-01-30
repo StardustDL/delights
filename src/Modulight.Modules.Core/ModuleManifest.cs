@@ -61,8 +61,6 @@ namespace Modulight.Modules
 
         public Type[] Dependencies { get; init; } = Array.Empty<Type>();
 
-        public Type? Startup { get; init; }
-
         /// <summary>
         /// Generate manifest from a type.
         /// </summary>
@@ -98,20 +96,12 @@ namespace Modulight.Modules
             var serviceAttr = type.GetCustomAttributes<ModuleServiceAttribute>(true);
             var optionAttr = type.GetCustomAttributes<ModuleOptionAttribute>(true);
             var depAttr = type.GetCustomAttributes<ModuleDependencyAttribute>(true);
-            var startupAttr = type.GetCustomAttribute<ModuleStartupAttribute>(true);
 
             var deps = new List<Type>();
             foreach (var item in depAttr?.Select(x => x.ModuleType).ToArray() ?? Array.Empty<Type>())
             {
                 item.EnsureModule();
                 deps.Add(item);
-            }
-
-            Type? startup = null;
-            if (startupAttr is not null)
-            {
-                startupAttr.StartupType.EnsureModuleStartup();
-                startup = startupAttr.StartupType;
             }
 
             var result = new ModuleManifest
@@ -127,7 +117,6 @@ namespace Modulight.Modules
                 Services = serviceAttr?.Select(x => new ModuleServiceDescriptor(x.ServiceType, x.Lifetime)).ToArray() ?? Array.Empty<ModuleServiceDescriptor>(),
                 Options = optionAttr?.Select(x => x.OptionType).ToArray() ?? Array.Empty<Type>(),
                 Dependencies = deps.ToArray(),
-                Startup = startup,
             };
             return result;
         }

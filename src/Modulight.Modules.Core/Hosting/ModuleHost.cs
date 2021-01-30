@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
@@ -30,13 +31,17 @@ namespace Modulight.Modules.Hosting
         T GetService<T>(IServiceProvider provider, IModule module) where T : notnull;
 
         T GetOption<T>(IServiceProvider provider, IModule module) where T : class;
+
+        ILogger<TModule> GetLogger<TModule>();
     }
 
     public class DefaultModuleHost : IModuleHost
     {
-        protected IReadOnlyDictionary<IModule, ModuleManifest> LoadedModules { get; set; }
+        protected IReadOnlyDictionary<IModule, ModuleManifest> LoadedModules { get; }
 
         protected IServiceProvider Services { get; }
+
+        ISet<Type> LoadedModuleTypes { get; set; }
 
         public DefaultModuleHost(IServiceProvider services, IReadOnlyDictionary<Type, ModuleManifest> moduleTypes)
         {
@@ -47,6 +52,7 @@ namespace Modulight.Modules.Hosting
                 modules.Add((IModule)Services.GetRequiredService(type), manifest);
             }
             LoadedModules = modules;
+            LoadedModuleTypes = new HashSet<Type>(moduleTypes.Keys);
             Modules = modules.Keys.ToArray();
         }
 
@@ -99,7 +105,7 @@ namespace Modulight.Modules.Hosting
         /// <inheritdoc/>
         public virtual async Task Initialize()
         {
-            foreach(var module in Modules)
+            foreach (var module in Modules)
             {
                 await module.Initialize();
             }
@@ -111,6 +117,20 @@ namespace Modulight.Modules.Hosting
             foreach (var module in Modules)
             {
                 await module.Shutdown();
+            }
+        }
+
+        /// <inheritdoc/>
+        public virtual ILogger<TModule> GetLogger<TModule>()
+        {
+            var type = typeof(TModule);
+            if (LoadedModuleTypes.Contains(type))
+            {
+                return Services.GetRequiredService<ILogger<TModule>>();
+            }
+            else
+            {
+                throw new Exception($"No such module: {type.FullName}.");
             }
         }
     }

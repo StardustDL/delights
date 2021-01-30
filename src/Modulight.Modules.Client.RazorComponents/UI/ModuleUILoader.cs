@@ -1,5 +1,4 @@
 ﻿using Modulight.Modules.Client.RazorComponents.UI;
-using Modulight.Modules.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;

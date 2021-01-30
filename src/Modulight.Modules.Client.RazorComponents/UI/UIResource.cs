@@ -22,32 +22,11 @@ namespace Modulight.Modules.Client.RazorComponents.UI
     /// <summary>
     /// Defines UI resourcecs.
     /// </summary>
-    public class UIResource
+    public record UIResource(UIResourceType Type, string Path)
     {
-        /// <summary>
-        /// Create a UI resource definition.
-        /// </summary>
-        /// <param name="type">Resource type.</param>
-        /// <param name="path">Resource relative path.</param>
-        public UIResource(UIResourceType type, string path)
-        {
-            Type = type;
-            Path = path;
-        }
-
-        /// <summary>
-        /// Resource type.
-        /// </summary>
-        public UIResourceType Type { get; set; }
-
-        /// <summary>
-        /// Resource relative path.
-        /// </summary>
-        public string Path { get; set; } = string.Empty;
-
         /// <summary>
         /// Attributes for the resource.
         /// </summary>
-        public string[] Attributes { get; set; } = Array.Empty<string>();
+        public string[] Attributes { get; init; } = Array.Empty<string>();
     }
 }

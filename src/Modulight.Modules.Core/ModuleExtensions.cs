@@ -27,20 +27,36 @@ namespace Modulight.Modules
         /// <returns></returns>
         public static string GetAssemblyName(this Type type) => type.Assembly.GetName().Name!;
 
-        internal static bool IsModule(this Type type) => type.IsAssignableTo(typeof(IModule));
+        public static bool IsModule(this Type type) => type.IsModule<IModule>();
 
-        internal static void EnsureModule(this Type type)
+        public static bool IsModule<T>(this Type type) where T : IModule => type.IsAssignableTo(typeof(T));
+
+        public static void EnsureModule(this Type type)
         {
             if (!type.IsModule())
                 throw new Exception($"{type.FullName} is not a module.");
         }
 
-        internal static bool IsModuleStartup(this Type type) => type.IsAssignableTo(typeof(IModuleStartup));
+        public static void EnsureModule<T>(this Type type) where T : IModule
+        {
+            if (!type.IsModule<T>())
+                throw new Exception($"{type.FullName} is not a module typed {typeof(T).FullName}.");
+        }
 
-        internal static void EnsureModuleStartup(this Type type)
+        public static bool IsModuleStartup(this Type type) => type.IsModuleStartup<IModuleStartup>();
+
+        public static bool IsModuleStartup<T>(this Type type) where T : IModuleStartup => type.IsAssignableTo(typeof(T));
+
+        public static void EnsureModuleStartup(this Type type)
         {
             if (!type.IsModuleStartup())
                 throw new Exception($"{type.FullName} is not a module startup.");
+        }
+
+        public static void EnsureModuleStartup<T>(this Type type) where T : IModuleStartup
+        {
+            if (!type.IsModuleStartup<T>())
+                throw new Exception($"{type.FullName} is not a module startup typed {typeof(T).FullName}.");
         }
     }
 }

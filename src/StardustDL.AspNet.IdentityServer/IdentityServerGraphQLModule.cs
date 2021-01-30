@@ -11,7 +11,6 @@ using Microsoft.Extensions.Options;
 using Modulight.Modules;
 using Modulight.Modules.Server.AspNet;
 using Modulight.Modules.Server.GraphQL;
-using Modulight.Modules.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,24 +20,10 @@ using System.Threading.Tasks;
 namespace StardustDL.AspNet.IdentityServer
 {
     [Module(Description = "Provide GraphQL endpoints for identity server.", Url = "https://github.com/StardustDL/delights", Author = "StardustDL")]
-    public class IdentityServerGraphqlModule : GraphQLServerModule<IdentityServerGraphqlModuleService, IdentityServerGraphqlModuleOption>
+    [ModuleDependency(typeof(IdentityServerModule))]
+    [GraphQLModuleType("IdentityServer", typeof(ModuleQuery))]
+    public class IdentityServerGraphqlModule : GraphQLServerModule
     {
-        public override Type QueryType => typeof(ModuleQuery);
-
-        public IdentityServerGraphqlModule() : base()
-        {
-        }
-
-        public override GraphQLEndpointConventionBuilder MapEndpoint(IEndpointRouteBuilder builder, IServiceProvider provider)
-        {
-            return base.MapEndpoint(builder, provider);
-        }
-
-        public override void Setup(IModuleHostBuilder host)
-        {
-            base.Setup(host);
-            host.AddIdentityServerModule();
-        }
     }
 
     public class ModuleQuery
@@ -52,13 +37,5 @@ namespace StardustDL.AspNet.IdentityServer
         {
             return service.SignInManager.Context.User.Identity?.GetSubjectId() ?? "";
         }
-    }
-
-    public class IdentityServerGraphqlModuleService : IModuleService
-    {
-    }
-
-    public class IdentityServerGraphqlModuleOption : GraphQLServerModuleOption
-    {
     }
 }

@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using HotChocolate.AspNetCore.Extensions;
 using Microsoft.AspNetCore.Routing;
+using Modulight.Modules.Hosting;
 
 namespace Modulight.Modules.Server.GraphQL
 {
@@ -17,14 +18,7 @@ namespace Modulight.Modules.Server.GraphQL
         /// </summary>
         /// <param name="modules"></param>
         /// <returns></returns>
-        public static IModuleHostBuilder UseGraphQLServerModules(this IModuleHostBuilder modules)
-        {
-            return modules.UsePostMiddleware((modules, services) =>
-            {
-                services.AddSingleton<IGraphQLServerModuleHost>(sp => new GraphQLServerModuleHost(sp,
-                    modules.Modules.AllSpecifyModules<IGraphQLServerModule>().ToArray()));
-            });
-        }
+        public static IModuleHostBuilder UseGraphQLServerModules(this IModuleHostBuilder modules) => modules.UsePlugin<GraphQLServerModulePlugin>();
 
         /// <summary>
         /// Get graphql module host from service provider.
