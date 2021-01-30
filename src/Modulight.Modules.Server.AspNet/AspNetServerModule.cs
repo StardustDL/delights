@@ -10,7 +10,7 @@ namespace Modulight.Modules.Server.AspNet
     /// <summary>
     /// Specifies the contract for aspnet modules.
     /// </summary>
-    public interface IAspNetServerModule : IModule
+    public interface IAspNetServerModule : IServiceModule
     {
         /// <summary>
         /// Register aspnet related services.

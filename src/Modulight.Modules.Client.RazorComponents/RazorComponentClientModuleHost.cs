@@ -204,6 +204,6 @@ namespace Modulight.Modules.Client.RazorComponents
             return results;
         }
 
-        IReadOnlyList<IModule> IModuleHost.Modules => Modules;
+        IReadOnlyList<IServiceModule> IModuleHost.Modules => Modules;
     }
 }

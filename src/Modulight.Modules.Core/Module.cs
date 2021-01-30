@@ -1,108 +1,48 @@
-﻿using Modulight.Modules.Services;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
+using Modulight.Modules.Hosting;
 
 namespace Modulight.Modules
 {
     /// <summary>
-    /// Basic implement for <see cref="IModule{TService}"/>.
+    /// Specifies the contract for modules.
     /// </summary>
-    /// <typeparam name="TService">Service type.</typeparam>
-    public abstract class Module<TService> : IModule<TService> where TService : class, IModuleService
+    public interface IModule
     {
-        /// <summary>
-        /// Initial module with manifest.
-        /// </summary>
-        /// <param name="manifest">Module manifest. If null, will use defualt manifest generation.</param>
-        protected Module(ModuleManifest? manifest = null)
-        {
-            if (manifest is null)
-            {
-                manifest = ModuleManifest.Generate(GetType());
-            }
-            Manifest = manifest;
-        }
+        Task Initialize();
 
-        /// <inheritdoc/>
-        public ModuleManifest Manifest { get; set; }
-
-        /// <summary>
-        /// <inheritdoc/>
-        /// It will register <typeparamref name="TService"/> as scoped service as default.
-        /// </summary>
-        public virtual void RegisterServices(IServiceCollection services)
-        {
-            services.AddScoped<TService>();
-        }
-
-        /// <inheritdoc/>
-        public virtual void Setup(IModuleHostBuilder host) { }
-
-        /// <inheritdoc/>
-        public virtual TService GetService(IServiceProvider provider) => provider.GetRequiredService<TService>();
-
-        IModuleService IModule.GetService(IServiceProvider provider) => GetService(provider);
+        Task Shutdown();
     }
 
-    /// <summary>
-    /// Basic implement for <see cref="IModule{TService, TOption}"/>.
-    /// </summary>
-    /// <typeparam name="TService">Service type.</typeparam>
-    /// <typeparam name="TOption">Option type.</typeparam>
-    public abstract class Module<TService, TOption> : Module<TService>, IModule<TService, TOption> where TService : class, IModuleService where TOption : class
+    public abstract class Module : IModule
     {
-        /// <summary>
-        /// Action list for <see cref="ConfigureOptions(Action{TOption, IServiceProvider})"/>.
-        /// </summary>
-        protected IList<Action<TOption, IServiceProvider>> OptionConfigurations { get; } = new List<Action<TOption, IServiceProvider>>();
+        public virtual Task Initialize() => Task.CompletedTask;
 
-        /// <summary>
-        /// Action for <see cref="SetupOptions(Action{TOption})"/>.
-        /// </summary>
-        protected Action<TOption>? OptionsSetup { get; set; }
+        public virtual Task Shutdown() => Task.CompletedTask;
+    }
 
-        /// <summary>
-        /// Get the options after applying <see cref="OptionsSetup"/>.
-        /// </summary>
-        /// <returns></returns>
-        protected TOption GetSetupOptions(TOption initial)
+    public abstract class Module<TModule> : Module
+    {
+        protected Module(IServiceProvider services)
         {
-            if (OptionsSetup is not null)
-                OptionsSetup(initial);
-            return initial;
+            Services = services;
+            Logger = Services.GetRequiredService<ILogger<TModule>>();
+            Host = Services.GetRequiredService<IModuleHost>();
         }
 
-        /// <inheritdoc/>
-        protected Module(ModuleManifest? manifest = null) : base(manifest)
-        {
-        }
+        protected IServiceProvider Services { get; }
 
-        /// <inheritdoc/>
-        public virtual void RegisterOptions(IServiceCollection services)
-        {
-            var builder = services.AddOptions<TOption>();
-            if (OptionsSetup is not null)
-                builder.Configure(OptionsSetup);
-            foreach (var item in OptionConfigurations)
-                builder.Configure(item);
-        }
+        protected ILogger<TModule> Logger { get; }
 
-        /// <inheritdoc/>
-        public override void RegisterServices(IServiceCollection services)
-        {
-            base.RegisterServices(services);
-            RegisterOptions(services);
-        }
+        protected IModuleHost Host { get; }
 
-        /// <inheritdoc/>
-        public virtual void SetupOptions(Action<TOption> setupOptions) => OptionsSetup = setupOptions;
+        protected T GetService<T>(IServiceProvider provider) where T : notnull => Host.GetService<T>(provider, this);
 
-        /// <inheritdoc/>
-        public virtual void ConfigureOptions(Action<TOption, IServiceProvider> configureOptions) => OptionConfigurations.Add(configureOptions);
-
-        /// <inheritdoc/>
-        public virtual TOption GetOption(IServiceProvider provider) => provider.GetRequiredService<IOptions<TOption>>().Value;
+        protected T GetOption<T>(IServiceProvider provider) where T : class => Host.GetOption<T>(provider, this);
     }
 }

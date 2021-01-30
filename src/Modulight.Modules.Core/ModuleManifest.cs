@@ -1,10 +1,15 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
 namespace Modulight.Modules
 {
+    public record ModuleServiceDescriptor(Type Type, ServiceLifetime Lifetime = ServiceLifetime.Scoped)
+    {
+    }
+
     /// <summary>
     /// Manifest for module
     /// </summary>
@@ -50,6 +55,14 @@ namespace Modulight.Modules
         /// </summary>
         public string Url { get; init; } = "";
 
+        public ModuleServiceDescriptor[] Services { get; init; } = Array.Empty<ModuleServiceDescriptor>();
+
+        public Type[] Options { get; init; } = Array.Empty<Type>();
+
+        public Type[] Dependencies { get; init; } = Array.Empty<Type>();
+
+        public Type? Startup { get; init; }
+
         /// <summary>
         /// Generate manifest from a type.
         /// </summary>
@@ -80,80 +93,43 @@ namespace Modulight.Modules
                 return names.ToArray();
             }
 
-            var attribute = type.GetCustomAttribute<ModuleAttribute>(true);
+            var moduleAttr = type.GetCustomAttribute<ModuleAttribute>(true);
+            var assemblyAttr = type.GetCustomAttributes<ModuleAssemblyAttribute>(true);
+            var serviceAttr = type.GetCustomAttributes<ModuleServiceAttribute>(true);
+            var optionAttr = type.GetCustomAttributes<ModuleOptionAttribute>(true);
+            var depAttr = type.GetCustomAttributes<ModuleDependencyAttribute>(true);
+            var startupAttr = type.GetCustomAttribute<ModuleStartupAttribute>(true);
+
+            var deps = new List<Type>();
+            foreach (var item in depAttr?.Select(x => x.ModuleType).ToArray() ?? Array.Empty<Type>())
+            {
+                item.EnsureModule();
+                deps.Add(item);
+            }
+
+            Type? startup = null;
+            if (startupAttr is not null)
+            {
+                startupAttr.StartupType.EnsureModuleStartup();
+                startup = startupAttr.StartupType;
+            }
 
             var result = new ModuleManifest
             {
-                Name = attribute?.Name ?? string.Concat(GenerateName(type.Name)),
-                EntryAssembly = attribute?.EntryAssembly ?? type.GetAssemblyName(),
-                DisplayName = attribute?.DisplayName ?? string.Join(' ', GenerateName(type.Name)),
-                Version = attribute?.Version ?? type.Assembly.GetName().Version?.ToString() ?? "0.0.0.0",
-                Author = attribute?.Author ?? "Anonymous",
-                Assemblies = attribute?.Assemblies ?? Array.Empty<string>(),
-                Description = attribute?.Description ?? "",
-                Url = attribute?.Url ?? "",
+                Name = moduleAttr?.Name ?? string.Concat(GenerateName(type.Name)),
+                EntryAssembly = type.GetAssemblyName(),
+                DisplayName = moduleAttr?.DisplayName ?? string.Join(' ', GenerateName(type.Name)),
+                Version = moduleAttr?.Version ?? type.Assembly.GetName().Version?.ToString() ?? "0.0.0.0",
+                Author = moduleAttr?.Author ?? "Anonymous",
+                Assemblies = assemblyAttr?.Select(x => x.Assembly).ToArray() ?? Array.Empty<string>(),
+                Description = moduleAttr?.Description ?? "",
+                Url = moduleAttr?.Url ?? "",
+                Services = serviceAttr?.Select(x => new ModuleServiceDescriptor(x.ServiceType, x.Lifetime)).ToArray() ?? Array.Empty<ModuleServiceDescriptor>(),
+                Options = optionAttr?.Select(x => x.OptionType).ToArray() ?? Array.Empty<Type>(),
+                Dependencies = deps.ToArray(),
+                Startup = startup,
             };
             return result;
         }
-    }
-
-    /// <summary>
-    /// Set module manifest.
-    /// </summary>
-    [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = true)]
-    public class ModuleAttribute : Attribute
-    {
-        /// <summary>
-        /// Set module manifest.
-        /// </summary>
-        public ModuleAttribute() : this(null) { }
-
-        /// <summary>
-        /// Set module manifest.
-        /// </summary>
-        public ModuleAttribute(string? name = null)
-        {
-            Name = name;
-        }
-
-        /// <summary>
-        /// Name
-        /// </summary>
-        public string? Name { get; init; }
-
-        /// <summary>
-        /// Entry assembly name
-        /// </summary>
-        public string? EntryAssembly { get; init; }
-
-        /// <summary>
-        /// Additional assemblies
-        /// </summary>
-        public string[]? Assemblies { get; init; }
-
-        /// <summary>
-        /// Display name
-        /// </summary>
-        public string? DisplayName { get; init; }
-
-        /// <summary>
-        /// Description
-        /// </summary>
-        public string? Description { get; init; }
-
-        /// <summary>
-        /// Version
-        /// </summary>
-        public string? Version { get; init; }
-
-        /// <summary>
-        /// Author
-        /// </summary>
-        public string? Author { get; init; }
-
-        /// <summary>
-        /// Project URL
-        /// </summary>
-        public string? Url { get; init; }
     }
 }

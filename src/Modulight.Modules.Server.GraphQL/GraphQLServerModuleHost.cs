@@ -48,6 +48,6 @@ namespace Modulight.Modules.Server.GraphQL
             }
         }
 
-        IReadOnlyList<IModule> IModuleHost.Modules => Modules;
+        IReadOnlyList<IServiceModule> IModuleHost.Modules => Modules;
     }
 }

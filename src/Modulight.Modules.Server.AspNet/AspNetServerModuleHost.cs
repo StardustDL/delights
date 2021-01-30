@@ -62,6 +62,6 @@ namespace Modulight.Modules.Server.AspNet
             }
         }
 
-        IReadOnlyList<IModule> IModuleHost.Modules => Modules;
+        IReadOnlyList<IServiceModule> IModuleHost.Modules => Modules;
     }
 }

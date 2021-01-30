@@ -10,7 +10,7 @@ defaults:
 env:
   dotnet-version: "5.0.x"
   node-version: "12.x"
-  build_version: "0.0.2-alpha.${{ github.run_number }}"
+  build_version: "0.0.3-alpha.${{ github.run_number }}"
 
 jobs:
   generate-docs:

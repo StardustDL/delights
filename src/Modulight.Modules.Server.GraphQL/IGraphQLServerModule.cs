@@ -13,7 +13,7 @@ namespace Modulight.Modules.Server.GraphQL
     /// <summary>
     /// Specifies the contract for graphql modules.
     /// </summary>
-    public interface IGraphQLServerModule : IModule
+    public interface IGraphQLServerModule : IServiceModule
     {
         /// <summary>
         /// Register graphql related services.

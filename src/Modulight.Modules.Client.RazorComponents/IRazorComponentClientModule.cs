@@ -11,7 +11,7 @@ namespace Modulight.Modules.Client.RazorComponents
     /// <summary>
     /// Specifies the contract for razor component modules.
     /// </summary>
-    public interface IRazorComponentClientModule : IModule
+    public interface IRazorComponentClientModule : IServiceModule
     {
         /// <summary>
         /// Register module UI.
@@ -43,7 +43,7 @@ namespace Modulight.Modules.Client.RazorComponents
     /// <summary>
     /// Specifies the contract for razor component modules with typed services.
     /// </summary>
-    public interface IRazorComponentClientModule<out TUIService, out TOption, out TUI> : IModule<TUIService, TOption>, IRazorComponentClientModule where TUI : IModuleUI where TUIService : IModuleService
+    public interface IRazorComponentClientModule<out TUIService, out TOption, out TUI> : IServiceModule<TUIService, TOption>, IRazorComponentClientModule where TUI : IModuleUI where TUIService : IModuleService
     {
         /// <summary>
         /// Get typed module UI from service provider.
