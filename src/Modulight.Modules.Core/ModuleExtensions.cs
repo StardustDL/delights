@@ -44,11 +44,7 @@ namespace Modulight.Modules
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static void EnsureModule(this Type type)
-        {
-            if (!type.IsModule())
-                throw new Exception($"{type.FullName} is not a module.");
-        }
+        public static void EnsureModule(this Type type) => type.EnsureModule<IModule>();
 
         /// <summary>
         /// Ensure a type is a specified module type.
@@ -80,11 +76,7 @@ namespace Modulight.Modules
         /// Ensure a type is a module startup type.
         /// </summary>
         /// <param name="type"></param>
-        public static void EnsureModuleStartup(this Type type)
-        {
-            if (!type.IsModuleStartup())
-                throw new Exception($"{type.FullName} is not a module startup.");
-        }
+        public static void EnsureModuleStartup(this Type type) => type.EnsureModuleStartup<IModuleStartup>();
 
         /// <summary>
         /// Ensure a type is a specified module startup type.

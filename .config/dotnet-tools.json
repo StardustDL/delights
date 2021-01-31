@@ -7,6 +7,12 @@
       "commands": [
         "dotnet-graphql"
       ]
+    },
+    "dotnet-reportgenerator-globaltool": {
+      "version": "4.8.4",
+      "commands": [
+        "reportgenerator"
+      ]
     }
   }
 }

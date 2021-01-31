@@ -48,11 +48,11 @@ Task Build {
 }
 
 Task Test {
-    # if (-not (Test-Path -Path "reports/test")) {
-    #     New-Item -Path "reports/test" -ItemType Directory
-    # }
-    # Exec { dotnet test -c Release --logger GitHubActions /p:CollectCoverage=true /p:CoverletOutput=../../reports/test/coverage.json /p:MergeWith=../../reports/test/coverage.json /maxcpucount:1 }
-    # Exec { dotnet test -c Release ./test/Test.Base --logger GitHubActions /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=../../reports/test/coverage.xml /p:MergeWith=../../reports/test/coverage.json }
+    if (-not (Test-Path -Path "reports/test")) {
+        New-Item -Path "reports/test" -ItemType Directory
+    }
+    Exec { dotnet test -c Release /p:CollectCoverage=true /p:CoverletOutput=../../reports/test/coverage.json /p:MergeWith=../../reports/test/coverage.json /maxcpucount:1 }
+    Exec { dotnet test -c Release ./test/Test.Base /p:CollectCoverage=true /p:CoverletOutputFormat=opencover /p:CoverletOutput=../../reports/test/coverage.xml /p:MergeWith=../../reports/test/coverage.json }
 }
 
 Task Benchmark {
@@ -60,7 +60,7 @@ Task Benchmark {
 }
 
 Task Report {
-    # Exec { ./tools/reportgenerator -reports:./reports/test/coverage.xml -targetdir:./reports/test }
+    Exec -maxRetries 3 { dotnet reportgenerator -reports:./reports/test/coverage.xml -targetdir:./reports/test }
     # if (-not (Test-Path -Path "reports/benchmark")) {
     #     New-Item -Path "reports/benchmark" -ItemType Directory
     # }

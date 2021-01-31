@@ -10,7 +10,7 @@ namespace Modulight.Modules
     /// Service descriptor for module services.
     /// </summary>
 #pragma warning disable CS1591 // 缺少对公共可见类型或成员的 XML 注释
-    public record ModuleServiceDescriptor(Type ImplementationType, Type? ServiceType = null, ServiceLifetime Lifetime = ServiceLifetime.Scoped)
+    public record ModuleServiceDescriptor(Type ImplementationType, Type ServiceType, ServiceLifetime Lifetime = ServiceLifetime.Scoped)
 #pragma warning restore CS1591 // 缺少对公共可见类型或成员的 XML 注释
     {
     }
@@ -128,7 +128,7 @@ namespace Modulight.Modules
                 Assemblies = assemblyAttr?.Select(x => x.Assembly).ToArray() ?? Array.Empty<string>(),
                 Description = moduleAttr?.Description ?? "",
                 Url = moduleAttr?.Url ?? "",
-                Services = serviceAttr?.Select(x => new ModuleServiceDescriptor(x.ImplementationType, x.ServiceType, x.Lifetime)).ToArray() ?? Array.Empty<ModuleServiceDescriptor>(),
+                Services = serviceAttr?.Select(x => new ModuleServiceDescriptor(x.ImplementationType, x.ServiceType ?? x.ImplementationType, x.Lifetime)).ToArray() ?? Array.Empty<ModuleServiceDescriptor>(),
                 Options = optionAttr?.Select(x => x.OptionType).ToArray() ?? Array.Empty<Type>(),
                 Dependencies = deps.ToArray(),
             };

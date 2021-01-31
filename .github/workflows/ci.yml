@@ -46,11 +46,11 @@ jobs:
       run: Set-PSRepository -Name PSGallery -InstallationPolicy Trusted; Install-Module -Name psake
     - name: CI
       run: Invoke-psake ci
-    # - name: Upload reports
-    #   uses: actions/upload-artifact@v2
-    #   with:
-    #     name: ci-${{ matrix.os }}
-    #     path: ./reports
+    - name: Upload reports
+      uses: actions/upload-artifact@v2
+      with:
+        name: ci-${{ matrix.os }}
+        path: ./reports
   deploy:
     needs: ci
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
