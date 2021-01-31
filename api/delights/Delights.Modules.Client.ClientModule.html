@@ -83,7 +83,8 @@
   
   <h1 id="Delights_Modules_Client_ClientModule" data-uid="Delights.Modules.Client.ClientModule" class="text-break">Class ClientModule
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Module for all Delights clients (front-end).</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -149,6 +150,9 @@
   <h5 id="Delights_Modules_Client_ClientModule_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Module(Url = null, Author = null, Description = null)]
+[ModuleDependency(typeof(AntDesignModule))]
+[ModuleDependency(typeof(MaterialDesignIconModule))]
+[ModuleDependency(typeof(VditorModule))]
 public class ClientModule : Module&lt;ClientModule&gt;, IModule</code></pre>
   </div>
   <h3 id="constructors">Constructors

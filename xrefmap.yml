@@ -6348,25 +6348,6 @@ references:
   isSpec: "True"
   fullName: Delights.Modules.Bookkeeping.Server.ModuleService.RawToData
   nameWithType: ModuleService.RawToData
-- uid: Delights.Modules.Bookkeeping.Startup
-  name: Startup
-  href: api/delights/Delights.Modules.Bookkeeping.Startup.html
-  commentId: T:Delights.Modules.Bookkeeping.Startup
-  fullName: Delights.Modules.Bookkeeping.Startup
-  nameWithType: Startup
-- uid: Delights.Modules.Bookkeeping.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
-  name: ConfigureServices(IServiceCollection)
-  href: api/delights/Delights.Modules.Bookkeeping.Startup.html#Delights_Modules_Bookkeeping_Startup_ConfigureServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_
-  commentId: M:Delights.Modules.Bookkeeping.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
-  fullName: Delights.Modules.Bookkeeping.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
-  nameWithType: Startup.ConfigureServices(IServiceCollection)
-- uid: Delights.Modules.Bookkeeping.Startup.ConfigureServices*
-  name: ConfigureServices
-  href: api/delights/Delights.Modules.Bookkeeping.Startup.html#Delights_Modules_Bookkeeping_Startup_ConfigureServices_
-  commentId: Overload:Delights.Modules.Bookkeeping.Startup.ConfigureServices
-  isSpec: "True"
-  fullName: Delights.Modules.Bookkeeping.Startup.ConfigureServices
-  nameWithType: Startup.ConfigureServices
 - uid: Delights.Modules.Bookkeeping.UrlGenerator
   name: UrlGenerator
   href: api/delights/Delights.Modules.Bookkeeping.UrlGenerator.html
@@ -6477,31 +6458,6 @@ references:
   isSpec: "True"
   fullName: Delights.Modules.Bookkeeping.UrlGenerator.Tags
   nameWithType: UrlGenerator.Tags
-- uid: Delights.Modules.Bookkeeping.Utils
-  name: Utils
-  href: api/delights/Delights.Modules.Bookkeeping.Utils.html
-  commentId: T:Delights.Modules.Bookkeeping.Utils
-  fullName: Delights.Modules.Bookkeeping.Utils
-  nameWithType: Utils
-- uid: Delights.Modules.Bookkeeping.Utils.ToFriendlyString(System.DateTimeOffset)
-  name: ToFriendlyString(DateTimeOffset)
-  href: api/delights/Delights.Modules.Bookkeeping.Utils.html#Delights_Modules_Bookkeeping_Utils_ToFriendlyString_System_DateTimeOffset_
-  commentId: M:Delights.Modules.Bookkeeping.Utils.ToFriendlyString(System.DateTimeOffset)
-  fullName: Delights.Modules.Bookkeeping.Utils.ToFriendlyString(System.DateTimeOffset)
-  nameWithType: Utils.ToFriendlyString(DateTimeOffset)
-- uid: Delights.Modules.Bookkeeping.Utils.ToFriendlyString(System.TimeSpan)
-  name: ToFriendlyString(TimeSpan)
-  href: api/delights/Delights.Modules.Bookkeeping.Utils.html#Delights_Modules_Bookkeeping_Utils_ToFriendlyString_System_TimeSpan_
-  commentId: M:Delights.Modules.Bookkeeping.Utils.ToFriendlyString(System.TimeSpan)
-  fullName: Delights.Modules.Bookkeeping.Utils.ToFriendlyString(System.TimeSpan)
-  nameWithType: Utils.ToFriendlyString(TimeSpan)
-- uid: Delights.Modules.Bookkeeping.Utils.ToFriendlyString*
-  name: ToFriendlyString
-  href: api/delights/Delights.Modules.Bookkeeping.Utils.html#Delights_Modules_Bookkeeping_Utils_ToFriendlyString_
-  commentId: Overload:Delights.Modules.Bookkeeping.Utils.ToFriendlyString
-  isSpec: "True"
-  fullName: Delights.Modules.Bookkeeping.Utils.ToFriendlyString
-  nameWithType: Utils.ToFriendlyString
 - uid: Delights.Modules.Client
   name: Delights.Modules.Client
   href: api/delights/Delights.Modules.Client.html
@@ -6546,6 +6502,31 @@ references:
   isSpec: "True"
   fullName: Delights.Modules.Client.ModuleExtensions.AddClientModule
   nameWithType: ModuleExtensions.AddClientModule
+- uid: Delights.Modules.Client.UtilExtensions
+  name: UtilExtensions
+  href: api/delights/Delights.Modules.Client.UtilExtensions.html
+  commentId: T:Delights.Modules.Client.UtilExtensions
+  fullName: Delights.Modules.Client.UtilExtensions
+  nameWithType: UtilExtensions
+- uid: Delights.Modules.Client.UtilExtensions.ToFriendlyString(System.DateTimeOffset)
+  name: ToFriendlyString(DateTimeOffset)
+  href: api/delights/Delights.Modules.Client.UtilExtensions.html#Delights_Modules_Client_UtilExtensions_ToFriendlyString_System_DateTimeOffset_
+  commentId: M:Delights.Modules.Client.UtilExtensions.ToFriendlyString(System.DateTimeOffset)
+  fullName: Delights.Modules.Client.UtilExtensions.ToFriendlyString(System.DateTimeOffset)
+  nameWithType: UtilExtensions.ToFriendlyString(DateTimeOffset)
+- uid: Delights.Modules.Client.UtilExtensions.ToFriendlyString(System.TimeSpan)
+  name: ToFriendlyString(TimeSpan)
+  href: api/delights/Delights.Modules.Client.UtilExtensions.html#Delights_Modules_Client_UtilExtensions_ToFriendlyString_System_TimeSpan_
+  commentId: M:Delights.Modules.Client.UtilExtensions.ToFriendlyString(System.TimeSpan)
+  fullName: Delights.Modules.Client.UtilExtensions.ToFriendlyString(System.TimeSpan)
+  nameWithType: UtilExtensions.ToFriendlyString(TimeSpan)
+- uid: Delights.Modules.Client.UtilExtensions.ToFriendlyString*
+  name: ToFriendlyString
+  href: api/delights/Delights.Modules.Client.UtilExtensions.html#Delights_Modules_Client_UtilExtensions_ToFriendlyString_
+  commentId: Overload:Delights.Modules.Client.UtilExtensions.ToFriendlyString
+  isSpec: "True"
+  fullName: Delights.Modules.Client.UtilExtensions.ToFriendlyString
+  nameWithType: UtilExtensions.ToFriendlyString
 - uid: Delights.Modules.Hello
   name: Delights.Modules.Hello
   href: api/delights/Delights.Modules.Hello.html
@@ -13493,25 +13474,6 @@ references:
   isSpec: "True"
   fullName: Delights.Modules.Notes.Server.NotesServerModuleStartupOption.ConfigureDbContext
   nameWithType: NotesServerModuleStartupOption.ConfigureDbContext
-- uid: Delights.Modules.Notes.Startup
-  name: Startup
-  href: api/delights/Delights.Modules.Notes.Startup.html
-  commentId: T:Delights.Modules.Notes.Startup
-  fullName: Delights.Modules.Notes.Startup
-  nameWithType: Startup
-- uid: Delights.Modules.Notes.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
-  name: ConfigureServices(IServiceCollection)
-  href: api/delights/Delights.Modules.Notes.Startup.html#Delights_Modules_Notes_Startup_ConfigureServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_
-  commentId: M:Delights.Modules.Notes.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
-  fullName: Delights.Modules.Notes.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
-  nameWithType: Startup.ConfigureServices(IServiceCollection)
-- uid: Delights.Modules.Notes.Startup.ConfigureServices*
-  name: ConfigureServices
-  href: api/delights/Delights.Modules.Notes.Startup.html#Delights_Modules_Notes_Startup_ConfigureServices_
-  commentId: Overload:Delights.Modules.Notes.Startup.ConfigureServices
-  isSpec: "True"
-  fullName: Delights.Modules.Notes.Startup.ConfigureServices
-  nameWithType: Startup.ConfigureServices
 - uid: Delights.Modules.Notes.UrlGenerator
   name: UrlGenerator
   href: api/delights/Delights.Modules.Notes.UrlGenerator.html
@@ -13654,25 +13616,6 @@ references:
   isSpec: "True"
   fullName: Delights.Modules.Notes.Utils.ReadTimeString
   nameWithType: Utils.ReadTimeString
-- uid: Delights.Modules.Notes.Utils.ToFriendlyString(System.DateTimeOffset)
-  name: ToFriendlyString(DateTimeOffset)
-  href: api/delights/Delights.Modules.Notes.Utils.html#Delights_Modules_Notes_Utils_ToFriendlyString_System_DateTimeOffset_
-  commentId: M:Delights.Modules.Notes.Utils.ToFriendlyString(System.DateTimeOffset)
-  fullName: Delights.Modules.Notes.Utils.ToFriendlyString(System.DateTimeOffset)
-  nameWithType: Utils.ToFriendlyString(DateTimeOffset)
-- uid: Delights.Modules.Notes.Utils.ToFriendlyString(System.TimeSpan)
-  name: ToFriendlyString(TimeSpan)
-  href: api/delights/Delights.Modules.Notes.Utils.html#Delights_Modules_Notes_Utils_ToFriendlyString_System_TimeSpan_
-  commentId: M:Delights.Modules.Notes.Utils.ToFriendlyString(System.TimeSpan)
-  fullName: Delights.Modules.Notes.Utils.ToFriendlyString(System.TimeSpan)
-  nameWithType: Utils.ToFriendlyString(TimeSpan)
-- uid: Delights.Modules.Notes.Utils.ToFriendlyString*
-  name: ToFriendlyString
-  href: api/delights/Delights.Modules.Notes.Utils.html#Delights_Modules_Notes_Utils_ToFriendlyString_
-  commentId: Overload:Delights.Modules.Notes.Utils.ToFriendlyString
-  isSpec: "True"
-  fullName: Delights.Modules.Notes.Utils.ToFriendlyString
-  nameWithType: Utils.ToFriendlyString
 - uid: Delights.Modules.Persons
   name: Delights.Modules.Persons
   href: api/delights/Delights.Modules.Persons.html
@@ -19465,67 +19408,6 @@ references:
   isSpec: "True"
   fullName: Delights.Modules.Persons.Server.ModuleExtensions.AddPersonsServerModule
   nameWithType: ModuleExtensions.AddPersonsServerModule
-- uid: Delights.Modules.Persons.Server.ModuleService
-  name: ModuleService
-  href: api/delights/Delights.Modules.Persons.Server.ModuleService.html
-  commentId: T:Delights.Modules.Persons.Server.ModuleService
-  fullName: Delights.Modules.Persons.Server.ModuleService
-  nameWithType: ModuleService
-- uid: Delights.Modules.Persons.Server.ModuleService.#ctor(System.IServiceProvider,Delights.Modules.Persons.Server.Data.DataDbContext,StardustDL.AspNet.ItemMetadataServer.ItemMetadataDomain{Delights.Modules.Persons.Server.PersonsServerModule},Microsoft.Extensions.Logging.ILogger{Delights.Modules.Persons.Server.PersonsServerModule})
-  name: ModuleService(IServiceProvider, DataDbContext, ItemMetadataDomain<PersonsServerModule>, ILogger<PersonsServerModule>)
-  href: api/delights/Delights.Modules.Persons.Server.ModuleService.html#Delights_Modules_Persons_Server_ModuleService__ctor_System_IServiceProvider_Delights_Modules_Persons_Server_Data_DataDbContext_StardustDL_AspNet_ItemMetadataServer_ItemMetadataDomain_Delights_Modules_Persons_Server_PersonsServerModule__Microsoft_Extensions_Logging_ILogger_Delights_Modules_Persons_Server_PersonsServerModule__
-  commentId: M:Delights.Modules.Persons.Server.ModuleService.#ctor(System.IServiceProvider,Delights.Modules.Persons.Server.Data.DataDbContext,StardustDL.AspNet.ItemMetadataServer.ItemMetadataDomain{Delights.Modules.Persons.Server.PersonsServerModule},Microsoft.Extensions.Logging.ILogger{Delights.Modules.Persons.Server.PersonsServerModule})
-  name.vb: ModuleService(IServiceProvider, DataDbContext, ItemMetadataDomain(Of PersonsServerModule), ILogger(Of PersonsServerModule))
-  fullName: Delights.Modules.Persons.Server.ModuleService.ModuleService(System.IServiceProvider, Delights.Modules.Persons.Server.Data.DataDbContext, StardustDL.AspNet.ItemMetadataServer.ItemMetadataDomain<Delights.Modules.Persons.Server.PersonsServerModule>, Microsoft.Extensions.Logging.ILogger<Delights.Modules.Persons.Server.PersonsServerModule>)
-  fullName.vb: Delights.Modules.Persons.Server.ModuleService.ModuleService(System.IServiceProvider, Delights.Modules.Persons.Server.Data.DataDbContext, StardustDL.AspNet.ItemMetadataServer.ItemMetadataDomain(Of Delights.Modules.Persons.Server.PersonsServerModule), Microsoft.Extensions.Logging.ILogger(Of Delights.Modules.Persons.Server.PersonsServerModule))
-  nameWithType: ModuleService.ModuleService(IServiceProvider, DataDbContext, ItemMetadataDomain<PersonsServerModule>, ILogger<PersonsServerModule>)
-  nameWithType.vb: ModuleService.ModuleService(IServiceProvider, DataDbContext, ItemMetadataDomain(Of PersonsServerModule), ILogger(Of PersonsServerModule))
-- uid: Delights.Modules.Persons.Server.ModuleService.#ctor*
-  name: ModuleService
-  href: api/delights/Delights.Modules.Persons.Server.ModuleService.html#Delights_Modules_Persons_Server_ModuleService__ctor_
-  commentId: Overload:Delights.Modules.Persons.Server.ModuleService.#ctor
-  isSpec: "True"
-  fullName: Delights.Modules.Persons.Server.ModuleService.ModuleService
-  nameWithType: ModuleService.ModuleService
-- uid: Delights.Modules.Persons.Server.ModuleService.ApplyMutation(RawPerson,PersonMutation)
-  name: ApplyMutation(RawPerson, PersonMutation)
-  href: api/delights/Delights.Modules.Persons.Server.ModuleService.html#Delights_Modules_Persons_Server_ModuleService_ApplyMutation_RawPerson_PersonMutation_
-  commentId: M:Delights.Modules.Persons.Server.ModuleService.ApplyMutation(RawPerson,PersonMutation)
-  fullName: Delights.Modules.Persons.Server.ModuleService.ApplyMutation(RawPerson, PersonMutation)
-  nameWithType: ModuleService.ApplyMutation(RawPerson, PersonMutation)
-- uid: Delights.Modules.Persons.Server.ModuleService.ApplyMutation*
-  name: ApplyMutation
-  href: api/delights/Delights.Modules.Persons.Server.ModuleService.html#Delights_Modules_Persons_Server_ModuleService_ApplyMutation_
-  commentId: Overload:Delights.Modules.Persons.Server.ModuleService.ApplyMutation
-  isSpec: "True"
-  fullName: Delights.Modules.Persons.Server.ModuleService.ApplyMutation
-  nameWithType: ModuleService.ApplyMutation
-- uid: Delights.Modules.Persons.Server.ModuleService.DataToMutation(Person)
-  name: DataToMutation(Person)
-  href: api/delights/Delights.Modules.Persons.Server.ModuleService.html#Delights_Modules_Persons_Server_ModuleService_DataToMutation_Person_
-  commentId: M:Delights.Modules.Persons.Server.ModuleService.DataToMutation(Person)
-  fullName: Delights.Modules.Persons.Server.ModuleService.DataToMutation(Person)
-  nameWithType: ModuleService.DataToMutation(Person)
-- uid: Delights.Modules.Persons.Server.ModuleService.DataToMutation*
-  name: DataToMutation
-  href: api/delights/Delights.Modules.Persons.Server.ModuleService.html#Delights_Modules_Persons_Server_ModuleService_DataToMutation_
-  commentId: Overload:Delights.Modules.Persons.Server.ModuleService.DataToMutation
-  isSpec: "True"
-  fullName: Delights.Modules.Persons.Server.ModuleService.DataToMutation
-  nameWithType: ModuleService.DataToMutation
-- uid: Delights.Modules.Persons.Server.ModuleService.RawToData(RawPerson)
-  name: RawToData(RawPerson)
-  href: api/delights/Delights.Modules.Persons.Server.ModuleService.html#Delights_Modules_Persons_Server_ModuleService_RawToData_RawPerson_
-  commentId: M:Delights.Modules.Persons.Server.ModuleService.RawToData(RawPerson)
-  fullName: Delights.Modules.Persons.Server.ModuleService.RawToData(RawPerson)
-  nameWithType: ModuleService.RawToData(RawPerson)
-- uid: Delights.Modules.Persons.Server.ModuleService.RawToData*
-  name: RawToData
-  href: api/delights/Delights.Modules.Persons.Server.ModuleService.html#Delights_Modules_Persons_Server_ModuleService_RawToData_
-  commentId: Overload:Delights.Modules.Persons.Server.ModuleService.RawToData
-  isSpec: "True"
-  fullName: Delights.Modules.Persons.Server.ModuleService.RawToData
-  nameWithType: ModuleService.RawToData
 - uid: Delights.Modules.Persons.Server.PersonsServerModule
   name: PersonsServerModule
   href: api/delights/Delights.Modules.Persons.Server.PersonsServerModule.html
@@ -19558,6 +19440,67 @@ references:
   isSpec: "True"
   fullName: Delights.Modules.Persons.Server.PersonsServerModule.Initialize
   nameWithType: PersonsServerModule.Initialize
+- uid: Delights.Modules.Persons.Server.PersonsServerModuleService
+  name: PersonsServerModuleService
+  href: api/delights/Delights.Modules.Persons.Server.PersonsServerModuleService.html
+  commentId: T:Delights.Modules.Persons.Server.PersonsServerModuleService
+  fullName: Delights.Modules.Persons.Server.PersonsServerModuleService
+  nameWithType: PersonsServerModuleService
+- uid: Delights.Modules.Persons.Server.PersonsServerModuleService.#ctor(System.IServiceProvider,Delights.Modules.Persons.Server.Data.DataDbContext,StardustDL.AspNet.ItemMetadataServer.ItemMetadataDomain{Delights.Modules.Persons.Server.PersonsServerModule},Microsoft.Extensions.Logging.ILogger{Delights.Modules.Persons.Server.PersonsServerModule})
+  name: PersonsServerModuleService(IServiceProvider, DataDbContext, ItemMetadataDomain<PersonsServerModule>, ILogger<PersonsServerModule>)
+  href: api/delights/Delights.Modules.Persons.Server.PersonsServerModuleService.html#Delights_Modules_Persons_Server_PersonsServerModuleService__ctor_System_IServiceProvider_Delights_Modules_Persons_Server_Data_DataDbContext_StardustDL_AspNet_ItemMetadataServer_ItemMetadataDomain_Delights_Modules_Persons_Server_PersonsServerModule__Microsoft_Extensions_Logging_ILogger_Delights_Modules_Persons_Server_PersonsServerModule__
+  commentId: M:Delights.Modules.Persons.Server.PersonsServerModuleService.#ctor(System.IServiceProvider,Delights.Modules.Persons.Server.Data.DataDbContext,StardustDL.AspNet.ItemMetadataServer.ItemMetadataDomain{Delights.Modules.Persons.Server.PersonsServerModule},Microsoft.Extensions.Logging.ILogger{Delights.Modules.Persons.Server.PersonsServerModule})
+  name.vb: PersonsServerModuleService(IServiceProvider, DataDbContext, ItemMetadataDomain(Of PersonsServerModule), ILogger(Of PersonsServerModule))
+  fullName: Delights.Modules.Persons.Server.PersonsServerModuleService.PersonsServerModuleService(System.IServiceProvider, Delights.Modules.Persons.Server.Data.DataDbContext, StardustDL.AspNet.ItemMetadataServer.ItemMetadataDomain<Delights.Modules.Persons.Server.PersonsServerModule>, Microsoft.Extensions.Logging.ILogger<Delights.Modules.Persons.Server.PersonsServerModule>)
+  fullName.vb: Delights.Modules.Persons.Server.PersonsServerModuleService.PersonsServerModuleService(System.IServiceProvider, Delights.Modules.Persons.Server.Data.DataDbContext, StardustDL.AspNet.ItemMetadataServer.ItemMetadataDomain(Of Delights.Modules.Persons.Server.PersonsServerModule), Microsoft.Extensions.Logging.ILogger(Of Delights.Modules.Persons.Server.PersonsServerModule))
+  nameWithType: PersonsServerModuleService.PersonsServerModuleService(IServiceProvider, DataDbContext, ItemMetadataDomain<PersonsServerModule>, ILogger<PersonsServerModule>)
+  nameWithType.vb: PersonsServerModuleService.PersonsServerModuleService(IServiceProvider, DataDbContext, ItemMetadataDomain(Of PersonsServerModule), ILogger(Of PersonsServerModule))
+- uid: Delights.Modules.Persons.Server.PersonsServerModuleService.#ctor*
+  name: PersonsServerModuleService
+  href: api/delights/Delights.Modules.Persons.Server.PersonsServerModuleService.html#Delights_Modules_Persons_Server_PersonsServerModuleService__ctor_
+  commentId: Overload:Delights.Modules.Persons.Server.PersonsServerModuleService.#ctor
+  isSpec: "True"
+  fullName: Delights.Modules.Persons.Server.PersonsServerModuleService.PersonsServerModuleService
+  nameWithType: PersonsServerModuleService.PersonsServerModuleService
+- uid: Delights.Modules.Persons.Server.PersonsServerModuleService.ApplyMutation(RawPerson,PersonMutation)
+  name: ApplyMutation(RawPerson, PersonMutation)
+  href: api/delights/Delights.Modules.Persons.Server.PersonsServerModuleService.html#Delights_Modules_Persons_Server_PersonsServerModuleService_ApplyMutation_RawPerson_PersonMutation_
+  commentId: M:Delights.Modules.Persons.Server.PersonsServerModuleService.ApplyMutation(RawPerson,PersonMutation)
+  fullName: Delights.Modules.Persons.Server.PersonsServerModuleService.ApplyMutation(RawPerson, PersonMutation)
+  nameWithType: PersonsServerModuleService.ApplyMutation(RawPerson, PersonMutation)
+- uid: Delights.Modules.Persons.Server.PersonsServerModuleService.ApplyMutation*
+  name: ApplyMutation
+  href: api/delights/Delights.Modules.Persons.Server.PersonsServerModuleService.html#Delights_Modules_Persons_Server_PersonsServerModuleService_ApplyMutation_
+  commentId: Overload:Delights.Modules.Persons.Server.PersonsServerModuleService.ApplyMutation
+  isSpec: "True"
+  fullName: Delights.Modules.Persons.Server.PersonsServerModuleService.ApplyMutation
+  nameWithType: PersonsServerModuleService.ApplyMutation
+- uid: Delights.Modules.Persons.Server.PersonsServerModuleService.DataToMutation(Person)
+  name: DataToMutation(Person)
+  href: api/delights/Delights.Modules.Persons.Server.PersonsServerModuleService.html#Delights_Modules_Persons_Server_PersonsServerModuleService_DataToMutation_Person_
+  commentId: M:Delights.Modules.Persons.Server.PersonsServerModuleService.DataToMutation(Person)
+  fullName: Delights.Modules.Persons.Server.PersonsServerModuleService.DataToMutation(Person)
+  nameWithType: PersonsServerModuleService.DataToMutation(Person)
+- uid: Delights.Modules.Persons.Server.PersonsServerModuleService.DataToMutation*
+  name: DataToMutation
+  href: api/delights/Delights.Modules.Persons.Server.PersonsServerModuleService.html#Delights_Modules_Persons_Server_PersonsServerModuleService_DataToMutation_
+  commentId: Overload:Delights.Modules.Persons.Server.PersonsServerModuleService.DataToMutation
+  isSpec: "True"
+  fullName: Delights.Modules.Persons.Server.PersonsServerModuleService.DataToMutation
+  nameWithType: PersonsServerModuleService.DataToMutation
+- uid: Delights.Modules.Persons.Server.PersonsServerModuleService.RawToData(RawPerson)
+  name: RawToData(RawPerson)
+  href: api/delights/Delights.Modules.Persons.Server.PersonsServerModuleService.html#Delights_Modules_Persons_Server_PersonsServerModuleService_RawToData_RawPerson_
+  commentId: M:Delights.Modules.Persons.Server.PersonsServerModuleService.RawToData(RawPerson)
+  fullName: Delights.Modules.Persons.Server.PersonsServerModuleService.RawToData(RawPerson)
+  nameWithType: PersonsServerModuleService.RawToData(RawPerson)
+- uid: Delights.Modules.Persons.Server.PersonsServerModuleService.RawToData*
+  name: RawToData
+  href: api/delights/Delights.Modules.Persons.Server.PersonsServerModuleService.html#Delights_Modules_Persons_Server_PersonsServerModuleService_RawToData_
+  commentId: Overload:Delights.Modules.Persons.Server.PersonsServerModuleService.RawToData
+  isSpec: "True"
+  fullName: Delights.Modules.Persons.Server.PersonsServerModuleService.RawToData
+  nameWithType: PersonsServerModuleService.RawToData
 - uid: Delights.Modules.Persons.Server.PersonsServerModuleStartupOption
   name: PersonsServerModuleStartupOption
   href: api/delights/Delights.Modules.Persons.Server.PersonsServerModuleStartupOption.html
@@ -19577,25 +19520,6 @@ references:
   isSpec: "True"
   fullName: Delights.Modules.Persons.Server.PersonsServerModuleStartupOption.ConfigureDbContext
   nameWithType: PersonsServerModuleStartupOption.ConfigureDbContext
-- uid: Delights.Modules.Persons.Startup
-  name: Startup
-  href: api/delights/Delights.Modules.Persons.Startup.html
-  commentId: T:Delights.Modules.Persons.Startup
-  fullName: Delights.Modules.Persons.Startup
-  nameWithType: Startup
-- uid: Delights.Modules.Persons.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
-  name: ConfigureServices(IServiceCollection)
-  href: api/delights/Delights.Modules.Persons.Startup.html#Delights_Modules_Persons_Startup_ConfigureServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_
-  commentId: M:Delights.Modules.Persons.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
-  fullName: Delights.Modules.Persons.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
-  nameWithType: Startup.ConfigureServices(IServiceCollection)
-- uid: Delights.Modules.Persons.Startup.ConfigureServices*
-  name: ConfigureServices
-  href: api/delights/Delights.Modules.Persons.Startup.html#Delights_Modules_Persons_Startup_ConfigureServices_
-  commentId: Overload:Delights.Modules.Persons.Startup.ConfigureServices
-  isSpec: "True"
-  fullName: Delights.Modules.Persons.Startup.ConfigureServices
-  nameWithType: Startup.ConfigureServices
 - uid: Delights.Modules.Persons.UrlGenerator
   name: UrlGenerator
   href: api/delights/Delights.Modules.Persons.UrlGenerator.html
@@ -19706,31 +19630,6 @@ references:
   isSpec: "True"
   fullName: Delights.Modules.Persons.UrlGenerator.Tags
   nameWithType: UrlGenerator.Tags
-- uid: Delights.Modules.Persons.Utils
-  name: Utils
-  href: api/delights/Delights.Modules.Persons.Utils.html
-  commentId: T:Delights.Modules.Persons.Utils
-  fullName: Delights.Modules.Persons.Utils
-  nameWithType: Utils
-- uid: Delights.Modules.Persons.Utils.ToFriendlyString(System.DateTimeOffset)
-  name: ToFriendlyString(DateTimeOffset)
-  href: api/delights/Delights.Modules.Persons.Utils.html#Delights_Modules_Persons_Utils_ToFriendlyString_System_DateTimeOffset_
-  commentId: M:Delights.Modules.Persons.Utils.ToFriendlyString(System.DateTimeOffset)
-  fullName: Delights.Modules.Persons.Utils.ToFriendlyString(System.DateTimeOffset)
-  nameWithType: Utils.ToFriendlyString(DateTimeOffset)
-- uid: Delights.Modules.Persons.Utils.ToFriendlyString(System.TimeSpan)
-  name: ToFriendlyString(TimeSpan)
-  href: api/delights/Delights.Modules.Persons.Utils.html#Delights_Modules_Persons_Utils_ToFriendlyString_System_TimeSpan_
-  commentId: M:Delights.Modules.Persons.Utils.ToFriendlyString(System.TimeSpan)
-  fullName: Delights.Modules.Persons.Utils.ToFriendlyString(System.TimeSpan)
-  nameWithType: Utils.ToFriendlyString(TimeSpan)
-- uid: Delights.Modules.Persons.Utils.ToFriendlyString*
-  name: ToFriendlyString
-  href: api/delights/Delights.Modules.Persons.Utils.html#Delights_Modules_Persons_Utils_ToFriendlyString_
-  commentId: Overload:Delights.Modules.Persons.Utils.ToFriendlyString
-  isSpec: "True"
-  fullName: Delights.Modules.Persons.Utils.ToFriendlyString
-  nameWithType: Utils.ToFriendlyString
 - uid: Delights.Modules.Server.Data
   name: Delights.Modules.Server.Data
   href: api/delights/Delights.Modules.Server.Data.html
@@ -22882,6 +22781,19 @@ references:
   isSpec: "True"
   fullName: Modulight.Modules.ModuleServiceAttribute.ModuleServiceAttribute
   nameWithType: ModuleServiceAttribute.ModuleServiceAttribute
+- uid: Modulight.Modules.ModuleServiceAttribute.ImplementationType
+  name: ImplementationType
+  href: api/modulight/Modulight.Modules.ModuleServiceAttribute.html#Modulight_Modules_ModuleServiceAttribute_ImplementationType
+  commentId: P:Modulight.Modules.ModuleServiceAttribute.ImplementationType
+  fullName: Modulight.Modules.ModuleServiceAttribute.ImplementationType
+  nameWithType: ModuleServiceAttribute.ImplementationType
+- uid: Modulight.Modules.ModuleServiceAttribute.ImplementationType*
+  name: ImplementationType
+  href: api/modulight/Modulight.Modules.ModuleServiceAttribute.html#Modulight_Modules_ModuleServiceAttribute_ImplementationType_
+  commentId: Overload:Modulight.Modules.ModuleServiceAttribute.ImplementationType
+  isSpec: "True"
+  fullName: Modulight.Modules.ModuleServiceAttribute.ImplementationType
+  nameWithType: ModuleServiceAttribute.ImplementationType
 - uid: Modulight.Modules.ModuleServiceAttribute.Lifetime
   name: Lifetime
   href: api/modulight/Modulight.Modules.ModuleServiceAttribute.html#Modulight_Modules_ModuleServiceAttribute_Lifetime
@@ -25283,25 +25195,6 @@ references:
   commentId: N:StardustDL.AspNet.ObjectStorage
   fullName: StardustDL.AspNet.ObjectStorage
   nameWithType: StardustDL.AspNet.ObjectStorage
-- uid: StardustDL.AspNet.ObjectStorage.ApiStartup
-  name: ApiStartup
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.ApiStartup.html
-  commentId: T:StardustDL.AspNet.ObjectStorage.ApiStartup
-  fullName: StardustDL.AspNet.ObjectStorage.ApiStartup
-  nameWithType: ApiStartup
-- uid: StardustDL.AspNet.ObjectStorage.ApiStartup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
-  name: ConfigureServices(IServiceCollection)
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.ApiStartup.html#StardustDL_AspNet_ObjectStorage_ApiStartup_ConfigureServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_
-  commentId: M:StardustDL.AspNet.ObjectStorage.ApiStartup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
-  fullName: StardustDL.AspNet.ObjectStorage.ApiStartup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
-  nameWithType: ApiStartup.ConfigureServices(IServiceCollection)
-- uid: StardustDL.AspNet.ObjectStorage.ApiStartup.ConfigureServices*
-  name: ConfigureServices
-  href: api/extensions/StardustDL.AspNet.ObjectStorage.ApiStartup.html#StardustDL_AspNet_ObjectStorage_ApiStartup_ConfigureServices_
-  commentId: Overload:StardustDL.AspNet.ObjectStorage.ApiStartup.ConfigureServices
-  isSpec: "True"
-  fullName: StardustDL.AspNet.ObjectStorage.ApiStartup.ConfigureServices
-  nameWithType: ApiStartup.ConfigureServices
 - uid: StardustDL.AspNet.ObjectStorage.IBucketService
   name: IBucketService
   href: api/extensions/StardustDL.AspNet.ObjectStorage.IBucketService.html

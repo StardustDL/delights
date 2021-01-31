@@ -83,7 +83,8 @@
   
   <h1 id="Delights_Modules_Persons_Server_PersonsServerModule" data-uid="Delights.Modules.Persons.Server.PersonsServerModule" class="text-break">Class PersonsServerModule
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Server module for persons.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -151,7 +152,7 @@
   <h5 id="Delights_Modules_Persons_Server_PersonsServerModule_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Module(Url = null, Author = null, Description = null)]
-[ModuleService(typeof(ModuleService))]
+[ModuleService(typeof(PersonsServerModuleService))]
 [ModuleStartup(typeof(Startup))]
 [ModuleDependency(typeof(ItemMetadataServerModule))]
 [GraphQLModuleType(&quot;Persons&quot;, typeof(ModuleQuery), MutationType = null)]

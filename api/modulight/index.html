@@ -143,22 +143,29 @@ app.UseEndpoints(endpoints =&gt;
 });
 </code></pre>
 <ol start="3">
+<li>Configure the module initilizing &amp; shutdown.</li>
+</ol>
+<pre><code class="lang-cs">// in Program: Task Main(string[] args)
+
+var host = CreateHostBuilder(args).Build();
+await using var _ = await host.Services.UseModuleHost();
+await host.RunAsync();
+</code></pre>
+<ol start="4">
 <li>For razor components, add <code>ResourceDeclare</code> component to App.razor to load UI resources.</li>
 </ol>
 <pre><code class="lang-razor">&lt;Modulight.Modules.Client.RazorComponents.UI.ResourceDeclare /&gt;
 </code></pre>
 <p>This component will find all resources defined in modules, and render HTML tags for them.</p>
 <p>This works for normal cases, but if you use WebAssembly target, no prerenderring, and the component library need the javascript files to be loaded initially. You can use the following codes to load resources manually.</p>
-<pre><code class="lang-cs">// WebAssemblyHostBuilder builder;
-await using(var provider = builder.Services.BuildServiceProvider())
-{
-    await provider.GetRazorComponentClientModuleHost().LoadResources();
-}
-await builder.Build().RunAsync();
+<pre><code class="lang-cs">// WebAssemblyHost host;
+await using var _ = await host.Services.UseModuleHost();
+await host.Services.GetRazorComponentClientModuleCollection().LoadResources();
+await host.RunAsync();
 </code></pre>
 <h2 id="example-codes">Example codes</h2>
 <p>They are based on nightly build package at:</p>
-<p><a href="https://sparkshine.pkgs.visualstudio.com/StardustDL/_packaging/feed/nuget/v3/index.json">https://sparkshine.pkgs.visualstudio.com/StardustDL/_packaging/feed/nuget/v3/index.json</a></p>
+<p><a href="https://sparkshine.pkgs.visualstudio.com/StardustDL/_packaging/feed/nuget/v3/index.json">NUGET source</a></p>
 <h3 id="design-a-client-blazor-module">Design a client (Blazor) module</h3>
 <ul>
 <li><a href="https://github.com/StardustDL/delights/blob/master/src/modules/hello/Delights.Modules.Hello/HelloModule.cs">HelloModule.cs</a> Client module definition.</li>
@@ -170,7 +177,7 @@ await builder.Build().RunAsync();
 </ul>
 <h3 id="use-a-client-module-in-blazor-websites">Use a client module in Blazor websites</h3>
 <ul>
-<li><a href="https://github.com/StardustDL/delights/blob/master/src/Delights.UI/Components/ModulePage.razor">ModulePage.razor</a> Layout and container for module pages.</li>
+<li><a href="https://github.com/StardustDL/delights/blob/master/src/Delights.UI/Shared/ModulePageLayout.razor">ModulePageLayout.razor</a> Layout and container for module pages.</li>
 <li><a href="https://github.com/StardustDL/delights/blob/master/src/Delights.UI/App.razor">App.razor</a> Lazy loading for js/css/sassemblies when routing.</li>
 <li><a href="https://github.com/StardustDL/delights/blob/master/src/Delights.UI/UIModule.cs">UIModule.cs</a> Definition of JS/CSS resources.</li>
 <li><a href="https://github.com/StardustDL/delights/blob/master/src/Delights.Client.Shared/ModuleSetup.cs">ModuleSetup.cs</a> Use modules in client.</li>

@@ -158,6 +158,7 @@
 [ModuleStartup(typeof(Startup))]
 [ModuleService(typeof(ModuleService))]
 [ModuleUI(typeof(ModuleUI))]
+[ModuleDependency(typeof(ClientModule))]
 public class HelloModule : RazorComponentClientModule&lt;HelloModule&gt;, IRazorComponentClientModule, IModule</code></pre>
   </div>
   <h3 id="constructors">Constructors

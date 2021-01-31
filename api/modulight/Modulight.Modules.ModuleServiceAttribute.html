@@ -83,7 +83,8 @@
   
   <h1 id="Modulight_Modules_ModuleServiceAttribute" data-uid="Modulight.Modules.ModuleServiceAttribute" class="text-break">Class ModuleServiceAttribute
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Specifies the service for the module.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -231,11 +232,12 @@ public class ModuleServiceAttribute : Attribute</code></pre>
   </h3>
   <a id="Modulight_Modules_ModuleServiceAttribute__ctor_" data-uid="Modulight.Modules.ModuleServiceAttribute.#ctor*"></a>
   <h4 id="Modulight_Modules_ModuleServiceAttribute__ctor_System_Type_" data-uid="Modulight.Modules.ModuleServiceAttribute.#ctor(System.Type)">ModuleServiceAttribute(Type)</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Specifies the service for the module.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ModuleServiceAttribute(Type serviceType)</code></pre>
+    <pre><code class="lang-csharp hljs">public ModuleServiceAttribute(Type implementationType)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -249,16 +251,42 @@ public class ModuleServiceAttribute : Attribute</code></pre>
     <tbody>
       <tr>
         <td><span class="xref">System.Type</span></td>
-        <td><span class="parametername">serviceType</span></td>
-        <td></td>
+        <td><span class="parametername">implementationType</span></td>
+        <td><p>The implementation type.</p>
+</td>
       </tr>
     </tbody>
   </table>
   <h3 id="properties">Properties
   </h3>
+  <a id="Modulight_Modules_ModuleServiceAttribute_ImplementationType_" data-uid="Modulight.Modules.ModuleServiceAttribute.ImplementationType*"></a>
+  <h4 id="Modulight_Modules_ModuleServiceAttribute_ImplementationType" data-uid="Modulight.Modules.ModuleServiceAttribute.ImplementationType">ImplementationType</h4>
+  <div class="markdown level1 summary"><p>The implementation type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Type ImplementationType { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Type</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <a id="Modulight_Modules_ModuleServiceAttribute_Lifetime_" data-uid="Modulight.Modules.ModuleServiceAttribute.Lifetime*"></a>
   <h4 id="Modulight_Modules_ModuleServiceAttribute_Lifetime" data-uid="Modulight.Modules.ModuleServiceAttribute.Lifetime">Lifetime</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Service lifetime (default as <span class="xref">Microsoft.Extensions.DependencyInjection.ServiceLifetime.Scoped</span>).</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -281,7 +309,8 @@ public class ModuleServiceAttribute : Attribute</code></pre>
   </table>
   <a id="Modulight_Modules_ModuleServiceAttribute_ServiceType_" data-uid="Modulight.Modules.ModuleServiceAttribute.ServiceType*"></a>
   <h4 id="Modulight_Modules_ModuleServiceAttribute_ServiceType" data-uid="Modulight.Modules.ModuleServiceAttribute.ServiceType">ServiceType</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The service type. Null to use the implement type.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
