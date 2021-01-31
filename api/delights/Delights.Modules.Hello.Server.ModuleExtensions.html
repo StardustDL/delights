@@ -122,13 +122,13 @@
   </div>
   <h3 id="methods">Methods
   </h3>
-  <a id="Delights_Modules_Hello_Server_ModuleExtensions_AddHelloModule_" data-uid="Delights.Modules.Hello.Server.ModuleExtensions.AddHelloModule*"></a>
-  <h4 id="Delights_Modules_Hello_Server_ModuleExtensions_AddHelloModule_Modulight_Modules_IModuleHostBuilder_System_Action_Delights_Modules_Hello_Server_ModuleOption__System_Action_Delights_Modules_Hello_Server_ModuleOption_System_IServiceProvider__" data-uid="Delights.Modules.Hello.Server.ModuleExtensions.AddHelloModule(Modulight.Modules.IModuleHostBuilder,System.Action{Delights.Modules.Hello.Server.ModuleOption},System.Action{Delights.Modules.Hello.Server.ModuleOption,System.IServiceProvider})">AddHelloModule(IModuleHostBuilder, Action&lt;ModuleOption&gt;, Action&lt;ModuleOption, IServiceProvider&gt;)</h4>
+  <a id="Delights_Modules_Hello_Server_ModuleExtensions_AddHelloServerModule_" data-uid="Delights.Modules.Hello.Server.ModuleExtensions.AddHelloServerModule*"></a>
+  <h4 id="Delights_Modules_Hello_Server_ModuleExtensions_AddHelloServerModule_Modulight_Modules_Hosting_IModuleHostBuilder_" data-uid="Delights.Modules.Hello.Server.ModuleExtensions.AddHelloServerModule(Modulight.Modules.Hosting.IModuleHostBuilder)">AddHelloServerModule(IModuleHostBuilder)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IModuleHostBuilder AddHelloModule(this IModuleHostBuilder modules, Action&lt;ModuleOption&gt; setupOptions = null, Action&lt;ModuleOption, IServiceProvider&gt; configureOptions = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IModuleHostBuilder AddHelloServerModule(this IModuleHostBuilder modules)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -141,18 +141,8 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="../modulight/Modulight.Modules.IModuleHostBuilder.html">IModuleHostBuilder</a></td>
+        <td><a class="xref" href="../modulight/Modulight.Modules.Hosting.IModuleHostBuilder.html">IModuleHostBuilder</a></td>
         <td><span class="parametername">modules</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<a class="xref" href="Delights.Modules.Hello.Server.ModuleOption.html">ModuleOption</a>&gt;</td>
-        <td><span class="parametername">setupOptions</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Action</span>&lt;<a class="xref" href="Delights.Modules.Hello.Server.ModuleOption.html">ModuleOption</a>, <span class="xref">System.IServiceProvider</span>&gt;</td>
-        <td><span class="parametername">configureOptions</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -167,7 +157,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="../modulight/Modulight.Modules.IModuleHostBuilder.html">IModuleHostBuilder</a></td>
+        <td><a class="xref" href="../modulight/Modulight.Modules.Hosting.IModuleHostBuilder.html">IModuleHostBuilder</a></td>
         <td></td>
       </tr>
     </tbody>

@@ -89,16 +89,13 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
+      <a class="xref" href="Modulight.Modules.IModule.html#Modulight_Modules_IModule_Initialize">IModule.Initialize()</a>
+    </div>
+    <div>
+      <a class="xref" href="Modulight.Modules.IModule.html#Modulight_Modules_IModule_Shutdown">IModule.Shutdown()</a>
+    </div>
+    <div>
       <a class="xref" href="Modulight.Modules.IModule.html#Modulight_Modules_IModule_Manifest">IModule.Manifest</a>
-    </div>
-    <div>
-      <a class="xref" href="Modulight.Modules.IModule.html#Modulight_Modules_IModule_RegisterServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_">IModule.RegisterServices(IServiceCollection)</a>
-    </div>
-    <div>
-      <a class="xref" href="Modulight.Modules.IModule.html#Modulight_Modules_IModule_GetService_System_IServiceProvider_">IModule.GetService(IServiceProvider)</a>
-    </div>
-    <div>
-      <a class="xref" href="Modulight.Modules.IModule.html#Modulight_Modules_IModule_Setup_Modulight_Modules_IModuleHostBuilder_">IModule.Setup(IModuleHostBuilder)</a>
     </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Modulight.Modules.Client.RazorComponents.html">Modulight.Modules.Client.RazorComponents</a></h6>
@@ -111,8 +108,7 @@
   </h3>
   <a id="Modulight_Modules_Client_RazorComponents_IRazorComponentClientModule_GetUI_" data-uid="Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.GetUI*"></a>
   <h4 id="Modulight_Modules_Client_RazorComponents_IRazorComponentClientModule_GetUI_System_IServiceProvider_" data-uid="Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.GetUI(System.IServiceProvider)">GetUI(IServiceProvider)</h4>
-  <div class="markdown level1 summary"><p>Get module UI from service provider.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
@@ -146,99 +142,6 @@
     <tbody>
       <tr>
         <td><a class="xref" href="Modulight.Modules.Client.RazorComponents.UI.IModuleUI.html">IModuleUI</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="Modulight_Modules_Client_RazorComponents_IRazorComponentClientModule_GetUIService_" data-uid="Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.GetUIService*"></a>
-  <h4 id="Modulight_Modules_Client_RazorComponents_IRazorComponentClientModule_GetUIService_System_IServiceProvider_" data-uid="Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.GetUIService(System.IServiceProvider)">GetUIService(IServiceProvider)</h4>
-  <div class="markdown level1 summary"><p>Get module UI service from service provider.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IModuleService GetUIService(IServiceProvider provider)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.IServiceProvider</span></td>
-        <td><span class="parametername">provider</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Modulight.Modules.Services.IModuleService.html">IModuleService</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="Modulight_Modules_Client_RazorComponents_IRazorComponentClientModule_RegisterUI_" data-uid="Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.RegisterUI*"></a>
-  <h4 id="Modulight_Modules_Client_RazorComponents_IRazorComponentClientModule_RegisterUI_Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.RegisterUI(Microsoft.Extensions.DependencyInjection.IServiceCollection)">RegisterUI(IServiceCollection)</h4>
-  <div class="markdown level1 summary"><p>Register module UI.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void RegisterUI(IServiceCollection services)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Microsoft.Extensions.DependencyInjection.IServiceCollection</span></td>
-        <td><span class="parametername">services</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="Modulight_Modules_Client_RazorComponents_IRazorComponentClientModule_RegisterUIService_" data-uid="Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.RegisterUIService*"></a>
-  <h4 id="Modulight_Modules_Client_RazorComponents_IRazorComponentClientModule_RegisterUIService_Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.RegisterUIService(Microsoft.Extensions.DependencyInjection.IServiceCollection)">RegisterUIService(IServiceCollection)</h4>
-  <div class="markdown level1 summary"><p>Register module UI related services.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void RegisterUIService(IServiceCollection services)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Microsoft.Extensions.DependencyInjection.IServiceCollection</span></td>
-        <td><span class="parametername">services</span></td>
         <td></td>
       </tr>
     </tbody>

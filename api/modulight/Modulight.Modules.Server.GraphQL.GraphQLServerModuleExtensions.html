@@ -123,14 +123,14 @@
   </div>
   <h3 id="methods">Methods
   </h3>
-  <a id="Modulight_Modules_Server_GraphQL_GraphQLServerModuleExtensions_GetGraphQLServerModuleHost_" data-uid="Modulight.Modules.Server.GraphQL.GraphQLServerModuleExtensions.GetGraphQLServerModuleHost*"></a>
-  <h4 id="Modulight_Modules_Server_GraphQL_GraphQLServerModuleExtensions_GetGraphQLServerModuleHost_System_IServiceProvider_" data-uid="Modulight.Modules.Server.GraphQL.GraphQLServerModuleExtensions.GetGraphQLServerModuleHost(System.IServiceProvider)">GetGraphQLServerModuleHost(IServiceProvider)</h4>
+  <a id="Modulight_Modules_Server_GraphQL_GraphQLServerModuleExtensions_GetGraphQLServerModuleCollection_" data-uid="Modulight.Modules.Server.GraphQL.GraphQLServerModuleExtensions.GetGraphQLServerModuleCollection*"></a>
+  <h4 id="Modulight_Modules_Server_GraphQL_GraphQLServerModuleExtensions_GetGraphQLServerModuleCollection_System_IServiceProvider_" data-uid="Modulight.Modules.Server.GraphQL.GraphQLServerModuleExtensions.GetGraphQLServerModuleCollection(System.IServiceProvider)">GetGraphQLServerModuleCollection(IServiceProvider)</h4>
   <div class="markdown level1 summary"><p>Get graphql module host from service provider.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IGraphQLServerModuleHost GetGraphQLServerModuleHost(this IServiceProvider provider)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IGraphQLServerModuleCollection GetGraphQLServerModuleCollection(this IServiceProvider provider)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -159,7 +159,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Modulight.Modules.Server.GraphQL.IGraphQLServerModuleHost.html">IGraphQLServerModuleHost</a></td>
+        <td><a class="xref" href="Modulight.Modules.Server.GraphQL.IGraphQLServerModuleCollection.html">IGraphQLServerModuleCollection</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -212,9 +212,9 @@
     </tbody>
   </table>
   <a id="Modulight_Modules_Server_GraphQL_GraphQLServerModuleExtensions_UseGraphQLServerModules_" data-uid="Modulight.Modules.Server.GraphQL.GraphQLServerModuleExtensions.UseGraphQLServerModules*"></a>
-  <h4 id="Modulight_Modules_Server_GraphQL_GraphQLServerModuleExtensions_UseGraphQLServerModules_Modulight_Modules_IModuleHostBuilder_" data-uid="Modulight.Modules.Server.GraphQL.GraphQLServerModuleExtensions.UseGraphQLServerModules(Modulight.Modules.IModuleHostBuilder)">UseGraphQLServerModules(IModuleHostBuilder)</h4>
+  <h4 id="Modulight_Modules_Server_GraphQL_GraphQLServerModuleExtensions_UseGraphQLServerModules_Modulight_Modules_Hosting_IModuleHostBuilder_" data-uid="Modulight.Modules.Server.GraphQL.GraphQLServerModuleExtensions.UseGraphQLServerModules(Modulight.Modules.Hosting.IModuleHostBuilder)">UseGraphQLServerModules(IModuleHostBuilder)</h4>
   <div class="markdown level1 summary"><p>Use building middlewares for graphql modules.
-It will register <a class="xref" href="Modulight.Modules.Server.GraphQL.IGraphQLServerModuleHost.html">IGraphQLServerModuleHost</a> service.</p>
+It will register <a class="xref" href="Modulight.Modules.Server.GraphQL.IGraphQLServerModuleCollection.html">IGraphQLServerModuleCollection</a> service.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -232,7 +232,7 @@ It will register <a class="xref" href="Modulight.Modules.Server.GraphQL.IGraphQL
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Modulight.Modules.IModuleHostBuilder.html">IModuleHostBuilder</a></td>
+        <td><a class="xref" href="Modulight.Modules.Hosting.IModuleHostBuilder.html">IModuleHostBuilder</a></td>
         <td><span class="parametername">modules</span></td>
         <td></td>
       </tr>
@@ -248,7 +248,7 @@ It will register <a class="xref" href="Modulight.Modules.Server.GraphQL.IGraphQL
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Modulight.Modules.IModuleHostBuilder.html">IModuleHostBuilder</a></td>
+        <td><a class="xref" href="Modulight.Modules.Hosting.IModuleHostBuilder.html">IModuleHostBuilder</a></td>
         <td></td>
       </tr>
     </tbody>

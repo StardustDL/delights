@@ -112,6 +112,9 @@
       <a class="xref" href="../modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI_JSRuntime">ModuleUI.JSRuntime</a>
     </div>
     <div>
+      <a class="xref" href="../modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI_Logger">ModuleUI.Logger</a>
+    </div>
+    <div>
       <a class="xref" href="../modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI_GetJSModule_System_String_System_String_">ModuleUI.GetJSModule(String, String)</a>
     </div>
     <div>
@@ -155,7 +158,12 @@
   <h6><strong>Assembly</strong>: Delights.UI.dll</h6>
   <h5 id="Delights_UI_MainModuleUI_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class MainModuleUI : ModuleUI, IDisposable, IAsyncDisposable, IModuleUI</code></pre>
+    <pre><code class="lang-csharp hljs">[ModuleUIRootPath(&quot;home&quot;)]
+[ModuleUIResource(UIResourceType.StyleSheet, &quot;https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css&quot;)]
+[ModuleUIResource(UIResourceType.Script, &quot;https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.slim.min.js&quot;)]
+[ModuleUIResource(UIResourceType.StyleSheet, &quot;_content/AntDesign/css/ant-design-blazor.css&quot;)]
+[ModuleUIResource(UIResourceType.Script, &quot;_content/AntDesign/js/ant-design-blazor.js&quot;)]
+public class MainModuleUI : ModuleUI, IDisposable, IAsyncDisposable, IModuleUI</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>

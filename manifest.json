@@ -66,7 +66,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Client.Shared.ModuleSetup.html",
-          "hash": "044mjwb4cgxcGHnUhOMswA=="
+          "hash": "pb2hI6HfnbufV6TqTNIo7w=="
         }
       },
       "is_incremental": false,
@@ -198,7 +198,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Bookkeeping.BookkeepingModule.html",
-          "hash": "9TuVuhLd5Hih69r9D6uivA=="
+          "hash": "zGTQ4Id91RDBjPGCtwf7aQ=="
         }
       },
       "is_incremental": false,
@@ -1490,23 +1490,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.IconNames.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/delights/Delights.Modules.Bookkeeping.IconNames.html",
-          "hash": "7Sj9qDSosQ4gp/qluiHJKg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.ModuleExtensions.yml",
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Bookkeeping.ModuleExtensions.html",
-          "hash": "kHNi3JekmzMRGLCQy2ap+w=="
+          "hash": "MnlyUSe2+cRdVKqMU6IKeQ=="
         }
       },
       "is_incremental": false,
@@ -1526,35 +1514,23 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.ModuleService.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/delights/Delights.Modules.Bookkeeping.ModuleService.html",
-          "hash": "d5zbQ5PHS1Cdkk4u/PoO1w=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.ModuleUI.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/delights/Delights.Modules.Bookkeeping.ModuleUI.html",
-          "hash": "nmHsQOU9if0PWeQHB36U8A=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.BookkeepingServerModule.yml",
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.BookkeepingServerModule.html",
-          "hash": "aVOI3tMTYinz4UEH1obO8A=="
+          "hash": "9Omr6f6nM37WGHzUG5mAAg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.BookkeepingServerModuleStartupOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.BookkeepingServerModuleStartupOption.html",
+          "hash": "ztT2ZqX+o601ZEZSpZvIcg=="
         }
       },
       "is_incremental": false,
@@ -1614,19 +1590,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.ModuleExtensions.html",
-          "hash": "Bl3XNO/FgoAeDHRhdOtiaw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.ModuleOption.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.ModuleOption.html",
-          "hash": "zg+mC2YzwykXS8zFdMbctg=="
+          "hash": "0f+Awn8xhX/fmzmhUpQe5Q=="
         }
       },
       "is_incremental": false,
@@ -1638,7 +1602,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.ModuleService.html",
-          "hash": "XQFtsE3MkAzQ+EIHOrWtYw=="
+          "hash": "8n5itvcUzvg8lyXgKQ8rcQ=="
         }
       },
       "is_incremental": false,
@@ -1650,7 +1614,19 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Bookkeeping.Server.html",
-          "hash": "drHTfwPGq59RKbrvAt4FVw=="
+          "hash": "PnMzAFHsPUsjV/QIV/Xhcw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Bookkeeping.Startup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Bookkeeping.Startup.html",
+          "hash": "m90Ov9BftkxDg1sK+p07Ag=="
         }
       },
       "is_incremental": false,
@@ -1686,7 +1662,43 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Bookkeeping.html",
-          "hash": "i/yTq3iWQwTVulAPiGfU6w=="
+          "hash": "90EZXz9ck8jF1rM7JlsUvA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Client.ClientModule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Client.ClientModule.html",
+          "hash": "fJN7MY4f0El4kb6KDcSe1Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Client.ModuleExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Client.ModuleExtensions.html",
+          "hash": "1hvHlGXkzVmlYuy/kU4rDA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Client.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Client.html",
+          "hash": "x3qrwLCElpQIZKd7NPmTLw=="
         }
       },
       "is_incremental": false,
@@ -1854,7 +1866,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Hello.HelloModule.html",
-          "hash": "wuE57835fxPEaEDru2i4Vw=="
+          "hash": "iq/Nje55UJTYsCHc41vYAw=="
         }
       },
       "is_incremental": false,
@@ -1866,7 +1878,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Hello.ModuleExtensions.html",
-          "hash": "lP5jEy4Xkis6hWKL6bQFKg=="
+          "hash": "SJ/9J4LBw+Dl623kaaFRyg=="
         }
       },
       "is_incremental": false,
@@ -1890,7 +1902,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Hello.ModuleService.html",
-          "hash": "+JFXAXWzy4kzjM2wEYQaUA=="
+          "hash": "0uNbiSgzjN2l8sFpeoNexg=="
         }
       },
       "is_incremental": false,
@@ -1902,7 +1914,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Hello.ModuleUI.html",
-          "hash": "qnvX/kvQKSBPM9LaqsTDgw=="
+          "hash": "Rv75hsekf2eN+FB4acofEw=="
         }
       },
       "is_incremental": false,
@@ -1914,7 +1926,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Hello.Server.HelloServerModule.html",
-          "hash": "P0JqoJnx1x8OTZ9HryoQsw=="
+          "hash": "WpLmRo60CUfOpLoq1N3mOg=="
         }
       },
       "is_incremental": false,
@@ -1926,19 +1938,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Hello.Server.ModuleExtensions.html",
-          "hash": "TnaB8zojkGiRaycIEg2msw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/delights/Delights.Modules.Hello.Server.ModuleOption.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/delights/Delights.Modules.Hello.Server.ModuleOption.html",
-          "hash": "xmdMikagrVhqopG4VNrj/w=="
+          "hash": "unFEgaVqyPqgL38Yepy7WA=="
         }
       },
       "is_incremental": false,
@@ -1962,7 +1962,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Hello.Server.html",
-          "hash": "bzcXeg4u9FrYCxb49vXYww=="
+          "hash": "ZFdXbreeSptNlLBqYwqTtg=="
         }
       },
       "is_incremental": false,
@@ -2142,7 +2142,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.ModuleManager.ModuleExtensions.html",
-          "hash": "qrSnW438WE3eK2u3vQRPvA=="
+          "hash": "EwAhk0uKYNvZY/zpOp07Ig=="
         }
       },
       "is_incremental": false,
@@ -2154,7 +2154,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.ModuleManager.ModuleManagerModule.html",
-          "hash": "UE9Q1IK7o6aOeKC3YWqjCw=="
+          "hash": "xMb5yKFGfbFAfPW1+gMi1Q=="
         }
       },
       "is_incremental": false,
@@ -2174,35 +2174,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.ModuleService.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/delights/Delights.Modules.ModuleManager.ModuleService.html",
-          "hash": "NyqHvTD3WpO9vmA+O/C3VA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.ModuleUI.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/delights/Delights.Modules.ModuleManager.ModuleUI.html",
-          "hash": "mUoCsmehKYjwoWUtALmlew=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/delights/Delights.Modules.ModuleManager.Server.ModuleExtensions.yml",
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.ModuleManager.Server.ModuleExtensions.html",
-          "hash": "UrQhTi6a6Flzyu7V7kfdhA=="
+          "hash": "HZ1G+TVwJe7tGVn/duE+gw=="
         }
       },
       "is_incremental": false,
@@ -2214,43 +2190,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.ModuleManager.Server.ModuleManagerServerModule.html",
-          "hash": "CiYWnqEqrs1RRB8KXs+1tw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.Server.ModuleOption.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/delights/Delights.Modules.ModuleManager.Server.ModuleOption.html",
-          "hash": "l+93FC6zbwnz+R9xhS3o6g=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.Server.ModuleQuery.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/delights/Delights.Modules.ModuleManager.Server.ModuleQuery.html",
-          "hash": "sZEk2L02/63WByWw/8TUOw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.Server.ModuleService.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/delights/Delights.Modules.ModuleManager.Server.ModuleService.html",
-          "hash": "QXadwhR/moBxIDUv6FcGRw=="
+          "hash": "cvIXXZg5h/OPGye92EeA+g=="
         }
       },
       "is_incremental": false,
@@ -2262,7 +2202,19 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.ModuleManager.Server.html",
-          "hash": "fRo+SQ4FEFievlKtHFHH6w=="
+          "hash": "7AhKpWxvXs78tR2WLS7spQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.Startup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.ModuleManager.Startup.html",
+          "hash": "OcazX8LL7U4T11RkCwZBTw=="
         }
       },
       "is_incremental": false,
@@ -2274,7 +2226,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.ModuleManager.html",
-          "hash": "m1yxb9qj54DcF8D0wNGFhA=="
+          "hash": "inp58qFmWPFhTp6HvHwmrg=="
         }
       },
       "is_incremental": false,
@@ -3494,23 +3446,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/delights/Delights.Modules.Notes.IconNames.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/delights/Delights.Modules.Notes.IconNames.html",
-          "hash": "ylo+i3YON8EUyURINSkeDw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/delights/Delights.Modules.Notes.ModuleExtensions.yml",
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Notes.ModuleExtensions.html",
-          "hash": "lhk+58Fd4A18Cbu7duprvQ=="
+          "hash": "OaGp28uEMW1FDUsToYndgw=="
         }
       },
       "is_incremental": false,
@@ -3530,35 +3470,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/delights/Delights.Modules.Notes.ModuleService.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/delights/Delights.Modules.Notes.ModuleService.html",
-          "hash": "Qm4grSF+YAt9hi1UsbHnSw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/delights/Delights.Modules.Notes.ModuleUI.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/delights/Delights.Modules.Notes.ModuleUI.html",
-          "hash": "HTbIj6767m4rMUt5zkRxhQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/delights/Delights.Modules.Notes.NotesModule.yml",
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Notes.NotesModule.html",
-          "hash": "WsilRXHJPMYZsjU8dvne9A=="
+          "hash": "5s8kBo0dlfMZALkQjKhybQ=="
         }
       },
       "is_incremental": false,
@@ -3594,19 +3510,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Notes.Server.ModuleExtensions.html",
-          "hash": "ShEl81ljuKbcWd8SJ+6kkQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/delights/Delights.Modules.Notes.Server.ModuleOption.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/delights/Delights.Modules.Notes.Server.ModuleOption.html",
-          "hash": "TxYDN2rLZ8JYmR3Ns6J7mQ=="
+          "hash": "a0UWzRjsQmWSpFJ69L7etA=="
         }
       },
       "is_incremental": false,
@@ -3618,7 +3522,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Notes.Server.ModuleService.html",
-          "hash": "/K5iAXCz232b4IZ0kKxALg=="
+          "hash": "1wrBvEUuLL7ENqILbCc/DA=="
         }
       },
       "is_incremental": false,
@@ -3630,7 +3534,19 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Notes.Server.NotesServerModule.html",
-          "hash": "alVK/G5ys8NXLhvsnVsWOQ=="
+          "hash": "JveeClaxm+ZTFTpH52/4NQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.Server.NotesServerModuleStartupOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.Server.NotesServerModuleStartupOption.html",
+          "hash": "x9iaNwJRxIJ5BEPnaIbM/A=="
         }
       },
       "is_incremental": false,
@@ -3642,7 +3558,19 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Notes.Server.html",
-          "hash": "iwIKAQFT1IhKe7SBQsYKiA=="
+          "hash": "FGiFrxmqP7cxSfd1cCqhTQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Notes.Startup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Notes.Startup.html",
+          "hash": "rstbMpUuaFH02KK8+BIIlg=="
         }
       },
       "is_incremental": false,
@@ -3678,7 +3606,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Notes.html",
-          "hash": "re2dlWTPm8DZyzDs4wsZaQ=="
+          "hash": "lKVVp+Hc4jZFrqovNoPRsg=="
         }
       },
       "is_incremental": false,
@@ -4922,23 +4850,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/delights/Delights.Modules.Persons.IconNames.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/delights/Delights.Modules.Persons.IconNames.html",
-          "hash": "hs2Cd2U4QK85VcStFJBXrw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/delights/Delights.Modules.Persons.ModuleExtensions.yml",
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Persons.ModuleExtensions.html",
-          "hash": "1haaZmkB68jHjgGD7UH/Pw=="
+          "hash": "ogNYwd98gFfugDUTexgHig=="
         }
       },
       "is_incremental": false,
@@ -4958,35 +4874,23 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/delights/Delights.Modules.Persons.ModuleService.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/delights/Delights.Modules.Persons.ModuleService.html",
-          "hash": "dAbewGeyr+oHUWr/ucQ9aw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/delights/Delights.Modules.Persons.ModuleUI.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/delights/Delights.Modules.Persons.ModuleUI.html",
-          "hash": "RmO6wZeK7J+qF8eBoiLjTw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/delights/Delights.Modules.Persons.PersonsModule.yml",
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Persons.PersonsModule.html",
-          "hash": "Vba9HaDsoCCRrimQ7ci4/Q=="
+          "hash": "GfEKh+yucy4480lDSya3eg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.PersonsModuleService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.PersonsModuleService.html",
+          "hash": "VdXKqgy5Ol2NG5qwB+Giaw=="
         }
       },
       "is_incremental": false,
@@ -5046,19 +4950,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Persons.Server.ModuleExtensions.html",
-          "hash": "HzV9MtrWN9ONx4/RHyQvdQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/delights/Delights.Modules.Persons.Server.ModuleOption.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/delights/Delights.Modules.Persons.Server.ModuleOption.html",
-          "hash": "brm1u6ZD16f1uKfVkKqaKQ=="
+          "hash": "KmNePXELk/FhVoeJ++xNPQ=="
         }
       },
       "is_incremental": false,
@@ -5070,7 +4962,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Persons.Server.ModuleService.html",
-          "hash": "mGO2PvvVRykw61CUCftGlg=="
+          "hash": "Uj7CLyR9/Q1HEVrp/VKOcQ=="
         }
       },
       "is_incremental": false,
@@ -5082,7 +4974,19 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Persons.Server.PersonsServerModule.html",
-          "hash": "VLfo0HJJWKamcKuossQVuA=="
+          "hash": "TxShMayC5dTlh48Hg4p9IQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.Server.PersonsServerModuleStartupOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.Server.PersonsServerModuleStartupOption.html",
+          "hash": "+/DdEytpM7xp2zlBd+NV+g=="
         }
       },
       "is_incremental": false,
@@ -5094,7 +4998,19 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Persons.Server.html",
-          "hash": "olMJa1bGXQoaq9j8KGi4eg=="
+          "hash": "uHgsTGhCmYCXVFhFVZgjbg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.Modules.Persons.Startup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.Modules.Persons.Startup.html",
+          "hash": "qLoxFft8SDlqmygpAGdxqw=="
         }
       },
       "is_incremental": false,
@@ -5130,7 +5046,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Persons.html",
-          "hash": "OZu3P78l31RdpRzjWZ9TiQ=="
+          "hash": "d2ocvnU128pR5sYmfrSkSw=="
         }
       },
       "is_incremental": false,
@@ -5142,7 +5058,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Server.Data.DataModuleService-5.html",
-          "hash": "SbRja8QbaqYgs5T8CDSauw=="
+          "hash": "lOlKBaztFKSGb+R7kTZUng=="
         }
       },
       "is_incremental": false,
@@ -5202,7 +5118,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Server.Data.IDataModuleService-3.html",
-          "hash": "2RfmzomHNwX7F7xIhgqLvA=="
+          "hash": "jammAKFB1OJ5j8TC5lMFig=="
         }
       },
       "is_incremental": false,
@@ -5250,7 +5166,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.UI.MainModuleUI.html",
-          "hash": "FDDCpsvxqnGP5SdGj693nQ=="
+          "hash": "JDUSJ8TQBXALJzySTRZrYg=="
         }
       },
       "is_incremental": false,
@@ -5306,11 +5222,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "api/delights/Delights.UI.Startup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/delights/Delights.UI.Startup.html",
+          "hash": "kyq8RfMgW6QyokhotaZ8lw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "api/delights/Delights.UI.UiModule.yml",
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.UI.UiModule.html",
-          "hash": "QosgbBbbdE5d4lZOJCbFpA=="
+          "hash": "1cALB8qJPxY6lya0WGnqNQ=="
         }
       },
       "is_incremental": false,
@@ -5322,7 +5250,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.UI.html",
-          "hash": "i43Lg1n9EsWnOG79yo4C+g=="
+          "hash": "HI4PUKCuMxC0jbQSTOfEmA=="
         }
       },
       "is_incremental": false,
@@ -5346,7 +5274,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/toc.html",
-          "hash": "yFUY7JkQV/ZHShnS4BASNA=="
+          "hash": "WLgGvc781wdlN5MSWko4yQ=="
         }
       },
       "is_incremental": false,
@@ -5382,31 +5310,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.html",
-          "hash": "jz3zztDh7spUOuBUaU5uYw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModuleOption.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModuleOption.html",
-          "hash": "/fH0MScJ1J/lc71NJipgug=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModuleService.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModuleService.html",
-          "hash": "8iQVG5IQTIeefpeCabibWw=="
+          "hash": "Gd7OvWNONu98mmX3UEQ73w=="
         }
       },
       "is_incremental": false,
@@ -5418,7 +5322,43 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerModule.html",
-          "hash": "VPKmQu5Bn2dyis6IpeAtRQ=="
+          "hash": "kpOyaXmFj481YOE7Guuhkw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerModuleOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerModuleOption.html",
+          "hash": "NB4ruz4wn2lN3LqnOMcO0Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerModuleStartupOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerModuleStartupOption.html",
+          "hash": "nKYd7Tfmcn9oKuQEy7cXUA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerService.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.IdentityServerService.html",
+          "hash": "et6eLyujqdqdX/6g0s3oCg=="
         }
       },
       "is_incremental": false,
@@ -5454,7 +5394,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.ModuleExtensions.html",
-          "hash": "hiJMk0tlF/CdgFFMnN1U8w=="
+          "hash": "o+9nG5VZLBV+XSEPvfGKig=="
         }
       },
       "is_incremental": false,
@@ -5466,7 +5406,19 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.ModuleQuery.html",
-          "hash": "A375nUOQAaTnjkOXLfCnmA=="
+          "hash": "U9A+UOQfdA0vQlgGP26WZw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.Startup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.Startup.html",
+          "hash": "Cl0FiroSP/c6cHWf85zyMg=="
         }
       },
       "is_incremental": false,
@@ -5478,7 +5430,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.IdentityServer.html",
-          "hash": "699u/pEp2wBO6Ncp0ZNGkw=="
+          "hash": "PxBF1VLOyrs/MRbhEOzEKQ=="
         }
       },
       "is_incremental": false,
@@ -5550,7 +5502,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.GraphQL.ItemMetadataServerGraphqlModule.html",
-          "hash": "PTl7Ttn+4rll/SDZt6+C6w=="
+          "hash": "TIxT8J25P30CcqaLauNC3w=="
         }
       },
       "is_incremental": false,
@@ -5570,18 +5522,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.GraphQL.ModuleOption.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.GraphQL.ModuleOption.html",
-          "hash": "WsQgIIG4j6ie1f0M3xHDeQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.GraphQL.ModuleQuery.yml",
       "output": {
         ".html": {
@@ -5594,23 +5534,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.GraphQL.ModuleService.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.GraphQL.ModuleService.html",
-          "hash": "UG4QZ/8nqoKlWNNxYXwpVw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.GraphQL.yml",
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.GraphQL.html",
-          "hash": "02PmzUaxWVgPoeM6KXpRrA=="
+          "hash": "hfwLxVFQSufIg9obMNqXyA=="
         }
       },
       "is_incremental": false,
@@ -5634,7 +5562,19 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.ItemMetadataServerModule.html",
-          "hash": "CVWOUVFxFiSb2Tcco73ojg=="
+          "hash": "/EHB6q4ZsOhLWxDTg4/vnA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.ItemMetadataServerModuleStartupOption.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.ItemMetadataServerModuleStartupOption.html",
+          "hash": "kqiCsks50GhrLkb+cq4WQQ=="
         }
       },
       "is_incremental": false,
@@ -5694,19 +5634,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.ModuleExtensions.html",
-          "hash": "khVR0pfeQgNqUqOBCLH/gA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.ModuleOption.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.ModuleOption.html",
-          "hash": "MX3zqPwfNUNarFJ9OtjtDQ=="
+          "hash": "tfQrVkik25mXk6X1ZRh82w=="
         }
       },
       "is_incremental": false,
@@ -5718,7 +5646,19 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.ModuleService.html",
-          "hash": "x72sR4nGnL9lmLuMLfTWhA=="
+          "hash": "bZDQf2hPSkR7DzYufC9R8A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.Startup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.Startup.html",
+          "hash": "ry43LcpWrUJJGwk0hvBE0g=="
         }
       },
       "is_incremental": false,
@@ -5730,7 +5670,19 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.ItemMetadataServer.html",
-          "hash": "iY3wf5uktvgKppJVLWL8Nw=="
+          "hash": "IyHf+ntsTaQrEc4TkpOqUA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ApiStartup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ApiStartup.html",
+          "hash": "VdgF4SDAu6mt8N0+C1Hqlw=="
         }
       },
       "is_incremental": false,
@@ -5766,7 +5718,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ModuleExtensions.html",
-          "hash": "m+UJxjZp/tomsGqGpqRN6w=="
+          "hash": "IbCpfGKVlOdnnbne+OEfkg=="
         }
       },
       "is_incremental": false,
@@ -5778,7 +5730,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageApiModule.html",
-          "hash": "2qSOO/8M4wGq1YjJG1fjHw=="
+          "hash": "jIG9Eo+5PBJWQMltuq7Kvg=="
         }
       },
       "is_incremental": false,
@@ -5802,7 +5754,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageApiService.html",
-          "hash": "+Cpjts7AgXOueziTQK6U8A=="
+          "hash": "K7DGhUwv+vHmNhPTMGSCcg=="
         }
       },
       "is_incremental": false,
@@ -5826,7 +5778,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageModule.html",
-          "hash": "eO+0yu46ko5nmjzZToTXPw=="
+          "hash": "ZDvEL5LLUxj3oWFlmtUGUw=="
         }
       },
       "is_incremental": false,
@@ -5850,7 +5802,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.ObjectStorageService.html",
-          "hash": "2RTkulQIuxsfpozInqjTeA=="
+          "hash": "Zp0IrobMh58YY1KruBRN3Q=="
         }
       },
       "is_incremental": false,
@@ -5862,7 +5814,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/StardustDL.AspNet.ObjectStorage.html",
-          "hash": "07Qq4Fve4zGJ3RqKGEhyfA=="
+          "hash": "Vv9ZjEiOZH/sx6BnGWI3WA=="
         }
       },
       "is_incremental": false,
@@ -5886,19 +5838,7 @@
       "output": {
         ".html": {
           "relative_path": "api/extensions/toc.html",
-          "hash": "ah3M/7Xm9vdC/Mn0WRpnjA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule-3.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule-3.html",
-          "hash": "EMQyu88trtWcmPZyIbR6Hg=="
+          "hash": "+FShPX3jsbNaurGaSkwZFQ=="
         }
       },
       "is_incremental": false,
@@ -5910,7 +5850,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.html",
-          "hash": "R9i122L8QewvzgxioEm0KQ=="
+          "hash": "VbeXU+hjFKl3TiZ2r0+GOw=="
         }
       },
       "is_incremental": false,
@@ -5918,11 +5858,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModuleHost.yml",
+      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModuleCollection.yml",
       "output": {
         ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModuleHost.html",
-          "hash": "t9zom+wiwjbYVFSgI8VDzw=="
+          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModuleCollection.html",
+          "hash": "tjBmBhC54GVG7CRXhxQTAw=="
         }
       },
       "is_incremental": false,
@@ -5930,11 +5870,23 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-3.yml",
+      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.ModuleUIAttribute.yml",
       "output": {
         ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-3.html",
-          "hash": "suQn+2z+aGXpd0+KnUrADQ=="
+          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.ModuleUIAttribute.html",
+          "hash": "U0ia8NuKe2EM123bpL2BbQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-1.html",
+          "hash": "nHBDUU/an8cGA56vYfwi2Q=="
         }
       },
       "is_incremental": false,
@@ -5946,7 +5898,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions.html",
-          "hash": "tjBlE7pfSrfs+Y/FoWOE3g=="
+          "hash": "wOz7A3gj1DGfT8ZnF4r/bQ=="
         }
       },
       "is_incremental": false,
@@ -5982,7 +5934,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.IModuleUI.html",
-          "hash": "tx+q+2wK+DVHObmpN4LjyQ=="
+          "hash": "BXMEg0Po6stbT8LvOgzccQ=="
         }
       },
       "is_incremental": false,
@@ -5994,7 +5946,31 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html",
-          "hash": "SJLfWXsLPKYO0inPR2XttQ=="
+          "hash": "nzC1mBZNrrFtqY4+LGjQZA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUIResourceAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUIResourceAttribute.html",
+          "hash": "h9N/kxSGnCN4AZ0q8DTNCg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUIRootPathAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUIRootPathAttribute.html",
+          "hash": "JKcqq3vU9693MLBKH9dlQQ=="
         }
       },
       "is_incremental": false,
@@ -6026,18 +6002,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.UIResource.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.UIResource.html",
-          "hash": "/qH86G3zBK5wrwr51jHtQQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.UIResourceType.yml",
       "output": {
         ".html": {
@@ -6054,7 +6018,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.html",
-          "hash": "TmA3Zgw9T6Nam0thcT9xtQ=="
+          "hash": "weBQhDh2cFTRQadhgDeY2Q=="
         }
       },
       "is_incremental": false,
@@ -6066,7 +6030,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.html",
-          "hash": "cHkEEMSQ4oYLeu0iF65WHQ=="
+          "hash": "6Ozb9oPBfwz50oAEF83+CA=="
         }
       },
       "is_incremental": false,
@@ -6074,11 +6038,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.DefaultModuleHostBuilder.yml",
+      "source_relative_path": "api/modulight/Modulight.Modules.Hosting.IModuleCollection-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.DefaultModuleHostBuilder.html",
-          "hash": "3c5vlYecUy8ttbXFuNfpbg=="
+          "relative_path": "api/modulight/Modulight.Modules.Hosting.IModuleCollection-1.html",
+          "hash": "Xtc93LV9goW1jKM71zfwjw=="
         }
       },
       "is_incremental": false,
@@ -6086,11 +6050,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.IModule-1.yml",
+      "source_relative_path": "api/modulight/Modulight.Modules.Hosting.IModuleHost.yml",
       "output": {
         ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.IModule-1.html",
-          "hash": "yjqeIWN6s4rY5KyS0aJ37A=="
+          "relative_path": "api/modulight/Modulight.Modules.Hosting.IModuleHost.html",
+          "hash": "O+XM/UZ44h/yLHGcx6Pmzw=="
         }
       },
       "is_incremental": false,
@@ -6098,11 +6062,83 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.IModule-2.yml",
+      "source_relative_path": "api/modulight/Modulight.Modules.Hosting.IModuleHostBuilder.yml",
       "output": {
         ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.IModule-2.html",
-          "hash": "x4CeCptVlOGgnv564GKNIg=="
+          "relative_path": "api/modulight/Modulight.Modules.Hosting.IModuleHostBuilder.html",
+          "hash": "81eRvbCQoUkSjdhEPP2SfA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Hosting.IModuleHostBuilderPlugin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Hosting.IModuleHostBuilderPlugin.html",
+          "hash": "lieeNL9AxB7rLWkHUFimWQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Hosting.ModuleHostBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Hosting.ModuleHostBuilder.html",
+          "hash": "taAPBtryeTRpBFayWJuiwQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Hosting.ModuleHostBuilderPlugin.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Hosting.ModuleHostBuilderPlugin.html",
+          "hash": "IsF5+7WauG3g5ee9HQKQmg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Hosting.ModuleHostExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Hosting.ModuleHostExtensions.html",
+          "hash": "DCp8P29X+wkEsaHcLzQ0/Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Hosting.ModuleHostFilter-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Hosting.ModuleHostFilter-1.html",
+          "hash": "iROzhkoqg6nPWeF27UBsEA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Hosting.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Hosting.html",
+          "hash": "zhNh4Nr16RAIsTZwRdlahw=="
         }
       },
       "is_incremental": false,
@@ -6114,7 +6150,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.IModule.html",
-          "hash": "eJpXMdO/a3FuyxJiFftMPw=="
+          "hash": "mV052KfzyUbEtAsuYQVjng=="
         }
       },
       "is_incremental": false,
@@ -6122,23 +6158,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.IModuleHost.yml",
+      "source_relative_path": "api/modulight/Modulight.Modules.IModuleStartup.yml",
       "output": {
         ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.IModuleHost.html",
-          "hash": "swfSm6SIpI2Eg+Dpd2ZVZg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.IModuleHostBuilder.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.IModuleHostBuilder.html",
-          "hash": "qmTZJk527yeoVmQiFizOvA=="
+          "relative_path": "api/modulight/Modulight.Modules.IModuleStartup.html",
+          "hash": "lCGNrP6PXVlvzFhaPLc8pw=="
         }
       },
       "is_incremental": false,
@@ -6150,7 +6174,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Module-1.html",
-          "hash": "SQ59VGhbR/GPfV8cmZzjwA=="
+          "hash": "kAZpBWBq32kccgB4vEf/SQ=="
         }
       },
       "is_incremental": false,
@@ -6158,11 +6182,47 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.Module-2.yml",
+      "source_relative_path": "api/modulight/Modulight.Modules.Module.yml",
       "output": {
         ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.Module-2.html",
-          "hash": "v645Nc9vYVypDBXyRrWFAQ=="
+          "relative_path": "api/modulight/Modulight.Modules.Module.html",
+          "hash": "ocWVBMtHy5oOlU8r7mIA4w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.ModuleAssemblyAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.ModuleAssemblyAttribute.html",
+          "hash": "yOi0GRTyfSDjYjsnydcgXA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.ModuleAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.ModuleAttribute.html",
+          "hash": "fEUqa3tNu3WJaUhDP6W4ow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.ModuleDependencyAttribute.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.ModuleDependencyAttribute.html",
+          "hash": "kEU2WNk/6KvQJIt8f51JCQ=="
         }
       },
       "is_incremental": false,
@@ -6174,7 +6234,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.ModuleExtensions.html",
-          "hash": "vkb6A+PoO8KMvYfK/EaXTg=="
+          "hash": "O75Lu5p0/+p2PNJl6jM3MA=="
         }
       },
       "is_incremental": false,
@@ -6182,11 +6242,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.ModuleHostBuilder.yml",
+      "source_relative_path": "api/modulight/Modulight.Modules.ModuleOptionAttribute.yml",
       "output": {
         ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.ModuleHostBuilder.html",
-          "hash": "nQGiN2Ra258Do5snDfwz/Q=="
+          "relative_path": "api/modulight/Modulight.Modules.ModuleOptionAttribute.html",
+          "hash": "39re15hmqzNbw1mjG0XYaQ=="
         }
       },
       "is_incremental": false,
@@ -6194,11 +6254,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.ModuleHostBuilderMiddlewareType.yml",
+      "source_relative_path": "api/modulight/Modulight.Modules.ModuleServiceAttribute.yml",
       "output": {
         ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.ModuleHostBuilderMiddlewareType.html",
-          "hash": "uAwv+V2O3ihvEQWRGOrFrw=="
+          "relative_path": "api/modulight/Modulight.Modules.ModuleServiceAttribute.html",
+          "hash": "5XQKpJ6s66leeVr2Q9Q0UQ=="
         }
       },
       "is_incremental": false,
@@ -6206,11 +6266,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.ModuleHostExtensions.yml",
+      "source_relative_path": "api/modulight/Modulight.Modules.ModuleStartup.yml",
       "output": {
         ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.ModuleHostExtensions.html",
-          "hash": "yPmfjC70uMtToxWh9rEOzQ=="
+          "relative_path": "api/modulight/Modulight.Modules.ModuleStartup.html",
+          "hash": "SWgOZGDJefZT51wPlUKfBQ=="
         }
       },
       "is_incremental": false,
@@ -6218,11 +6278,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.Options.EmptyModuleOption-1.yml",
+      "source_relative_path": "api/modulight/Modulight.Modules.ModuleStartupAttribute.yml",
       "output": {
         ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.Options.EmptyModuleOption-1.html",
-          "hash": "EngKz/ww0oVCrcpNH7V8fg=="
+          "relative_path": "api/modulight/Modulight.Modules.ModuleStartupAttribute.html",
+          "hash": "hINNyK4ZK7MB4jLceE6aKQ=="
         }
       },
       "is_incremental": false,
@@ -6230,23 +6290,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.Options.yml",
+      "source_relative_path": "api/modulight/Modulight.Modules.Server.AspNet.AspNetServerModule-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.Options.html",
-          "hash": "Ye9zl+YhJEOqOPwh8dsNhw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.Server.AspNet.AspNetServerModule-2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.Server.AspNet.AspNetServerModule-2.html",
-          "hash": "nQC+2SAiLokqSHGhkm2wdA=="
+          "relative_path": "api/modulight/Modulight.Modules.Server.AspNet.AspNetServerModule-1.html",
+          "hash": "tDSSL4L/RcZNBuUp4j69tA=="
         }
       },
       "is_incremental": false,
@@ -6258,7 +6306,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Server.AspNet.AspNetServerModuleExtensions.html",
-          "hash": "NoHPQW/4zQ8kcpFBiIrxlQ=="
+          "hash": "EtM+gFTwyoPuWiaW7WZkZA=="
         }
       },
       "is_incremental": false,
@@ -6270,7 +6318,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Server.AspNet.IAspNetServerModule.html",
-          "hash": "m+c55UpgbnSAg6303Efe8Q=="
+          "hash": "j7q0g6AjRT/0JI8E3QOUUg=="
         }
       },
       "is_incremental": false,
@@ -6278,11 +6326,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.Server.AspNet.IAspNetServerModuleHost.yml",
+      "source_relative_path": "api/modulight/Modulight.Modules.Server.AspNet.IAspNetServerModuleCollection.yml",
       "output": {
         ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.Server.AspNet.IAspNetServerModuleHost.html",
-          "hash": "WPLEpY748VPgVREk7ZN2yA=="
+          "relative_path": "api/modulight/Modulight.Modules.Server.AspNet.IAspNetServerModuleCollection.html",
+          "hash": "uWTjYBcImkptVC6rhh0MWg=="
         }
       },
       "is_incremental": false,
@@ -6294,7 +6342,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Server.AspNet.html",
-          "hash": "aUp6uJAnLua9T6nJqHrLWg=="
+          "hash": "wUZ8Zu1rJLklkblCS7qf7Q=="
         }
       },
       "is_incremental": false,
@@ -6302,11 +6350,23 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.GraphQLServerModule-2.yml",
+      "source_relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.GraphQLModuleTypeAttribute.yml",
       "output": {
         ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.GraphQLServerModule-2.html",
-          "hash": "BIu57f+mCbd6Z/cxz+DAhQ=="
+          "relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.GraphQLModuleTypeAttribute.html",
+          "hash": "RJEYssFpWPEzNr0P+sxB1Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.GraphQLServerModule-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.GraphQLServerModule-1.html",
+          "hash": "uuAzga8DwV+47B0mTQCFXw=="
         }
       },
       "is_incremental": false,
@@ -6318,19 +6378,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.GraphQLServerModuleExtensions.html",
-          "hash": "aoO5pypZsJbcBOJVRaJyNQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.GraphQLServerModuleOption.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.GraphQLServerModuleOption.html",
-          "hash": "iBcMmybuMDNn77rwI/X5Vw=="
+          "hash": "fWNlJaOpRQNYc03dyXDIQw=="
         }
       },
       "is_incremental": false,
@@ -6342,7 +6390,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.IGraphQLServerModule.html",
-          "hash": "epSgkD9TPtzXlkY8Tw/9JA=="
+          "hash": "4IzG6sA1zZWpN6tSLefV8A=="
         }
       },
       "is_incremental": false,
@@ -6350,23 +6398,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.IGraphQLServerModuleHost.yml",
+      "source_relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.IGraphQLServerModuleCollection.yml",
       "output": {
         ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.IGraphQLServerModuleHost.html",
-          "hash": "3LlbiEwb/cyBXFLwHQPOMg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.IGraphQLServerModuleOption.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.IGraphQLServerModuleOption.html",
-          "hash": "sA6xdIl6v2vY5JgpjKYnlQ=="
+          "relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.IGraphQLServerModuleCollection.html",
+          "hash": "7vGdrbyE5y/T649EINg47g=="
         }
       },
       "is_incremental": false,
@@ -6378,43 +6414,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Server.GraphQL.html",
-          "hash": "l6VCgIXi7V+0f+Y+6uCcvA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.Services.EmptyModuleService-1.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.Services.EmptyModuleService-1.html",
-          "hash": "n06mshQfaG2ijsyxoxCmeg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.Services.IModuleService.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.Services.IModuleService.html",
-          "hash": "0M5Y2ZC2n2pGBh/JIrtbbg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.Services.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.Services.html",
-          "hash": "MiE5kmzTNTUxWDmtALOG5A=="
+          "hash": "iA0mraCJdBAXbNJwpoHjWw=="
         }
       },
       "is_incremental": false,
@@ -6426,7 +6426,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.html",
-          "hash": "gHLtLlaO3QfHgr9oCP2yqw=="
+          "hash": "2AAjyyfkXs/FdirMtbHXBQ=="
         }
       },
       "is_incremental": false,
@@ -6450,7 +6450,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/toc.html",
-          "hash": "xyrhbqjnxPLzN3/vMIJvxg=="
+          "hash": "sHd6NkrFoSH15NqsPsZIIg=="
         }
       },
       "is_incremental": false,

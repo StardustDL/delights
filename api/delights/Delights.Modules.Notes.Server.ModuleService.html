@@ -94,7 +94,6 @@
   <div classs="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="Delights.Modules.Server.Data.IDataModuleService-3.html">IDataModuleService</a>&lt;<span class="xref">RawNote</span>, <span class="xref">Note</span>, <span class="xref">NoteMutation</span>&gt;</div>
-    <div><a class="xref" href="../modulight/Modulight.Modules.Services.IModuleService.html">IModuleService</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -112,9 +111,6 @@
     </div>
     <div>
       <a class="xref" href="Delights.Modules.Server.Data.DataModuleService-5.html#Delights_Modules_Server_Data_DataModuleService_5_GetDataByMetadataID_System_String_">DataModuleService&lt;DataDbContext, RawNote, Note, NoteMutation, NotesServerModule&gt;.GetDataByMetadataID(String)</a>
-    </div>
-    <div>
-      <a class="xref" href="Delights.Modules.Server.Data.DataModuleService-5.html#Delights_Modules_Server_Data_DataModuleService_5_Initialize">DataModuleService&lt;DataDbContext, RawNote, Note, NoteMutation, NotesServerModule&gt;.Initialize()</a>
     </div>
     <div>
       <a class="xref" href="Delights.Modules.Server.Data.DataModuleService-5.html#Delights_Modules_Server_Data_DataModuleService_5_Dump">DataModuleService&lt;DataDbContext, RawNote, Note, NoteMutation, NotesServerModule&gt;.Dump()</a>
@@ -175,17 +171,17 @@
   <h6><strong>Assembly</strong>: Delights.Modules.Notes.Server.dll</h6>
   <h5 id="Delights_Modules_Notes_Server_ModuleService_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ModuleService : DataModuleService&lt;DataDbContext, RawNote, Note, NoteMutation, NotesServerModule&gt;, IDataModuleService&lt;RawNote, Note, NoteMutation&gt;, IModuleService</code></pre>
+    <pre><code class="lang-csharp hljs">public class ModuleService : DataModuleService&lt;DataDbContext, RawNote, Note, NoteMutation, NotesServerModule&gt;, IDataModuleService&lt;RawNote, Note, NoteMutation&gt;</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   <a id="Delights_Modules_Notes_Server_ModuleService__ctor_" data-uid="Delights.Modules.Notes.Server.ModuleService.#ctor*"></a>
-  <h4 id="Delights_Modules_Notes_Server_ModuleService__ctor_System_IServiceProvider_Delights_Modules_Notes_Server_Data_DataDbContext_StardustDL_AspNet_ItemMetadataServer_ItemMetadataDomain_Delights_Modules_Notes_Server_NotesServerModule__Microsoft_Extensions_Options_IOptions_Delights_Modules_Notes_Server_ModuleOption__Microsoft_Extensions_Logging_ILogger_Delights_Modules_Notes_Server_NotesServerModule__" data-uid="Delights.Modules.Notes.Server.ModuleService.#ctor(System.IServiceProvider,Delights.Modules.Notes.Server.Data.DataDbContext,StardustDL.AspNet.ItemMetadataServer.ItemMetadataDomain{Delights.Modules.Notes.Server.NotesServerModule},Microsoft.Extensions.Options.IOptions{Delights.Modules.Notes.Server.ModuleOption},Microsoft.Extensions.Logging.ILogger{Delights.Modules.Notes.Server.NotesServerModule})">ModuleService(IServiceProvider, DataDbContext, ItemMetadataDomain&lt;NotesServerModule&gt;, IOptions&lt;ModuleOption&gt;, ILogger&lt;NotesServerModule&gt;)</h4>
+  <h4 id="Delights_Modules_Notes_Server_ModuleService__ctor_System_IServiceProvider_Delights_Modules_Notes_Server_Data_DataDbContext_StardustDL_AspNet_ItemMetadataServer_ItemMetadataDomain_Delights_Modules_Notes_Server_NotesServerModule__Microsoft_Extensions_Logging_ILogger_Delights_Modules_Notes_Server_NotesServerModule__" data-uid="Delights.Modules.Notes.Server.ModuleService.#ctor(System.IServiceProvider,Delights.Modules.Notes.Server.Data.DataDbContext,StardustDL.AspNet.ItemMetadataServer.ItemMetadataDomain{Delights.Modules.Notes.Server.NotesServerModule},Microsoft.Extensions.Logging.ILogger{Delights.Modules.Notes.Server.NotesServerModule})">ModuleService(IServiceProvider, DataDbContext, ItemMetadataDomain&lt;NotesServerModule&gt;, ILogger&lt;NotesServerModule&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ModuleService(IServiceProvider services, DataDbContext dbContext, ItemMetadataDomain&lt;NotesServerModule&gt; metadataDomain, IOptions&lt;ModuleOption&gt; options, ILogger&lt;NotesServerModule&gt; logger)</code></pre>
+    <pre><code class="lang-csharp hljs">public ModuleService(IServiceProvider services, DataDbContext dbContext, ItemMetadataDomain&lt;NotesServerModule&gt; metadataDomain, ILogger&lt;NotesServerModule&gt; logger)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -210,11 +206,6 @@
       <tr>
         <td><a class="xref" href="../extensions/StardustDL.AspNet.ItemMetadataServer.ItemMetadataDomain-1.html">ItemMetadataDomain</a>&lt;<a class="xref" href="Delights.Modules.Notes.Server.NotesServerModule.html">NotesServerModule</a>&gt;</td>
         <td><span class="parametername">metadataDomain</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">Microsoft.Extensions.Options.IOptions</span>&lt;<a class="xref" href="Delights.Modules.Notes.Server.ModuleOption.html">ModuleOption</a>&gt;</td>
-        <td><span class="parametername">options</span></td>
         <td></td>
       </tr>
       <tr>
@@ -360,9 +351,6 @@
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="Delights.Modules.Server.Data.IDataModuleService-3.html">IDataModuleService&lt;TRaw, T, TMutation&gt;</a>
-  </div>
-  <div>
-      <a class="xref" href="../modulight/Modulight.Modules.Services.IModuleService.html">IModuleService</a>
   </div>
 </article>
           </div>

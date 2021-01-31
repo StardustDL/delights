@@ -123,14 +123,14 @@
   </div>
   <h3 id="methods">Methods
   </h3>
-  <a id="Modulight_Modules_Server_AspNet_AspNetServerModuleExtensions_GetAspNetServerModuleHost_" data-uid="Modulight.Modules.Server.AspNet.AspNetServerModuleExtensions.GetAspNetServerModuleHost*"></a>
-  <h4 id="Modulight_Modules_Server_AspNet_AspNetServerModuleExtensions_GetAspNetServerModuleHost_System_IServiceProvider_" data-uid="Modulight.Modules.Server.AspNet.AspNetServerModuleExtensions.GetAspNetServerModuleHost(System.IServiceProvider)">GetAspNetServerModuleHost(IServiceProvider)</h4>
+  <a id="Modulight_Modules_Server_AspNet_AspNetServerModuleExtensions_GetAspNetServerModuleCollection_" data-uid="Modulight.Modules.Server.AspNet.AspNetServerModuleExtensions.GetAspNetServerModuleCollection*"></a>
+  <h4 id="Modulight_Modules_Server_AspNet_AspNetServerModuleExtensions_GetAspNetServerModuleCollection_System_IServiceProvider_" data-uid="Modulight.Modules.Server.AspNet.AspNetServerModuleExtensions.GetAspNetServerModuleCollection(System.IServiceProvider)">GetAspNetServerModuleCollection(IServiceProvider)</h4>
   <div class="markdown level1 summary"><p>Get aspnet module host from service provider.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static IAspNetServerModuleHost GetAspNetServerModuleHost(this IServiceProvider provider)</code></pre>
+    <pre><code class="lang-csharp hljs">public static IAspNetServerModuleCollection GetAspNetServerModuleCollection(this IServiceProvider provider)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -159,7 +159,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Modulight.Modules.Server.AspNet.IAspNetServerModuleHost.html">IAspNetServerModuleHost</a></td>
+        <td><a class="xref" href="Modulight.Modules.Server.AspNet.IAspNetServerModuleCollection.html">IAspNetServerModuleCollection</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -247,9 +247,9 @@
     </tbody>
   </table>
   <a id="Modulight_Modules_Server_AspNet_AspNetServerModuleExtensions_UseAspNetServerModules_" data-uid="Modulight.Modules.Server.AspNet.AspNetServerModuleExtensions.UseAspNetServerModules*"></a>
-  <h4 id="Modulight_Modules_Server_AspNet_AspNetServerModuleExtensions_UseAspNetServerModules_Modulight_Modules_IModuleHostBuilder_" data-uid="Modulight.Modules.Server.AspNet.AspNetServerModuleExtensions.UseAspNetServerModules(Modulight.Modules.IModuleHostBuilder)">UseAspNetServerModules(IModuleHostBuilder)</h4>
+  <h4 id="Modulight_Modules_Server_AspNet_AspNetServerModuleExtensions_UseAspNetServerModules_Modulight_Modules_Hosting_IModuleHostBuilder_" data-uid="Modulight.Modules.Server.AspNet.AspNetServerModuleExtensions.UseAspNetServerModules(Modulight.Modules.Hosting.IModuleHostBuilder)">UseAspNetServerModules(IModuleHostBuilder)</h4>
   <div class="markdown level1 summary"><p>Use building middlewares for aspnet modules.
-It will register <a class="xref" href="Modulight.Modules.Server.AspNet.IAspNetServerModuleHost.html">IAspNetServerModuleHost</a> service.</p>
+It will register <a class="xref" href="Modulight.Modules.Server.AspNet.IAspNetServerModuleCollection.html">IAspNetServerModuleCollection</a> service.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -267,7 +267,7 @@ It will register <a class="xref" href="Modulight.Modules.Server.AspNet.IAspNetSe
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Modulight.Modules.IModuleHostBuilder.html">IModuleHostBuilder</a></td>
+        <td><a class="xref" href="Modulight.Modules.Hosting.IModuleHostBuilder.html">IModuleHostBuilder</a></td>
         <td><span class="parametername">modules</span></td>
         <td></td>
       </tr>
@@ -283,7 +283,7 @@ It will register <a class="xref" href="Modulight.Modules.Server.AspNet.IAspNetSe
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Modulight.Modules.IModuleHostBuilder.html">IModuleHostBuilder</a></td>
+        <td><a class="xref" href="Modulight.Modules.Hosting.IModuleHostBuilder.html">IModuleHostBuilder</a></td>
         <td></td>
       </tr>
     </tbody>

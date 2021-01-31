@@ -96,7 +96,6 @@
   <div classs="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="Delights.Modules.Server.Data.IDataModuleService-3.html">IDataModuleService</a>&lt;TRaw, T, TMutation&gt;</div>
-    <div><a class="xref" href="../modulight/Modulight.Modules.Services.IModuleService.html">IModuleService</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -126,7 +125,7 @@
   <h6><strong>Assembly</strong>: Delights.Modules.Server.dll</h6>
   <h5 id="Delights_Modules_Server_Data_DataModuleService_5_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class DataModuleService&lt;TDb, TRaw, T, TMutation, TDomain&gt; : IDataModuleService&lt;TRaw, T, TMutation&gt;, IModuleService where TDb : DbContext where TRaw : RawDataItemBase, new()
+    <pre><code class="lang-csharp hljs">public abstract class DataModuleService&lt;TDb, TRaw, T, TMutation, TDomain&gt; : IDataModuleService&lt;TRaw, T, TMutation&gt; where TDb : DbContext where TRaw : RawDataItemBase, new()
     where T : DataItemBase where TMutation : DataMutationItemBase</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
@@ -470,29 +469,6 @@
       </tr>
     </tbody>
   </table>
-  <a id="Delights_Modules_Server_Data_DataModuleService_5_Initialize_" data-uid="Delights.Modules.Server.Data.DataModuleService`5.Initialize*"></a>
-  <h4 id="Delights_Modules_Server_Data_DataModuleService_5_Initialize" data-uid="Delights.Modules.Server.Data.DataModuleService`5.Initialize">Initialize()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual Task Initialize()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <a id="Delights_Modules_Server_Data_DataModuleService_5_LoadDump_" data-uid="Delights.Modules.Server.Data.DataModuleService`5.LoadDump*"></a>
   <h4 id="Delights_Modules_Server_Data_DataModuleService_5_LoadDump_Delights_Modules_Server_Data_DumpedData__2__" data-uid="Delights.Modules.Server.Data.DataModuleService`5.LoadDump(Delights.Modules.Server.Data.DumpedData{`2})">LoadDump(DumpedData&lt;T&gt;)</h4>
   <div class="markdown level1 summary"></div>
@@ -804,9 +780,6 @@
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="Delights.Modules.Server.Data.IDataModuleService-3.html">IDataModuleService&lt;TRaw, T, TMutation&gt;</a>
-  </div>
-  <div>
-      <a class="xref" href="../modulight/Modulight.Modules.Services.IModuleService.html">IModuleService</a>
   </div>
 </article>
           </div>

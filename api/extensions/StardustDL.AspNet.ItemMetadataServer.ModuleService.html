@@ -90,10 +90,6 @@
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">ModuleService</span></div>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><a class="xref" href="../modulight/Modulight.Modules.Services.IModuleService.html">IModuleService</a></div>
-  </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -122,17 +118,17 @@
   <h6><strong>Assembly</strong>: StardustDL.AspNet.ItemMetadataServer.dll</h6>
   <h5 id="StardustDL_AspNet_ItemMetadataServer_ModuleService_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ModuleService : IModuleService</code></pre>
+    <pre><code class="lang-csharp hljs">public class ModuleService</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   <a id="StardustDL_AspNet_ItemMetadataServer_ModuleService__ctor_" data-uid="StardustDL.AspNet.ItemMetadataServer.ModuleService.#ctor*"></a>
-  <h4 id="StardustDL_AspNet_ItemMetadataServer_ModuleService__ctor_System_IServiceProvider_StardustDL_AspNet_ItemMetadataServer_Data_DataDbContext_Microsoft_Extensions_Options_IOptions_StardustDL_AspNet_ItemMetadataServer_ModuleOption__" data-uid="StardustDL.AspNet.ItemMetadataServer.ModuleService.#ctor(System.IServiceProvider,StardustDL.AspNet.ItemMetadataServer.Data.DataDbContext,Microsoft.Extensions.Options.IOptions{StardustDL.AspNet.ItemMetadataServer.ModuleOption})">ModuleService(IServiceProvider, DataDbContext, IOptions&lt;ModuleOption&gt;)</h4>
+  <h4 id="StardustDL_AspNet_ItemMetadataServer_ModuleService__ctor_System_IServiceProvider_StardustDL_AspNet_ItemMetadataServer_Data_DataDbContext_Microsoft_Extensions_Options_IOptions_StardustDL_AspNet_ItemMetadataServer_ItemMetadataServerModuleStartupOption__" data-uid="StardustDL.AspNet.ItemMetadataServer.ModuleService.#ctor(System.IServiceProvider,StardustDL.AspNet.ItemMetadataServer.Data.DataDbContext,Microsoft.Extensions.Options.IOptions{StardustDL.AspNet.ItemMetadataServer.ItemMetadataServerModuleStartupOption})">ModuleService(IServiceProvider, DataDbContext, IOptions&lt;ItemMetadataServerModuleStartupOption&gt;)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ModuleService(IServiceProvider services, DataDbContext dbContext, IOptions&lt;ModuleOption&gt; options)</code></pre>
+    <pre><code class="lang-csharp hljs">public ModuleService(IServiceProvider services, DataDbContext dbContext, IOptions&lt;ItemMetadataServerModuleStartupOption&gt; options)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -155,7 +151,7 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">Microsoft.Extensions.Options.IOptions</span>&lt;<a class="xref" href="StardustDL.AspNet.ItemMetadataServer.ModuleOption.html">ModuleOption</a>&gt;</td>
+        <td><span class="xref">Microsoft.Extensions.Options.IOptions</span>&lt;<a class="xref" href="StardustDL.AspNet.ItemMetadataServer.ItemMetadataServerModuleStartupOption.html">ItemMetadataServerModuleStartupOption</a>&gt;</td>
         <td><span class="parametername">options</span></td>
         <td></td>
       </tr>
@@ -399,29 +395,6 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="StardustDL.AspNet.ItemMetadataServer.Models.Raws.RawTag.html">RawTag</a>&gt;</td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="StardustDL_AspNet_ItemMetadataServer_ModuleService_Initialize_" data-uid="StardustDL.AspNet.ItemMetadataServer.ModuleService.Initialize*"></a>
-  <h4 id="StardustDL_AspNet_ItemMetadataServer_ModuleService_Initialize" data-uid="StardustDL.AspNet.ItemMetadataServer.ModuleService.Initialize">Initialize()</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task Initialize()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Threading.Tasks.Task</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -735,10 +708,6 @@
       </tr>
     </tbody>
   </table>
-  <h3 id="implements">Implements</h3>
-  <div>
-      <a class="xref" href="../modulight/Modulight.Modules.Services.IModuleService.html">IModuleService</a>
-  </div>
 </article>
           </div>
           

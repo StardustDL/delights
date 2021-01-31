@@ -130,13 +130,13 @@
   <h3 id="constructors">Constructors
   </h3>
   <a id="Modulight_Modules_Client_RazorComponents_UI_ModuleUI__ctor_" data-uid="Modulight.Modules.Client.RazorComponents.UI.ModuleUI.#ctor*"></a>
-  <h4 id="Modulight_Modules_Client_RazorComponents_UI_ModuleUI__ctor_Microsoft_JSInterop_IJSRuntime_Microsoft_Extensions_Logging_ILogger_Modulight_Modules_Client_RazorComponents_UI_ModuleUI__System_String_" data-uid="Modulight.Modules.Client.RazorComponents.UI.ModuleUI.#ctor(Microsoft.JSInterop.IJSRuntime,Microsoft.Extensions.Logging.ILogger{Modulight.Modules.Client.RazorComponents.UI.ModuleUI},System.String)">ModuleUI(IJSRuntime, ILogger&lt;ModuleUI&gt;, String)</h4>
+  <h4 id="Modulight_Modules_Client_RazorComponents_UI_ModuleUI__ctor_Microsoft_JSInterop_IJSRuntime_Microsoft_Extensions_Logging_ILogger_" data-uid="Modulight.Modules.Client.RazorComponents.UI.ModuleUI.#ctor(Microsoft.JSInterop.IJSRuntime,Microsoft.Extensions.Logging.ILogger)">ModuleUI(IJSRuntime, ILogger)</h4>
   <div class="markdown level1 summary"><p>Create a module UI instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ModuleUI(IJSRuntime jsRuntime, ILogger&lt;ModuleUI&gt; logger, string rootPath = &quot;&quot;)</code></pre>
+    <pre><code class="lang-csharp hljs">public ModuleUI(IJSRuntime jsRuntime, ILogger logger)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -154,15 +154,9 @@
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">Microsoft.Extensions.Logging.ILogger</span>&lt;<a class="xref" href="Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html">ModuleUI</a>&gt;</td>
+        <td><span class="xref">Microsoft.Extensions.Logging.ILogger</span></td>
         <td><span class="parametername">logger</span></td>
         <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">rootPath</span></td>
-        <td><p>UI route root path.</p>
-</td>
       </tr>
     </tbody>
   </table>
@@ -216,6 +210,30 @@
       </tr>
     </tbody>
   </table>
+  <a id="Modulight_Modules_Client_RazorComponents_UI_ModuleUI_Logger_" data-uid="Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Logger*"></a>
+  <h4 id="Modulight_Modules_Client_RazorComponents_UI_ModuleUI_Logger" data-uid="Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Logger">Logger</h4>
+  <div class="markdown level1 summary"><p>Logger</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ILogger Logger { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.Extensions.Logging.ILogger</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <a id="Modulight_Modules_Client_RazorComponents_UI_ModuleUI_Resources_" data-uid="Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Resources*"></a>
   <h4 id="Modulight_Modules_Client_RazorComponents_UI_ModuleUI_Resources" data-uid="Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Resources">Resources</h4>
   <div class="markdown level1 summary"><p>Get module UI resources.</p>
@@ -235,7 +253,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Modulight.Modules.Client.RazorComponents.UI.UIResource.html">UIResource</a>[]</td>
+        <td><span class="xref">UIResource</span>[]</td>
         <td></td>
       </tr>
     </tbody>

@@ -96,12 +96,11 @@
   </h3>
   <a id="Modulight_Modules_IModule_Manifest_" data-uid="Modulight.Modules.IModule.Manifest*"></a>
   <h4 id="Modulight_Modules_IModule_Manifest" data-uid="Modulight.Modules.IModule.Manifest">Manifest</h4>
-  <div class="markdown level1 summary"><p>Manifest for module.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">ModuleManifest Manifest { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">ModuleManifest Manifest { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -120,33 +119,14 @@
   </table>
   <h3 id="methods">Methods
   </h3>
-  <a id="Modulight_Modules_IModule_GetService_" data-uid="Modulight.Modules.IModule.GetService*"></a>
-  <h4 id="Modulight_Modules_IModule_GetService_System_IServiceProvider_" data-uid="Modulight.Modules.IModule.GetService(System.IServiceProvider)">GetService(IServiceProvider)</h4>
-  <div class="markdown level1 summary"><p>Get module service from service provider.</p>
-</div>
+  <a id="Modulight_Modules_IModule_Initialize_" data-uid="Modulight.Modules.IModule.Initialize*"></a>
+  <h4 id="Modulight_Modules_IModule_Initialize" data-uid="Modulight.Modules.IModule.Initialize">Initialize()</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">IModuleService GetService(IServiceProvider provider)</code></pre>
+    <pre><code class="lang-csharp hljs">Task Initialize()</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.IServiceProvider</span></td>
-        <td><span class="parametername">provider</span></td>
-        <td><p>Service provider.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -157,64 +137,31 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Modulight.Modules.Services.IModuleService.html">IModuleService</a></td>
-        <td><p>Module service.</p>
-</td>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
-  <a id="Modulight_Modules_IModule_RegisterServices_" data-uid="Modulight.Modules.IModule.RegisterServices*"></a>
-  <h4 id="Modulight_Modules_IModule_RegisterServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="Modulight.Modules.IModule.RegisterServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">RegisterServices(IServiceCollection)</h4>
-  <div class="markdown level1 summary"><p>Register services for module.</p>
-</div>
+  <a id="Modulight_Modules_IModule_Shutdown_" data-uid="Modulight.Modules.IModule.Shutdown*"></a>
+  <h4 id="Modulight_Modules_IModule_Shutdown" data-uid="Modulight.Modules.IModule.Shutdown">Shutdown()</h4>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void RegisterServices(IServiceCollection services)</code></pre>
+    <pre><code class="lang-csharp hljs">Task Shutdown()</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
-        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">Microsoft.Extensions.DependencyInjection.IServiceCollection</span></td>
-        <td><span class="parametername">services</span></td>
-        <td><p>Service collection</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <a id="Modulight_Modules_IModule_Setup_" data-uid="Modulight.Modules.IModule.Setup*"></a>
-  <h4 id="Modulight_Modules_IModule_Setup_Modulight_Modules_IModuleHostBuilder_" data-uid="Modulight.Modules.IModule.Setup(Modulight.Modules.IModuleHostBuilder)">Setup(IModuleHostBuilder)</h4>
-  <div class="markdown level1 summary"><p>Setup module when it be added to module host.
-Install other dependent module in this method.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Setup(IModuleHostBuilder host)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="Modulight.Modules.IModuleHostBuilder.html">IModuleHostBuilder</a></td>
-        <td><span class="parametername">host</span></td>
-        <td><p>Module host.</p>
-</td>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
