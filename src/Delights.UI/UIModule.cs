@@ -1,19 +1,13 @@
-﻿using Modulight.Modules.Client.RazorComponents;
-using Modulight.Modules.Client.RazorComponents.UI;
-using Delights.UI.Components;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.JSInterop;
-using StardustDL.RazorComponents.AntDesigns;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using StardustDL.RazorComponents.MaterialDesignIcons;
-using Modulight.Modules.Hosting;
 using Modulight.Modules;
+using Modulight.Modules.Client.RazorComponents;
+using Modulight.Modules.Client.RazorComponents.UI;
+using Modulight.Modules.Hosting;
+using StardustDL.RazorComponents.AntDesigns;
+using StardustDL.RazorComponents.MaterialDesignIcons;
 
 namespace Delights.UI
 {

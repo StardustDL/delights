@@ -1,10 +1,9 @@
 ﻿using HotChocolate;
 using HotChocolate.Data;
 using HotChocolate.Types;
-using System.Linq;
-using Modulight.Modules;
 using Modulight.Modules.Hosting;
 using System;
+using System.Linq;
 
 namespace Delights.Modules.ModuleManager.Server
 {

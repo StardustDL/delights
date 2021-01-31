@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 
 namespace Modulight.Modules.Hosting
 {
@@ -27,7 +26,7 @@ namespace Modulight.Modules.Hosting
     /// <summary>
     /// Default implement for <see cref="IModuleHostBuilder"/>.
     /// </summary>
-    public class DefaultModuleHostBuilder : IModuleHostBuilder
+    class DefaultModuleHostBuilder : IModuleHostBuilder
     {
         /// <summary>
         /// Module descriptors for registered modules.
@@ -110,12 +109,12 @@ namespace Modulight.Modules.Hosting
             Dictionary<Type, int> inDegrees = new Dictionary<Type, int>();
 
             Queue<Type> queue = new Queue<Type>();
-            ModuleDescriptors.ForEach(t =>
+            foreach (var t in ModuleDescriptors.Reverse<Type>())
             {
                 modules.Add(t, ModuleManifest.Generate(t));
                 inDegrees.Add(t, 0);
                 queue.Enqueue(t);
-            });
+            }
             while (queue.Count > 0)
             {
                 var cur = queue.Dequeue();

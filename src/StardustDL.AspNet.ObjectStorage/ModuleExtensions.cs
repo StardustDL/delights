@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Modulight.Modules;
 using Modulight.Modules.Hosting;
 using System;
 

@@ -1,8 +1,8 @@
-﻿using Modulight.Modules.Client.RazorComponents.UI;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Modulight.Modules.Client.RazorComponents.UI;
+using Modulight.Modules.Hosting;
 using System;
 using System.Reflection;
-using Modulight.Modules.Hosting;
 
 namespace Modulight.Modules.Client.RazorComponents
 {

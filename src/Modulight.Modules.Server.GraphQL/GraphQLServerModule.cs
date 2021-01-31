@@ -1,11 +1,8 @@
-﻿using HotChocolate.Execution.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using Microsoft.AspNetCore.Routing;
-using HotChocolate.AspNetCore.Extensions;
+﻿using HotChocolate.AspNetCore.Extensions;
 using Microsoft.AspNetCore.Builder;
-using System.Reflection;
+using Microsoft.AspNetCore.Routing;
 using Modulight.Modules.Hosting;
+using System.Reflection;
 
 namespace Modulight.Modules.Server.GraphQL
 {

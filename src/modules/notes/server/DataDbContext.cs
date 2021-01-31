@@ -1,14 +1,7 @@
 ﻿#nullable disable
 
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using StardustDL.AspNet.ItemMetadataServer.Models;
 using Delights.Modules.Notes.Server.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Delights.Modules.Notes.Server.Data
 {

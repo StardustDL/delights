@@ -1,13 +1,12 @@
-﻿using Modulight.Modules.Server.GraphQL;
-using HotChocolate;
+﻿using HotChocolate;
 using HotChocolate.Data;
 using HotChocolate.Types;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Modulight.Modules;
 using Modulight.Modules.Hosting;
+using Modulight.Modules.Server.GraphQL;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Delights.Modules.Hello.Server
 {

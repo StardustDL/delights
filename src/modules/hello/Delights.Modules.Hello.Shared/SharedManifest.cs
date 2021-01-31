@@ -1,7 +1,4 @@
-﻿using Modulight.Modules;
-using System;
-
-namespace Delights.Modules.Hello
+﻿namespace Delights.Modules.Hello
 {
     internal static class SharedManifest
     {

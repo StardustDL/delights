@@ -10,10 +10,7 @@ using Modulight.Modules.Server.AspNet;
 using StardustDL.AspNet.IdentityServer.Data;
 using StardustDL.AspNet.IdentityServer.Models;
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace StardustDL.AspNet.IdentityServer

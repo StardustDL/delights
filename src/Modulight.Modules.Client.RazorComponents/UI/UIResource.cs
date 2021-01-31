@@ -1,6 +1,4 @@
-﻿using Microsoft.JSInterop;
-using System;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace Modulight.Modules.Client.RazorComponents.UI
 {

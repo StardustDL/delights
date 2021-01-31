@@ -1,6 +1,4 @@
-﻿using System;
-using Modulight.Modules;
-using Modulight.Modules.Hosting;
+﻿using Modulight.Modules.Hosting;
 
 namespace Delights.Modules.ModuleManager.Server
 {

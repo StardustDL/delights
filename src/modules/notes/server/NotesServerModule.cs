@@ -1,17 +1,15 @@
-using Modulight.Modules.Server.GraphQL;
-using System;
-using System.Collections.Generic;
-using Modulight.Modules;
-using StardustDL.AspNet.ItemMetadataServer;
-using Microsoft.Extensions.DependencyInjection;
-using HotChocolate.Execution.Configuration;
+using Delights.Modules.Notes.Server.Data;
 using Delights.Modules.Notes.Server.Models;
 using Delights.Modules.Notes.Server.Models.Actions;
-using Modulight.Modules.Hosting;
-using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
+using Modulight.Modules;
+using Modulight.Modules.Hosting;
+using Modulight.Modules.Server.GraphQL;
+using StardustDL.AspNet.ItemMetadataServer;
+using System;
 using System.Threading.Tasks;
-using Delights.Modules.Notes.Server.Data;
 
 namespace Delights.Modules.Notes.Server
 {

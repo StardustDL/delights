@@ -1,6 +1,3 @@
-using Modulight.Modules;
-using System;
-
 namespace Delights.Modules.ModuleManager
 {
     static class SharedManifest

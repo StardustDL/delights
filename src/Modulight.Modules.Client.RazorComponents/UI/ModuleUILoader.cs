@@ -1,16 +1,5 @@
-﻿using Modulight.Modules.Client.RazorComponents.UI;
-using Microsoft.AspNetCore.Components.WebAssembly.Services;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Logging;
 using Microsoft.JSInterop;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace Modulight.Modules.Client.RazorComponents.UI

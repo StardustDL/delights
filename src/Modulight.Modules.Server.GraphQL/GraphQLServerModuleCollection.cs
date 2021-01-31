@@ -3,8 +3,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
 using Modulight.Modules.Hosting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Modulight.Modules.Server.GraphQL
 {

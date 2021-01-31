@@ -1,7 +1,6 @@
 ﻿using IdentityModel;
 using IdentityServer4;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using StardustDL.AspNet.IdentityServer.Data;
 using StardustDL.AspNet.IdentityServer.Models;
@@ -13,7 +12,7 @@ namespace StardustDL.AspNet.IdentityServer
 {
     public class IdentityServerService
     {
-        public IdentityServerService(IServiceProvider services, IdentityDbContext dbContext,UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IdentityServerTools identityServerTools, IOptions<IdentityServerModuleOption> options)
+        public IdentityServerService(IServiceProvider services, IdentityDbContext dbContext, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IdentityServerTools identityServerTools, IOptions<IdentityServerModuleOption> options)
         {
             Services = services;
             DbContext = dbContext;

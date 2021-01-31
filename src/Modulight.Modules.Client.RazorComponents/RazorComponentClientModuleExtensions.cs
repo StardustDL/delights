@@ -1,10 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Linq;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.AspNetCore.Components.WebAssembly.Services;
-using Modulight.Modules.Hosting;
 using Modulight.Modules.Client.RazorComponents.UI;
+using Modulight.Modules.Hosting;
+using System;
 
 namespace Modulight.Modules.Client.RazorComponents
 {

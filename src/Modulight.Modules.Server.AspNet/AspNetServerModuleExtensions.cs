@@ -1,10 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Linq;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
-using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 using Modulight.Modules.Hosting;
-using Modulight.Modules;
+using System;
 
 namespace Modulight.Modules.Server.AspNet
 {

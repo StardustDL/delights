@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Threading.Tasks;
 
 namespace Modulight.Modules.Hosting
 {
@@ -13,6 +14,13 @@ namespace Modulight.Modules.Hosting
         public static IModuleHost GetModuleHost(this IServiceProvider services)
         {
             return services.GetRequiredService<IModuleHost>();
+        }
+
+        public static async Task<IAsyncDisposable> UseModuleHost(this IServiceProvider services)
+        {
+            var host = services.GetModuleHost();
+            await host.Initialize().ConfigureAwait(false);
+            return new ModuleHostContext(host);
         }
 
         public static ModuleManifest GetManifest<TModule>(this IModuleHost host) where TModule : IModule => host.GetManifest(typeof(TModule));

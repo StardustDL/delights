@@ -1,8 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using Modulight.Modules.Hosting;
+using System;
 using System.Reflection;
 
 namespace Modulight.Modules.Server.GraphQL

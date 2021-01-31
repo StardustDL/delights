@@ -1,33 +1,21 @@
-using Delights.Modules;
+using Delights.Modules.Bookkeeping.Server;
 using Delights.Modules.Hello.Server;
 using Delights.Modules.ModuleManager.Server;
-using Modulight.Modules.Server.GraphQL;
-using HotChocolate;
-using HotChocolate.Data;
-using HotChocolate.Types;
+using Delights.Modules.Notes.Server;
+using Delights.Modules.Persons.Server;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Modulight.Modules;
-using Modulight.Modules.Server.AspNet;
-using StardustDL.AspNet.ObjectStorage;
-using StardustDL.AspNet.ItemMetadataServer;
-using StardustDL.AspNet.IdentityServer;
-using Microsoft.EntityFrameworkCore;
-using Delights.Modules.Notes.Server;
-using Delights.Modules.Bookkeeping.Server;
-using Delights.Modules.Persons.Server;
 using Modulight.Modules.Hosting;
+using Modulight.Modules.Server.AspNet;
+using Modulight.Modules.Server.GraphQL;
+using StardustDL.AspNet.IdentityServer;
+using StardustDL.AspNet.ItemMetadataServer;
+using StardustDL.AspNet.ObjectStorage;
 
 namespace Delights.Api
 {
@@ -60,7 +48,7 @@ namespace Delights.Api
                 o.ConfigureIdentity = options => options.SignIn.RequireConfirmedAccount = false;
                 o.ConfigureIdentityServer = options => Configuration.GetSection("IdentityServer:Options").Bind(options);
                 o.ConfigureApiAuthorization = options => Configuration.GetSection("IdentityServer").Bind(options);
-            }, (o,sp)=>
+            }, (o, sp) =>
             {
                 o.JwtAudiences = new string[] { "Delights.ApiAPI" };
 

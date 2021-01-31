@@ -1,16 +1,11 @@
-﻿using Microsoft.Extensions.Logging;
-using Delights.Modules.Persons.Server.Data;
-using Microsoft.Extensions.Options;
+﻿using Delights.Modules.Persons.Server.Data;
+using Delights.Modules.Persons.Server.Models;
+using Delights.Modules.Persons.Server.Models.Actions;
+using Delights.Modules.Server.Data;
+using Microsoft.Extensions.Logging;
+using StardustDL.AspNet.ItemMetadataServer;
 using System;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using Delights.Modules.Persons.Server.Models;
-using StardustDL.AspNet.ItemMetadataServer;
-using StardustDL.AspNet.ItemMetadataServer.Models;
-using Delights.Modules.Persons.Server.Models.Actions;
-using StardustDL.AspNet.ItemMetadataServer.Models.Raws;
-using Delights.Modules.Server.Data;
 
 namespace Delights.Modules.Persons.Server
 {

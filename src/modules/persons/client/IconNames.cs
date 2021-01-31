@@ -1,6 +1,6 @@
 ﻿namespace Delights.Modules.Persons
 {
-     class IconNames
+    class IconNames
     {
         public const string Person = "account";
 

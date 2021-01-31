@@ -1,21 +1,8 @@
 ﻿using HotChocolate;
-using HotChocolate.AspNetCore.Extensions;
-using HotChocolate.Data;
 using IdentityServer4.Extensions;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Mvc.ApplicationParts;
-using Microsoft.AspNetCore.Routing;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
 using Modulight.Modules;
 using Modulight.Modules.Hosting;
-using Modulight.Modules.Server.AspNet;
 using Modulight.Modules.Server.GraphQL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
 namespace StardustDL.AspNet.IdentityServer

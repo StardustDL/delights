@@ -1,14 +1,11 @@
-using Modulight.Modules.Client.RazorComponents;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Delights.Modules.Bookkeeping.GraphQL;
+using Delights.Modules.Client;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Modulight.Modules;
-using Delights.Modules.Client;
+using Modulight.Modules.Client.RazorComponents;
 using Modulight.Modules.Hosting;
+using System;
 
 namespace Delights.Modules.Bookkeeping
 {

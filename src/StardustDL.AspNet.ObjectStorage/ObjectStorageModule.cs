@@ -1,13 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
 using Minio;
-using Minio.DataModel;
 using Modulight.Modules;
 using Modulight.Modules.Hosting;
-using Modulight.Modules.Server.AspNet;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
 
 namespace StardustDL.AspNet.ObjectStorage
 {

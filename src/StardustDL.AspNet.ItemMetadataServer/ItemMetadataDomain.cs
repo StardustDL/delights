@@ -17,7 +17,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
 
         ModuleService Service { get; }
 
-        
+
 
         public ItemMetadataDomain(ModuleService service)
         {

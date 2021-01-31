@@ -1,8 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using System;
 using Modulight.Modules.Hosting;
-using System.Threading.Tasks;
-using System.Collections.Generic;
+using System;
 
 namespace Modulight.Modules.Server.AspNet
 {

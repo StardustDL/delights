@@ -1,19 +1,11 @@
 using Delights.Client.Shared;
-using Delights.Modules;
-using Modulight.Modules.Client.RazorComponents;
-using Modulight.Modules.Client.RazorComponents.UI;
-using Delights.Modules.Hello;
-using Delights.Modules.ModuleManager;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
+using Modulight.Modules.Client.RazorComponents;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
-using Modulight.Modules;
+using Modulight.Modules.Hosting;
 
 namespace Delights.Client.WebAssembly
 {
@@ -29,11 +21,13 @@ namespace Delights.Client.WebAssembly
             builder.Services.AddServerConfiguration();
             ModuleSetup.CreateDefaultBuilder(false).Build(builder.Services);
 
-            await using(var provider = builder.Services.BuildServiceProvider())
-            {
-                await provider.GetRazorComponentClientModuleCollection().LoadResources();
+            var host = builder.Build();
 
-                /*{
+            await using var _ = await host.Services.UseModuleHost();
+
+            await host.Services.GetRazorComponentClientModuleCollection().LoadResources();
+
+            /*{
                     var service = provider.GetRequiredService<Modules.Persons.ModuleService>();
                     Console.WriteLine((await service.GraphQLClient.GetDumpAsync()).Data.Dump.Base64);
                 }
@@ -45,9 +39,8 @@ namespace Delights.Client.WebAssembly
                     var service = provider.GetRequiredService<Modules.Notes.ModuleService>();
                     Console.WriteLine((await service.GraphQLClient.GetDumpAsync()).Data.Dump.Base64);
                 }*/
-            }
 
-            await builder.Build().RunAsync();
+            await host.RunAsync();
         }
     }
 }

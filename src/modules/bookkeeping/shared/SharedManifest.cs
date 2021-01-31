@@ -1,6 +1,3 @@
-using Modulight.Modules;
-using System;
-
 namespace Delights.Modules.Bookkeeping
 {
     static class SharedManifest

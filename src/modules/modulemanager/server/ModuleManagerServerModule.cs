@@ -1,8 +1,6 @@
-using Modulight.Modules.Server.GraphQL;
-using System;
-using System.Collections.Generic;
 using Modulight.Modules;
 using Modulight.Modules.Hosting;
+using Modulight.Modules.Server.GraphQL;
 
 namespace Delights.Modules.ModuleManager.Server
 {

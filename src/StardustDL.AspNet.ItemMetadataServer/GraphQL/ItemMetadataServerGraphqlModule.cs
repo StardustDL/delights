@@ -1,16 +1,6 @@
-﻿using HotChocolate.AspNetCore.Extensions;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Mvc.ApplicationParts;
-using Microsoft.AspNetCore.Routing;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Options;
-using Modulight.Modules;
+﻿using Modulight.Modules;
 using Modulight.Modules.Hosting;
 using Modulight.Modules.Server.GraphQL;
-using StardustDL.AspNet.ItemMetadataServer.Data;
-using System;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 
 namespace StardustDL.AspNet.ItemMetadataServer.GraphQL
 {

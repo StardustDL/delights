@@ -1,9 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Linq;
-using HotChocolate.AspNetCore.Extensions;
+﻿using HotChocolate.AspNetCore.Extensions;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.DependencyInjection;
 using Modulight.Modules.Hosting;
+using System;
 
 namespace Modulight.Modules.Server.GraphQL
 {
