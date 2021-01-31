@@ -13,6 +13,10 @@ namespace StardustDL.AspNet.ObjectStorage
     [ModuleOption(typeof(ObjectStorageModuleOption))]
     public class ObjectStorageModule : Module<ObjectStorageModule>
     {
+        /// <summary>
+        /// Create the instance.
+        /// </summary>
+        /// <param name="host"></param>
         public ObjectStorageModule(IModuleHost host) : base(host)
         {
         }

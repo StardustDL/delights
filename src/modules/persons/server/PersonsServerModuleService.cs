@@ -9,9 +9,12 @@ using System.Threading.Tasks;
 
 namespace Delights.Modules.Persons.Server
 {
-    public class ModuleService : DataModuleService<DataDbContext, RawPerson, Person, PersonMutation, PersonsServerModule>
+    /// <summary>
+    /// Service for the <see cref="PersonsServerModule"/>.
+    /// </summary>
+    public class PersonsServerModuleService : DataModuleService<DataDbContext, RawPerson, Person, PersonMutation, PersonsServerModule>
     {
-        public ModuleService(IServiceProvider services, DataDbContext dbContext, ItemMetadataDomain<PersonsServerModule> metadataDomain, ILogger<PersonsServerModule> logger) : base(dbContext, metadataDomain)
+        public PersonsServerModuleService(IServiceProvider services, DataDbContext dbContext, ItemMetadataDomain<PersonsServerModule> metadataDomain, ILogger<PersonsServerModule> logger) : base(dbContext, metadataDomain)
         {
             Services = services;
             Logger = logger;

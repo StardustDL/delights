@@ -4,9 +4,17 @@ using System;
 
 namespace Modulight.Modules.Server.GraphQL
 {
+    /// <summary>
+    /// Specifies the object types for GraphQL server.
+    /// </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = false)]
     public class GraphQLModuleTypeAttribute : Attribute
     {
+        /// <summary>
+        /// Specifies the object types for GraphQL server.
+        /// </summary>
+        /// <param name="schemaName">Schema name.</param>
+        /// <param name="queryType">Query type.</param>
         public GraphQLModuleTypeAttribute(string schemaName, Type queryType)
         {
             SchemaName = schemaName;
@@ -14,8 +22,14 @@ namespace Modulight.Modules.Server.GraphQL
             QueryType = queryType;
         }
 
+        /// <summary>
+        /// Schema name.
+        /// </summary>
         public string SchemaName { get; init; }
 
+        /// <summary>
+        /// Endpoint (default as /graphql/<see cref="SchemaName"/>).
+        /// </summary>
         public string Endpoint { get; init; }
 
         /// <summary>

@@ -212,7 +212,7 @@ namespace Modulight.Modules.Hosting
                 services.AddSingleton(type);
                 foreach (var service in manifest.Services)
                 {
-                    services.Add(new ServiceDescriptor(service.Type, service.Type, service.Lifetime));
+                    services.Add(new ServiceDescriptor(service.ServiceType ?? service.ImplementationType, service.ImplementationType, service.Lifetime));
                 }
                 IModuleStartup? startup = null;
                 if (startupType is not null)

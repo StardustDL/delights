@@ -8,20 +8,37 @@ using System.Threading.Tasks;
 
 namespace Modulight.Modules.Client.RazorComponents.UI
 {
+    /// <summary>
+    /// Specifies <see cref="ModuleUI.RootPath"/> for the module UI.
+    /// </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = false)]
     public class ModuleUIRootPathAttribute : Attribute
     {
+        /// <summary>
+        /// Specifies <see cref="ModuleUI.RootPath"/> for the module UI.
+        /// </summary>
         public ModuleUIRootPathAttribute(string rootPath)
         {
             RootPath = rootPath;
         }
 
+        /// <summary>
+        /// Root path.
+        /// </summary>
         public string RootPath { get; init; }
     }
 
+    /// <summary>
+    /// Specifies UI resources for the module UI.
+    /// </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = false)]
     public class ModuleUIResourceAttribute : Attribute
     {
+        /// <summary>
+        /// Specifies UI resources for the module UI.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="path"></param>
         public ModuleUIResourceAttribute(UIResourceType type, string path)
         {
             Type = type;

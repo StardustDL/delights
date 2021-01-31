@@ -6,7 +6,12 @@ using System.Reflection;
 
 namespace Modulight.Modules
 {
-    public record ModuleServiceDescriptor(Type Type, ServiceLifetime Lifetime = ServiceLifetime.Scoped)
+    /// <summary>
+    /// Service descriptor for module services.
+    /// </summary>
+#pragma warning disable CS1591 // 缺少对公共可见类型或成员的 XML 注释
+    public record ModuleServiceDescriptor(Type ImplementationType, Type? ServiceType = null, ServiceLifetime Lifetime = ServiceLifetime.Scoped)
+#pragma warning restore CS1591 // 缺少对公共可见类型或成员的 XML 注释
     {
     }
 
@@ -55,10 +60,19 @@ namespace Modulight.Modules
         /// </summary>
         public string Url { get; init; } = "";
 
+        /// <summary>
+        /// Services
+        /// </summary>
         public ModuleServiceDescriptor[] Services { get; init; } = Array.Empty<ModuleServiceDescriptor>();
 
+        /// <summary>
+        /// Options
+        /// </summary>
         public Type[] Options { get; init; } = Array.Empty<Type>();
 
+        /// <summary>
+        /// Dependencies
+        /// </summary>
         public Type[] Dependencies { get; init; } = Array.Empty<Type>();
 
         /// <summary>
@@ -66,7 +80,7 @@ namespace Modulight.Modules
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static ModuleManifest Generate(Type type)
+        internal static ModuleManifest Generate(Type type)
         {
             // Split by upper chars
             static string[] GenerateName(string typeName)
@@ -114,7 +128,7 @@ namespace Modulight.Modules
                 Assemblies = assemblyAttr?.Select(x => x.Assembly).ToArray() ?? Array.Empty<string>(),
                 Description = moduleAttr?.Description ?? "",
                 Url = moduleAttr?.Url ?? "",
-                Services = serviceAttr?.Select(x => new ModuleServiceDescriptor(x.ServiceType, x.Lifetime)).ToArray() ?? Array.Empty<ModuleServiceDescriptor>(),
+                Services = serviceAttr?.Select(x => new ModuleServiceDescriptor(x.ImplementationType, x.ServiceType, x.Lifetime)).ToArray() ?? Array.Empty<ModuleServiceDescriptor>(),
                 Options = optionAttr?.Select(x => x.OptionType).ToArray() ?? Array.Empty<Type>(),
                 Dependencies = deps.ToArray(),
             };

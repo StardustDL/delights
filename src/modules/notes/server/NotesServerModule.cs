@@ -13,6 +13,9 @@ using System.Threading.Tasks;
 
 namespace Delights.Modules.Notes.Server
 {
+    /// <summary>
+    /// Server module for notes.
+    /// </summary>
     [Module(Url = Shared.SharedManifest.Url, Author = Shared.SharedManifest.Author, Description = SharedManifest.Description)]
     [ModuleService(typeof(ModuleService))]
     [ModuleStartup(typeof(Startup))]

@@ -20,7 +20,9 @@ namespace Modulight.Modules.Client.RazorComponents.UI
     /// <summary>
     /// Defines UI resourcecs.
     /// </summary>
+#pragma warning disable CS1591 // 缺少对公共可见类型或成员的 XML 注释
     public record UIResource(UIResourceType Type, string Path)
+#pragma warning restore CS1591 // 缺少对公共可见类型或成员的 XML 注释
     {
         /// <summary>
         /// Attributes for the resource.

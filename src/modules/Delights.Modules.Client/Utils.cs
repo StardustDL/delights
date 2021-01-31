@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Text;
 
-namespace Delights.Modules.Persons
+namespace Delights.Modules.Client
 {
-    public static class Utils
+    public static class UtilExtensions
     {
         public static string ToFriendlyString(this DateTimeOffset value)
         {

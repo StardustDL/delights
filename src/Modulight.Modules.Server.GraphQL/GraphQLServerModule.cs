@@ -11,6 +11,10 @@ namespace Modulight.Modules.Server.GraphQL
     /// </summary>
     public abstract class GraphQLServerModule<TModule> : Module<TModule>, IGraphQLServerModule
     {
+        /// <summary>
+        /// Create the instance.
+        /// </summary>
+        /// <param name="host"></param>
         protected GraphQLServerModule(IModuleHost host) : base(host)
         {
         }

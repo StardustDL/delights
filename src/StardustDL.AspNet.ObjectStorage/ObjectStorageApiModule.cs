@@ -16,12 +16,16 @@ namespace StardustDL.AspNet.ObjectStorage
     [ModuleStartup(typeof(ApiStartup))]
     public class ObjectStorageApiModule : AspNetServerModule<ObjectStorageApiModule>
     {
+        /// <summary>
+        /// Create the instance.
+        /// </summary>
+        /// <param name="host"></param>
         public ObjectStorageApiModule(IModuleHost host) : base(host)
         {
         }
     }
 
-    public class ApiStartup : ModuleStartup
+    class ApiStartup : ModuleStartup
     {
         public override void ConfigureServices(IServiceCollection services)
         {
@@ -52,7 +56,7 @@ namespace StardustDL.AspNet.ObjectStorage
     }
 
     /// <summary>
-    /// Services for <see cref="ObjectStorageApiModule"/>.
+    /// Options for <see cref="ObjectStorageApiModule"/>.
     /// </summary>
     public class ObjectStorageApiModuleOption
     {

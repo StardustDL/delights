@@ -13,8 +13,11 @@ using System.Threading.Tasks;
 
 namespace Delights.Modules.Persons.Server
 {
+    /// <summary>
+    /// Server module for persons.
+    /// </summary>
     [Module(Url = Shared.SharedManifest.Url, Author = Shared.SharedManifest.Author, Description = SharedManifest.Description)]
-    [ModuleService(typeof(ModuleService))]
+    [ModuleService(typeof(PersonsServerModuleService))]
     [ModuleStartup(typeof(Startup))]
     [ModuleDependency(typeof(ItemMetadataServerModule))]
     [GraphQLModuleType("Persons", typeof(ModuleQuery), MutationType = typeof(ModuleMutation))]
@@ -73,11 +76,11 @@ namespace Delights.Modules.Persons.Server
         }
     }
 
-    public class ModuleQuery : Modules.Server.Data.GraphQL.QueryType<PersonsServerModule, ModuleService, RawPerson, Person, PersonMutation>
+    public class ModuleQuery : Modules.Server.Data.GraphQL.QueryType<PersonsServerModule, PersonsServerModuleService, RawPerson, Person, PersonMutation>
     {
     }
 
-    public class ModuleMutation : Modules.Server.Data.GraphQL.MutationType<PersonsServerModule, ModuleService, RawPerson, Person, PersonMutation>
+    public class ModuleMutation : Modules.Server.Data.GraphQL.MutationType<PersonsServerModule, PersonsServerModuleService, RawPerson, Person, PersonMutation>
     {
     }
 }

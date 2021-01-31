@@ -13,13 +13,22 @@ namespace Modulight.Modules.Client.RazorComponents
     {
         Lazy<ModuleUIAttribute?> ModuleUIAttribute;
 
+        /// <summary>
+        /// Create the instance.
+        /// </summary>
+        /// <param name="host"></param>
         protected RazorComponentClientModule(IModuleHost host) : base(host)
         {
             ModuleUIAttribute = new Lazy<ModuleUIAttribute?>(() => GetType().GetCustomAttribute<ModuleUIAttribute>());
         }
 
+        /// <summary>
         /// <inheritdoc/>
-        public IModuleUI? GetUI(IServiceProvider provider)
+        /// Use <see cref="Modulight.Modules.Client.RazorComponents.ModuleUIAttribute"/> to detect module UI.
+        /// </summary>
+        /// <param name="provider"></param>
+        /// <returns></returns>
+        public virtual IModuleUI? GetUI(IServiceProvider provider)
         {
             var uiAttr = ModuleUIAttribute.Value;
             if (uiAttr is null)

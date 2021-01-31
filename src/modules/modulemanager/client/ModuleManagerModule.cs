@@ -1,3 +1,4 @@
+using Delights.Modules.Client;
 using Delights.Modules.ModuleManager.GraphQL;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
@@ -15,7 +16,7 @@ namespace Delights.Modules.ModuleManager
     [ModuleOption(typeof(ModuleOption))]
     [ModuleService(typeof(ModuleService))]
     [ModuleUI(typeof(ModuleUI))]
-    //TODO: antd icon
+    [ModuleDependency(typeof(ClientModule))]
     public class ModuleManagerModule : RazorComponentClientModule<ModuleManagerModule>
     {
         public ModuleManagerModule(IModuleHost host) : base(host)

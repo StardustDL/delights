@@ -9,7 +9,9 @@ using System;
 
 namespace Delights.Modules.Bookkeeping
 {
-
+    /// <summary>
+    /// Client module for bookkeeping.
+    /// </summary>
     [Module(Url = Shared.SharedManifest.Url, Author = Shared.SharedManifest.Author, Description = SharedManifest.Description)]
     [ModuleService(typeof(ModuleService))]
     [ModuleStartup(typeof(Startup))]
@@ -39,7 +41,7 @@ namespace Delights.Modules.Bookkeeping
         }
     }
 
-    public class Startup : ModuleStartup
+    class Startup : ModuleStartup
     {
         public override void ConfigureServices(IServiceCollection services)
         {

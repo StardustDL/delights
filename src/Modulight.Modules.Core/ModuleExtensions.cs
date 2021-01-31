@@ -24,32 +24,73 @@ namespace Modulight.Modules
         /// <returns></returns>
         public static string GetAssemblyName(this Type type) => type.Assembly.GetName().Name!;
 
+        /// <summary>
+        /// Test a type is a module type.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public static bool IsModule(this Type type) => type.IsModule<IModule>();
 
+        /// <summary>
+        /// Test a type is a specified module type.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public static bool IsModule<T>(this Type type) where T : IModule => type.IsAssignableTo(typeof(T));
 
+        /// <summary>
+        /// Ensure a type is a module type.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public static void EnsureModule(this Type type)
         {
             if (!type.IsModule())
                 throw new Exception($"{type.FullName} is not a module.");
         }
 
+        /// <summary>
+        /// Ensure a type is a specified module type.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="type"></param>
         public static void EnsureModule<T>(this Type type) where T : IModule
         {
             if (!type.IsModule<T>())
                 throw new Exception($"{type.FullName} is not a module typed {typeof(T).FullName}.");
         }
 
+        /// <summary>
+        /// Test a type is a module startup type.
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public static bool IsModuleStartup(this Type type) => type.IsModuleStartup<IModuleStartup>();
 
+        /// <summary>
+        /// Test a type is a specified module startup type.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public static bool IsModuleStartup<T>(this Type type) where T : IModuleStartup => type.IsAssignableTo(typeof(T));
 
+        /// <summary>
+        /// Ensure a type is a module startup type.
+        /// </summary>
+        /// <param name="type"></param>
         public static void EnsureModuleStartup(this Type type)
         {
             if (!type.IsModuleStartup())
                 throw new Exception($"{type.FullName} is not a module startup.");
         }
 
+        /// <summary>
+        /// Ensure a type is a specified module startup type.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="type"></param>
         public static void EnsureModuleStartup<T>(this Type type) where T : IModuleStartup
         {
             if (!type.IsModuleStartup<T>())

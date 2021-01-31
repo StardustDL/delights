@@ -13,6 +13,7 @@ namespace StardustDL.AspNet.ObjectStorage
         /// Add <see cref="ObjectStorageModule"/>.
         /// </summary>
         /// <param name="modules"></param>
+        /// <param name="configureOptions"></param>
         /// <returns></returns>
         public static IModuleHostBuilder AddObjectStorageModule(this IModuleHostBuilder modules, Action<ObjectStorageModuleOption, IServiceProvider>? configureOptions = null)
         {
@@ -31,6 +32,7 @@ namespace StardustDL.AspNet.ObjectStorage
         /// Add <see cref="ObjectStorageApiModule"/>.
         /// </summary>
         /// <param name="modules"></param>
+        /// <param name="configureOptions"></param>
         /// <returns></returns>
         public static IModuleHostBuilder AddObjectStorageApiModule(this IModuleHostBuilder modules, Action<ObjectStorageApiModuleOption, IServiceProvider>? configureOptions = null)
         {

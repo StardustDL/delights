@@ -12,8 +12,8 @@ Task CD -depends Restore, Build, Pack
 Task Deploy -depends publish-packages
 
 Task Restore {
-    Exec { dotnet tool restore }
-    Exec { dotnet restore }
+    Exec -maxRetries 3 { dotnet tool restore }
+    Exec -maxRetries 3 { dotnet restore }
 }
 
 Function GenerateGraphQL($moduleName) {
@@ -27,7 +27,7 @@ Function GenerateGraphQL($moduleName) {
 
     $apiname = $moduleName + "GraphQL"
     
-    Exec { dotnet graphql init https://localhost:5001/graphql/${moduleName}Server -n $apiname -p "GraphQL" }
+    Exec -maxRetries 3 { dotnet graphql init https://localhost:5001/graphql/${moduleName} -n $apiname -p "GraphQL" }
 
     Set-Location "GraphQL"
 
@@ -76,16 +76,16 @@ Task Pack {
 }
 
 Function PublishPackages($source, $key) {
-    Exec { dotnet nuget push ./packages/Modulight.Modules.Core.$build_version.nupkg -s $source -k $key --skip-duplicate }
-    Exec { dotnet nuget push ./packages/Modulight.Modules.Client.RazorComponents.$build_version.nupkg -s $source -k $key --skip-duplicate }
-    Exec { dotnet nuget push ./packages/Modulight.Modules.Server.AspNet.$build_version.nupkg -s $source -k $key --skip-duplicate }
-    Exec { dotnet nuget push ./packages/Modulight.Modules.Server.GraphQL.$build_version.nupkg -s $source -k $key --skip-duplicate }
-    Exec { dotnet nuget push ./packages/StardustDL.AspNet.ObjectStorage.$build_version.nupkg -s $source -k $key --skip-duplicate }
+    Exec -maxRetries 3 { dotnet nuget push ./packages/Modulight.Modules.Core.$build_version.nupkg -s $source -k $key --skip-duplicate }
+    Exec -maxRetries 3 { dotnet nuget push ./packages/Modulight.Modules.Client.RazorComponents.$build_version.nupkg -s $source -k $key --skip-duplicate }
+    Exec -maxRetries 3 { dotnet nuget push ./packages/Modulight.Modules.Server.AspNet.$build_version.nupkg -s $source -k $key --skip-duplicate }
+    Exec -maxRetries 3 { dotnet nuget push ./packages/Modulight.Modules.Server.GraphQL.$build_version.nupkg -s $source -k $key --skip-duplicate }
+    Exec -maxRetries 3 { dotnet nuget push ./packages/StardustDL.AspNet.ObjectStorage.$build_version.nupkg -s $source -k $key --skip-duplicate }
 }
 
 Task publish-packages {
-    Exec { dotnet nuget add source https://sparkshine.pkgs.visualstudio.com/StardustDL/_packaging/feed/nuget/v3/index.json -n ownpkgs }
-    Exec { dotnet nuget update source ownpkgs -u sparkshine -p $NUGET_AUTH_TOKEN --store-password-in-clear-text }
+    Exec -maxRetries 3 { dotnet nuget add source https://sparkshine.pkgs.visualstudio.com/StardustDL/_packaging/feed/nuget/v3/index.json -n ownpkgs }
+    Exec -maxRetries 3 { dotnet nuget update source ownpkgs -u sparkshine -p $NUGET_AUTH_TOKEN --store-password-in-clear-text }
     PublishPackages ownpkgs az
 }
 

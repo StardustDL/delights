@@ -12,7 +12,9 @@ using System;
 
 namespace Delights.Modules.Persons
 {
-
+    /// <summary>
+    /// Client module for persons.
+    /// </summary>
     [Module(Url = Shared.SharedManifest.Url, Author = Shared.SharedManifest.Author, Description = SharedManifest.Description)]
     [ModuleService(typeof(PersonsModuleService))]
     [ModuleStartup(typeof(Startup))]
@@ -42,7 +44,7 @@ namespace Delights.Modules.Persons
         }
     }
 
-    public class Startup : ModuleStartup
+    class Startup : ModuleStartup
     {
         public override void ConfigureServices(IServiceCollection services)
         {

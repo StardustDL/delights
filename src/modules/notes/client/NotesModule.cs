@@ -9,7 +9,9 @@ using System;
 
 namespace Delights.Modules.Notes
 {
-
+    /// <summary>
+    /// Client module for notes.
+    /// </summary>
     [Module(Url = Shared.SharedManifest.Url, Author = Shared.SharedManifest.Author, Description = SharedManifest.Description)]
     [ModuleService(typeof(ModuleService))]
     [ModuleStartup(typeof(Startup))]
@@ -39,7 +41,7 @@ namespace Delights.Modules.Notes
         }
     }
 
-    public class Startup : ModuleStartup
+    class Startup : ModuleStartup
     {
         public override void ConfigureServices(IServiceCollection services)
         {

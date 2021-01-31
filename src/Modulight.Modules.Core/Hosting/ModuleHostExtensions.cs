@@ -4,6 +4,9 @@ using System.Threading.Tasks;
 
 namespace Modulight.Modules.Hosting
 {
+    /// <summary>
+    /// Extensions for module host.
+    /// </summary>
     public static class ModuleHostExtensions
     {
         /// <summary>
@@ -16,6 +19,15 @@ namespace Modulight.Modules.Hosting
             return services.GetRequiredService<IModuleHost>();
         }
 
+        /// <summary>
+        /// Create a context to control module host initializing, shutdown.
+        /// For example:
+        /// <code>
+        /// await using var _ = await services.UseModuleHost();
+        /// </code>
+        /// </summary>
+        /// <param name="services"></param>
+        /// <returns></returns>
         public static async Task<IAsyncDisposable> UseModuleHost(this IServiceProvider services)
         {
             var host = services.GetModuleHost();
@@ -23,10 +35,32 @@ namespace Modulight.Modules.Hosting
             return new ModuleHostContext(host);
         }
 
+        /// <summary>
+        /// Get manifest for the module.
+        /// </summary>
+        /// <typeparam name="TModule"></typeparam>
+        /// <param name="host"></param>
+        /// <returns></returns>
         public static ModuleManifest GetManifest<TModule>(this IModuleHost host) where TModule : IModule => host.GetManifest(typeof(TModule));
 
+        /// <summary>
+        /// Get service that belongs to the module.
+        /// </summary>
+        /// <typeparam name="TModule"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="host"></param>
+        /// <param name="provider"></param>
+        /// <returns></returns>
         public static T GetService<TModule, T>(this IModuleHost host, IServiceProvider provider) where T : notnull where TModule : IModule => host.GetService<T>(provider, typeof(TModule));
 
+        /// <summary>
+        /// Get option that belongs to the module.
+        /// </summary>
+        /// <typeparam name="TModule"></typeparam>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="host"></param>
+        /// <param name="provider"></param>
+        /// <returns></returns>
         public static T GetOption<TModule, T>(this IModuleHost host, IServiceProvider provider) where T : class where TModule : IModule => host.GetOption<T>(provider, typeof(TModule));
 
         /// <summary>
@@ -37,6 +71,12 @@ namespace Modulight.Modules.Hosting
         /// <returns></returns>
         public static IModuleHostBuilder AddModule<T>(this IModuleHostBuilder builder) where T : IModule => builder.AddModule(typeof(T));
 
+        /// <summary>
+        /// Add a typed plugin.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="builder"></param>
+        /// <returns></returns>
         public static IModuleHostBuilder UsePlugin<T>(this IModuleHostBuilder builder) where T : IModuleHostBuilderPlugin => builder.UsePlugin(typeof(T));
 
         internal static bool IsHostBuilderPlugin(this Type type) => type.IsAssignableTo(typeof(IModuleHostBuilderPlugin));

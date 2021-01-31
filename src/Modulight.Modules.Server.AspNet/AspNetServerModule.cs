@@ -15,7 +15,6 @@ namespace Modulight.Modules.Server.AspNet
         /// Used for <see cref="UseMiddlewareExtensions.UseMiddleware(IApplicationBuilder, Type, object[])"/> 
         /// </summary>
         /// <param name="builder"></param>
-        /// <param name="provider"></param>
         void UseMiddleware(IApplicationBuilder builder);
 
         /// <summary>
@@ -23,7 +22,6 @@ namespace Modulight.Modules.Server.AspNet
         /// Used in <see cref="EndpointRoutingApplicationBuilderExtensions.UseEndpoints(IApplicationBuilder, Action{IEndpointRouteBuilder})"/>.
         /// </summary>
         /// <param name="builder"></param>
-        /// <param name="provider"></param>
         void MapEndpoint(IEndpointRouteBuilder builder);
     }
 
@@ -32,6 +30,10 @@ namespace Modulight.Modules.Server.AspNet
     /// </summary>
     public abstract class AspNetServerModule<TModule> : Module<TModule>, IAspNetServerModule
     {
+        /// <summary>
+        /// Create the instance.
+        /// </summary>
+        /// <param name="host"></param>
         protected AspNetServerModule(IModuleHost host) : base(host)
         {
         }

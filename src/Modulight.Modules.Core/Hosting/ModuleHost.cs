@@ -8,13 +8,20 @@ using System.Threading.Tasks;
 
 namespace Modulight.Modules.Hosting
 {
+    /// <summary>
+    /// A collection of typed modules.
+    /// </summary>
+    /// <typeparam name="TModule">Base module type.</typeparam>
     public interface IModuleCollection<TModule> where TModule : IModule
     {
         /// <summary>
-        /// Get all registered modules.
+        /// Get all loaded modules.
         /// </summary>
         IEnumerable<TModule> LoadedModules { get; }
 
+        /// <summary>
+        /// Get all defined module types.
+        /// </summary>
         IEnumerable<Type> DefinedModules { get; }
     }
 
@@ -23,6 +30,9 @@ namespace Modulight.Modules.Hosting
     /// </summary>
     public interface IModuleHost : IModuleCollection<IModule>
     {
+        /// <summary>
+        /// Service provider.
+        /// </summary>
         IServiceProvider Services { get; }
 
         /// <summary>
@@ -30,16 +40,48 @@ namespace Modulight.Modules.Hosting
         /// </summary>
         ModuleManifest GetManifest(Type moduleType);
 
+        /// <summary>
+        /// Get the module instance with module type.
+        /// </summary>
+        /// <param name="moduleType"></param>
+        /// <returns></returns>
         IModule GetModule(Type moduleType);
 
+        /// <summary>
+        /// Initialize the module.
+        /// </summary>
+        /// <returns></returns>
         Task Initialize();
 
+        /// <summary>
+        /// Shutdown the module.
+        /// </summary>
+        /// <returns></returns>
         Task Shutdown();
 
+        /// <summary>
+        /// Get service that belongs to the module.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="provider"></param>
+        /// <param name="moduleType"></param>
+        /// <returns></returns>
         T GetService<T>(IServiceProvider provider, Type moduleType) where T : notnull;
 
+        /// <summary>
+        /// Get option that belongs to the module.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="provider"></param>
+        /// <param name="moduleType"></param>
+        /// <returns></returns>
         T GetOption<T>(IServiceProvider provider, Type moduleType) where T : class;
 
+        /// <summary>
+        /// Get logger for the module.
+        /// </summary>
+        /// <typeparam name="TModule"></typeparam>
+        /// <returns></returns>
         ILogger<TModule> GetLogger<TModule>();
     }
 
@@ -57,16 +99,12 @@ namespace Modulight.Modules.Hosting
             DefinedModules = definedModules.Select(x => x.Item1);
         }
 
-        /// <inheritdoc/>
         public virtual IEnumerable<IModule> LoadedModules { get; protected set; } = Array.Empty<IModule>();
 
-        /// <inheritdoc/>
         public virtual IEnumerable<Type> DefinedModules { get; protected set; }
 
-        /// <inheritdoc/>
         public virtual IServiceProvider Services { get; protected set; }
 
-        /// <inheritdoc/>
         public virtual ModuleManifest GetManifest(Type moduleType)
         {
             if (_DefinedModules.TryGetValue(moduleType, out var value))
@@ -79,7 +117,6 @@ namespace Modulight.Modules.Hosting
             }
         }
 
-        /// <inheritdoc/>
         public virtual IModule GetModule(Type moduleType)
         {
             if (_LoadedModules.TryGetValue(moduleType, out var value))
@@ -92,12 +129,11 @@ namespace Modulight.Modules.Hosting
             }
         }
 
-        /// <inheritdoc/>
         public virtual T GetService<T>(IServiceProvider provider, Type moduleType) where T : notnull
         {
             var manifest = GetManifest(moduleType);
             var type = typeof(T);
-            if (manifest.Services.Any(x => x.Type == type))
+            if (manifest.Services.Any(x => x.ServiceType == type))
             {
                 return provider.GetRequiredService<T>();
             }
@@ -107,7 +143,6 @@ namespace Modulight.Modules.Hosting
             }
         }
 
-        /// <inheritdoc/>
         public virtual T GetOption<T>(IServiceProvider provider, Type moduleType) where T : class
         {
             var manifest = GetManifest(moduleType);
@@ -122,7 +157,6 @@ namespace Modulight.Modules.Hosting
             }
         }
 
-        /// <inheritdoc/>
         public virtual async Task Initialize()
         {
             var modules = new List<(Type, IModule)>();
@@ -139,7 +173,6 @@ namespace Modulight.Modules.Hosting
             }
         }
 
-        /// <inheritdoc/>
         public virtual async Task Shutdown()
         {
             foreach (var module in LoadedModules)
@@ -148,7 +181,6 @@ namespace Modulight.Modules.Hosting
             }
         }
 
-        /// <inheritdoc/>
         public virtual ILogger<TModule> GetLogger<TModule>()
         {
             var type = typeof(TModule);
@@ -161,21 +193,5 @@ namespace Modulight.Modules.Hosting
                 throw new Exception($"No such module: {type.FullName}.");
             }
         }
-    }
-
-    public class ModuleHostFilter<TModule> : IModuleCollection<TModule> where TModule : IModule
-    {
-        public ModuleHostFilter(IModuleHost host)
-        {
-            Host = host;
-        }
-
-        public IModuleHost Host { get; }
-
-        /// <inheritdoc/>
-        public IEnumerable<TModule> LoadedModules => Host.LoadedModules.Where(x => x is TModule).Select(x => (TModule)x);
-
-        /// <inheritdoc/>
-        public IEnumerable<Type> DefinedModules => Host.DefinedModules.Where(x => x.IsModule<TModule>());
     }
 }

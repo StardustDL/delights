@@ -1,4 +1,5 @@
-﻿using Delights.Modules.Hello.GraphQL;
+﻿using Delights.Modules.Client;
+using Delights.Modules.Hello.GraphQL;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -35,7 +36,7 @@ namespace Delights.Modules.Hello
     [ModuleStartup(typeof(Startup))]
     [ModuleService(typeof(ModuleService))]
     [ModuleUI(typeof(ModuleUI))]
-    //TODO: [ModuleDependency(typeof(StardustDL.RazorComponents.MaterialDesignIcons.Module))]
+    [ModuleDependency(typeof(ClientModule))]
     public class HelloModule : RazorComponentClientModule<HelloModule>
     {
         public HelloModule(IModuleHost host) : base(host)

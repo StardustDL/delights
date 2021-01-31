@@ -71,7 +71,17 @@ app.UseEndpoints(endpoints =>
 });
 ```
 
-3. For razor components, add `ResourceDeclare` component to App.razor to load UI resources.
+3. Configure the module initilizing & shutdown.
+
+```cs
+// in Program: Task Main(string[] args)
+
+var host = CreateHostBuilder(args).Build();
+await using var _ = await host.Services.UseModuleHost();
+await host.RunAsync();
+```
+
+4. For razor components, add `ResourceDeclare` component to App.razor to load UI resources.
 
 ```razor
 <Modulight.Modules.Client.RazorComponents.UI.ResourceDeclare />
@@ -82,19 +92,17 @@ This component will find all resources defined in modules, and render HTML tags 
 This works for normal cases, but if you use WebAssembly target, no prerenderring, and the component library need the javascript files to be loaded initially. You can use the following codes to load resources manually.
 
 ```cs
-// WebAssemblyHostBuilder builder;
-await using(var provider = builder.Services.BuildServiceProvider())
-{
-    await provider.GetRazorComponentClientModuleHost().LoadResources();
-}
-await builder.Build().RunAsync();
+// WebAssemblyHost host;
+await using var _ = await host.Services.UseModuleHost();
+await host.Services.GetRazorComponentClientModuleCollection().LoadResources();
+await host.RunAsync();
 ```
 
 ## Example codes
 
 They are based on nightly build package at: 
 
-https://sparkshine.pkgs.visualstudio.com/StardustDL/_packaging/feed/nuget/v3/index.json
+[NUGET source](https://sparkshine.pkgs.visualstudio.com/StardustDL/_packaging/feed/nuget/v3/index.json)
 
 ### Design a client (Blazor) module
 
@@ -107,7 +115,7 @@ https://sparkshine.pkgs.visualstudio.com/StardustDL/_packaging/feed/nuget/v3/ind
 
 ### Use a client module in Blazor websites
 
-- [ModulePage.razor](https://github.com/StardustDL/delights/blob/master/src/Delights.UI/Components/ModulePage.razor) Layout and container for module pages.
+- [ModulePageLayout.razor](https://github.com/StardustDL/delights/blob/master/src/Delights.UI/Shared/ModulePageLayout.razor) Layout and container for module pages.
 - [App.razor](https://github.com/StardustDL/delights/blob/master/src/Delights.UI/App.razor) Lazy loading for js/css/sassemblies when routing.
 - [UIModule.cs](https://github.com/StardustDL/delights/blob/master/src/Delights.UI/UIModule.cs) Definition of JS/CSS resources.
 - [ModuleSetup.cs](https://github.com/StardustDL/delights/blob/master/src/Delights.Client.Shared/ModuleSetup.cs) Use modules in client.

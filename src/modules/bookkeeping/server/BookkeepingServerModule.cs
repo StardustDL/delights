@@ -13,6 +13,9 @@ using System.Threading.Tasks;
 
 namespace Delights.Modules.Bookkeeping.Server
 {
+    /// <summary>
+    /// Server module for bookkeeping.
+    /// </summary>
     [Module(Url = Shared.SharedManifest.Url, Author = Shared.SharedManifest.Author, Description = SharedManifest.Description)]
     [ModuleService(typeof(ModuleService))]
     [ModuleStartup(typeof(Startup))]

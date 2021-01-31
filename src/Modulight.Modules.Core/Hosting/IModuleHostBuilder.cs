@@ -15,19 +15,37 @@ namespace Modulight.Modules.Hosting
         /// </summary>
         IReadOnlyList<Type> Modules { get; }
 
+        /// <summary>
+        /// Get all registered plugins.
+        /// </summary>
         IReadOnlyList<Type> Plugins { get; }
 
         /// <summary>
         /// Add module in given type.
         /// </summary>
-        /// <param name="type">Target module type.</param>
+        /// <param name="type">Module type.</param>
         /// <returns></returns>
         IModuleHostBuilder AddModule(Type type);
 
+        /// <summary>
+        /// Add plugin in given type.
+        /// </summary>
+        /// <param name="type">Plugin type.</param>
+        /// <returns></returns>
         IModuleHostBuilder UsePlugin(Type type);
 
+        /// <summary>
+        /// Configure the services for the builder, also for all <see cref="IModuleHostBuilderPlugin"/> and <see cref="IModuleStartup"/>.
+        /// </summary>
+        /// <param name="configureBuilderServices"></param>
+        /// <returns></returns>
         IModuleHostBuilder ConfigureBuilderServices(Action<IServiceCollection> configureBuilderServices);
 
+        /// <summary>
+        /// Configure the services for the target <see cref="IServiceCollection"/>.
+        /// </summary>
+        /// <param name="configureServices"></param>
+        /// <returns></returns>
         IModuleHostBuilder ConfigureServices(Action<IServiceCollection> configureServices);
 
         /// <summary>
