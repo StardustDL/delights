@@ -7,7 +7,7 @@ namespace StardustDL.AspNet.IdentityServer
 {
     public static class ModuleExtensions
     {
-        public static IModuleHostBuilder AddIdentityServerModule(this IModuleHostBuilder builder, Action<IdentityServerModuleStartupOption, IServiceProvider>? configureStartupOptions = null)
+        public static IModuleHostBuilder AddIdentityServerModule(this IModuleHostBuilder builder, Action<IdentityServerModuleStartupOption, IServiceProvider>? configureStartupOptions = null, Action<IdentityServerModuleOption, IServiceProvider>? configureOptions = null)
         {
             builder.AddModule<IdentityServerModule>();
             if (configureStartupOptions is not null)
@@ -15,6 +15,13 @@ namespace StardustDL.AspNet.IdentityServer
                 builder.ConfigureBuilderServices(services =>
                 {
                     services.AddOptions<IdentityServerModuleStartupOption>().Configure(configureStartupOptions);
+                });
+            }
+            if (configureOptions is not null)
+            {
+                builder.ConfigureServices(services =>
+                {
+                    services.AddOptions<IdentityServerModuleOption>().Configure(configureOptions);
                 });
             }
 

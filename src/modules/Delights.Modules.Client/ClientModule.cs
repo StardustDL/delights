@@ -9,23 +9,17 @@ using StardustDL.RazorComponents.AntDesigns;
 using Modulight.Modules;
 using StardustDL.RazorComponents.MaterialDesignIcons;
 using StardustDL.RazorComponents.Vditors;
+using Modulight.Modules.Hosting;
 
 namespace Delights.Modules.Client
 {
 
     [Module(Url = Shared.SharedManifest.Url, Author = Shared.SharedManifest.Author, Description = "Provide components for Delights client modules.")]
-    public class ClientModule : RazorComponentClientModule<ModuleService, ModuleOption, ModuleUI>
+    //TODO: dep antd, vditor, mat icon
+    public class ClientModule : Module<ClientModule>
     {
-        public ClientModule() : base()
+        public ClientModule(IModuleHost host) : base(host)
         {
-        }
-
-        public override void Setup(Modulight.Modules.IModuleHostBuilder host)
-        {
-            base.Setup(host);
-            host.AddAntDesignModule();
-            host.AddVditorModule();
-            host.AddMaterialDesignIconModule();
         }
     }
 }

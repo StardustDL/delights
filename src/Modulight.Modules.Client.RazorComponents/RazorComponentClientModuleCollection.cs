@@ -16,17 +16,8 @@ namespace Modulight.Modules.Client.RazorComponents
     /// <summary>
     /// Specifies the contract for razor component module hosts.
     /// </summary>
-    public interface IRazorComponentClientModuleHost : IModuleHost
+    public interface IRazorComponentClientModuleCollection : IModuleCollection<IRazorComponentClientModule>
     {
-        /// <summary>
-        /// Get all registered modules.
-        /// </summary>
-        new IEnumerable<Type> DefinedModules { get; }
-
-        /// <summary>
-        /// Get all registered modules.
-        /// </summary>
-        new IEnumerable<IRazorComponentClientModule> LoadedModules { get; }
 
         /// <summary>
         /// Load related assemblies for a given route.
@@ -52,14 +43,14 @@ namespace Modulight.Modules.Client.RazorComponents
         Task LoadResources();
     }
 
-    internal class RazorComponentClientModuleHost : ModuleHostFilter<IRazorComponentClientModule>, IRazorComponentClientModuleHost
+    internal class RazorComponentClientModuleCollection : ModuleHostFilter<IRazorComponentClientModule>, IRazorComponentClientModuleCollection
     {
-        public RazorComponentClientModuleHost(IModuleHost host) : base(host)
+        public RazorComponentClientModuleCollection(IModuleHost host) : base(host)
         {
-            Logger = host.Services.GetRequiredService<ILogger<RazorComponentClientModuleHost>>();
+            Logger = host.Services.GetRequiredService<ILogger<RazorComponentClientModuleCollection>>();
         }
 
-        public ILogger<RazorComponentClientModuleHost> Logger { get; }
+        public ILogger<RazorComponentClientModuleCollection> Logger { get; }
 
         public async Task LoadResources()
         {

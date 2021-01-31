@@ -1,6 +1,6 @@
 ﻿namespace Delights.Modules.Bookkeeping
 {
-    public class IconNames
+    class IconNames
     {
         public const string Bookkeeping = "bank";
 

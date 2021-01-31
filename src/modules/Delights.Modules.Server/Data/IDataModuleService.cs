@@ -1,15 +1,12 @@
-﻿using Modulight.Modules.Services;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Delights.Modules.Server.Data
 {
-    public interface IDataModuleService<TRaw, T, TMutation> : IModuleService
+    public interface IDataModuleService<TRaw, T, TMutation>
     {
-        Task Initialize();
-
         Task<DumpedData<T>> Dump();
 
         Task<bool> LoadDump(DumpedData<T> dumpedData);

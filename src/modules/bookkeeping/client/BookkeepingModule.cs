@@ -6,38 +6,54 @@ using System.Linq;
 using System.Text;
 using Delights.Modules.Bookkeeping.GraphQL;
 using Microsoft.Extensions.Options;
-using StardustDL.RazorComponents.AntDesigns;
 using Modulight.Modules;
-using StardustDL.RazorComponents.MaterialDesignIcons;
-using StardustDL.RazorComponents.Vditors;
 using Delights.Modules.Client;
+using Modulight.Modules.Hosting;
 
 namespace Delights.Modules.Bookkeeping
 {
 
     [Module(Url = Shared.SharedManifest.Url, Author = Shared.SharedManifest.Author, Description = SharedManifest.Description)]
-    public class BookkeepingModule : RazorComponentClientModule<ModuleService, ModuleOption, ModuleUI>
+    [ModuleService(typeof(ModuleService))]
+    [ModuleStartup(typeof(Startup))]
+    [ModuleDependency(typeof(ClientModule))]
+    [ModuleUI(typeof(ModuleUI))]
+    public class BookkeepingModule : RazorComponentClientModule<BookkeepingModule>
     {
-        public BookkeepingModule() : base()
+        public BookkeepingModule(IModuleHost host) : base(host)
         {
         }
+    }
 
-        public override void RegisterServices(IServiceCollection services)
+    public static class ModuleExtensions
+    {
+        public static IModuleHostBuilder AddBookkeepingModule(this IModuleHostBuilder builder, Action<ModuleOption, IServiceProvider>? configureOptions = null)
         {
-            base.RegisterServices(services);
+            builder.AddModule<BookkeepingModule>();
+            if (configureOptions is not null)
+            {
+                builder.ConfigureServices(services =>
+                {
+                    services.AddOptions<ModuleOption>().Configure(configureOptions);
+                });
+            }
+
+            return builder;
+        }
+    }
+
+    public class Startup : ModuleStartup
+    {
+        public override void ConfigureServices(IServiceCollection services)
+        {
             services.AddHttpClient(
                 "BookkeepingGraphQLClient", (sp, client) =>
                 {
                     var option = sp.GetRequiredService<IOptions<ModuleOption>>().Value;
-                    client.BaseAddress = new Uri(option.GraphQLEndpoint.TrimEnd('/') + $"/{Manifest.Name}Server");
+                    client.BaseAddress = new Uri(option.GraphQLEndpoint.TrimEnd('/') + $"/Bookkeeping");
                 });
             services.AddBookkeepingGraphQLClient();
-        }
-
-        public override void Setup(Modulight.Modules.IModuleHostBuilder host)
-        {
-            base.Setup(host);
-            host.AddClientModule();
+            base.ConfigureServices(services);
         }
     }
 }

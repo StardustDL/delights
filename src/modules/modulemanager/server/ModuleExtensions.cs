@@ -6,7 +6,7 @@ namespace Delights.Modules.ModuleManager.Server
 {
     public static class ModuleExtensions
     {
-        public static IModuleHostBuilder AddModuleManagerModule(this IModuleHostBuilder modules)
+        public static IModuleHostBuilder AddModuleManagerServerModule(this IModuleHostBuilder modules)
         {
             modules.AddModule<ModuleManagerServerModule>();
             return modules;

@@ -1,5 +1,4 @@
-﻿using Modulight.Modules.Services;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using Delights.Modules.Persons.Server.Data;
 using Microsoft.Extensions.Options;
 using System;
@@ -17,18 +16,15 @@ namespace Delights.Modules.Persons.Server
 {
     public class ModuleService : DataModuleService<DataDbContext, RawPerson, Person, PersonMutation, PersonsServerModule>
     {
-        public ModuleService(IServiceProvider services, DataDbContext dbContext, ItemMetadataDomain<PersonsServerModule> metadataDomain, IOptions<ModuleOption> options, ILogger<PersonsServerModule> logger) : base(dbContext, metadataDomain)
+        public ModuleService(IServiceProvider services, DataDbContext dbContext, ItemMetadataDomain<PersonsServerModule> metadataDomain, ILogger<PersonsServerModule> logger) : base(dbContext, metadataDomain)
         {
             Services = services;
-            Options = options.Value;
             Logger = logger;
         }
 
         ILogger<PersonsServerModule> Logger { get; set; }
 
         IServiceProvider Services { get; }
-
-        ModuleOption Options { get; }
 
         protected override Task ApplyMutation(RawPerson raw, PersonMutation mutation)
         {

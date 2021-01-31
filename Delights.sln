@@ -67,8 +67,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.Notes", "s
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.Server", "src\modules\Delights.Modules.Server\Delights.Modules.Server.csproj", "{B8B44EDC-8C0E-4D0F-BB77-15AD53202652}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.Client", "modules\Delights.Modules.Client\Delights.Modules.Client.csproj", "{E67E56F5-BE7D-49D9-856D-1DEC79248933}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "bookkeeping", "bookkeeping", "{ABD6FB14-A306-48EB-BF13-9B8FF913AF69}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Delights.Modules.Bookkeeping.Shared", "src\modules\bookkeeping\shared\Delights.Modules.Bookkeeping.Shared.shproj", "{B2E27FB4-3F40-40C2-A322-57504A016548}"
@@ -84,6 +82,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.Persons.Server", "src\modules\persons\server\Delights.Modules.Persons.Server.csproj", "{5364C2B4-75E6-442B-B7A5-BF36CF564574}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.Persons", "src\modules\persons\client\Delights.Modules.Persons.csproj", "{600498E4-8B69-4C2A-8D18-CA3DCCBD24E0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.Client", "src\modules\Delights.Modules.Client\Delights.Modules.Client.csproj", "{6F9448A2-C2AA-434D-88AB-740DABC2146D}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -103,6 +103,7 @@ Global
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{600498e4-8b69-4c2a-8d18-ca3dccbd24e0}*SharedItemsImports = 5
 		src\modules\persons\shared\Delights.Modules.Persons.Shared.projitems*{600498e4-8b69-4c2a-8d18-ca3dccbd24e0}*SharedItemsImports = 5
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{69cdbf1c-094d-49e3-b2b1-667787b1a4e1}*SharedItemsImports = 5
+		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{6f9448a2-c2aa-434d-88ab-740dabc2146d}*SharedItemsImports = 5
 		src\modules\bookkeeping\shared\Delights.Modules.Bookkeeping.Shared.projitems*{72bdc22e-981b-46ca-bc72-9ec6b0d71142}*SharedItemsImports = 5
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{72bdc22e-981b-46ca-bc72-9ec6b0d71142}*SharedItemsImports = 5
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{84a4dc85-7120-4eaf-ba6e-a999fa97356d}*SharedItemsImports = 5
@@ -114,7 +115,6 @@ Global
 		src\modules\notes\shared\Delights.Modules.Notes.Shared.projitems*{c2432c09-5e38-4aef-8561-aba5b54b777a}*SharedItemsImports = 5
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{cbe41e90-70af-4b89-9929-caa8a74b7c3b}*SharedItemsImports = 5
 		src\modules\hello\Delights.Modules.Hello.Shared\Delights.Modules.Hello.Shared.projitems*{cbe41e90-70af-4b89-9929-caa8a74b7c3b}*SharedItemsImports = 5
-		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{e67e56f5-be7d-49d9-856d-1dec79248933}*SharedItemsImports = 5
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -205,10 +205,6 @@ Global
 		{B8B44EDC-8C0E-4D0F-BB77-15AD53202652}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8B44EDC-8C0E-4D0F-BB77-15AD53202652}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8B44EDC-8C0E-4D0F-BB77-15AD53202652}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E67E56F5-BE7D-49D9-856D-1DEC79248933}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E67E56F5-BE7D-49D9-856D-1DEC79248933}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E67E56F5-BE7D-49D9-856D-1DEC79248933}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E67E56F5-BE7D-49D9-856D-1DEC79248933}.Release|Any CPU.Build.0 = Release|Any CPU
 		{72BDC22E-981B-46CA-BC72-9EC6B0D71142}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{72BDC22E-981B-46CA-BC72-9EC6B0D71142}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72BDC22E-981B-46CA-BC72-9EC6B0D71142}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -225,6 +221,10 @@ Global
 		{600498E4-8B69-4C2A-8D18-CA3DCCBD24E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{600498E4-8B69-4C2A-8D18-CA3DCCBD24E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{600498E4-8B69-4C2A-8D18-CA3DCCBD24E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F9448A2-C2AA-434D-88AB-740DABC2146D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F9448A2-C2AA-434D-88AB-740DABC2146D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F9448A2-C2AA-434D-88AB-740DABC2146D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F9448A2-C2AA-434D-88AB-740DABC2146D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -255,7 +255,6 @@ Global
 		{5A6F2210-8852-4D81-BA60-023A5DBAA281} = {E8F7CB98-9F8D-472B-A926-4FB3E73672A3}
 		{C2432C09-5E38-4AEF-8561-ABA5B54B777A} = {E8F7CB98-9F8D-472B-A926-4FB3E73672A3}
 		{B8B44EDC-8C0E-4D0F-BB77-15AD53202652} = {0C012303-205C-4886-8F91-DF223124E1E9}
-		{E67E56F5-BE7D-49D9-856D-1DEC79248933} = {0C012303-205C-4886-8F91-DF223124E1E9}
 		{ABD6FB14-A306-48EB-BF13-9B8FF913AF69} = {0C012303-205C-4886-8F91-DF223124E1E9}
 		{B2E27FB4-3F40-40C2-A322-57504A016548} = {ABD6FB14-A306-48EB-BF13-9B8FF913AF69}
 		{72BDC22E-981B-46CA-BC72-9EC6B0D71142} = {ABD6FB14-A306-48EB-BF13-9B8FF913AF69}
@@ -264,6 +263,7 @@ Global
 		{06770D8F-22B3-4CF0-BA69-B1E4196C2624} = {B753EE81-896A-4284-A55A-696086D6257D}
 		{5364C2B4-75E6-442B-B7A5-BF36CF564574} = {B753EE81-896A-4284-A55A-696086D6257D}
 		{600498E4-8B69-4C2A-8D18-CA3DCCBD24E0} = {B753EE81-896A-4284-A55A-696086D6257D}
+		{6F9448A2-C2AA-434D-88AB-740DABC2146D} = {0C012303-205C-4886-8F91-DF223124E1E9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BEC8D602-768F-4E83-8C66-022EE9BE6CED}

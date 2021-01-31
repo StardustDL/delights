@@ -7,12 +7,11 @@ using System.Reflection;
 
 namespace Modulight.Modules.Server.GraphQL
 {
-    public sealed class GraphQLServerModulePlugin : ModuleHostBuilderPlugin
+    internal sealed class GraphQLServerModulePlugin : ModuleHostBuilderPlugin
     {
-        /// <inheritdoc/>
-        public override void AfterBuild(IReadOnlyDictionary<Type, ModuleManifest> modules, IServiceCollection services)
+        public override void AfterBuild((Type, ModuleManifest)[] modules, IServiceCollection services)
         {
-            services.AddSingleton<IGraphQLServerModuleHost>(sp => new GraphQLServerModuleHost(sp.GetRequiredService<IModuleHost>()));
+            services.AddSingleton<IGraphQLServerModuleCollection>(sp => new GraphQLServerModuleCollection(sp.GetRequiredService<IModuleHost>()));
             base.AfterBuild(modules, services);
         }
 

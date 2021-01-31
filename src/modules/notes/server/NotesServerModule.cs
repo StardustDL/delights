@@ -7,37 +7,71 @@ using Microsoft.Extensions.DependencyInjection;
 using HotChocolate.Execution.Configuration;
 using Delights.Modules.Notes.Server.Models;
 using Delights.Modules.Notes.Server.Models.Actions;
+using Modulight.Modules.Hosting;
+using Microsoft.Extensions.Options;
+using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
+using Delights.Modules.Notes.Server.Data;
 
 namespace Delights.Modules.Notes.Server
 {
     [Module(Url = Shared.SharedManifest.Url, Author = Shared.SharedManifest.Author, Description = SharedManifest.Description)]
-    public class NotesServerModule : GraphQLServerModule<ModuleService, ModuleOption>
+    [ModuleService(typeof(ModuleService))]
+    [ModuleStartup(typeof(Startup))]
+    [ModuleDependency(typeof(ItemMetadataServerModule))]
+    [GraphQLModuleType("Notes", typeof(ModuleQuery), MutationType = typeof(ModuleMutation))]
+    public class NotesServerModule : GraphQLServerModule<NotesServerModule>
     {
-        public override Type QueryType => typeof(ModuleQuery);
-
-        public override Type? MutationType => typeof(ModuleMutation);
-
-        public NotesServerModule() : base()
+        public NotesServerModule(IModuleHost host) : base(host)
         {
         }
 
-        public override void Setup(IModuleHostBuilder host)
+        public override async Task Initialize()
         {
-            base.Setup(host);
-            host.AddItemMetadataServerModule();
+            using var scope = Services.CreateScope();
+            var dbContext = scope.ServiceProvider.GetRequiredService<DataDbContext>();
+            await dbContext.Database.EnsureCreatedAsync();
+            await dbContext.SaveChangesAsync();
+            await base.Initialize();
         }
+    }
 
-        public override void RegisterServices(IServiceCollection services)
+    public static class ModuleExtensions
+    {
+        public static IModuleHostBuilder AddNotesServerModule(this IModuleHostBuilder builder, Action<NotesServerModuleStartupOption, IServiceProvider>? configureStartupOptions = null)
         {
-            base.RegisterServices(services);
+            builder.AddModule<NotesServerModule>();
+            if (configureStartupOptions is not null)
+            {
+                builder.ConfigureBuilderServices(services =>
+                {
+                    services.AddOptions<NotesServerModuleStartupOption>().Configure(configureStartupOptions);
+                });
+            }
 
-            var options = GetSetupOptions(new ModuleOption());
+            return builder;
+        }
+    }
 
+    public class NotesServerModuleStartupOption
+    {
+        public Action<DbContextOptionsBuilder>? ConfigureDbContext { get; set; }
+    }
+
+    class Startup : ModuleStartup
+    {
+        public Startup(IOptions<NotesServerModuleStartupOption> options) => Options = options.Value;
+
+        NotesServerModuleStartupOption Options { get; }
+
+        public override void ConfigureServices(IServiceCollection services)
+        {
             services.AddDbContext<Data.DataDbContext>(o =>
             {
-                if (options.ConfigureDbContext is not null)
-                    options.ConfigureDbContext(o);
+                if (Options.ConfigureDbContext is not null)
+                    Options.ConfigureDbContext(o);
             });
+            base.ConfigureServices(services);
         }
     }
 

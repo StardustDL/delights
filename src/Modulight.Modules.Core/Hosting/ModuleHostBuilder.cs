@@ -79,7 +79,7 @@ namespace Modulight.Modules.Hosting
             }
         }
 
-        protected virtual void AfterBuild(IServiceCollection services, IReadOnlyDictionary<Type, ModuleManifest> modules, IReadOnlyList<IModuleHostBuilderPlugin> plugins)
+        protected virtual void AfterBuild(IServiceCollection services, (Type, ModuleManifest)[] modules, IReadOnlyList<IModuleHostBuilderPlugin> plugins)
         {
             foreach (var plugin in plugins)
             {
@@ -227,17 +227,16 @@ namespace Modulight.Modules.Hosting
                 logger.LogInformation($"Processed module {type.FullName}.");
             }
 
-            var moduleDictionary = new Dictionary<Type, ModuleManifest>(
-                modules.Select(x => new KeyValuePair<Type, ModuleManifest>(x.Item1, x.Item2)));
+            var definedModules = modules.Select(x => (x.Item1, x.Item2)).ToArray();
 
-            services.AddSingleton<IModuleHost>(sp => new DefaultModuleHost(sp, moduleDictionary));
+            services.AddSingleton<IModuleHost>(sp => new DefaultModuleHost(sp, definedModules));
 
-            AfterBuild(services, moduleDictionary, plugins);
+            AfterBuild(services, definedModules, plugins);
         }
 
         /// <inheritdoc />
         public IModuleHostBuilder ConfigureBuilderServices(Action<IServiceCollection> configureBuilderServices)
-        {   
+        {
             BuilderServiceConfiguration.Add(configureBuilderServices);
             return this;
         }

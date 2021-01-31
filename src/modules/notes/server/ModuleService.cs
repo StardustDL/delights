@@ -1,5 +1,4 @@
-﻿using Modulight.Modules.Services;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using Delights.Modules.Notes.Server.Data;
 using Microsoft.Extensions.Options;
 using System;
@@ -17,18 +16,15 @@ namespace Delights.Modules.Notes.Server
 {
     public class ModuleService : DataModuleService<DataDbContext, RawNote, Note, NoteMutation, NotesServerModule>
     {
-        public ModuleService(IServiceProvider services, DataDbContext dbContext, ItemMetadataDomain<NotesServerModule> metadataDomain, IOptions<ModuleOption> options, ILogger<NotesServerModule> logger) : base(dbContext, metadataDomain)
+        public ModuleService(IServiceProvider services, DataDbContext dbContext, ItemMetadataDomain<NotesServerModule> metadataDomain, ILogger<NotesServerModule> logger) : base(dbContext, metadataDomain)
         {
             Services = services;
-            Options = options.Value;
             Logger = logger;
         }
 
         ILogger<NotesServerModule> Logger { get; set; }
 
         IServiceProvider Services { get; }
-
-        ModuleOption Options { get; }
 
         protected override Task ApplyMutation(RawNote raw, NoteMutation mutation)
         {

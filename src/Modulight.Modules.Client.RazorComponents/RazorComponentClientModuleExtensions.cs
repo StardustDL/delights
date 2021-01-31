@@ -15,7 +15,7 @@ namespace Modulight.Modules.Client.RazorComponents
     {
         /// <summary>
         /// Use building middlewares for razor component modules.
-        /// It will register <see cref="IRazorComponentClientModuleHost"/> service.
+        /// It will register <see cref="IRazorComponentClientModuleCollection"/> service.
         /// </summary>
         /// <param name="modules"></param>
         /// <returns></returns>
@@ -29,7 +29,7 @@ namespace Modulight.Modules.Client.RazorComponents
         /// </summary>
         /// <param name="provider"></param>
         /// <returns></returns>
-        public static IRazorComponentClientModuleHost GetRazorComponentClientModuleHost(this IServiceProvider provider) => provider.GetRequiredService<IRazorComponentClientModuleHost>();
+        public static IRazorComponentClientModuleCollection GetRazorComponentClientModuleCollection(this IServiceProvider provider) => provider.GetRequiredService<IRazorComponentClientModuleCollection>();
 
         public static bool IsModuleUI(this Type type) => type.IsAssignableTo(typeof(IModuleUI));
 

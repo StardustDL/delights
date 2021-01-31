@@ -13,7 +13,7 @@ namespace StardustDL.AspNet.IdentityServer
 {
     public class IdentityServerService
     {
-        public IdentityServerService(IServiceProvider services, IdentityDbContext dbContext,UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IdentityServerTools identityServerTools, IOptions<IdentityServerModuleStartupOption> options)
+        public IdentityServerService(IServiceProvider services, IdentityDbContext dbContext,UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IdentityServerTools identityServerTools, IOptions<IdentityServerModuleOption> options)
         {
             Services = services;
             DbContext = dbContext;
@@ -33,7 +33,7 @@ namespace StardustDL.AspNet.IdentityServer
 
         public SignInManager<ApplicationUser> SignInManager { get; }
 
-        public IdentityServerModuleStartupOption Options { get; }
+        public IdentityServerModuleOption Options { get; }
 
         public async Task<string> GetToken(string userName, string password)
         {
@@ -63,22 +63,6 @@ namespace StardustDL.AspNet.IdentityServer
             {
                 throw new Exception($"Failed to login.");
             }
-        }
-
-        public async Task Initialize(ApplicationUser firstUser, string firstUserPassword)
-        {
-            await DbContext.Database.EnsureCreatedAsync();
-            if (!await DbContext.Users.AnyAsync())
-            {
-                var result = await UserManager.CreateAsync(firstUser, firstUserPassword);
-
-                if (!result.Succeeded)
-                {
-                    throw new Exception("Create default user failed.");
-                }
-            }
-
-            await DbContext.SaveChangesAsync();
         }
     }
 }

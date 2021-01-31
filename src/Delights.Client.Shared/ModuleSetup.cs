@@ -5,10 +5,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using System;
 using Modulight.Modules;
-/*
 using Delights.Modules.Notes;
 using Delights.Modules.Persons;
-using Delights.Modules.Bookkeeping;*/
+using Delights.Modules.Bookkeeping;
 using Modulight.Modules.Hosting;
 
 namespace Delights.Client.Shared
@@ -20,7 +19,7 @@ namespace Delights.Client.Shared
             var builder = ModuleHostBuilder.CreateDefaultBuilder()
                 .UseRazorComponentClientModules()
                 .AddModule<UI.UiModule>()
-            /*.AddNotesModule(configureOptions: (o, sp) =>
+            .AddNotesModule(configureOptions: (o, sp) =>
             {
                 var serverConfiguration = sp.GetRequiredService<IOptions<ServerConfiguration>>().Value;
                 o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;
@@ -34,7 +33,7 @@ namespace Delights.Client.Shared
         {
             var serverConfiguration = sp.GetRequiredService<IOptions<ServerConfiguration>>().Value;
             o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;
-        })*/;
+        });
 
             if (isDev)
             {

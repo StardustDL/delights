@@ -24,9 +24,9 @@ using StardustDL.AspNet.ObjectStorage;
 using StardustDL.AspNet.ItemMetadataServer;
 using StardustDL.AspNet.IdentityServer;
 using Microsoft.EntityFrameworkCore;
-/*using Delights.Modules.Notes.Server;
+using Delights.Modules.Notes.Server;
 using Delights.Modules.Bookkeeping.Server;
-using Delights.Modules.Persons.Server;*/
+using Delights.Modules.Persons.Server;
 using Modulight.Modules.Hosting;
 
 namespace Delights.Api
@@ -53,17 +53,29 @@ namespace Delights.Api
 
             var builder = ModuleHostBuilder.CreateDefaultBuilder().UseAspNetServerModules().UseGraphQLServerModules();
 
-            /*builder.AddIdentityServerModule(o =>
+            builder.AddIdentityServerModule((o, sp) =>
             {
                 o.ConfigureDbContext = options =>
                     options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection"));
                 o.ConfigureIdentity = options => options.SignIn.RequireConfirmedAccount = false;
                 o.ConfigureIdentityServer = options => Configuration.GetSection("IdentityServer:Options").Bind(options);
                 o.ConfigureApiAuthorization = options => Configuration.GetSection("IdentityServer").Bind(options);
+            }, (o,sp)=>
+            {
                 o.JwtAudiences = new string[] { "Delights.ApiAPI" };
-            }).AddIdentityServerGraphQLModule()*/
 
-            /*builder.AddObjectStorageModule((o) =>
+                o.InitialUser = new StardustDL.AspNet.IdentityServer.Models.ApplicationUser
+                {
+                    UserName = "admin@delights",
+                    Email = "admin@delights",
+                    EmailConfirmed = true,
+                    LockoutEnabled = false
+                };
+
+                o.InitialUserPassword = "123P$d";
+            }).AddIdentityServerGraphqlModule();
+
+            builder.AddObjectStorageModule((o, sp) =>
                 {
                     o.Endpoint = "localhost:9000";
                     o.AccessKey = "user";
@@ -71,30 +83,30 @@ namespace Delights.Api
                 })
                 .AddObjectStorageApiModule();
 
-            builder.AddItemMetadataServerModule(o =>
+            builder.AddItemMetadataServerModule((o, sp) =>
             {
                 o.ConfigureDbContext = options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ItemMetadataConnection"));
             })
-                .AddItemMetadataServerGraphqlModule();*/
+                .AddItemMetadataServerGraphqlModule();
 
-            builder.AddHelloModule()
-                .AddModuleManagerModule()
-                /*.AddPersonsModule(o =>
-                {
-                    o.ConfigureDbContext = options =>
-                        options.UseSqlServer(Configuration.GetConnectionString("PersonsConnection"));
-                })
-                .AddNotesModule(o =>
-                {
-                    o.ConfigureDbContext = options =>
-                        options.UseSqlServer(Configuration.GetConnectionString("NotesConnection"));
-                })
-                .AddBookkeepingModule(o =>
+            builder.AddHelloServerModule()
+                .AddModuleManagerServerModule()
+                 .AddPersonsServerModule((o, sp) =>
                  {
                      o.ConfigureDbContext = options =>
-                         options.UseSqlServer(Configuration.GetConnectionString("BookkeepingConnection"));
-                 })*/;
+                         options.UseSqlServer(Configuration.GetConnectionString("PersonsConnection"));
+                 })
+                 .AddNotesServerModule((o, sp) =>
+                 {
+                     o.ConfigureDbContext = options =>
+                         options.UseSqlServer(Configuration.GetConnectionString("NotesConnection"));
+                 })
+                 .AddBookkeepingServerModule((o, sp) =>
+                  {
+                      o.ConfigureDbContext = options =>
+                          options.UseSqlServer(Configuration.GetConnectionString("BookkeepingConnection"));
+                  });
 
             builder.Build(services);
         }

@@ -8,12 +8,12 @@ using Microsoft.AspNetCore.Components.WebAssembly.Services;
 
 namespace Modulight.Modules.Client.RazorComponents
 {
-    public sealed class RazorComponentClientModulePlugin : ModuleHostBuilderPlugin
+    internal sealed class RazorComponentClientModulePlugin : ModuleHostBuilderPlugin
     {
         /// <inheritdoc/>
-        public override void AfterBuild(IReadOnlyDictionary<Type, ModuleManifest> modules, IServiceCollection services)
+        public override void AfterBuild((Type, ModuleManifest)[] modules, IServiceCollection services)
         {
-            services.AddSingleton<IRazorComponentClientModuleHost>(sp => new RazorComponentClientModuleHost(sp.GetRequiredService<IModuleHost>()));
+            services.AddSingleton<IRazorComponentClientModuleCollection>(sp => new RazorComponentClientModuleCollection(sp.GetRequiredService<IModuleHost>()));
             services.AddScoped<LazyAssemblyLoader>();
             base.AfterBuild(modules, services);
         }

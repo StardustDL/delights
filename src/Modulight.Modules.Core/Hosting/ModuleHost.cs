@@ -9,18 +9,21 @@ using System.Threading.Tasks;
 
 namespace Modulight.Modules.Hosting
 {
-    /// <summary>
-    /// Specifies the contract for module hosts.
-    /// </summary>
-    public interface IModuleHost
+    public interface IModuleCollection<TModule> where TModule : IModule
     {
         /// <summary>
         /// Get all registered modules.
         /// </summary>
-        IEnumerable<IModule> LoadedModules { get; }
+        IEnumerable<TModule> LoadedModules { get; }
 
         IEnumerable<Type> DefinedModules { get; }
+    }
 
+    /// <summary>
+    /// Specifies the contract for module hosts.
+    /// </summary>
+    public interface IModuleHost : IModuleCollection<IModule>
+    {
         IServiceProvider Services { get; }
 
         /// <summary>
@@ -47,12 +50,12 @@ namespace Modulight.Modules.Hosting
 
         IReadOnlyDictionary<Type, ModuleManifest> _DefinedModules { get; set; }
 
-        public DefaultModuleHost(IServiceProvider services, IReadOnlyDictionary<Type, ModuleManifest> definedModules)
+        public DefaultModuleHost(IServiceProvider services, (Type, ModuleManifest)[] definedModules)
         {
             Services = services;
 
-            _DefinedModules = definedModules;
-            DefinedModules = _DefinedModules.Keys;
+            _DefinedModules = new Dictionary<Type, ModuleManifest>(definedModules.Select(x => new KeyValuePair<Type, ModuleManifest>(x.Item1, x.Item2)));
+            DefinedModules = definedModules.Select(x => x.Item1);
         }
 
         /// <inheritdoc/>
@@ -123,13 +126,13 @@ namespace Modulight.Modules.Hosting
         /// <inheritdoc/>
         public virtual async Task Initialize()
         {
-            var modules = new Dictionary<Type, IModule>();
-            foreach (var (type, _) in _DefinedModules)
+            var modules = new List<(Type, IModule)>();
+            foreach (var type in DefinedModules)
             {
-                modules.Add(type, (IModule)Services.GetRequiredService(type));
+                modules.Add((type, (IModule)Services.GetRequiredService(type)));
             }
-            _LoadedModules = modules;
-            LoadedModules = _LoadedModules.Values;
+            _LoadedModules = new Dictionary<Type, IModule>(modules.Select(x => new KeyValuePair<Type, IModule>(x.Item1, x.Item2)));
+            LoadedModules = modules.Select(x => x.Item2);
 
             foreach (var module in LoadedModules)
             {
@@ -161,37 +164,19 @@ namespace Modulight.Modules.Hosting
         }
     }
 
-    public class ModuleHostWrapper : IModuleHost
+    public class ModuleHostFilter<TModule> : IModuleCollection<TModule> where TModule : IModule
     {
-        public ModuleHostWrapper(IModuleHost host)
+        public ModuleHostFilter(IModuleHost host)
         {
             Host = host;
         }
+
         public IModuleHost Host { get; }
 
-        public IEnumerable<IModule> LoadedModules => Host.LoadedModules;
+        /// <inheritdoc/>
+        public IEnumerable<TModule> LoadedModules => Host.LoadedModules.Where(x => x is TModule).Select(x => (TModule)x);
 
-        public IEnumerable<Type> DefinedModules => Host.DefinedModules;
-
-        public IServiceProvider Services => Host.Services;
-
-        public ILogger<TModule> GetLogger<TModule>() => Host.GetLogger<TModule>();
-        public ModuleManifest GetManifest(Type moduleType) => Host.GetManifest(moduleType);
-        public IModule GetModule(Type moduleType) => Host.GetModule(moduleType);
-        public T GetOption<T>(IServiceProvider provider, Type moduleType) where T : class => Host.GetOption<T>(provider, moduleType);
-        public T GetService<T>(IServiceProvider provider, Type moduleType) where T : notnull => Host.GetService<T>(provider, moduleType);
-        public Task Initialize() => Host.Initialize();
-        public Task Shutdown() => Host.Shutdown();
-    }
-
-    public class ModuleHostFilter<TModule> : ModuleHostWrapper where TModule : IModule
-    {
-        public ModuleHostFilter(IModuleHost host) : base(host)
-        {
-        }
-
-        public new IEnumerable<TModule> LoadedModules => Host.LoadedModules.Where(x => x is TModule).Select(x => (TModule)x);
-
-        public new IEnumerable<Type> DefinedModules => Host.DefinedModules.Where(x => x.IsModule<TModule>());
+        /// <inheritdoc/>
+        public IEnumerable<Type> DefinedModules => Host.DefinedModules.Where(x => x.IsModule<TModule>());
     }
 }

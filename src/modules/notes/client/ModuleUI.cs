@@ -1,13 +1,16 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using Delights.Modules.Notes.GraphQL;
+using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Logging;
 using Microsoft.JSInterop;
+using Modulight.Modules.Client.RazorComponents.UI;
 using System.Threading.Tasks;
 
 namespace Delights.Modules.Notes
 {
-    public class ModuleUI : Modulight.Modules.Client.RazorComponents.UI.ModuleUI
+    [ModuleUIRootPath("notes")]
+    class ModuleUI : Modulight.Modules.Client.RazorComponents.UI.ModuleUI
     {
-        public ModuleUI(IJSRuntime jsRuntime, ILogger<Modulight.Modules.Client.RazorComponents.UI.ModuleUI> logger) : base(jsRuntime, logger, "notes")
+        public ModuleUI(IJSRuntime jsRuntime, ILogger<ModuleUI> logger) : base(jsRuntime, logger)
         {
         }
 
@@ -19,4 +22,22 @@ namespace Delights.Modules.Notes
             await js.InvokeVoidAsync("showPrompt", message);
         }
     }
+
+    public class ModuleOption
+    {
+        public string GraphQLEndpoint { get; set; } = "";
     }
+
+    class ModuleService
+    {
+        public INotesGraphQLClient GraphQLClient { get; }
+
+        public UrlGenerator UrlGenerator { get; }
+
+        public ModuleService(INotesGraphQLClient graphQLClient)
+        {
+            GraphQLClient = graphQLClient;
+            UrlGenerator = new UrlGenerator();
+        }
+    }
+}

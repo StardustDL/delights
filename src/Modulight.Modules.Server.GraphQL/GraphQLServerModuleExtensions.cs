@@ -14,7 +14,7 @@ namespace Modulight.Modules.Server.GraphQL
     {
         /// <summary>
         /// Use building middlewares for graphql modules.
-        /// It will register <see cref="IGraphQLServerModuleHost"/> service.
+        /// It will register <see cref="IGraphQLServerModuleCollection"/> service.
         /// </summary>
         /// <param name="modules"></param>
         /// <returns></returns>
@@ -25,7 +25,7 @@ namespace Modulight.Modules.Server.GraphQL
         /// </summary>
         /// <param name="provider"></param>
         /// <returns></returns>
-        public static IGraphQLServerModuleHost GetGraphQLServerModuleHost(this IServiceProvider provider) => provider.GetRequiredService<IGraphQLServerModuleHost>();
+        public static IGraphQLServerModuleCollection GetGraphQLServerModuleCollection(this IServiceProvider provider) => provider.GetRequiredService<IGraphQLServerModuleCollection>();
 
         /// <summary>
         /// Map all registered graphql server module's endpoints.
@@ -35,7 +35,7 @@ namespace Modulight.Modules.Server.GraphQL
         /// <returns></returns>
         public static IEndpointRouteBuilder MapGraphQLServerModuleEndpoints(this IEndpointRouteBuilder builder, Action<IGraphQLServerModule, GraphQLEndpointConventionBuilder>? postMapEndpoint = null)
         {
-            builder.ServiceProvider.GetGraphQLServerModuleHost().MapEndpoints(builder, postMapEndpoint);
+            builder.ServiceProvider.GetGraphQLServerModuleCollection().MapEndpoints(builder, postMapEndpoint);
             return builder;
         }
     }

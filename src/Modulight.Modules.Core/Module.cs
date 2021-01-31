@@ -38,6 +38,7 @@ namespace Modulight.Modules
 
         public ModuleManifest Manifest => _manifest.Value;
 
+
         public T GetService<T>(IServiceProvider provider) where T : notnull => Host.GetService<T>(provider, GetType());
 
         public T GetOption<T>(IServiceProvider provider) where T : class => Host.GetOption<T>(provider, GetType());

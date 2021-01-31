@@ -1,5 +1,4 @@
-﻿using Modulight.Modules.Services;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using Delights.Modules.Bookkeeping.Server.Data;
 using Microsoft.Extensions.Options;
 using System;
@@ -17,18 +16,15 @@ namespace Delights.Modules.Bookkeeping.Server
 {
     public class ModuleService : DataModuleService<DataDbContext, RawAccountItem, AccountItem, AccountItemMutation, BookkeepingServerModule>
     {
-        public ModuleService(IServiceProvider services, DataDbContext dbContext, ItemMetadataDomain<BookkeepingServerModule> metadataDomain, IOptions<ModuleOption> options, ILogger<BookkeepingServerModule> logger) : base(dbContext, metadataDomain)
+        public ModuleService(IServiceProvider services, DataDbContext dbContext, ItemMetadataDomain<BookkeepingServerModule> metadataDomain, ILogger<BookkeepingServerModule> logger) : base(dbContext, metadataDomain)
         {
             Services = services;
-            Options = options.Value;
             Logger = logger;
         }
 
         ILogger<BookkeepingServerModule> Logger { get; set; }
 
         IServiceProvider Services { get; }
-
-        ModuleOption Options { get; }
 
         protected override Task ApplyMutation(RawAccountItem raw, AccountItemMutation mutation)
         {

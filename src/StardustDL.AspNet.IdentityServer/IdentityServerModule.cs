@@ -1,11 +1,15 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Modulight.Modules;
 using Modulight.Modules.Hosting;
 using Modulight.Modules.Server.AspNet;
+using StardustDL.AspNet.IdentityServer.Data;
 using StardustDL.AspNet.IdentityServer.Models;
+using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
@@ -17,10 +21,35 @@ namespace StardustDL.AspNet.IdentityServer
     [Module(Description = "Provide Identity Server services.", Url = "https://github.com/StardustDL/delights", Author = "StardustDL")]
     [ModuleService(typeof(IdentityServerService))]
     [ModuleStartup(typeof(Startup))]
+    [ModuleOption(typeof(IdentityServerModuleOption))]
     public class IdentityServerModule : AspNetServerModule<IdentityServerModule>
     {
-        public IdentityServerModule(IModuleHost host) : base(host)
+        public IdentityServerModule(IModuleHost host, IOptions<IdentityServerModuleOption> options) : base(host)
         {
+            Options = options.Value;
+        }
+
+        public IdentityServerModuleOption Options { get; }
+
+        public override async Task Initialize()
+        {
+            using var scope = Services.CreateScope();
+            var dbContext = scope.ServiceProvider.GetRequiredService<IdentityDbContext>();
+            var userManager = scope.ServiceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+
+            await dbContext.Database.EnsureCreatedAsync();
+            if (!await dbContext.Users.AnyAsync())
+            {
+                var result = await userManager.CreateAsync(Options.InitialUser, Options.InitialUserPassword);
+
+                if (!result.Succeeded)
+                {
+                    throw new Exception("Create default user failed.");
+                }
+            }
+
+            await dbContext.SaveChangesAsync();
+            await base.Initialize().ConfigureAwait(false);
         }
 
         public override void UseMiddleware(IApplicationBuilder builder)

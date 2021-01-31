@@ -16,6 +16,5 @@ namespace StardustDL.AspNet.IdentityServer
 
         public Action<ApiAuthorizationOptions>? ConfigureApiAuthorization { get; set; }
 
-        public string[] JwtAudiences { get; set; } = Array.Empty<string>();
     }
 }

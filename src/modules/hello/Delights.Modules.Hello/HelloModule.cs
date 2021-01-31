@@ -46,7 +46,7 @@ namespace Delights.Modules.Hello
         }
     }
 
-    public class Startup : ModuleStartup
+    class Startup : ModuleStartup
     {
         public override void ConfigureServices(IServiceCollection services)
         {

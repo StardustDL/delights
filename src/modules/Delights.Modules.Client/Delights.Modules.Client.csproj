@@ -18,9 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Modulight.Modules.Client.RazorComponents\Modulight.Modules.Client.RazorComponents.csproj" />
+    <ProjectReference Include="..\..\Modulight.Modules.Client.RazorComponents\Modulight.Modules.Client.RazorComponents.csproj" />
   </ItemGroup>
 
-  <Import Project="..\..\src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems" Label="Shared" />
+  <Import Project="..\Delights.Modules.Shared\Delights.Modules.Shared.projitems" Label="Shared" />
 
 </Project>

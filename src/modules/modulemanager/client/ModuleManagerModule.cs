@@ -15,6 +15,7 @@ namespace Delights.Modules.ModuleManager
 {
     [Module(Url = Shared.SharedManifest.Url, Author = Shared.SharedManifest.Author, Description = SharedManifest.Description)]
     [ModuleStartup(typeof(Startup))]
+    [ModuleOption(typeof(ModuleOption))]
     [ModuleService(typeof(ModuleService))]
     [ModuleUI(typeof(ModuleUI))]
     //TODO: antd icon
@@ -22,6 +23,22 @@ namespace Delights.Modules.ModuleManager
     {
         public ModuleManagerModule(IModuleHost host) : base(host)
         {
+        }
+    }
+
+    public static class ModuleExtensions
+    {
+        public static IModuleHostBuilder AddModuleManagerModule(this IModuleHostBuilder modules, Action<ModuleOption, IServiceProvider>? configureOptions = null)
+        {
+            modules.AddModule<ModuleManagerModule>();
+            if (configureOptions is not null)
+            {
+                modules.ConfigureServices(services =>
+                {
+                    services.AddOptions<ModuleOption>().Configure(configureOptions);
+                });
+            }
+            return modules;
         }
     }
 

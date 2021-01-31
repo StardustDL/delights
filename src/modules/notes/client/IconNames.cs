@@ -1,6 +1,6 @@
 ﻿namespace Delights.Modules.Notes
 {
-    public class IconNames
+    class IconNames
     {
         public const string Notes = "file-document";
 

@@ -15,7 +15,7 @@ namespace Modulight.Modules.Server.AspNet
     {
         /// <summary>
         /// Use building middlewares for aspnet modules.
-        /// It will register <see cref="IAspNetServerModuleHost"/> service.
+        /// It will register <see cref="IAspNetServerModuleCollection"/> service.
         /// </summary>
         /// <param name="modules"></param>
         /// <returns></returns>
@@ -26,7 +26,7 @@ namespace Modulight.Modules.Server.AspNet
         /// </summary>
         /// <param name="provider"></param>
         /// <returns></returns>
-        public static IAspNetServerModuleHost GetAspNetServerModuleHost(this IServiceProvider provider) => provider.GetRequiredService<IAspNetServerModuleHost>();
+        public static IAspNetServerModuleCollection GetAspNetServerModuleCollection(this IServiceProvider provider) => provider.GetRequiredService<IAspNetServerModuleCollection>();
 
         /// <summary>
         /// Use all registered aspnet server module's middlewares.
@@ -35,7 +35,7 @@ namespace Modulight.Modules.Server.AspNet
         /// <returns></returns>
         public static IApplicationBuilder UseAspNetServerModuleMiddlewares(this IApplicationBuilder builder)
         {
-            builder.ApplicationServices.GetAspNetServerModuleHost().UseMiddlewares(builder);
+            builder.ApplicationServices.GetAspNetServerModuleCollection().UseMiddlewares(builder);
             return builder;
         }
 
@@ -46,7 +46,7 @@ namespace Modulight.Modules.Server.AspNet
         /// <returns></returns>
         public static IEndpointRouteBuilder MapAspNetServerModuleEndpoints(this IEndpointRouteBuilder builder)
         {
-            builder.ServiceProvider.GetAspNetServerModuleHost().MapEndpoints(builder);
+            builder.ServiceProvider.GetAspNetServerModuleCollection().MapEndpoints(builder);
             return builder;
         }
     }

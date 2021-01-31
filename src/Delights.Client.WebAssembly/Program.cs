@@ -31,9 +31,9 @@ namespace Delights.Client.WebAssembly
 
             await using(var provider = builder.Services.BuildServiceProvider())
             {
-                await provider.GetRazorComponentClientModuleHost().LoadResources();
+                await provider.GetRazorComponentClientModuleCollection().LoadResources();
 
-                {
+                /*{
                     var service = provider.GetRequiredService<Modules.Persons.ModuleService>();
                     Console.WriteLine((await service.GraphQLClient.GetDumpAsync()).Data.Dump.Base64);
                 }
@@ -44,7 +44,7 @@ namespace Delights.Client.WebAssembly
                 {
                     var service = provider.GetRequiredService<Modules.Notes.ModuleService>();
                     Console.WriteLine((await service.GraphQLClient.GetDumpAsync()).Data.Dump.Base64);
-                }
+                }*/
             }
 
             await builder.Build().RunAsync();

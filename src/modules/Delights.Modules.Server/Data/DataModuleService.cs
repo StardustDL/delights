@@ -69,12 +69,6 @@ namespace Delights.Modules.Server.Data
             return null;
         }
 
-        public virtual async Task Initialize()
-        {
-            await DbContext.Database.EnsureCreatedAsync();
-            await DbContext.SaveChangesAsync();
-        }
-
         public virtual async Task<DumpedData<T>> Dump()
         {
             List<T> data = new List<T>();

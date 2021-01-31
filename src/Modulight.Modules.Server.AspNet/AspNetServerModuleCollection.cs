@@ -10,18 +10,8 @@ namespace Modulight.Modules.Server.AspNet
     /// <summary>
     /// Specifies the contract for aspnet module hosts.
     /// </summary>
-    public interface IAspNetServerModuleHost : IModuleHost
+    public interface IAspNetServerModuleCollection : IModuleCollection<IAspNetServerModule>
     {
-        /// <summary>
-        /// Get all registered modules.
-        /// </summary>
-        new IEnumerable<Type> DefinedModules { get; }
-
-        /// <summary>
-        /// Get all registered modules.
-        /// </summary>
-        new IEnumerable<IAspNetServerModule> LoadedModules { get; }
-
         /// <summary>
         /// Map all registered module's endpoints.
         /// Used in <see cref="EndpointRoutingApplicationBuilderExtensions.UseEndpoints(IApplicationBuilder, Action{IEndpointRouteBuilder})"/>.
@@ -38,9 +28,9 @@ namespace Modulight.Modules.Server.AspNet
         void UseMiddlewares(IApplicationBuilder builder);
     }
 
-    internal class AspNetServerModuleHost : ModuleHostFilter<IAspNetServerModule>, IAspNetServerModuleHost
+    internal class AspNetServerModuleCollection : ModuleHostFilter<IAspNetServerModule>, IAspNetServerModuleCollection
     {
-        public AspNetServerModuleHost(IModuleHost host) : base(host)
+        public AspNetServerModuleCollection(IModuleHost host) : base(host)
         {
         }
 

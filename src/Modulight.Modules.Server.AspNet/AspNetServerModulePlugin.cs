@@ -6,12 +6,11 @@ using System.Collections.Generic;
 
 namespace Modulight.Modules.Server.AspNet
 {
-    public sealed class AspNetServerModulePlugin : ModuleHostBuilderPlugin
+    internal sealed class AspNetServerModulePlugin : ModuleHostBuilderPlugin
     {
-        /// <inheritdoc/>
-        public override void AfterBuild(IReadOnlyDictionary<Type, ModuleManifest> modules, IServiceCollection services)
+        public override void AfterBuild((Type, ModuleManifest)[] modules, IServiceCollection services)
         {
-            services.AddSingleton<IAspNetServerModuleHost>(sp => new AspNetServerModuleHost(sp.GetRequiredService<IModuleHost>()));
+            services.AddSingleton<IAspNetServerModuleCollection>(sp => new AspNetServerModuleCollection(sp.GetRequiredService<IModuleHost>()));
             base.AfterBuild(modules, services);
         }
     }

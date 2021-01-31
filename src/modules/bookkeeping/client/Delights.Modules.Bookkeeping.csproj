@@ -18,8 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\modules\Delights.Modules.Client\Delights.Modules.Client.csproj" />
     <ProjectReference Include="..\..\..\Modulight.Modules.Client.RazorComponents\Modulight.Modules.Client.RazorComponents.csproj" />
+    <ProjectReference Include="..\..\Delights.Modules.Client\Delights.Modules.Client.csproj" />
   </ItemGroup>
 
   <Import Project="..\shared\Delights.Modules.Bookkeeping.Shared.projitems" Label="Shared" />

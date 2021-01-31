@@ -22,31 +22,6 @@ namespace Delights.Api
 
             await host.Services.GetModuleHost().Initialize();
 
-            using (var scope = host.Services.CreateScope())
-            {
-                var services = scope.ServiceProvider;
-                /*await services.GetRequiredService<IdentityServerService>().Initialize(new StardustDL.AspNet.IdentityServer.Models.ApplicationUser
-                {
-                    UserName = "admin@delights",
-                    Email = "admin@delights",
-                    EmailConfirmed = true,
-                    LockoutEnabled = false
-                }, "123P$d");*/
-                
-                /*{
-                    var ims = services.GetRequiredService<Delights.Modules.Notes.Server.ModuleService>();
-                    await ims.Initialize();
-                }
-                {
-                    var ims = services.GetRequiredService<Delights.Modules.Persons.Server.ModuleService>();
-                    await ims.Initialize();
-                }
-                {
-                    var ims = services.GetRequiredService<Delights.Modules.Bookkeeping.Server.ModuleService>();
-                    await ims.Initialize();
-                }*/
-            }
-
             await host.RunAsync();
         }
 
