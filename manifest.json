@@ -198,7 +198,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Bookkeeping.BookkeepingModule.html",
-          "hash": "0K84JzDJ91qtlUb4dwTZNA=="
+          "hash": "s4VrvPeCr7gUNcGZd2y2fA=="
         }
       },
       "is_incremental": false,
@@ -1854,7 +1854,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Hello.HelloModule.html",
-          "hash": "58yAGNwVLvrFU9CZPJBvHg=="
+          "hash": "J2QVpwJGzfzMRJyXfTgl3g=="
         }
       },
       "is_incremental": false,
@@ -1891,18 +1891,6 @@
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Hello.ModuleService.html",
           "hash": "0uNbiSgzjN2l8sFpeoNexg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/delights/Delights.Modules.Hello.ModuleUI.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/delights/Delights.Modules.Hello.ModuleUI.html",
-          "hash": "Rv75hsekf2eN+FB4acofEw=="
         }
       },
       "is_incremental": false,
@@ -1962,7 +1950,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Hello.html",
-          "hash": "Thg8RVDWLCBUsIzRpI85jQ=="
+          "hash": "Mu49jD+yrmxuuqqfv8TE5g=="
         }
       },
       "is_incremental": false,
@@ -2034,7 +2022,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.IModuleManifest.html",
-          "hash": "U7m3gsgxQctP/1YcoqNELA=="
+          "hash": "o63DZjSthHW+E4d4a6V0Iw=="
         }
       },
       "is_incremental": false,
@@ -2094,7 +2082,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.ModuleManager.GraphQL.ModuleManifest.html",
-          "hash": "05mDmI1y+90F9xoylHhwow=="
+          "hash": "pLjzGzG+MYof+PV4OelGEg=="
         }
       },
       "is_incremental": false,
@@ -2142,7 +2130,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.ModuleManager.ModuleManagerModule.html",
-          "hash": "LJtMfhAN9R9Xh2p0uzQNhQ=="
+          "hash": "qomsXJbINuS2TyvCRi02kg=="
         }
       },
       "is_incremental": false,
@@ -2198,23 +2186,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/delights/Delights.Modules.ModuleManager.Startup.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/delights/Delights.Modules.ModuleManager.Startup.html",
-          "hash": "OcazX8LL7U4T11RkCwZBTw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/delights/Delights.Modules.ModuleManager.yml",
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.ModuleManager.html",
-          "hash": "inp58qFmWPFhTp6HvHwmrg=="
+          "hash": "VYsGPZlEmfISumgGZG5l0Q=="
         }
       },
       "is_incremental": false,
@@ -3462,7 +3438,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Notes.NotesModule.html",
-          "hash": "rRmb/EUMOP6/llaRDsa6mw=="
+          "hash": "4JjvMzYFQp1qdNSEIAiGzg=="
         }
       },
       "is_incremental": false,
@@ -3566,23 +3542,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/delights/Delights.Modules.Notes.Utils.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/delights/Delights.Modules.Notes.Utils.html",
-          "hash": "U4K3kjSOcLh1Y5HDDtEN3w=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/delights/Delights.Modules.Notes.yml",
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Notes.html",
-          "hash": "yi7M5LRRcQNg5F1u69qWFA=="
+          "hash": "00iDpEclJQHkgFFCklCgUg=="
         }
       },
       "is_incremental": false,
@@ -4854,7 +4818,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.Modules.Persons.PersonsModule.html",
-          "hash": "FXJEe/yNk8lpbyESio81ZQ=="
+          "hash": "NStKZnxQIgQC0h/Gi+8Pcw=="
         }
       },
       "is_incremental": false,
@@ -5114,18 +5078,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/delights/Delights.UI.MainModuleUI.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/delights/Delights.UI.MainModuleUI.html",
-          "hash": "2sctdfsrhfUkAColdUBPfA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/delights/Delights.UI.Models.BuildStatus.yml",
       "output": {
         ".html": {
@@ -5174,23 +5126,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/delights/Delights.UI.Startup.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/delights/Delights.UI.Startup.html",
-          "hash": "kyq8RfMgW6QyokhotaZ8lw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/delights/Delights.UI.UiModule.yml",
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.UI.UiModule.html",
-          "hash": "Ro5zztnmALobBwluXRdlPA=="
+          "hash": "aqlqIMjYMnlBhOZuy8sVEg=="
         }
       },
       "is_incremental": false,
@@ -5202,7 +5142,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/Delights.UI.html",
-          "hash": "HI4PUKCuMxC0jbQSTOfEmA=="
+          "hash": "TNMVzjFSMW8+Ndb03xfw1Q=="
         }
       },
       "is_incremental": false,
@@ -5226,7 +5166,7 @@
       "output": {
         ".html": {
           "relative_path": "api/delights/toc.html",
-          "hash": "+AUThi6A3Yb44w9/ZrDtEg=="
+          "hash": "6YOg2GaZ2Ts7YMEtIAPCAg=="
         }
       },
       "is_incremental": false,
@@ -5790,7 +5730,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.html",
-          "hash": "wo5j05TyrPecxXCG0KVxYw=="
+          "hash": "0QVCyHYZCt83qz5t9YVqNQ=="
         }
       },
       "is_incremental": false,
@@ -5810,23 +5750,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.ModuleUIAttribute.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.ModuleUIAttribute.html",
-          "hash": "W6xVi2NuHslKr/5YLwaPIQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-1.yml",
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-1.html",
-          "hash": "IvMX27L/wfo3iK+zzcdhaw=="
+          "hash": "19sIhmFbAVlJ2zbOCqekuA=="
         }
       },
       "is_incremental": false,
@@ -5838,7 +5766,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions.html",
-          "hash": "lhpGGy4eMWGANI6x0CGeqA=="
+          "hash": "iaA5T23D/mGOREYr/h4Zcw=="
         }
       },
       "is_incremental": false,
@@ -5870,23 +5798,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.IModuleUI.yml",
+      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.IJSModuleProvider-1.yml",
       "output": {
         ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.IModuleUI.html",
-          "hash": "BXMEg0Po6stbT8LvOgzccQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html",
-          "hash": "nzC1mBZNrrFtqY4+LGjQZA=="
+          "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.IJSModuleProvider-1.html",
+          "hash": "h1EtxK/xJGAeA2L2gV0Stg=="
         }
       },
       "is_incremental": false,
@@ -5898,7 +5814,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUIResourceAttribute.html",
-          "hash": "PZQ3kKRVSzV4gU4RsAP+LA=="
+          "hash": "pCZqhnu+HZ5pUjb6lmYpGw=="
         }
       },
       "is_incremental": false,
@@ -5910,7 +5826,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUIRootPathAttribute.html",
-          "hash": "YzaeenDp2MZKbwqPbd5azw=="
+          "hash": "uJeAkfJfrE3aitnmMEDsLQ=="
         }
       },
       "is_incremental": false,
@@ -5946,7 +5862,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.UIResourceType.html",
-          "hash": "kbZc4Rx1HwRNp/1QXWTTTQ=="
+          "hash": "TSojeFSmG0qHeqjZa6GObA=="
         }
       },
       "is_incremental": false,
@@ -5958,7 +5874,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.UI.html",
-          "hash": "4wcBQuO/ao2aGMp324KWrg=="
+          "hash": "t+E4f8z/UUmjj6aNf3swJg=="
         }
       },
       "is_incremental": false,
@@ -5970,7 +5886,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Client.RazorComponents.html",
-          "hash": "3AjtnBfAdYPIibLfb3O8iw=="
+          "hash": "Kr2r8K97wFxC7xA8FbCflQ=="
         }
       },
       "is_incremental": false,
@@ -6127,18 +6043,6 @@
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.Module.html",
           "hash": "LXE5uWBiniqzRR4DX3P+hQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/modulight/Modulight.Modules.ModuleAssemblyAttribute.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/modulight/Modulight.Modules.ModuleAssemblyAttribute.html",
-          "hash": "36h7kgC8QAyWoWCzEzVxXg=="
         }
       },
       "is_incremental": false,
@@ -6366,7 +6270,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/Modulight.Modules.html",
-          "hash": "TCYD1Am0MeuEJV5mlI3f2Q=="
+          "hash": "SLFPgPuBlSPwv86YRxGNCw=="
         }
       },
       "is_incremental": false,
@@ -6390,7 +6294,7 @@
       "output": {
         ".html": {
           "relative_path": "api/modulight/toc.html",
-          "hash": "sHd6NkrFoSH15NqsPsZIIg=="
+          "hash": "wpCMh+kkdUJzLQSQRP2XzA=="
         }
       },
       "is_incremental": false,
@@ -6468,7 +6372,7 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 526,
+          "total_file_count": 518,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

@@ -436,6 +436,19 @@ references:
   isSpec: "True"
   fullName: Delights.Modules.Bookkeeping.BookkeepingModule.BookkeepingModule
   nameWithType: BookkeepingModule.BookkeepingModule
+- uid: Delights.Modules.Bookkeeping.BookkeepingModule.Icon
+  name: Icon
+  href: api/delights/Delights.Modules.Bookkeeping.BookkeepingModule.html#Delights_Modules_Bookkeeping_BookkeepingModule_Icon
+  commentId: P:Delights.Modules.Bookkeeping.BookkeepingModule.Icon
+  fullName: Delights.Modules.Bookkeeping.BookkeepingModule.Icon
+  nameWithType: BookkeepingModule.Icon
+- uid: Delights.Modules.Bookkeeping.BookkeepingModule.Icon*
+  name: Icon
+  href: api/delights/Delights.Modules.Bookkeeping.BookkeepingModule.html#Delights_Modules_Bookkeeping_BookkeepingModule_Icon_
+  commentId: Overload:Delights.Modules.Bookkeeping.BookkeepingModule.Icon
+  isSpec: "True"
+  fullName: Delights.Modules.Bookkeeping.BookkeepingModule.Icon
+  nameWithType: BookkeepingModule.Icon
 - uid: Delights.Modules.Bookkeeping.GraphQL
   name: Delights.Modules.Bookkeeping.GraphQL
   href: api/delights/Delights.Modules.Bookkeeping.GraphQL.html
@@ -6970,6 +6983,19 @@ references:
   isSpec: "True"
   fullName: Delights.Modules.Hello.HelloModule.HelloModule
   nameWithType: HelloModule.HelloModule
+- uid: Delights.Modules.Hello.HelloModule.Icon
+  name: Icon
+  href: api/delights/Delights.Modules.Hello.HelloModule.html#Delights_Modules_Hello_HelloModule_Icon
+  commentId: P:Delights.Modules.Hello.HelloModule.Icon
+  fullName: Delights.Modules.Hello.HelloModule.Icon
+  nameWithType: HelloModule.Icon
+- uid: Delights.Modules.Hello.HelloModule.Icon*
+  name: Icon
+  href: api/delights/Delights.Modules.Hello.HelloModule.html#Delights_Modules_Hello_HelloModule_Icon_
+  commentId: Overload:Delights.Modules.Hello.HelloModule.Icon
+  isSpec: "True"
+  fullName: Delights.Modules.Hello.HelloModule.Icon
+  nameWithType: HelloModule.Icon
 - uid: Delights.Modules.Hello.ModuleExtensions
   name: ModuleExtensions
   href: api/delights/Delights.Modules.Hello.ModuleExtensions.html
@@ -7043,54 +7069,6 @@ references:
   isSpec: "True"
   fullName: Delights.Modules.Hello.ModuleService.GraphQLClient
   nameWithType: ModuleService.GraphQLClient
-- uid: Delights.Modules.Hello.ModuleUI
-  name: ModuleUI
-  href: api/delights/Delights.Modules.Hello.ModuleUI.html
-  commentId: T:Delights.Modules.Hello.ModuleUI
-  fullName: Delights.Modules.Hello.ModuleUI
-  nameWithType: ModuleUI
-- uid: Delights.Modules.Hello.ModuleUI.#ctor(Microsoft.JSInterop.IJSRuntime,Microsoft.Extensions.Logging.ILogger{Delights.Modules.Hello.ModuleUI})
-  name: ModuleUI(IJSRuntime, ILogger<ModuleUI>)
-  href: api/delights/Delights.Modules.Hello.ModuleUI.html#Delights_Modules_Hello_ModuleUI__ctor_Microsoft_JSInterop_IJSRuntime_Microsoft_Extensions_Logging_ILogger_Delights_Modules_Hello_ModuleUI__
-  commentId: M:Delights.Modules.Hello.ModuleUI.#ctor(Microsoft.JSInterop.IJSRuntime,Microsoft.Extensions.Logging.ILogger{Delights.Modules.Hello.ModuleUI})
-  name.vb: ModuleUI(IJSRuntime, ILogger(Of ModuleUI))
-  fullName: Delights.Modules.Hello.ModuleUI.ModuleUI(Microsoft.JSInterop.IJSRuntime, Microsoft.Extensions.Logging.ILogger<Delights.Modules.Hello.ModuleUI>)
-  fullName.vb: Delights.Modules.Hello.ModuleUI.ModuleUI(Microsoft.JSInterop.IJSRuntime, Microsoft.Extensions.Logging.ILogger(Of Delights.Modules.Hello.ModuleUI))
-  nameWithType: ModuleUI.ModuleUI(IJSRuntime, ILogger<ModuleUI>)
-  nameWithType.vb: ModuleUI.ModuleUI(IJSRuntime, ILogger(Of ModuleUI))
-- uid: Delights.Modules.Hello.ModuleUI.#ctor*
-  name: ModuleUI
-  href: api/delights/Delights.Modules.Hello.ModuleUI.html#Delights_Modules_Hello_ModuleUI__ctor_
-  commentId: Overload:Delights.Modules.Hello.ModuleUI.#ctor
-  isSpec: "True"
-  fullName: Delights.Modules.Hello.ModuleUI.ModuleUI
-  nameWithType: ModuleUI.ModuleUI
-- uid: Delights.Modules.Hello.ModuleUI.Icon
-  name: Icon
-  href: api/delights/Delights.Modules.Hello.ModuleUI.html#Delights_Modules_Hello_ModuleUI_Icon
-  commentId: P:Delights.Modules.Hello.ModuleUI.Icon
-  fullName: Delights.Modules.Hello.ModuleUI.Icon
-  nameWithType: ModuleUI.Icon
-- uid: Delights.Modules.Hello.ModuleUI.Icon*
-  name: Icon
-  href: api/delights/Delights.Modules.Hello.ModuleUI.html#Delights_Modules_Hello_ModuleUI_Icon_
-  commentId: Overload:Delights.Modules.Hello.ModuleUI.Icon
-  isSpec: "True"
-  fullName: Delights.Modules.Hello.ModuleUI.Icon
-  nameWithType: ModuleUI.Icon
-- uid: Delights.Modules.Hello.ModuleUI.Prompt(System.String)
-  name: Prompt(String)
-  href: api/delights/Delights.Modules.Hello.ModuleUI.html#Delights_Modules_Hello_ModuleUI_Prompt_System_String_
-  commentId: M:Delights.Modules.Hello.ModuleUI.Prompt(System.String)
-  fullName: Delights.Modules.Hello.ModuleUI.Prompt(System.String)
-  nameWithType: ModuleUI.Prompt(String)
-- uid: Delights.Modules.Hello.ModuleUI.Prompt*
-  name: Prompt
-  href: api/delights/Delights.Modules.Hello.ModuleUI.html#Delights_Modules_Hello_ModuleUI_Prompt_
-  commentId: Overload:Delights.Modules.Hello.ModuleUI.Prompt
-  isSpec: "True"
-  fullName: Delights.Modules.Hello.ModuleUI.Prompt
-  nameWithType: ModuleUI.Prompt
 - uid: Delights.Modules.Hello.Server
   name: Delights.Modules.Hello.Server
   href: api/delights/Delights.Modules.Hello.Server.html
@@ -7390,19 +7368,6 @@ references:
   isSpec: "True"
   fullName: Delights.Modules.ModuleManager.GraphQL.IModuleManifest.DisplayName
   nameWithType: IModuleManifest.DisplayName
-- uid: Delights.Modules.ModuleManager.GraphQL.IModuleManifest.EntryAssembly
-  name: EntryAssembly
-  href: api/delights/Delights.Modules.ModuleManager.GraphQL.IModuleManifest.html#Delights_Modules_ModuleManager_GraphQL_IModuleManifest_EntryAssembly
-  commentId: P:Delights.Modules.ModuleManager.GraphQL.IModuleManifest.EntryAssembly
-  fullName: Delights.Modules.ModuleManager.GraphQL.IModuleManifest.EntryAssembly
-  nameWithType: IModuleManifest.EntryAssembly
-- uid: Delights.Modules.ModuleManager.GraphQL.IModuleManifest.EntryAssembly*
-  name: EntryAssembly
-  href: api/delights/Delights.Modules.ModuleManager.GraphQL.IModuleManifest.html#Delights_Modules_ModuleManager_GraphQL_IModuleManifest_EntryAssembly_
-  commentId: Overload:Delights.Modules.ModuleManager.GraphQL.IModuleManifest.EntryAssembly
-  isSpec: "True"
-  fullName: Delights.Modules.ModuleManager.GraphQL.IModuleManifest.EntryAssembly
-  nameWithType: IModuleManifest.EntryAssembly
 - uid: Delights.Modules.ModuleManager.GraphQL.IModuleManifest.Name
   name: Name
   href: api/delights/Delights.Modules.ModuleManager.GraphQL.IModuleManifest.html#Delights_Modules_ModuleManager_GraphQL_IModuleManifest_Name
@@ -7595,12 +7560,12 @@ references:
   commentId: T:Delights.Modules.ModuleManager.GraphQL.ModuleManifest
   fullName: Delights.Modules.ModuleManager.GraphQL.ModuleManifest
   nameWithType: ModuleManifest
-- uid: Delights.Modules.ModuleManager.GraphQL.ModuleManifest.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String)
-  name: ModuleManifest(String, String, String, String, String, String, String)
-  href: api/delights/Delights.Modules.ModuleManager.GraphQL.ModuleManifest.html#Delights_Modules_ModuleManager_GraphQL_ModuleManifest__ctor_System_String_System_String_System_String_System_String_System_String_System_String_System_String_
-  commentId: M:Delights.Modules.ModuleManager.GraphQL.ModuleManifest.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String)
-  fullName: Delights.Modules.ModuleManager.GraphQL.ModuleManifest.ModuleManifest(System.String, System.String, System.String, System.String, System.String, System.String, System.String)
-  nameWithType: ModuleManifest.ModuleManifest(String, String, String, String, String, String, String)
+- uid: Delights.Modules.ModuleManager.GraphQL.ModuleManifest.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)
+  name: ModuleManifest(String, String, String, String, String, String)
+  href: api/delights/Delights.Modules.ModuleManager.GraphQL.ModuleManifest.html#Delights_Modules_ModuleManager_GraphQL_ModuleManifest__ctor_System_String_System_String_System_String_System_String_System_String_System_String_
+  commentId: M:Delights.Modules.ModuleManager.GraphQL.ModuleManifest.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)
+  fullName: Delights.Modules.ModuleManager.GraphQL.ModuleManifest.ModuleManifest(System.String, System.String, System.String, System.String, System.String, System.String)
+  nameWithType: ModuleManifest.ModuleManifest(String, String, String, String, String, String)
 - uid: Delights.Modules.ModuleManager.GraphQL.ModuleManifest.#ctor*
   name: ModuleManifest
   href: api/delights/Delights.Modules.ModuleManager.GraphQL.ModuleManifest.html#Delights_Modules_ModuleManager_GraphQL_ModuleManifest__ctor_
@@ -7647,19 +7612,6 @@ references:
   isSpec: "True"
   fullName: Delights.Modules.ModuleManager.GraphQL.ModuleManifest.DisplayName
   nameWithType: ModuleManifest.DisplayName
-- uid: Delights.Modules.ModuleManager.GraphQL.ModuleManifest.EntryAssembly
-  name: EntryAssembly
-  href: api/delights/Delights.Modules.ModuleManager.GraphQL.ModuleManifest.html#Delights_Modules_ModuleManager_GraphQL_ModuleManifest_EntryAssembly
-  commentId: P:Delights.Modules.ModuleManager.GraphQL.ModuleManifest.EntryAssembly
-  fullName: Delights.Modules.ModuleManager.GraphQL.ModuleManifest.EntryAssembly
-  nameWithType: ModuleManifest.EntryAssembly
-- uid: Delights.Modules.ModuleManager.GraphQL.ModuleManifest.EntryAssembly*
-  name: EntryAssembly
-  href: api/delights/Delights.Modules.ModuleManager.GraphQL.ModuleManifest.html#Delights_Modules_ModuleManager_GraphQL_ModuleManifest_EntryAssembly_
-  commentId: Overload:Delights.Modules.ModuleManager.GraphQL.ModuleManifest.EntryAssembly
-  isSpec: "True"
-  fullName: Delights.Modules.ModuleManager.GraphQL.ModuleManifest.EntryAssembly
-  nameWithType: ModuleManifest.EntryAssembly
 - uid: Delights.Modules.ModuleManager.GraphQL.ModuleManifest.Name
   name: Name
   href: api/delights/Delights.Modules.ModuleManager.GraphQL.ModuleManifest.html#Delights_Modules_ModuleManager_GraphQL_ModuleManifest_Name
@@ -7775,6 +7727,19 @@ references:
   isSpec: "True"
   fullName: Delights.Modules.ModuleManager.ModuleManagerModule.ModuleManagerModule
   nameWithType: ModuleManagerModule.ModuleManagerModule
+- uid: Delights.Modules.ModuleManager.ModuleManagerModule.Icon
+  name: Icon
+  href: api/delights/Delights.Modules.ModuleManager.ModuleManagerModule.html#Delights_Modules_ModuleManager_ModuleManagerModule_Icon
+  commentId: P:Delights.Modules.ModuleManager.ModuleManagerModule.Icon
+  fullName: Delights.Modules.ModuleManager.ModuleManagerModule.Icon
+  nameWithType: ModuleManagerModule.Icon
+- uid: Delights.Modules.ModuleManager.ModuleManagerModule.Icon*
+  name: Icon
+  href: api/delights/Delights.Modules.ModuleManager.ModuleManagerModule.html#Delights_Modules_ModuleManager_ModuleManagerModule_Icon_
+  commentId: Overload:Delights.Modules.ModuleManager.ModuleManagerModule.Icon
+  isSpec: "True"
+  fullName: Delights.Modules.ModuleManager.ModuleManagerModule.Icon
+  nameWithType: ModuleManagerModule.Icon
 - uid: Delights.Modules.ModuleManager.ModuleOption
   name: ModuleOption
   href: api/delights/Delights.Modules.ModuleManager.ModuleOption.html
@@ -7838,25 +7803,6 @@ references:
   isSpec: "True"
   fullName: Delights.Modules.ModuleManager.Server.ModuleManagerServerModule.ModuleManagerServerModule
   nameWithType: ModuleManagerServerModule.ModuleManagerServerModule
-- uid: Delights.Modules.ModuleManager.Startup
-  name: Startup
-  href: api/delights/Delights.Modules.ModuleManager.Startup.html
-  commentId: T:Delights.Modules.ModuleManager.Startup
-  fullName: Delights.Modules.ModuleManager.Startup
-  nameWithType: Startup
-- uid: Delights.Modules.ModuleManager.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
-  name: ConfigureServices(IServiceCollection)
-  href: api/delights/Delights.Modules.ModuleManager.Startup.html#Delights_Modules_ModuleManager_Startup_ConfigureServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_
-  commentId: M:Delights.Modules.ModuleManager.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
-  fullName: Delights.Modules.ModuleManager.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
-  nameWithType: Startup.ConfigureServices(IServiceCollection)
-- uid: Delights.Modules.ModuleManager.Startup.ConfigureServices*
-  name: ConfigureServices
-  href: api/delights/Delights.Modules.ModuleManager.Startup.html#Delights_Modules_ModuleManager_Startup_ConfigureServices_
-  commentId: Overload:Delights.Modules.ModuleManager.Startup.ConfigureServices
-  isSpec: "True"
-  fullName: Delights.Modules.ModuleManager.Startup.ConfigureServices
-  nameWithType: Startup.ConfigureServices
 - uid: Delights.Modules.Notes
   name: Delights.Modules.Notes
   href: api/delights/Delights.Modules.Notes.html
@@ -13293,6 +13239,19 @@ references:
   isSpec: "True"
   fullName: Delights.Modules.Notes.NotesModule.NotesModule
   nameWithType: NotesModule.NotesModule
+- uid: Delights.Modules.Notes.NotesModule.Icon
+  name: Icon
+  href: api/delights/Delights.Modules.Notes.NotesModule.html#Delights_Modules_Notes_NotesModule_Icon
+  commentId: P:Delights.Modules.Notes.NotesModule.Icon
+  fullName: Delights.Modules.Notes.NotesModule.Icon
+  nameWithType: NotesModule.Icon
+- uid: Delights.Modules.Notes.NotesModule.Icon*
+  name: Icon
+  href: api/delights/Delights.Modules.Notes.NotesModule.html#Delights_Modules_Notes_NotesModule_Icon_
+  commentId: Overload:Delights.Modules.Notes.NotesModule.Icon
+  isSpec: "True"
+  fullName: Delights.Modules.Notes.NotesModule.Icon
+  nameWithType: NotesModule.Icon
 - uid: Delights.Modules.Notes.Server
   name: Delights.Modules.Notes.Server
   href: api/delights/Delights.Modules.Notes.Server.html
@@ -13584,38 +13543,6 @@ references:
   isSpec: "True"
   fullName: Delights.Modules.Notes.UrlGenerator.Tags
   nameWithType: UrlGenerator.Tags
-- uid: Delights.Modules.Notes.Utils
-  name: Utils
-  href: api/delights/Delights.Modules.Notes.Utils.html
-  commentId: T:Delights.Modules.Notes.Utils
-  fullName: Delights.Modules.Notes.Utils
-  nameWithType: Utils
-- uid: Delights.Modules.Notes.Utils.CountWordsString(System.String)
-  name: CountWordsString(String)
-  href: api/delights/Delights.Modules.Notes.Utils.html#Delights_Modules_Notes_Utils_CountWordsString_System_String_
-  commentId: M:Delights.Modules.Notes.Utils.CountWordsString(System.String)
-  fullName: Delights.Modules.Notes.Utils.CountWordsString(System.String)
-  nameWithType: Utils.CountWordsString(String)
-- uid: Delights.Modules.Notes.Utils.CountWordsString*
-  name: CountWordsString
-  href: api/delights/Delights.Modules.Notes.Utils.html#Delights_Modules_Notes_Utils_CountWordsString_
-  commentId: Overload:Delights.Modules.Notes.Utils.CountWordsString
-  isSpec: "True"
-  fullName: Delights.Modules.Notes.Utils.CountWordsString
-  nameWithType: Utils.CountWordsString
-- uid: Delights.Modules.Notes.Utils.ReadTimeString(System.String)
-  name: ReadTimeString(String)
-  href: api/delights/Delights.Modules.Notes.Utils.html#Delights_Modules_Notes_Utils_ReadTimeString_System_String_
-  commentId: M:Delights.Modules.Notes.Utils.ReadTimeString(System.String)
-  fullName: Delights.Modules.Notes.Utils.ReadTimeString(System.String)
-  nameWithType: Utils.ReadTimeString(String)
-- uid: Delights.Modules.Notes.Utils.ReadTimeString*
-  name: ReadTimeString
-  href: api/delights/Delights.Modules.Notes.Utils.html#Delights_Modules_Notes_Utils_ReadTimeString_
-  commentId: Overload:Delights.Modules.Notes.Utils.ReadTimeString
-  isSpec: "True"
-  fullName: Delights.Modules.Notes.Utils.ReadTimeString
-  nameWithType: Utils.ReadTimeString
 - uid: Delights.Modules.Persons
   name: Delights.Modules.Persons
   href: api/delights/Delights.Modules.Persons.html
@@ -19238,6 +19165,19 @@ references:
   isSpec: "True"
   fullName: Delights.Modules.Persons.PersonsModule.PersonsModule
   nameWithType: PersonsModule.PersonsModule
+- uid: Delights.Modules.Persons.PersonsModule.Icon
+  name: Icon
+  href: api/delights/Delights.Modules.Persons.PersonsModule.html#Delights_Modules_Persons_PersonsModule_Icon
+  commentId: P:Delights.Modules.Persons.PersonsModule.Icon
+  fullName: Delights.Modules.Persons.PersonsModule.Icon
+  nameWithType: PersonsModule.Icon
+- uid: Delights.Modules.Persons.PersonsModule.Icon*
+  name: Icon
+  href: api/delights/Delights.Modules.Persons.PersonsModule.html#Delights_Modules_Persons_PersonsModule_Icon_
+  commentId: Overload:Delights.Modules.Persons.PersonsModule.Icon
+  isSpec: "True"
+  fullName: Delights.Modules.Persons.PersonsModule.Icon
+  nameWithType: PersonsModule.Icon
 - uid: Delights.Modules.Persons.PersonsModuleService
   name: PersonsModuleService
   href: api/delights/Delights.Modules.Persons.PersonsModuleService.html
@@ -20309,41 +20249,6 @@ references:
   commentId: N:Delights.UI
   fullName: Delights.UI
   nameWithType: Delights.UI
-- uid: Delights.UI.MainModuleUI
-  name: MainModuleUI
-  href: api/delights/Delights.UI.MainModuleUI.html
-  commentId: T:Delights.UI.MainModuleUI
-  fullName: Delights.UI.MainModuleUI
-  nameWithType: MainModuleUI
-- uid: Delights.UI.MainModuleUI.#ctor(Microsoft.JSInterop.IJSRuntime,Microsoft.Extensions.Logging.ILogger{Modulight.Modules.Client.RazorComponents.UI.ModuleUI})
-  name: MainModuleUI(IJSRuntime, ILogger<ModuleUI>)
-  href: api/delights/Delights.UI.MainModuleUI.html#Delights_UI_MainModuleUI__ctor_Microsoft_JSInterop_IJSRuntime_Microsoft_Extensions_Logging_ILogger_Modulight_Modules_Client_RazorComponents_UI_ModuleUI__
-  commentId: M:Delights.UI.MainModuleUI.#ctor(Microsoft.JSInterop.IJSRuntime,Microsoft.Extensions.Logging.ILogger{Modulight.Modules.Client.RazorComponents.UI.ModuleUI})
-  name.vb: MainModuleUI(IJSRuntime, ILogger(Of ModuleUI))
-  fullName: Delights.UI.MainModuleUI.MainModuleUI(Microsoft.JSInterop.IJSRuntime, Microsoft.Extensions.Logging.ILogger<Modulight.Modules.Client.RazorComponents.UI.ModuleUI>)
-  fullName.vb: Delights.UI.MainModuleUI.MainModuleUI(Microsoft.JSInterop.IJSRuntime, Microsoft.Extensions.Logging.ILogger(Of Modulight.Modules.Client.RazorComponents.UI.ModuleUI))
-  nameWithType: MainModuleUI.MainModuleUI(IJSRuntime, ILogger<ModuleUI>)
-  nameWithType.vb: MainModuleUI.MainModuleUI(IJSRuntime, ILogger(Of ModuleUI))
-- uid: Delights.UI.MainModuleUI.#ctor*
-  name: MainModuleUI
-  href: api/delights/Delights.UI.MainModuleUI.html#Delights_UI_MainModuleUI__ctor_
-  commentId: Overload:Delights.UI.MainModuleUI.#ctor
-  isSpec: "True"
-  fullName: Delights.UI.MainModuleUI.MainModuleUI
-  nameWithType: MainModuleUI.MainModuleUI
-- uid: Delights.UI.MainModuleUI.Icon
-  name: Icon
-  href: api/delights/Delights.UI.MainModuleUI.html#Delights_UI_MainModuleUI_Icon
-  commentId: P:Delights.UI.MainModuleUI.Icon
-  fullName: Delights.UI.MainModuleUI.Icon
-  nameWithType: MainModuleUI.Icon
-- uid: Delights.UI.MainModuleUI.Icon*
-  name: Icon
-  href: api/delights/Delights.UI.MainModuleUI.html#Delights_UI_MainModuleUI_Icon_
-  commentId: Overload:Delights.UI.MainModuleUI.Icon
-  isSpec: "True"
-  fullName: Delights.UI.MainModuleUI.Icon
-  nameWithType: MainModuleUI.Icon
 - uid: Delights.UI.Models
   name: Delights.UI.Models
   href: api/delights/Delights.UI.Models.html
@@ -20604,25 +20509,6 @@ references:
   commentId: F:Delights.UI.Shared.IconNames.Slides
   fullName: Delights.UI.Shared.IconNames.Slides
   nameWithType: IconNames.Slides
-- uid: Delights.UI.Startup
-  name: Startup
-  href: api/delights/Delights.UI.Startup.html
-  commentId: T:Delights.UI.Startup
-  fullName: Delights.UI.Startup
-  nameWithType: Startup
-- uid: Delights.UI.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
-  name: ConfigureServices(IServiceCollection)
-  href: api/delights/Delights.UI.Startup.html#Delights_UI_Startup_ConfigureServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_
-  commentId: M:Delights.UI.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
-  fullName: Delights.UI.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)
-  nameWithType: Startup.ConfigureServices(IServiceCollection)
-- uid: Delights.UI.Startup.ConfigureServices*
-  name: ConfigureServices
-  href: api/delights/Delights.UI.Startup.html#Delights_UI_Startup_ConfigureServices_
-  commentId: Overload:Delights.UI.Startup.ConfigureServices
-  isSpec: "True"
-  fullName: Delights.UI.Startup.ConfigureServices
-  nameWithType: Startup.ConfigureServices
 - uid: Delights.UI.UiModule
   name: UiModule
   href: api/delights/Delights.UI.UiModule.html
@@ -20642,6 +20528,19 @@ references:
   isSpec: "True"
   fullName: Delights.UI.UiModule.UiModule
   nameWithType: UiModule.UiModule
+- uid: Delights.UI.UiModule.Icon
+  name: Icon
+  href: api/delights/Delights.UI.UiModule.html#Delights_UI_UiModule_Icon
+  commentId: P:Delights.UI.UiModule.Icon
+  fullName: Delights.UI.UiModule.Icon
+  nameWithType: UiModule.Icon
+- uid: Delights.UI.UiModule.Icon*
+  name: Icon
+  href: api/delights/Delights.UI.UiModule.html#Delights_UI_UiModule_Icon_
+  commentId: Overload:Delights.UI.UiModule.Icon
+  isSpec: "True"
+  fullName: Delights.UI.UiModule.Icon
+  nameWithType: UiModule.Icon
 - uid: Modulight.Modules
   name: Modulight.Modules
   href: api/modulight/Modulight.Modules.html
@@ -20660,19 +20559,58 @@ references:
   commentId: T:Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule
   fullName: Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule
   nameWithType: IRazorComponentClientModule
-- uid: Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.GetUI(System.IServiceProvider)
-  name: GetUI(IServiceProvider)
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.html#Modulight_Modules_Client_RazorComponents_IRazorComponentClientModule_GetUI_System_IServiceProvider_
-  commentId: M:Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.GetUI(System.IServiceProvider)
-  fullName: Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.GetUI(System.IServiceProvider)
-  nameWithType: IRazorComponentClientModule.GetUI(IServiceProvider)
-- uid: Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.GetUI*
-  name: GetUI
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.html#Modulight_Modules_Client_RazorComponents_IRazorComponentClientModule_GetUI_
-  commentId: Overload:Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.GetUI
+- uid: Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.Contains(System.String)
+  name: Contains(String)
+  href: api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.html#Modulight_Modules_Client_RazorComponents_IRazorComponentClientModule_Contains_System_String_
+  commentId: M:Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.Contains(System.String)
+  fullName: Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.Contains(System.String)
+  nameWithType: IRazorComponentClientModule.Contains(String)
+- uid: Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.Contains*
+  name: Contains
+  href: api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.html#Modulight_Modules_Client_RazorComponents_IRazorComponentClientModule_Contains_
+  commentId: Overload:Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.Contains
   isSpec: "True"
-  fullName: Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.GetUI
-  nameWithType: IRazorComponentClientModule.GetUI
+  fullName: Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.Contains
+  nameWithType: IRazorComponentClientModule.Contains
+- uid: Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.Icon
+  name: Icon
+  href: api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.html#Modulight_Modules_Client_RazorComponents_IRazorComponentClientModule_Icon
+  commentId: P:Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.Icon
+  fullName: Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.Icon
+  nameWithType: IRazorComponentClientModule.Icon
+- uid: Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.Icon*
+  name: Icon
+  href: api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.html#Modulight_Modules_Client_RazorComponents_IRazorComponentClientModule_Icon_
+  commentId: Overload:Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.Icon
+  isSpec: "True"
+  fullName: Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.Icon
+  nameWithType: IRazorComponentClientModule.Icon
+- uid: Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.Resources
+  name: Resources
+  href: api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.html#Modulight_Modules_Client_RazorComponents_IRazorComponentClientModule_Resources
+  commentId: P:Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.Resources
+  fullName: Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.Resources
+  nameWithType: IRazorComponentClientModule.Resources
+- uid: Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.Resources*
+  name: Resources
+  href: api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.html#Modulight_Modules_Client_RazorComponents_IRazorComponentClientModule_Resources_
+  commentId: Overload:Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.Resources
+  isSpec: "True"
+  fullName: Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.Resources
+  nameWithType: IRazorComponentClientModule.Resources
+- uid: Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.RootPath
+  name: RootPath
+  href: api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.html#Modulight_Modules_Client_RazorComponents_IRazorComponentClientModule_RootPath
+  commentId: P:Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.RootPath
+  fullName: Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.RootPath
+  nameWithType: IRazorComponentClientModule.RootPath
+- uid: Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.RootPath*
+  name: RootPath
+  href: api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.html#Modulight_Modules_Client_RazorComponents_IRazorComponentClientModule_RootPath_
+  commentId: Overload:Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.RootPath
+  isSpec: "True"
+  fullName: Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.RootPath
+  nameWithType: IRazorComponentClientModule.RootPath
 - uid: Modulight.Modules.Client.RazorComponents.IRazorComponentClientModuleCollection
   name: IRazorComponentClientModuleCollection
   href: api/modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModuleCollection.html
@@ -20718,38 +20656,6 @@ references:
   isSpec: "True"
   fullName: Modulight.Modules.Client.RazorComponents.IRazorComponentClientModuleCollection.Validate
   nameWithType: IRazorComponentClientModuleCollection.Validate
-- uid: Modulight.Modules.Client.RazorComponents.ModuleUIAttribute
-  name: ModuleUIAttribute
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.ModuleUIAttribute.html
-  commentId: T:Modulight.Modules.Client.RazorComponents.ModuleUIAttribute
-  fullName: Modulight.Modules.Client.RazorComponents.ModuleUIAttribute
-  nameWithType: ModuleUIAttribute
-- uid: Modulight.Modules.Client.RazorComponents.ModuleUIAttribute.#ctor(System.Type)
-  name: ModuleUIAttribute(Type)
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.ModuleUIAttribute.html#Modulight_Modules_Client_RazorComponents_ModuleUIAttribute__ctor_System_Type_
-  commentId: M:Modulight.Modules.Client.RazorComponents.ModuleUIAttribute.#ctor(System.Type)
-  fullName: Modulight.Modules.Client.RazorComponents.ModuleUIAttribute.ModuleUIAttribute(System.Type)
-  nameWithType: ModuleUIAttribute.ModuleUIAttribute(Type)
-- uid: Modulight.Modules.Client.RazorComponents.ModuleUIAttribute.#ctor*
-  name: ModuleUIAttribute
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.ModuleUIAttribute.html#Modulight_Modules_Client_RazorComponents_ModuleUIAttribute__ctor_
-  commentId: Overload:Modulight.Modules.Client.RazorComponents.ModuleUIAttribute.#ctor
-  isSpec: "True"
-  fullName: Modulight.Modules.Client.RazorComponents.ModuleUIAttribute.ModuleUIAttribute
-  nameWithType: ModuleUIAttribute.ModuleUIAttribute
-- uid: Modulight.Modules.Client.RazorComponents.ModuleUIAttribute.UIType
-  name: UIType
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.ModuleUIAttribute.html#Modulight_Modules_Client_RazorComponents_ModuleUIAttribute_UIType
-  commentId: P:Modulight.Modules.Client.RazorComponents.ModuleUIAttribute.UIType
-  fullName: Modulight.Modules.Client.RazorComponents.ModuleUIAttribute.UIType
-  nameWithType: ModuleUIAttribute.UIType
-- uid: Modulight.Modules.Client.RazorComponents.ModuleUIAttribute.UIType*
-  name: UIType
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.ModuleUIAttribute.html#Modulight_Modules_Client_RazorComponents_ModuleUIAttribute_UIType_
-  commentId: Overload:Modulight.Modules.Client.RazorComponents.ModuleUIAttribute.UIType
-  isSpec: "True"
-  fullName: Modulight.Modules.Client.RazorComponents.ModuleUIAttribute.UIType
-  nameWithType: ModuleUIAttribute.UIType
 - uid: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule`1
   name: RazorComponentClientModule<TModule>
   href: api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-1.html
@@ -20776,42 +20682,80 @@ references:
   fullName.vb: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule(Of TModule).RazorComponentClientModule
   nameWithType: RazorComponentClientModule<TModule>.RazorComponentClientModule
   nameWithType.vb: RazorComponentClientModule(Of TModule).RazorComponentClientModule
-- uid: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule`1.GetUI(System.IServiceProvider)
-  name: GetUI(IServiceProvider)
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-1.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModule_1_GetUI_System_IServiceProvider_
-  commentId: M:Modulight.Modules.Client.RazorComponents.RazorComponentClientModule`1.GetUI(System.IServiceProvider)
-  fullName: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule<TModule>.GetUI(System.IServiceProvider)
-  fullName.vb: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule(Of TModule).GetUI(System.IServiceProvider)
-  nameWithType: RazorComponentClientModule<TModule>.GetUI(IServiceProvider)
-  nameWithType.vb: RazorComponentClientModule(Of TModule).GetUI(IServiceProvider)
-- uid: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule`1.GetUI*
-  name: GetUI
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-1.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModule_1_GetUI_
-  commentId: Overload:Modulight.Modules.Client.RazorComponents.RazorComponentClientModule`1.GetUI
+- uid: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule`1.Contains(System.String)
+  name: Contains(String)
+  href: api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-1.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModule_1_Contains_System_String_
+  commentId: M:Modulight.Modules.Client.RazorComponents.RazorComponentClientModule`1.Contains(System.String)
+  fullName: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule<TModule>.Contains(System.String)
+  fullName.vb: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule(Of TModule).Contains(System.String)
+  nameWithType: RazorComponentClientModule<TModule>.Contains(String)
+  nameWithType.vb: RazorComponentClientModule(Of TModule).Contains(String)
+- uid: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule`1.Contains*
+  name: Contains
+  href: api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-1.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModule_1_Contains_
+  commentId: Overload:Modulight.Modules.Client.RazorComponents.RazorComponentClientModule`1.Contains
   isSpec: "True"
-  fullName: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule<TModule>.GetUI
-  fullName.vb: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule(Of TModule).GetUI
-  nameWithType: RazorComponentClientModule<TModule>.GetUI
-  nameWithType.vb: RazorComponentClientModule(Of TModule).GetUI
+  fullName: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule<TModule>.Contains
+  fullName.vb: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule(Of TModule).Contains
+  nameWithType: RazorComponentClientModule<TModule>.Contains
+  nameWithType.vb: RazorComponentClientModule(Of TModule).Contains
+- uid: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule`1.Icon
+  name: Icon
+  href: api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-1.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModule_1_Icon
+  commentId: P:Modulight.Modules.Client.RazorComponents.RazorComponentClientModule`1.Icon
+  fullName: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule<TModule>.Icon
+  fullName.vb: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule(Of TModule).Icon
+  nameWithType: RazorComponentClientModule<TModule>.Icon
+  nameWithType.vb: RazorComponentClientModule(Of TModule).Icon
+- uid: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule`1.Icon*
+  name: Icon
+  href: api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-1.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModule_1_Icon_
+  commentId: Overload:Modulight.Modules.Client.RazorComponents.RazorComponentClientModule`1.Icon
+  isSpec: "True"
+  fullName: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule<TModule>.Icon
+  fullName.vb: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule(Of TModule).Icon
+  nameWithType: RazorComponentClientModule<TModule>.Icon
+  nameWithType.vb: RazorComponentClientModule(Of TModule).Icon
+- uid: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule`1.Resources
+  name: Resources
+  href: api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-1.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModule_1_Resources
+  commentId: P:Modulight.Modules.Client.RazorComponents.RazorComponentClientModule`1.Resources
+  fullName: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule<TModule>.Resources
+  fullName.vb: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule(Of TModule).Resources
+  nameWithType: RazorComponentClientModule<TModule>.Resources
+  nameWithType.vb: RazorComponentClientModule(Of TModule).Resources
+- uid: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule`1.Resources*
+  name: Resources
+  href: api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-1.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModule_1_Resources_
+  commentId: Overload:Modulight.Modules.Client.RazorComponents.RazorComponentClientModule`1.Resources
+  isSpec: "True"
+  fullName: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule<TModule>.Resources
+  fullName.vb: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule(Of TModule).Resources
+  nameWithType: RazorComponentClientModule<TModule>.Resources
+  nameWithType.vb: RazorComponentClientModule(Of TModule).Resources
+- uid: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule`1.RootPath
+  name: RootPath
+  href: api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-1.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModule_1_RootPath
+  commentId: P:Modulight.Modules.Client.RazorComponents.RazorComponentClientModule`1.RootPath
+  fullName: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule<TModule>.RootPath
+  fullName.vb: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule(Of TModule).RootPath
+  nameWithType: RazorComponentClientModule<TModule>.RootPath
+  nameWithType.vb: RazorComponentClientModule(Of TModule).RootPath
+- uid: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule`1.RootPath*
+  name: RootPath
+  href: api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-1.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModule_1_RootPath_
+  commentId: Overload:Modulight.Modules.Client.RazorComponents.RazorComponentClientModule`1.RootPath
+  isSpec: "True"
+  fullName: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule<TModule>.RootPath
+  fullName.vb: Modulight.Modules.Client.RazorComponents.RazorComponentClientModule(Of TModule).RootPath
+  nameWithType: RazorComponentClientModule<TModule>.RootPath
+  nameWithType.vb: RazorComponentClientModule(Of TModule).RootPath
 - uid: Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions
   name: RazorComponentClientModuleExtensions
   href: api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions.html
   commentId: T:Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions
   fullName: Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions
   nameWithType: RazorComponentClientModuleExtensions
-- uid: Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions.EnsureModuleUI(System.Type)
-  name: EnsureModuleUI(Type)
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModuleExtensions_EnsureModuleUI_System_Type_
-  commentId: M:Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions.EnsureModuleUI(System.Type)
-  fullName: Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions.EnsureModuleUI(System.Type)
-  nameWithType: RazorComponentClientModuleExtensions.EnsureModuleUI(Type)
-- uid: Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions.EnsureModuleUI*
-  name: EnsureModuleUI
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModuleExtensions_EnsureModuleUI_
-  commentId: Overload:Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions.EnsureModuleUI
-  isSpec: "True"
-  fullName: Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions.EnsureModuleUI
-  nameWithType: RazorComponentClientModuleExtensions.EnsureModuleUI
 - uid: Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions.GetRazorComponentClientModuleCollection(System.IServiceProvider)
   name: GetRazorComponentClientModuleCollection(IServiceProvider)
   href: api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModuleExtensions_GetRazorComponentClientModuleCollection_System_IServiceProvider_
@@ -20825,19 +20769,6 @@ references:
   isSpec: "True"
   fullName: Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions.GetRazorComponentClientModuleCollection
   nameWithType: RazorComponentClientModuleExtensions.GetRazorComponentClientModuleCollection
-- uid: Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions.IsModuleUI(System.Type)
-  name: IsModuleUI(Type)
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModuleExtensions_IsModuleUI_System_Type_
-  commentId: M:Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions.IsModuleUI(System.Type)
-  fullName: Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions.IsModuleUI(System.Type)
-  nameWithType: RazorComponentClientModuleExtensions.IsModuleUI(Type)
-- uid: Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions.IsModuleUI*
-  name: IsModuleUI
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModuleExtensions_IsModuleUI_
-  commentId: Overload:Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions.IsModuleUI
-  isSpec: "True"
-  fullName: Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions.IsModuleUI
-  nameWithType: RazorComponentClientModuleExtensions.IsModuleUI
 - uid: Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions.UseRazorComponentClientModules(Modulight.Modules.Hosting.IModuleHostBuilder)
   name: UseRazorComponentClientModules(IModuleHostBuilder)
   href: api/modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModuleExtensions.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModuleExtensions_UseRazorComponentClientModules_Modulight_Modules_Hosting_IModuleHostBuilder_
@@ -20945,232 +20876,32 @@ references:
   fullName.vb: Modulight.Modules.Client.RazorComponents.UI.BasePage(Of TModule).Module
   nameWithType: BasePage<TModule>.Module
   nameWithType.vb: BasePage(Of TModule).Module
-- uid: Modulight.Modules.Client.RazorComponents.UI.IModuleUI
-  name: IModuleUI
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.IModuleUI.html
-  commentId: T:Modulight.Modules.Client.RazorComponents.UI.IModuleUI
-  fullName: Modulight.Modules.Client.RazorComponents.UI.IModuleUI
-  nameWithType: IModuleUI
-- uid: Modulight.Modules.Client.RazorComponents.UI.IModuleUI.Contains(System.String)
-  name: Contains(String)
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.IModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_IModuleUI_Contains_System_String_
-  commentId: M:Modulight.Modules.Client.RazorComponents.UI.IModuleUI.Contains(System.String)
-  fullName: Modulight.Modules.Client.RazorComponents.UI.IModuleUI.Contains(System.String)
-  nameWithType: IModuleUI.Contains(String)
-- uid: Modulight.Modules.Client.RazorComponents.UI.IModuleUI.Contains*
-  name: Contains
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.IModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_IModuleUI_Contains_
-  commentId: Overload:Modulight.Modules.Client.RazorComponents.UI.IModuleUI.Contains
-  isSpec: "True"
-  fullName: Modulight.Modules.Client.RazorComponents.UI.IModuleUI.Contains
-  nameWithType: IModuleUI.Contains
-- uid: Modulight.Modules.Client.RazorComponents.UI.IModuleUI.Icon
-  name: Icon
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.IModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_IModuleUI_Icon
-  commentId: P:Modulight.Modules.Client.RazorComponents.UI.IModuleUI.Icon
-  fullName: Modulight.Modules.Client.RazorComponents.UI.IModuleUI.Icon
-  nameWithType: IModuleUI.Icon
-- uid: Modulight.Modules.Client.RazorComponents.UI.IModuleUI.Icon*
-  name: Icon
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.IModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_IModuleUI_Icon_
-  commentId: Overload:Modulight.Modules.Client.RazorComponents.UI.IModuleUI.Icon
-  isSpec: "True"
-  fullName: Modulight.Modules.Client.RazorComponents.UI.IModuleUI.Icon
-  nameWithType: IModuleUI.Icon
-- uid: Modulight.Modules.Client.RazorComponents.UI.IModuleUI.Resources
-  name: Resources
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.IModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_IModuleUI_Resources
-  commentId: P:Modulight.Modules.Client.RazorComponents.UI.IModuleUI.Resources
-  fullName: Modulight.Modules.Client.RazorComponents.UI.IModuleUI.Resources
-  nameWithType: IModuleUI.Resources
-- uid: Modulight.Modules.Client.RazorComponents.UI.IModuleUI.Resources*
-  name: Resources
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.IModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_IModuleUI_Resources_
-  commentId: Overload:Modulight.Modules.Client.RazorComponents.UI.IModuleUI.Resources
-  isSpec: "True"
-  fullName: Modulight.Modules.Client.RazorComponents.UI.IModuleUI.Resources
-  nameWithType: IModuleUI.Resources
-- uid: Modulight.Modules.Client.RazorComponents.UI.IModuleUI.RootPath
-  name: RootPath
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.IModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_IModuleUI_RootPath
-  commentId: P:Modulight.Modules.Client.RazorComponents.UI.IModuleUI.RootPath
-  fullName: Modulight.Modules.Client.RazorComponents.UI.IModuleUI.RootPath
-  nameWithType: IModuleUI.RootPath
-- uid: Modulight.Modules.Client.RazorComponents.UI.IModuleUI.RootPath*
-  name: RootPath
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.IModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_IModuleUI_RootPath_
-  commentId: Overload:Modulight.Modules.Client.RazorComponents.UI.IModuleUI.RootPath
-  isSpec: "True"
-  fullName: Modulight.Modules.Client.RazorComponents.UI.IModuleUI.RootPath
-  nameWithType: IModuleUI.RootPath
-- uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUI
-  name: ModuleUI
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html
-  commentId: T:Modulight.Modules.Client.RazorComponents.UI.ModuleUI
-  fullName: Modulight.Modules.Client.RazorComponents.UI.ModuleUI
-  nameWithType: ModuleUI
-- uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.#ctor(Microsoft.JSInterop.IJSRuntime,Microsoft.Extensions.Logging.ILogger)
-  name: ModuleUI(IJSRuntime, ILogger)
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI__ctor_Microsoft_JSInterop_IJSRuntime_Microsoft_Extensions_Logging_ILogger_
-  commentId: M:Modulight.Modules.Client.RazorComponents.UI.ModuleUI.#ctor(Microsoft.JSInterop.IJSRuntime,Microsoft.Extensions.Logging.ILogger)
-  fullName: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.ModuleUI(Microsoft.JSInterop.IJSRuntime, Microsoft.Extensions.Logging.ILogger)
-  nameWithType: ModuleUI.ModuleUI(IJSRuntime, ILogger)
-- uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.#ctor*
-  name: ModuleUI
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI__ctor_
-  commentId: Overload:Modulight.Modules.Client.RazorComponents.UI.ModuleUI.#ctor
-  isSpec: "True"
-  fullName: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.ModuleUI
-  nameWithType: ModuleUI.ModuleUI
-- uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Contains(System.String)
-  name: Contains(String)
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI_Contains_System_String_
-  commentId: M:Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Contains(System.String)
-  fullName: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Contains(System.String)
-  nameWithType: ModuleUI.Contains(String)
-- uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Contains*
-  name: Contains
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI_Contains_
-  commentId: Overload:Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Contains
-  isSpec: "True"
-  fullName: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Contains
-  nameWithType: ModuleUI.Contains
-- uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Dispose
-  name: Dispose()
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI_Dispose
-  commentId: M:Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Dispose
-  fullName: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Dispose()
-  nameWithType: ModuleUI.Dispose()
-- uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Dispose(System.Boolean)
-  name: Dispose(Boolean)
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI_Dispose_System_Boolean_
-  commentId: M:Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Dispose(System.Boolean)
-  fullName: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Dispose(System.Boolean)
-  nameWithType: ModuleUI.Dispose(Boolean)
-- uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Dispose*
-  name: Dispose
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI_Dispose_
-  commentId: Overload:Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Dispose
-  isSpec: "True"
-  fullName: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Dispose
-  nameWithType: ModuleUI.Dispose
-- uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.DisposeAsync
-  name: DisposeAsync()
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI_DisposeAsync
-  commentId: M:Modulight.Modules.Client.RazorComponents.UI.ModuleUI.DisposeAsync
-  fullName: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.DisposeAsync()
-  nameWithType: ModuleUI.DisposeAsync()
-- uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.DisposeAsync*
-  name: DisposeAsync
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI_DisposeAsync_
-  commentId: Overload:Modulight.Modules.Client.RazorComponents.UI.ModuleUI.DisposeAsync
-  isSpec: "True"
-  fullName: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.DisposeAsync
-  nameWithType: ModuleUI.DisposeAsync
-- uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.DisposeAsyncCore
-  name: DisposeAsyncCore()
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI_DisposeAsyncCore
-  commentId: M:Modulight.Modules.Client.RazorComponents.UI.ModuleUI.DisposeAsyncCore
-  fullName: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.DisposeAsyncCore()
-  nameWithType: ModuleUI.DisposeAsyncCore()
-- uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.DisposeAsyncCore*
-  name: DisposeAsyncCore
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI_DisposeAsyncCore_
-  commentId: Overload:Modulight.Modules.Client.RazorComponents.UI.ModuleUI.DisposeAsyncCore
-  isSpec: "True"
-  fullName: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.DisposeAsyncCore
-  nameWithType: ModuleUI.DisposeAsyncCore
-- uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.GetEntryJSModule
-  name: GetEntryJSModule()
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI_GetEntryJSModule
-  commentId: M:Modulight.Modules.Client.RazorComponents.UI.ModuleUI.GetEntryJSModule
-  fullName: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.GetEntryJSModule()
-  nameWithType: ModuleUI.GetEntryJSModule()
-- uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.GetEntryJSModule*
-  name: GetEntryJSModule
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI_GetEntryJSModule_
-  commentId: Overload:Modulight.Modules.Client.RazorComponents.UI.ModuleUI.GetEntryJSModule
-  isSpec: "True"
-  fullName: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.GetEntryJSModule
-  nameWithType: ModuleUI.GetEntryJSModule
-- uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.GetJSModule(System.String,System.String)
+- uid: Modulight.Modules.Client.RazorComponents.UI.IJSModuleProvider`1
+  name: IJSModuleProvider<T>
+  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.IJSModuleProvider-1.html
+  commentId: T:Modulight.Modules.Client.RazorComponents.UI.IJSModuleProvider`1
+  name.vb: IJSModuleProvider(Of T)
+  fullName: Modulight.Modules.Client.RazorComponents.UI.IJSModuleProvider<T>
+  fullName.vb: Modulight.Modules.Client.RazorComponents.UI.IJSModuleProvider(Of T)
+  nameWithType: IJSModuleProvider<T>
+  nameWithType.vb: IJSModuleProvider(Of T)
+- uid: Modulight.Modules.Client.RazorComponents.UI.IJSModuleProvider`1.GetJSModule(System.String,System.String)
   name: GetJSModule(String, String)
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI_GetJSModule_System_String_System_String_
-  commentId: M:Modulight.Modules.Client.RazorComponents.UI.ModuleUI.GetJSModule(System.String,System.String)
-  fullName: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.GetJSModule(System.String, System.String)
-  nameWithType: ModuleUI.GetJSModule(String, String)
-- uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.GetJSModule*
+  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.IJSModuleProvider-1.html#Modulight_Modules_Client_RazorComponents_UI_IJSModuleProvider_1_GetJSModule_System_String_System_String_
+  commentId: M:Modulight.Modules.Client.RazorComponents.UI.IJSModuleProvider`1.GetJSModule(System.String,System.String)
+  fullName: Modulight.Modules.Client.RazorComponents.UI.IJSModuleProvider<T>.GetJSModule(System.String, System.String)
+  fullName.vb: Modulight.Modules.Client.RazorComponents.UI.IJSModuleProvider(Of T).GetJSModule(System.String, System.String)
+  nameWithType: IJSModuleProvider<T>.GetJSModule(String, String)
+  nameWithType.vb: IJSModuleProvider(Of T).GetJSModule(String, String)
+- uid: Modulight.Modules.Client.RazorComponents.UI.IJSModuleProvider`1.GetJSModule*
   name: GetJSModule
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI_GetJSModule_
-  commentId: Overload:Modulight.Modules.Client.RazorComponents.UI.ModuleUI.GetJSModule
+  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.IJSModuleProvider-1.html#Modulight_Modules_Client_RazorComponents_UI_IJSModuleProvider_1_GetJSModule_
+  commentId: Overload:Modulight.Modules.Client.RazorComponents.UI.IJSModuleProvider`1.GetJSModule
   isSpec: "True"
-  fullName: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.GetJSModule
-  nameWithType: ModuleUI.GetJSModule
-- uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Icon
-  name: Icon
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI_Icon
-  commentId: P:Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Icon
-  fullName: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Icon
-  nameWithType: ModuleUI.Icon
-- uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Icon*
-  name: Icon
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI_Icon_
-  commentId: Overload:Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Icon
-  isSpec: "True"
-  fullName: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Icon
-  nameWithType: ModuleUI.Icon
-- uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.JSRuntime
-  name: JSRuntime
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI_JSRuntime
-  commentId: P:Modulight.Modules.Client.RazorComponents.UI.ModuleUI.JSRuntime
-  fullName: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.JSRuntime
-  nameWithType: ModuleUI.JSRuntime
-- uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.JSRuntime*
-  name: JSRuntime
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI_JSRuntime_
-  commentId: Overload:Modulight.Modules.Client.RazorComponents.UI.ModuleUI.JSRuntime
-  isSpec: "True"
-  fullName: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.JSRuntime
-  nameWithType: ModuleUI.JSRuntime
-- uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Logger
-  name: Logger
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI_Logger
-  commentId: P:Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Logger
-  fullName: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Logger
-  nameWithType: ModuleUI.Logger
-- uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Logger*
-  name: Logger
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI_Logger_
-  commentId: Overload:Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Logger
-  isSpec: "True"
-  fullName: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Logger
-  nameWithType: ModuleUI.Logger
-- uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Resources
-  name: Resources
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI_Resources
-  commentId: P:Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Resources
-  fullName: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Resources
-  nameWithType: ModuleUI.Resources
-- uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Resources*
-  name: Resources
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI_Resources_
-  commentId: Overload:Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Resources
-  isSpec: "True"
-  fullName: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.Resources
-  nameWithType: ModuleUI.Resources
-- uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.RootPath
-  name: RootPath
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI_RootPath
-  commentId: P:Modulight.Modules.Client.RazorComponents.UI.ModuleUI.RootPath
-  fullName: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.RootPath
-  nameWithType: ModuleUI.RootPath
-- uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.RootPath*
-  name: RootPath
-  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUI.html#Modulight_Modules_Client_RazorComponents_UI_ModuleUI_RootPath_
-  commentId: Overload:Modulight.Modules.Client.RazorComponents.UI.ModuleUI.RootPath
-  isSpec: "True"
-  fullName: Modulight.Modules.Client.RazorComponents.UI.ModuleUI.RootPath
-  nameWithType: ModuleUI.RootPath
+  fullName: Modulight.Modules.Client.RazorComponents.UI.IJSModuleProvider<T>.GetJSModule
+  fullName.vb: Modulight.Modules.Client.RazorComponents.UI.IJSModuleProvider(Of T).GetJSModule
+  nameWithType: IJSModuleProvider<T>.GetJSModule
+  nameWithType.vb: IJSModuleProvider(Of T).GetJSModule
 - uid: Modulight.Modules.Client.RazorComponents.UI.ModuleUIResourceAttribute
   name: ModuleUIResourceAttribute
   href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.ModuleUIResourceAttribute.html
@@ -21604,6 +21335,12 @@ references:
   commentId: T:Modulight.Modules.Client.RazorComponents.UI.UIResourceType
   fullName: Modulight.Modules.Client.RazorComponents.UI.UIResourceType
   nameWithType: UIResourceType
+- uid: Modulight.Modules.Client.RazorComponents.UI.UIResourceType.Assembly
+  name: Assembly
+  href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.UIResourceType.html#Modulight_Modules_Client_RazorComponents_UI_UIResourceType_Assembly
+  commentId: F:Modulight.Modules.Client.RazorComponents.UI.UIResourceType.Assembly
+  fullName: Modulight.Modules.Client.RazorComponents.UI.UIResourceType.Assembly
+  nameWithType: UIResourceType.Assembly
 - uid: Modulight.Modules.Client.RazorComponents.UI.UIResourceType.Script
   name: Script
   href: api/modulight/Modulight.Modules.Client.RazorComponents.UI.UIResourceType.html#Modulight_Modules_Client_RazorComponents_UI_UIResourceType_Script
@@ -22440,38 +22177,6 @@ references:
   fullName.vb: Modulight.Modules.Module(Of TModule).Logger
   nameWithType: Module<TModule>.Logger
   nameWithType.vb: Module(Of TModule).Logger
-- uid: Modulight.Modules.ModuleAssemblyAttribute
-  name: ModuleAssemblyAttribute
-  href: api/modulight/Modulight.Modules.ModuleAssemblyAttribute.html
-  commentId: T:Modulight.Modules.ModuleAssemblyAttribute
-  fullName: Modulight.Modules.ModuleAssemblyAttribute
-  nameWithType: ModuleAssemblyAttribute
-- uid: Modulight.Modules.ModuleAssemblyAttribute.#ctor(System.String)
-  name: ModuleAssemblyAttribute(String)
-  href: api/modulight/Modulight.Modules.ModuleAssemblyAttribute.html#Modulight_Modules_ModuleAssemblyAttribute__ctor_System_String_
-  commentId: M:Modulight.Modules.ModuleAssemblyAttribute.#ctor(System.String)
-  fullName: Modulight.Modules.ModuleAssemblyAttribute.ModuleAssemblyAttribute(System.String)
-  nameWithType: ModuleAssemblyAttribute.ModuleAssemblyAttribute(String)
-- uid: Modulight.Modules.ModuleAssemblyAttribute.#ctor*
-  name: ModuleAssemblyAttribute
-  href: api/modulight/Modulight.Modules.ModuleAssemblyAttribute.html#Modulight_Modules_ModuleAssemblyAttribute__ctor_
-  commentId: Overload:Modulight.Modules.ModuleAssemblyAttribute.#ctor
-  isSpec: "True"
-  fullName: Modulight.Modules.ModuleAssemblyAttribute.ModuleAssemblyAttribute
-  nameWithType: ModuleAssemblyAttribute.ModuleAssemblyAttribute
-- uid: Modulight.Modules.ModuleAssemblyAttribute.Assembly
-  name: Assembly
-  href: api/modulight/Modulight.Modules.ModuleAssemblyAttribute.html#Modulight_Modules_ModuleAssemblyAttribute_Assembly
-  commentId: P:Modulight.Modules.ModuleAssemblyAttribute.Assembly
-  fullName: Modulight.Modules.ModuleAssemblyAttribute.Assembly
-  nameWithType: ModuleAssemblyAttribute.Assembly
-- uid: Modulight.Modules.ModuleAssemblyAttribute.Assembly*
-  name: Assembly
-  href: api/modulight/Modulight.Modules.ModuleAssemblyAttribute.html#Modulight_Modules_ModuleAssemblyAttribute_Assembly_
-  commentId: Overload:Modulight.Modules.ModuleAssemblyAttribute.Assembly
-  isSpec: "True"
-  fullName: Modulight.Modules.ModuleAssemblyAttribute.Assembly
-  nameWithType: ModuleAssemblyAttribute.Assembly
 - uid: Modulight.Modules.ModuleAttribute
   name: ModuleAttribute
   href: api/modulight/Modulight.Modules.ModuleAttribute.html

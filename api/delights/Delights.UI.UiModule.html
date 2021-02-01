@@ -101,7 +101,13 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="../modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-1.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModule_1_GetUI_System_IServiceProvider_">RazorComponentClientModule&lt;UiModule&gt;.GetUI(IServiceProvider)</a>
+      <a class="xref" href="../modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-1.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModule_1_RootPath">RazorComponentClientModule&lt;UiModule&gt;.RootPath</a>
+    </div>
+    <div>
+      <a class="xref" href="../modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-1.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModule_1_Contains_System_String_">RazorComponentClientModule&lt;UiModule&gt;.Contains(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="../modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-1.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModule_1_Resources">RazorComponentClientModule&lt;UiModule&gt;.Resources</a>
     </div>
     <div>
       <a class="xref" href="../modulight/Modulight.Modules.Module-1.html#Modulight_Modules_Module_1_Logger">Module&lt;UiModule&gt;.Logger</a>
@@ -154,7 +160,9 @@
   <h5 id="Delights_UI_UiModule_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Module(Description = null, Url = null, Author = null)]
-[ModuleUI(typeof(MainModuleUI))]
+[ModuleUIRootPath(&quot;home&quot;)]
+[ModuleUIResource(UIResourceType.StyleSheet, &quot;https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css&quot;)]
+[ModuleUIResource(UIResourceType.Script, &quot;https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.slim.min.js&quot;)]
 [ModuleStartup(typeof(Startup))]
 [ModuleDependency(typeof(ClientModule))]
 public class UiModule : RazorComponentClientModule&lt;UiModule&gt;, IRazorComponentClientModule, IModule</code></pre>
@@ -186,6 +194,33 @@ public class UiModule : RazorComponentClientModule&lt;UiModule&gt;, IRazorCompon
       </tr>
     </tbody>
   </table>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="Delights_UI_UiModule_Icon_" data-uid="Delights.UI.UiModule.Icon*"></a>
+  <h4 id="Delights_UI_UiModule_Icon" data-uid="Delights.UI.UiModule.Icon">Icon</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override RenderFragment Icon { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Microsoft.AspNetCore.Components.RenderFragment</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Modulight.Modules.Client.RazorComponents.RazorComponentClientModule&lt;Delights.UI.UiModule&gt;.Icon</span></div>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="../modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.html">IRazorComponentClientModule</a>
