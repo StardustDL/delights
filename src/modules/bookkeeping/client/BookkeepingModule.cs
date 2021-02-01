@@ -1,9 +1,11 @@
 using Delights.Modules.Bookkeeping.GraphQL;
 using Delights.Modules.Client;
+using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Modulight.Modules;
 using Modulight.Modules.Client.RazorComponents;
+using Modulight.Modules.Client.RazorComponents.UI;
 using Modulight.Modules.Hosting;
 using System;
 
@@ -16,12 +18,14 @@ namespace Delights.Modules.Bookkeeping
     [ModuleService(typeof(ModuleService))]
     [ModuleStartup(typeof(Startup))]
     [ModuleDependency(typeof(ClientModule))]
-    [ModuleUI(typeof(ModuleUI))]
+    [ModuleUIRootPath("bookkeeping")]
     public class BookkeepingModule : RazorComponentClientModule<BookkeepingModule>
     {
         public BookkeepingModule(IModuleHost host) : base(host)
         {
         }
+
+        public override RenderFragment Icon => Fragments.Icon;
     }
 
     public static class ModuleExtensions
@@ -53,6 +57,24 @@ namespace Delights.Modules.Bookkeeping
                 });
             services.AddBookkeepingGraphQLClient();
             base.ConfigureServices(services);
+        }
+    }
+
+    public class ModuleOption
+    {
+        public string GraphQLEndpoint { get; set; } = "";
+    }
+
+    class ModuleService
+    {
+        public IBookkeepingGraphQLClient GraphQLClient { get; }
+
+        public UrlGenerator UrlGenerator { get; }
+
+        public ModuleService(IBookkeepingGraphQLClient graphQLClient)
+        {
+            GraphQLClient = graphQLClient;
+            UrlGenerator = new UrlGenerator();
         }
     }
 }

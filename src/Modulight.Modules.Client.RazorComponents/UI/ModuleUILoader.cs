@@ -4,13 +4,18 @@ using System.Threading.Tasks;
 
 namespace Modulight.Modules.Client.RazorComponents.UI
 {
-    internal class ModuleUILoader : ModuleUI
+    internal class ModuleUILoader
     {
         public const string ResourceTagAttrName = "Modulight_Module_Client_RazorComponents_Resource";
 
-        public ModuleUILoader(IJSRuntime jsRuntime, ILogger<UI.ModuleUI> logger) : base(jsRuntime, logger)
+        public ModuleUILoader(IJSModuleProvider<ModuleUILoader> provider)
         {
+            Provider = provider;
         }
+
+        public IJSModuleProvider<ModuleUILoader> Provider { get; }
+
+        Task<IJSObjectReference> GetEntryJSModule() => Provider.GetJSModule("module.js");
 
         public async ValueTask CacheDataFromPath(string path, bool forceUpdate = false)
         {

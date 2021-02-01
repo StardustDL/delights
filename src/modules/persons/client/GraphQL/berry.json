@@ -1,1 +1,1 @@
-{"Schemas":[{"Name":"PersonsGraphQL","Type":"http","File":"PersonsGraphQL.graphql","Url":"https://localhost:5001/graphql/PersonsServer"}],"ClientName":"PersonsGraphQLClient"}
+{"Schemas":[{"Name":"PersonsGraphQL","Type":"http","File":"PersonsGraphQL.graphql","Url":"https://localhost:5001/graphql/Persons"}],"ClientName":"PersonsGraphQLClient"}

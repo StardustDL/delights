@@ -6,63 +6,32 @@ type ModuleQuery {
   modules(first: Int after: String last: Int before: String where: ModuleManifestFilterInput order: [ModuleManifestSortInput!]): ModuleManifestConnection
 }
 
-"Manifest for module"
 type ModuleManifest {
-  "Name"
   name: String!
-  "Entry assembly name"
-  entryAssembly: String!
-  "Additional assemblies"
-  assemblies: [String!]!
-  "Display name"
   displayName: String!
-  "Description"
   description: String!
-  "Version"
   version: String!
-  "Author"
   author: String!
-  "Project URL"
   url: String!
 }
 
-"Manifest for module"
 input ModuleManifestFilterInput {
   and: [ModuleManifestFilterInput!]
   or: [ModuleManifestFilterInput!]
-  "Name"
   name: StringOperationFilterInput
-  "Entry assembly name"
-  entryAssembly: StringOperationFilterInput
-  "Additional assemblies"
-  assemblies: ListStringOperationFilterInput
-  "Display name"
   displayName: StringOperationFilterInput
-  "Description"
   description: StringOperationFilterInput
-  "Version"
   version: StringOperationFilterInput
-  "Author"
   author: StringOperationFilterInput
-  "Project URL"
   url: StringOperationFilterInput
 }
 
-"Manifest for module"
 input ModuleManifestSortInput {
-  "Name"
   name: SortEnumType
-  "Entry assembly name"
-  entryAssembly: SortEnumType
-  "Display name"
   displayName: SortEnumType
-  "Description"
   description: SortEnumType
-  "Version"
   version: SortEnumType
-  "Author"
   author: SortEnumType
-  "Project URL"
   url: SortEnumType
 }
 
@@ -89,13 +58,6 @@ input StringOperationFilterInput {
   nstartsWith: String
   endsWith: String
   nendsWith: String
-}
-
-input ListStringOperationFilterInput {
-  all: StringOperationFilterInput
-  none: StringOperationFilterInput
-  some: StringOperationFilterInput
-  any: Boolean
 }
 
 enum SortEnumType {

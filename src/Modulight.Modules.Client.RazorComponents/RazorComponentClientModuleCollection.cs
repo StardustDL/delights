@@ -56,30 +56,26 @@ namespace Modulight.Modules.Client.RazorComponents
         {
             using var scope = Host.Services.CreateScope();
             var provider = scope.ServiceProvider;
-            await using var ui = new ModuleUILoader(provider.GetRequiredService<IJSRuntime>(), provider.GetRequiredService<ILogger<ModuleUI>>());
+            var ui = provider.GetRequiredService<ModuleUILoader>();
             foreach (var module in LoadedModules)
             {
-                var cui = module.GetUI(provider);
-                if (cui is not null)
+                foreach (var resource in module.Resources)
                 {
-                    foreach (var resource in cui.Resources)
+                    try
                     {
-                        try
+                        switch (resource.Type)
                         {
-                            switch (resource.Type)
-                            {
-                                case UIResourceType.Script:
-                                    await ui.LoadScript(resource.Path);
-                                    break;
-                                case UIResourceType.StyleSheet:
-                                    await ui.LoadStyleSheet(resource.Path);
-                                    break;
-                            }
+                            case UIResourceType.Script:
+                                await ui.LoadScript(resource.Path);
+                                break;
+                            case UIResourceType.StyleSheet:
+                                await ui.LoadStyleSheet(resource.Path);
+                                break;
                         }
-                        catch (JSException ex)
-                        {
-                            Logger.LogError(ex, $"Failed to load resource {resource.Path} in module {module.Manifest.Name}");
-                        }
+                    }
+                    catch (JSException ex)
+                    {
+                        Logger.LogError(ex, $"Failed to load resource {resource.Path} in module {module.Manifest.Name}");
                     }
                 }
             }
@@ -92,21 +88,16 @@ namespace Modulight.Modules.Client.RazorComponents
             HashSet<string> rootPaths = new HashSet<string>();
             foreach (var module in LoadedModules)
             {
-                var cui = module.GetUI(provider);
-
-                if (cui is not null)
+                if (module.RootPath is not "")
                 {
-                    if (cui.RootPath is not "")
+                    if (rootPaths.Contains(module.RootPath))
                     {
-                        if (rootPaths.Contains(cui.RootPath))
-                        {
-                            throw new Exception($"Same RootPath in modules: {cui.RootPath} @ {module.Manifest.Name}");
-                        }
-                        rootPaths.Add(cui.RootPath);
+                        throw new Exception($"Same RootPath in modules: {module.RootPath} @ {module.Manifest.Name}");
                     }
-
-                    await GetAssembliesForRouting($"/{cui.RootPath}", throwOnError: true);
+                    rootPaths.Add(module.RootPath);
                 }
+
+                await GetAssembliesForRouting($"/{module.RootPath}", throwOnError: true);
             }
         }
 
@@ -126,20 +117,15 @@ namespace Modulight.Modules.Client.RazorComponents
             {
                 cancellationToken.ThrowIfCancellationRequested();
 
-                toLoad.Enqueue(module.Manifest.EntryAssembly);
+                toLoad.Enqueue(module.GetType().GetAssemblyName());
 
-                var ui = module.GetUI(provider);
-
-                if (ui is not null)
+                if (module.Contains(path))
                 {
-                    if (ui.Contains(path))
+                    foreach (var resource in module.Resources.Where(x => x.Type is UIResourceType.Assembly))
                     {
-                        foreach (var name in module.Manifest.Assemblies)
-                        {
-                            cancellationToken.ThrowIfCancellationRequested();
+                        cancellationToken.ThrowIfCancellationRequested();
 
-                            toLoad.Enqueue(name);
-                        }
+                        toLoad.Enqueue(resource.Path);
                     }
                 }
             }

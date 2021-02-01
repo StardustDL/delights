@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 namespace Modulight.Modules.Client.RazorComponents.UI
 {
     /// <summary>
-    /// Specifies <see cref="ModuleUI.RootPath"/> for the module UI.
+    /// Specifies <see cref="IRazorComponentClientModule.RootPath"/> for the razor component module.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = false, Inherited = false)]
     public class ModuleUIRootPathAttribute : Attribute
     {
         /// <summary>
-        /// Specifies <see cref="ModuleUI.RootPath"/> for the module UI.
+        /// Specifies <see cref="IRazorComponentClientModule.RootPath"/> for the razor component module.
         /// </summary>
         public ModuleUIRootPathAttribute(string rootPath)
         {
@@ -29,13 +29,13 @@ namespace Modulight.Modules.Client.RazorComponents.UI
     }
 
     /// <summary>
-    /// Specifies UI resources for the module UI.
+    /// Specifies UI resources.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = false)]
     public class ModuleUIResourceAttribute : Attribute
     {
         /// <summary>
-        /// Specifies UI resources for the module UI.
+        /// Specifies UI resources.
         /// </summary>
         /// <param name="type"></param>
         /// <param name="path"></param>
@@ -61,68 +61,30 @@ namespace Modulight.Modules.Client.RazorComponents.UI
         public string[] Attributes { get; init; } = Array.Empty<string>();
     }
 
-    // This class provides an example of how JavaScript functionality can be wrapped
-    // in a .NET class for easy consumption. The associated JavaScript module is
-    // loaded on demand when first needed.
-    //
-    // This class can be registered as scoped DI service and then injected into Blazor
-    // components for use.
-
     /// <summary>
-    /// Basic implement for <see cref="IModuleUI"/>.
+    /// Provide JS modules.
     /// </summary>
-    public abstract class ModuleUI : IDisposable, IAsyncDisposable, IModuleUI
+    /// <typeparam name="T"></typeparam>
+    public interface IJSModuleProvider<T> : IDisposable, IAsyncDisposable
+    {
+        /// <summary>
+        /// Get a lazy javascript module at /_content/<paramref name="assemblyName"/>/<paramref name="jsPath"/>.
+        /// </summary>
+        /// <param name="jsPath">Javascript file path.</param>
+        /// <param name="assemblyName">Assembly name, null for the assembly which <typeparamref name="T"/> defined.</param>
+        /// <returns></returns>
+        Task<IJSObjectReference> GetJSModule(string jsPath, string? assemblyName = null);
+    }
+
+    internal class JSModuleProvider<T> : IJSModuleProvider<T>
     {
         Dictionary<string, Lazy<Task<IJSObjectReference>>> JSInvokers { get; } = new Dictionary<string, Lazy<Task<IJSObjectReference>>>();
 
-        /// <summary>
-        /// Create a module UI instance.
-        /// </summary>
-        /// <param name="jsRuntime"></param>
-        /// <param name="logger"></param>
-        public ModuleUI(IJSRuntime jsRuntime, ILogger logger)
+        public JSModuleProvider(IJSRuntime jsRuntime, ILogger<T> logger)
         {
-            RootPath = "";
             JSRuntime = jsRuntime;
             Logger = logger;
-
-            var type = GetType();
-            {
-                var attr = type.GetCustomAttribute<ModuleUIRootPathAttribute>();
-                if (attr is not null)
-                    RootPath = attr.RootPath;
-            }
-            {
-                var attrs = type.GetCustomAttributes<ModuleUIResourceAttribute>();
-                List<UIResource> resources = new List<UIResource>();
-                foreach (var attr in attrs)
-                {
-                    resources.Add(new UIResource(attr.Type, attr.Path) { Attributes = attr.Attributes });
-                }
-                Resources = resources.ToArray();
-            }
         }
-
-        /// <inheritdoc/>
-
-        public virtual RenderFragment? Icon => null;
-
-        /// <inheritdoc/>
-        public string RootPath { get; }
-
-        /// <inheritdoc/>
-        public virtual bool Contains(string path)
-        {
-            if (RootPath is "")
-            {
-                return true;
-            }
-            path = path.Trim('/') + "/";
-            return path.StartsWith($"{RootPath}/");
-        }
-
-        /// <inheritdoc/>
-        public UIResource[] Resources { get; protected set; }
 
         /// <summary>
         /// JS runtime.
@@ -132,18 +94,12 @@ namespace Modulight.Modules.Client.RazorComponents.UI
         /// <summary>
         /// Logger
         /// </summary>
-        protected ILogger Logger { get; }
+        protected ILogger<T> Logger { get; }
 
-        /// <summary>
-        /// Get a lazy javascript module at /_content/{<paramref name="assemblyName"/>}/{<paramref name="jsPath"/>}.
-        /// </summary>
-        /// <param name="jsPath">Javascript file path.</param>
-        /// <param name="assemblyName">Assembly name, null for the assembly which current module defined.</param>
-        /// <returns></returns>
-        protected Task<IJSObjectReference> GetJSModule(string jsPath, string? assemblyName = null)
+        public Task<IJSObjectReference> GetJSModule(string jsPath, string? assemblyName = null)
         {
             if (assemblyName is null)
-                assemblyName = GetType().Assembly.GetName().Name ?? "";
+                assemblyName = typeof(T).Assembly.GetName().Name ?? "";
 
             string id = $"{assemblyName}/{jsPath}";
 
@@ -157,16 +113,10 @@ namespace Modulight.Modules.Client.RazorComponents.UI
             return JSInvokers[id].Value;
         }
 
-        /// <summary>
-        /// Get default javascript module with default name "module.js".
-        /// </summary>
-        /// <returns></returns>
-        protected virtual Task<IJSObjectReference> GetEntryJSModule() => GetJSModule("module.js");
-
         #region Dispose
 
         /// <inheritdoc/>
-        protected virtual async ValueTask DisposeAsyncCore()
+        protected async ValueTask DisposeAsyncCore()
         {
             foreach (var invoker in JSInvokers)
             {
@@ -192,7 +142,7 @@ namespace Modulight.Modules.Client.RazorComponents.UI
         private bool _disposedValue;
 
         /// <inheritdoc/>
-        protected virtual void Dispose(bool disposing)
+        protected void Dispose(bool disposing)
         {
             if (!_disposedValue)
             {

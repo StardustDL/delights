@@ -1,9 +1,11 @@
 using Delights.Modules.Client;
 using Delights.Modules.ModuleManager.GraphQL;
+using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Modulight.Modules;
 using Modulight.Modules.Client.RazorComponents;
+using Modulight.Modules.Client.RazorComponents.UI;
 using Modulight.Modules.Hosting;
 using StardustDL.RazorComponents.AntDesigns;
 using StardustDL.RazorComponents.MaterialDesignIcons;
@@ -15,13 +17,15 @@ namespace Delights.Modules.ModuleManager
     [ModuleStartup(typeof(Startup))]
     [ModuleOption(typeof(ModuleOption))]
     [ModuleService(typeof(ModuleService))]
-    [ModuleUI(typeof(ModuleUI))]
+    [ModuleUIRootPath("modules")]
     [ModuleDependency(typeof(ClientModule))]
     public class ModuleManagerModule : RazorComponentClientModule<ModuleManagerModule>
     {
         public ModuleManagerModule(IModuleHost host) : base(host)
         {
         }
+
+        public override RenderFragment Icon => Fragments.Icon;
     }
 
     public static class ModuleExtensions
@@ -40,7 +44,7 @@ namespace Delights.Modules.ModuleManager
         }
     }
 
-    public class Startup : ModuleStartup
+    class Startup : ModuleStartup
     {
         public override void ConfigureServices(IServiceCollection services)
         {
@@ -53,5 +57,20 @@ namespace Delights.Modules.ModuleManager
             services.AddModuleManagerGraphQLClient();
             base.ConfigureServices(services);
         }
+    }
+
+    class ModuleService
+    {
+        public IModuleManagerGraphQLClient GraphQLClient { get; }
+
+        public ModuleService(IModuleManagerGraphQLClient graphQLClient)
+        {
+            GraphQLClient = graphQLClient;
+        }
+    }
+
+    public class ModuleOption
+    {
+        public string GraphQLEndpoint { get; set; } = "";
     }
 }

@@ -3,15 +3,8 @@
 
 @foreach (var c in ModuleHost.LoadedModules)
 {
-    var ui = c.GetUI(ServiceProvider);
-    if (ui is not null)
+    foreach (var r in c.Resources.Where(x => x.Type is UIResourceType.StyleSheet))
     {
-        foreach (var r in ui.Resources)
-        {
-            if (r.Type is UIResourceType.StyleSheet)
-            {
-                @((MarkupString)($"<link type=\"text/css\" rel=\"stylesheet\" href=\"{r.Path}\" {Modulight.Modules.Client.RazorComponents.UI.ModuleUILoader.ResourceTagAttrName}=\"{r.Path}\"/>"))
-            }
-        }
+        @((MarkupString)($"<link type=\"text/css\" rel=\"stylesheet\" href=\"{r.Path}\" {Modulight.Modules.Client.RazorComponents.UI.ModuleUILoader.ResourceTagAttrName}=\"{r.Path}\"/>"))
     }
 }

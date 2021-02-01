@@ -3,7 +3,7 @@ using System.Text;
 
 namespace Delights.Modules.Notes
 {
-    public static class Utils
+    static class Utils
     {
         public static string CountWordsString(string str)
         {

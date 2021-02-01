@@ -32,16 +32,18 @@ namespace Delights.Modules.Hello
     }
 
     [Module(Url = Shared.SharedManifest.Url, Author = Shared.SharedManifest.Author, Description = SharedManifest.Description)]
-    [ModuleAssembly("Delights.Modules.Hello.UI")]
     [ModuleStartup(typeof(Startup))]
     [ModuleService(typeof(ModuleService))]
-    [ModuleUI(typeof(ModuleUI))]
+    [ModuleUIRootPath("hello")]
+    [ModuleUIResource(UIResourceType.Assembly, "Delights.Modules.Hello.UI")]
     [ModuleDependency(typeof(ClientModule))]
     public class HelloModule : RazorComponentClientModule<HelloModule>
     {
         public HelloModule(IModuleHost host) : base(host)
         {
         }
+
+        public override RenderFragment Icon => Fragments.Icon;
     }
 
     class Startup : ModuleStartup
@@ -56,22 +58,6 @@ namespace Delights.Modules.Hello
                 });
             services.AddHelloGraphQLClient();
             base.ConfigureServices(services);
-        }
-    }
-
-    [ModuleUIRootPath("hello")]
-    public class ModuleUI : Modulight.Modules.Client.RazorComponents.UI.ModuleUI
-    {
-        public ModuleUI(IJSRuntime jsRuntime, ILogger<ModuleUI> logger) : base(jsRuntime, logger)
-        {
-        }
-
-        public override RenderFragment Icon => Fragments.Icon;
-
-        public async ValueTask Prompt(string message)
-        {
-            var js = await GetEntryJSModule();
-            await js.InvokeVoidAsync("showPrompt", message);
         }
     }
 

@@ -15,6 +15,10 @@ namespace Modulight.Modules.Client.RazorComponents.UI
         /// Style sheet
         /// </summary>
         StyleSheet,
+        /// <summary>
+        /// Assembly
+        /// </summary>
+        Assembly,
     }
 
     /// <summary>

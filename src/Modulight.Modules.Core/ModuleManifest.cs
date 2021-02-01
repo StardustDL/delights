@@ -26,16 +26,6 @@ namespace Modulight.Modules
         public string Name { get; init; } = "";
 
         /// <summary>
-        /// Entry assembly name
-        /// </summary>
-        public string EntryAssembly { get; init; } = "";
-
-        /// <summary>
-        /// Additional assemblies
-        /// </summary>
-        public string[] Assemblies { get; init; } = Array.Empty<string>();
-
-        /// <summary>
         /// Display name
         /// </summary>
         public string DisplayName { get; init; } = "";
@@ -106,7 +96,6 @@ namespace Modulight.Modules
             }
 
             var moduleAttr = type.GetCustomAttribute<ModuleAttribute>(true);
-            var assemblyAttr = type.GetCustomAttributes<ModuleAssemblyAttribute>(true);
             var serviceAttr = type.GetCustomAttributes<ModuleServiceAttribute>(true);
             var optionAttr = type.GetCustomAttributes<ModuleOptionAttribute>(true);
             var depAttr = type.GetCustomAttributes<ModuleDependencyAttribute>(true);
@@ -121,11 +110,9 @@ namespace Modulight.Modules
             var result = new ModuleManifest
             {
                 Name = moduleAttr?.Name ?? string.Concat(GenerateName(type.Name)),
-                EntryAssembly = type.GetAssemblyName(),
                 DisplayName = moduleAttr?.DisplayName ?? string.Join(' ', GenerateName(type.Name)),
                 Version = moduleAttr?.Version ?? type.Assembly.GetName().Version?.ToString() ?? "0.0.0.0",
                 Author = moduleAttr?.Author ?? "Anonymous",
-                Assemblies = assemblyAttr?.Select(x => x.Assembly).ToArray() ?? Array.Empty<string>(),
                 Description = moduleAttr?.Description ?? "",
                 Url = moduleAttr?.Url ?? "",
                 Services = serviceAttr?.Select(x => new ModuleServiceDescriptor(x.ImplementationType, x.ServiceType ?? x.ImplementationType, x.Lifetime)).ToArray() ?? Array.Empty<ModuleServiceDescriptor>(),

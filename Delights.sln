@@ -87,25 +87,40 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.Client", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{97449FE5-7A3E-42AF-BF57-F5CE9B4F3075}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Base", "test\Test.Base\Test.Base.csproj", "{76BF6DCF-FB48-44EB-9060-4E37C3F1F5BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Base", "test\Test.Base\Test.Base.csproj", "{76BF6DCF-FB48-44EB-9060-4E37C3F1F5BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Modulights", "test\Test.Modulights\Test.Modulights.csproj", "{43D55AED-D32F-41AA-9B67-D3EC8ECB7306}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Modulights", "test\Test.Modulights\Test.Modulights.csproj", "{43D55AED-D32F-41AA-9B67-D3EC8ECB7306}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modulight.Modules.Test", "src\Modulight.Modules.Test\Modulight.Modules.Test.csproj", "{C77FD1F9-D08E-4428-85B8-D6998C750501}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modulight.Modules.Test", "src\Modulight.Modules.Test\Modulight.Modules.Test.csproj", "{C77FD1F9-D08E-4428-85B8-D6998C750501}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{0140b3c5-ad7e-47e6-b6f6-0d876ad3cfd3}*SharedItemsImports = 13
 		src\modules\hello\Delights.Modules.Hello.Shared\Delights.Modules.Hello.Shared.projitems*{058ab875-cb8c-4a40-a154-e42c7ffdf4a1}*SharedItemsImports = 13
+		src\modules\persons\shared\Delights.Modules.Persons.Shared.projitems*{06770d8f-22b3-4cf0-ba69-b1e4196c2624}*SharedItemsImports = 13
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{08c0899f-43af-496e-95cf-22f8816ea69f}*SharedItemsImports = 5
 		src\modules\modulemanager\shared\Delights.Modules.ModuleManager.Shared.projitems*{08c0899f-43af-496e-95cf-22f8816ea69f}*SharedItemsImports = 5
 		src\modules\modulemanager\shared\Delights.Modules.ModuleManager.Shared.projitems*{0a72dfb0-5b98-4eeb-a2fa-baecc7f04d89}*SharedItemsImports = 13
+		src\modules\bookkeeping\shared\Delights.Modules.Bookkeeping.Shared.projitems*{36deeb7c-0c7d-47c3-bac3-6873f05f6571}*SharedItemsImports = 5
+		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{36deeb7c-0c7d-47c3-bac3-6873f05f6571}*SharedItemsImports = 5
+		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{41a07dc1-359f-4b2f-9ce9-84ae5c73a16c}*SharedItemsImports = 5
+		src\modules\notes\shared\Delights.Modules.Notes.Shared.projitems*{41a07dc1-359f-4b2f-9ce9-84ae5c73a16c}*SharedItemsImports = 5
+		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{5364c2b4-75e6-442b-b7a5-bf36cf564574}*SharedItemsImports = 5
+		src\modules\persons\shared\Delights.Modules.Persons.Shared.projitems*{5364c2b4-75e6-442b-b7a5-bf36cf564574}*SharedItemsImports = 5
+		src\modules\notes\shared\Delights.Modules.Notes.Shared.projitems*{5a6f2210-8852-4d81-ba60-023a5dbaa281}*SharedItemsImports = 13
+		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{600498e4-8b69-4c2a-8d18-ca3dccbd24e0}*SharedItemsImports = 5
+		src\modules\persons\shared\Delights.Modules.Persons.Shared.projitems*{600498e4-8b69-4c2a-8d18-ca3dccbd24e0}*SharedItemsImports = 5
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{69cdbf1c-094d-49e3-b2b1-667787b1a4e1}*SharedItemsImports = 5
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{6f9448a2-c2aa-434d-88ab-740dabc2146d}*SharedItemsImports = 5
+		src\modules\bookkeeping\shared\Delights.Modules.Bookkeeping.Shared.projitems*{72bdc22e-981b-46ca-bc72-9ec6b0d71142}*SharedItemsImports = 5
+		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{72bdc22e-981b-46ca-bc72-9ec6b0d71142}*SharedItemsImports = 5
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{84a4dc85-7120-4eaf-ba6e-a999fa97356d}*SharedItemsImports = 5
 		src\modules\modulemanager\shared\Delights.Modules.ModuleManager.Shared.projitems*{84a4dc85-7120-4eaf-ba6e-a999fa97356d}*SharedItemsImports = 5
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{ab7abb0a-734a-4a06-8ba2-374e586a96dc}*SharedItemsImports = 5
 		src\modules\hello\Delights.Modules.Hello.Shared\Delights.Modules.Hello.Shared.projitems*{ab7abb0a-734a-4a06-8ba2-374e586a96dc}*SharedItemsImports = 5
+		src\modules\bookkeeping\shared\Delights.Modules.Bookkeeping.Shared.projitems*{b2e27fb4-3f40-40c2-a322-57504a016548}*SharedItemsImports = 13
+		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{c2432c09-5e38-4aef-8561-aba5b54b777a}*SharedItemsImports = 5
+		src\modules\notes\shared\Delights.Modules.Notes.Shared.projitems*{c2432c09-5e38-4aef-8561-aba5b54b777a}*SharedItemsImports = 5
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{cbe41e90-70af-4b89-9929-caa8a74b7c3b}*SharedItemsImports = 5
 		src\modules\hello\Delights.Modules.Hello.Shared\Delights.Modules.Hello.Shared.projitems*{cbe41e90-70af-4b89-9929-caa8a74b7c3b}*SharedItemsImports = 5
 	EndGlobalSection

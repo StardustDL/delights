@@ -2,7 +2,6 @@ query getModules {
   modules {
     nodes {
       name
-      entryAssembly
       displayName
       description
       version

@@ -12,7 +12,7 @@
     </Header>
     <ChildContent>
         <ListItem Actions="@(new[] { LinkRenderFragment((context.Url, "Url")) })">
-            <ListItemMeta Description="@($"{context.Name} @ {context.EntryAssembly}")">
+            <ListItemMeta Description="@($"{context.Name}")">
                 <TitleTemplate>
                     <span>@context.DisplayName @context.Version</span>
                     <span class="font-weight-light">@context.Author</span>
@@ -28,7 +28,7 @@
     </Header>
     <ChildContent>
         <ListItem Actions="@(new[] { LinkRenderFragment((context.Url, "Url")) })">
-            <ListItemMeta Description="@($"{context.Name} @ {context.EntryAssembly}")">
+            <ListItemMeta Description="@($"{context.Name}")">
                 <TitleTemplate>
                     <span>@context.DisplayName @context.Version</span>
                     <span class="font-weight-light">@context.Author</span>

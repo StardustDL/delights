@@ -54,27 +54,6 @@ namespace Modulight.Modules
     }
 
     /// <summary>
-    /// Specifies the assembly for the module.
-    /// </summary>
-    [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]
-    public class ModuleAssemblyAttribute : Attribute
-    {
-        /// <summary>
-        /// Specifies the assembly for the module.
-        /// </summary>
-        /// <param name="assembly">Assembly name.</param>
-        public ModuleAssemblyAttribute(string assembly)
-        {
-            Assembly = assembly;
-        }
-
-        /// <summary>
-        /// Assembly name.
-        /// </summary>
-        public string Assembly { get; init; }
-    }
-
-    /// <summary>
     /// Specifies the service for the module.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = false)]

@@ -18,16 +18,6 @@ namespace Delights.Modules.ModuleManager.Server
         public string Name { get; init; } = "";
 
         /// <summary>
-        /// Entry assembly name
-        /// </summary>
-        public string EntryAssembly { get; init; } = "";
-
-        /// <summary>
-        /// Additional assemblies
-        /// </summary>
-        public string[] Assemblies { get; init; } = Array.Empty<string>();
-
-        /// <summary>
         /// Display name
         /// </summary>
         public string DisplayName { get; init; } = "";
@@ -63,11 +53,9 @@ namespace Delights.Modules.ModuleManager.Server
         {
             return collection.LoadedModules.Select(m => new ModuleManifest
             {
-                Assemblies = m.Manifest.Assemblies,
                 Author = m.Manifest.Author,
                 Description = m.Manifest.Description,
                 DisplayName = m.Manifest.DisplayName,
-                EntryAssembly = m.Manifest.EntryAssembly,
                 Name = m.Manifest.Name,
                 Url = m.Manifest.Url,
                 Version = m.Manifest.Version,

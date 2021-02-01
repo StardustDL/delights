@@ -1,7 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Components;
+using Microsoft.Extensions.DependencyInjection;
 using Modulight.Modules.Client.RazorComponents.UI;
 using Modulight.Modules.Hosting;
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace Modulight.Modules.Client.RazorComponents
@@ -11,30 +13,48 @@ namespace Modulight.Modules.Client.RazorComponents
     /// </summary>
     public abstract class RazorComponentClientModule<TModule> : Module<TModule>, IRazorComponentClientModule
     {
-        Lazy<ModuleUIAttribute?> ModuleUIAttribute;
-
         /// <summary>
         /// Create the instance.
         /// </summary>
         /// <param name="host"></param>
         protected RazorComponentClientModule(IModuleHost host) : base(host)
         {
-            ModuleUIAttribute = new Lazy<ModuleUIAttribute?>(() => GetType().GetCustomAttribute<ModuleUIAttribute>());
+            RootPath = "";
+            var type = GetType();
+            {
+                var attr = type.GetCustomAttribute<ModuleUIRootPathAttribute>();
+                if (attr is not null)
+                    RootPath = attr.RootPath;
+            }
+            {
+                var attrs = type.GetCustomAttributes<ModuleUIResourceAttribute>();
+                List<UIResource> resources = new List<UIResource>();
+                foreach (var attr in attrs)
+                {
+                    resources.Add(new UIResource(attr.Type, attr.Path) { Attributes = attr.Attributes });
+                }
+                Resources = resources.ToArray();
+            }
         }
 
-        /// <summary>
         /// <inheritdoc/>
-        /// Use <see cref="Modulight.Modules.Client.RazorComponents.ModuleUIAttribute"/> to detect module UI.
-        /// </summary>
-        /// <param name="provider"></param>
-        /// <returns></returns>
-        public virtual IModuleUI? GetUI(IServiceProvider provider)
+        public virtual RenderFragment? Icon => null;
+
+        /// <inheritdoc/>
+        public string RootPath { get; }
+
+        /// <inheritdoc/>
+        public virtual bool Contains(string path)
         {
-            var uiAttr = ModuleUIAttribute.Value;
-            if (uiAttr is null)
-                return default;
-            uiAttr.UIType.EnsureModuleUI();
-            return (IModuleUI)provider.GetRequiredService(uiAttr.UIType);
+            if (RootPath is "")
+            {
+                return true;
+            }
+            path = path.Trim('/') + "/";
+            return path.StartsWith($"{RootPath}/");
         }
+
+        /// <inheritdoc/>
+        public UIResource[] Resources { get; protected set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿@inject IServiceProvider ServiceProvider
 
-@if (UI?.Icon is null)
+@if (Module?.Icon is null)
 {
     if (Fallback is not null)
     {
@@ -9,7 +9,7 @@
 }
 else
 {
-    @UI.Icon
+    @Module.Icon
 }
 
 @code {
@@ -24,11 +24,4 @@ else
     /// </summary>
     [Parameter]
     public RenderFragment? Fallback { get; set; }
-
-    private IModuleUI? UI { get; set; }
-
-    protected override void OnParametersSet()
-    {
-        UI = Module?.GetUI(ServiceProvider);
-    }
 }

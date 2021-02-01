@@ -27,22 +27,5 @@ namespace Modulight.Modules.Client.RazorComponents
         /// <param name="provider"></param>
         /// <returns></returns>
         public static IRazorComponentClientModuleCollection GetRazorComponentClientModuleCollection(this IServiceProvider provider) => provider.GetRequiredService<IRazorComponentClientModuleCollection>();
-
-        /// <summary>
-        /// Test a type is a module UI type.
-        /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        public static bool IsModuleUI(this Type type) => type.IsAssignableTo(typeof(IModuleUI));
-
-        /// <summary>
-        /// Ensure a type is a module UI type.
-        /// </summary>
-        /// <param name="type"></param>
-        public static void EnsureModuleUI(this Type type)
-        {
-            if (!type.IsModuleUI())
-                throw new Exception($"{type.FullName} is not a module ui.");
-        }
     }
 }
