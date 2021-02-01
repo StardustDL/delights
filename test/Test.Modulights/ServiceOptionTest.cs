@@ -2,6 +2,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Modulight.Modules;
 using Modulight.Modules.Hosting;
+using Modulight.Modules.Test;
+using Modulight.Modules.Test.Context;
 using System;
 using System.Threading.Tasks;
 
@@ -53,14 +55,10 @@ namespace Test.Modulights
         [TestMethod]
         public async Task Test()
         {
-            var context = ModuleTestContext.Create().WithModule<TestModule>();
-            context.UseHost(host =>
-            {
-                host.Services.GetRequiredService<TestModule>();
-            });
+            var context = new ModuleTestContext<TestModule>();
             await context.Run(host =>
             {
-                var module = host.Services.GetRequiredService<TestModule>();
+                var module = host.EnsureGetLoadedModule<TestModule>();
 
                 module.GetService<TestSingletonModuleService>(host.Services);
                 using var scope = host.Services.CreateScope();

@@ -2,6 +2,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Modulight.Modules;
 using Modulight.Modules.Hosting;
+using Modulight.Modules.Test;
+using Modulight.Modules.Test.Context;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,11 +13,11 @@ namespace Test.Modulights
     public class ManifestTest
     {
         [Module(Author = ManifestString,
-        Description = ManifestString,
-        DisplayName = ManifestString,
-        Name = ManifestString,
-        Url = ManifestString,
-        Version = ManifestString)]
+            Description = ManifestString,
+            DisplayName = ManifestString,
+            Name = ManifestString,
+            Url = ManifestString,
+            Version = ManifestString)]
         class TestModule : BaseTestModule
         {
             public const string ManifestString = nameof(TestModule);
@@ -28,10 +30,10 @@ namespace Test.Modulights
         [TestMethod]
         public void Test()
         {
-            var context = ModuleTestContext.Create().WithModule<TestModule>();
+            var context = new ModuleTestContext<TestModule>();
             context.UseHost(host =>
             {
-                var module = host.Services.GetRequiredService<TestModule>();
+                var module = host.EnsureGetService<TestModule>();
                 Assert.AreEqual(TestModule.ManifestString, module.Manifest.Author);
                 Assert.AreEqual(TestModule.ManifestString, module.Manifest.Description);
                 Assert.AreEqual(TestModule.ManifestString, module.Manifest.DisplayName);

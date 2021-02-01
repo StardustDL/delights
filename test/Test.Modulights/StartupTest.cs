@@ -3,6 +3,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Modulight.Modules;
 using Modulight.Modules.Hosting;
+using Modulight.Modules.Test.Context;
 using System;
 using System.Threading.Tasks;
 
@@ -57,7 +58,8 @@ namespace Test.Modulights
         [TestMethod]
         public async Task Basic()
         {
-            var context = ModuleTestContext.Create().WithModule<BasicTestModule>();
+            var context = new ModuleTestContext<BasicTestModule>()
+                .CheckStartup<BasicTestModule, BasicStartup>();
             await context.Run(host =>
             {
                 var option = host.Services.GetService<IOptions<StartupOption>>().Value;
@@ -69,11 +71,13 @@ namespace Test.Modulights
         public async Task Option()
         {
             const string OptionContent = nameof(Option);
-            var context = ModuleTestContext.Create().WithModule<OptionTestModule>();
-            context.Builder.ConfigureBuilderServices(services =>
-            {
-                services.AddOptions<StartupOption>().Configure(o => o.Content = OptionContent);
-            });
+            var context = new ModuleTestContext<OptionTestModule>()
+                .CheckStartup<OptionTestModule, OptionStartup>();
+            context.ConfigureBuilder(builder =>
+                builder.ConfigureBuilderServices(services =>
+                {
+                    services.AddOptions<StartupOption>().Configure(o => o.Content = OptionContent);
+                }));
             await context.Run(host =>
             {
                 var option = host.Services.GetService<IOptions<StartupOption>>().Value;

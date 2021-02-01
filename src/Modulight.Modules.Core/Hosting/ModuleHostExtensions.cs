@@ -44,6 +44,14 @@ namespace Modulight.Modules.Hosting
         public static ModuleManifest GetManifest<TModule>(this IModuleHost host) where TModule : IModule => host.GetManifest(typeof(TModule));
 
         /// <summary>
+        /// Get the module instance with module type.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="host"></param>
+        /// <returns></returns>
+        public static T GetModule<T>(this IModuleHost host) where T : IModule => (T)host.GetModule(typeof(T));
+
+        /// <summary>
         /// Get service that belongs to the module.
         /// </summary>
         /// <typeparam name="TModule"></typeparam>

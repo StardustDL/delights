@@ -2,6 +2,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Modulight.Modules;
 using Modulight.Modules.Hosting;
+using Modulight.Modules.Test;
+using Modulight.Modules.Test.Context;
 using System.Threading.Tasks;
 
 namespace Test.Modulights
@@ -36,11 +38,11 @@ namespace Test.Modulights
         [TestMethod]
         public async Task Test()
         {
-            var context = ModuleTestContext.Create().WithModule<TestModule>();
+            var context = new ModuleTestContext<TestModule>();
             context.UseHost(host =>
                {
-                   host.Services.GetRequiredService<TestDepDepModule>();
-                   host.Services.GetRequiredService<TestDepModule>();
+                   host.HasModule<TestDepDepModule>();
+                   host.HasModule<TestDepModule>();
                });
             await context.Run();
         }
