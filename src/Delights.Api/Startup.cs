@@ -41,7 +41,7 @@ namespace Delights.Api
 
             var builder = ModuleHostBuilder.CreateDefaultBuilder().UseAspNetServerModules().UseGraphQLServerModules();
 
-            builder.AddIdentityServerModule((o, sp) =>
+            /*builder.AddIdentityServerModule((o, sp) =>
             {
                 o.ConfigureDbContext = options =>
                     options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection"));
@@ -69,7 +69,7 @@ namespace Delights.Api
                     o.AccessKey = "user";
                     o.SecretKey = "password";
                 })
-                .AddObjectStorageApiModule();
+                .AddObjectStorageApiModule();*/
 
             builder.AddItemMetadataServerModule((o, sp) =>
             {

@@ -12,7 +12,7 @@ namespace Delights.Modules.Server.Data
 {
     public abstract class DataModuleService<TDb, TRaw, T, TMutation, TDomain> : IDataModuleService<TRaw, T, TMutation> where TDb : DbContext where TRaw : RawDataItemBase, new() where T : DataItemBase where TMutation : DataMutationItemBase
     {
-        public DataModuleService(TDb dbContext, ItemMetadataDomain<TDomain> metadataDomain)
+        public DataModuleService(TDb dbContext, IItemMetadataDomain<TDomain> metadataDomain)
         {
             DbContext = dbContext;
             DbSet = DbContext.Set<TRaw>();
@@ -23,7 +23,7 @@ namespace Delights.Modules.Server.Data
 
         private DbSet<TRaw> DbSet { get; }
 
-        public ItemMetadataDomain<TDomain> MetadataDomain { get; }
+        public IItemMetadataDomain<TDomain> MetadataDomain { get; }
 
         public async Task<T> AddData(TMutation value)
         {

@@ -11,7 +11,7 @@ namespace Delights.Modules.Bookkeeping.Server
 {
     public class ModuleService : DataModuleService<DataDbContext, RawAccountItem, AccountItem, AccountItemMutation, BookkeepingServerModule>
     {
-        public ModuleService(IServiceProvider services, DataDbContext dbContext, ItemMetadataDomain<BookkeepingServerModule> metadataDomain, ILogger<BookkeepingServerModule> logger) : base(dbContext, metadataDomain)
+        public ModuleService(IServiceProvider services, DataDbContext dbContext, IItemMetadataDomain<BookkeepingServerModule> metadataDomain, ILogger<BookkeepingServerModule> logger) : base(dbContext, metadataDomain)
         {
             Services = services;
             Logger = logger;

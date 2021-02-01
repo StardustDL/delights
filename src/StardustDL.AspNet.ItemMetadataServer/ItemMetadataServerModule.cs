@@ -34,7 +34,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
 
         public override void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped(typeof(ItemMetadataDomain<>));
+            services.AddScoped(typeof(IItemMetadataDomain<>), typeof(ItemMetadataDomain<>));
 
             services.AddDbContext<Data.DataDbContext>(o =>
             {

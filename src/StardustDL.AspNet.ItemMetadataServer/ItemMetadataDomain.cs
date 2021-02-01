@@ -9,15 +9,34 @@ using System.Threading.Tasks;
 
 namespace StardustDL.AspNet.ItemMetadataServer
 {
-    public class ItemMetadataDomain<T>
+    public interface IItemMetadataDomain<T>
+    {
+        Task<RawCategory> AddCategory(string name);
+        Task<ItemMetadata> AddMetadata(ItemMetadataMutation value);
+        Task<RawTag> AddTag(string name);
+        Task<RawCategory?> GetCategory(string? name);
+        Task<RawItemMetadata?> GetItem(string? id);
+        Task<RawTag?> GetTag(string? name);
+        IQueryable<RawCategory> QueryAllCategories();
+        IQueryable<RawItemMetadata> QueryAllItems();
+        IQueryable<RawTag> QueryAllTags();
+        IQueryable<RawItemMetadata> QueryItemsByCategory(string name);
+        IQueryable<RawItemMetadata> QueryItemsByTag(string name);
+        Task<RawCategory?> RemoveCategory(string name);
+        Task<ItemMetadata?> RemoveMetadata(string id);
+        Task<RawTag?> RemoveTag(string name);
+        Task<RawCategory?> RenameCategory(string oldName, string newName);
+        Task<RawTag?> RenameTag(string oldName, string newName);
+        Task<ItemMetadata?> UpdateMetadata(ItemMetadataMutation value);
+    }
+
+    class ItemMetadataDomain<T> : IItemMetadataDomain<T>
     {
         public const string DefaultCategoryName = "";
 
         string DomainName => typeof(T).FullName ?? "";
 
         ModuleService Service { get; }
-
-
 
         public ItemMetadataDomain(ModuleService service)
         {

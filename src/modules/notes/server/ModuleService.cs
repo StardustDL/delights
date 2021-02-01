@@ -11,7 +11,7 @@ namespace Delights.Modules.Notes.Server
 {
     public class ModuleService : DataModuleService<DataDbContext, RawNote, Note, NoteMutation, NotesServerModule>
     {
-        public ModuleService(IServiceProvider services, DataDbContext dbContext, ItemMetadataDomain<NotesServerModule> metadataDomain, ILogger<NotesServerModule> logger) : base(dbContext, metadataDomain)
+        public ModuleService(IServiceProvider services, DataDbContext dbContext, IItemMetadataDomain<NotesServerModule> metadataDomain, ILogger<NotesServerModule> logger) : base(dbContext, metadataDomain)
         {
             Services = services;
             Logger = logger;

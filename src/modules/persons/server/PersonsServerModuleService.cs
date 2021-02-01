@@ -14,7 +14,7 @@ namespace Delights.Modules.Persons.Server
     /// </summary>
     public class PersonsServerModuleService : DataModuleService<DataDbContext, RawPerson, Person, PersonMutation, PersonsServerModule>
     {
-        public PersonsServerModuleService(IServiceProvider services, DataDbContext dbContext, ItemMetadataDomain<PersonsServerModule> metadataDomain, ILogger<PersonsServerModule> logger) : base(dbContext, metadataDomain)
+        public PersonsServerModuleService(IServiceProvider services, DataDbContext dbContext, IItemMetadataDomain<PersonsServerModule> metadataDomain, ILogger<PersonsServerModule> logger) : base(dbContext, metadataDomain)
         {
             Services = services;
             Logger = logger;
