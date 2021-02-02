@@ -2,6 +2,7 @@
 using Modulight.Modules.Test;
 using Modulight.Modules.Test.Context;
 using StardustDL.AspNet.ObjectStorage;
+using System.Threading.Tasks;
 
 namespace Test.Extensions
 {
@@ -9,13 +10,13 @@ namespace Test.Extensions
     public class ObjectStorage
     {
         [TestMethod]
-        public void Basic()
+        public async Task Basic()
         {
             var context = new ModuleTestContext<ObjectStorageModule>();
-            context.UseHost(host =>
-            {
-                // host.HasService<ObjectStorageService>();
-            });
+            await context.UseHost(host =>
+             {
+                 // host.HasService<ObjectStorageService>();
+             });
         }
     }
 }

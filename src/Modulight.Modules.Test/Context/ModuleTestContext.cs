@@ -87,7 +87,7 @@ namespace Modulight.Modules.Test.Context
 
         public ModuleTestContext CheckStartup<TModule, TStartup>() where TModule : IModule where TStartup : IModuleStartup => CheckStartup(typeof(TModule), typeof(TStartup));
 
-        public IModuleHost Build()
+        public async Task BuildAsync(Func<IModuleHost, Task> action)
         {
             var services = new ServiceCollection();
             var builderServices = new ServiceCollection();
@@ -96,21 +96,27 @@ namespace Modulight.Modules.Test.Context
                 o.StartupChecking = CollectorOption.StartupChecking;
             });
             Builder.Build(services, builderServices);
-            return services.BuildServiceProvider().GetModuleHost();
+            await using var provider = services.BuildServiceProvider();
+            await action(provider.GetModuleHost());
         }
 
         public async Task UseHostAsync(Func<IModuleHost, Task>? action = null)
         {
-            var host = Build();
-            if (action is not null)
-                await action(host);
+            await BuildAsync(async host =>
+            {
+                if (action is not null)
+                    await action(host);
+            });
         }
 
-        public void UseHost(Action<IModuleHost>? action = null)
+        public async Task UseHost(Action<IModuleHost>? action = null)
         {
-            var host = Build();
-            if (action is not null)
-                action(host);
+            await BuildAsync(host =>
+               {
+                   if (action is not null)
+                       action(host);
+                   return Task.CompletedTask;
+               });
         }
 
         public async Task Run(Action<IModuleHost>? action = null, Action<IModuleHost>? afterAction = null)

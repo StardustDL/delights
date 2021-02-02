@@ -82,6 +82,26 @@ namespace Modulight.Modules
         /// Service lifetime (default as <see cref="ServiceLifetime.Scoped"/>).
         /// </summary>
         public ServiceLifetime Lifetime { get; init; } = ServiceLifetime.Scoped;
+
+        /// <summary>
+        /// Behavior when the service been added.
+        /// </summary>
+        public ServiceRegisterBehavior RegisterBehavior { get; init; }
+    }
+
+    /// <summary>
+    /// Behavior when the service been added.
+    /// </summary>
+    public enum ServiceRegisterBehavior
+    {
+        /// <summary>
+        /// Normal (Use Add).
+        /// </summary>
+        Normal,
+        /// <summary>
+        /// The service is optional (Use TryAdd).
+        /// </summary>
+        Optional,
     }
 
     /// <summary>

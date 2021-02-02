@@ -28,10 +28,10 @@ namespace Test.Modulights
         }
 
         [TestMethod]
-        public void Test()
+        public async Task Test()
         {
             var context = new ModuleTestContext<TestModule>();
-            context.UseHost(host =>
+            await context.UseHost(host =>
             {
                 var module = host.EnsureGetService<TestModule>();
                 Assert.AreEqual(TestModule.ManifestString, module.Manifest.Author);

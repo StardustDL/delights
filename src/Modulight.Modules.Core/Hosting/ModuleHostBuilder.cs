@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -182,7 +183,7 @@ namespace Modulight.Modules.Hosting
             modules.ForEach(item =>
             {
                 if (item.Startup is not null)
-                    builderServices.AddSingleton(item.Startup);
+                    builderServices.AddScoped(item.Startup);
             });
 
             using var builderService = builderServices.BuildServiceProvider();
@@ -212,7 +213,16 @@ namespace Modulight.Modules.Hosting
                 services.AddSingleton(type);
                 foreach (var service in manifest.Services)
                 {
-                    services.Add(new ServiceDescriptor(service.ServiceType, service.ImplementationType, service.Lifetime));
+                    var des = new ServiceDescriptor(service.ServiceType, service.ImplementationType, service.Lifetime);
+                    switch (service.RegisterBehavior)
+                    {
+                        case ServiceRegisterBehavior.Normal:
+                            services.Add(des);
+                            break;
+                        case ServiceRegisterBehavior.Optional:
+                            services.TryAdd(des);
+                            break;
+                    }
                 }
                 IModuleStartup? startup = null;
                 if (startupType is not null)
@@ -233,14 +243,12 @@ namespace Modulight.Modules.Hosting
             AfterBuild(services, definedModules, plugins);
         }
 
-        /// <inheritdoc />
         public IModuleHostBuilder ConfigureBuilderServices(Action<IServiceCollection> configureBuilderServices)
         {
             BuilderServiceConfiguration.Add(configureBuilderServices);
             return this;
         }
 
-        /// <inheritdoc />
         public IModuleHostBuilder ConfigureServices(Action<IServiceCollection> configureServices)
         {
             ServiceConfiguration.Add(configureServices);

@@ -39,7 +39,7 @@ namespace Test.Modulights
         public async Task Test()
         {
             var context = new ModuleTestContext<TestModule>();
-            context.UseHost(host =>
+            await context.UseHost(host =>
                {
                    host.HasModule<TestDepDepModule>();
                    host.HasModule<TestDepModule>();

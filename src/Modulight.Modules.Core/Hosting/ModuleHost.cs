@@ -179,9 +179,6 @@ namespace Modulight.Modules.Hosting
             {
                 await module.Shutdown();
             }
-
-            _LoadedModules = new Dictionary<Type, IModule>();
-            LoadedModules = Array.Empty<IModule>();
         }
 
         public virtual ILogger<TModule> GetLogger<TModule>()
