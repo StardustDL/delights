@@ -25,8 +25,6 @@ namespace Delights.Client
             services.AddRazorPages();
             services.AddServerSideBlazor();
 
-            services.AddServerConfiguration();
-
             ModuleSetup.CreateDefaultBuilder(true).Build(services);
         }
 

@@ -87,11 +87,11 @@ namespace Modulight.Modules.Hosting
             }
         }
 
-        protected virtual void BeforeModule(IServiceCollection services, Type module, ModuleManifest manifest, IReadOnlyList<IModuleHostBuilderPlugin> plugins)
+        protected virtual void BeforeModule(IServiceCollection services, Type module, ModuleManifest manifest, IModuleStartup? startup, IReadOnlyList<IModuleHostBuilderPlugin> plugins)
         {
             foreach (var plugin in plugins)
             {
-                plugin.BeforeModule(module, manifest, services);
+                plugin.BeforeModule(module, manifest, startup, services);
             }
         }
 
@@ -103,92 +103,114 @@ namespace Modulight.Modules.Hosting
             }
         }
 
-        List<(Type Module, ModuleManifest Manifest, Type? Startup)> ResolveModuleDependency()
-        {
-            var result = new List<(Type Module, ModuleManifest Manifest, Type? Startup)>();
-            Dictionary<Type, ModuleManifest> modules = new Dictionary<Type, ModuleManifest>();
-            Dictionary<Type, int> inDegrees = new Dictionary<Type, int>();
-
-            Queue<Type> queue = new Queue<Type>();
-            foreach (var t in ModuleDescriptors.Reverse<Type>())
-            {
-                modules.Add(t, ModuleManifest.Generate(t));
-                inDegrees.Add(t, 0);
-                queue.Enqueue(t);
-            }
-            while (queue.Count > 0)
-            {
-                var cur = queue.Dequeue();
-                var manifest = modules[cur];
-                foreach (var dep in manifest.Dependencies)
-                {
-                    if (!modules.ContainsKey(dep))
-                    {
-                        modules.Add(dep, ModuleManifest.Generate(dep));
-                        inDegrees.Add(dep, 0);
-                        queue.Enqueue(dep);
-                    }
-                    inDegrees[dep] += 1;
-                }
-            }
-
-            foreach (var item in inDegrees.Where(x => x.Value is 0))
-                queue.Enqueue(item.Key);
-
-            while (queue.Count > 0)
-            {
-                var cur = queue.Dequeue();
-                var manifest = modules[cur];
-
-                var startupAttr = cur.GetCustomAttribute<ModuleStartupAttribute>(true);
-                Type? startup = null;
-                if (startupAttr is not null)
-                {
-                    startupAttr.StartupType.EnsureModuleStartup();
-                    startup = startupAttr.StartupType;
-                }
-                result.Add((cur, manifest, startup));
-
-                foreach (var dep in manifest.Dependencies)
-                {
-                    Debug.Assert(inDegrees[dep] >= 1);
-
-                    inDegrees[dep] -= 1;
-                    if (inDegrees[dep] is 0)
-                    {
-                        queue.Enqueue(dep);
-                    }
-                }
-            }
-            result.Reverse();
-            return result;
-        }
-
         /// <inheritdoc />
         public void Build(IServiceCollection services, IServiceCollection? builderServices = null)
         {
-            var modules = ResolveModuleDependency();
-            var plugins = new List<IModuleHostBuilderPlugin>();
+            static Type? GetStartupType(Type module)
+            {
+                var startupAttr = module.GetCustomAttribute<ModuleStartupAttribute>(true);
+                if (startupAttr is not null)
+                {
+                    startupAttr.StartupType.EnsureModuleStartup();
+                    return startupAttr.StartupType;
+                }
+                return null;
+            }
 
-            Dictionary<Type, Type> moduleStartups = new Dictionary<Type, Type>();
+            static (ModuleManifest Manifest, IModuleStartup? Startup) ResolveModule(Type type, IServiceProvider serviceProvider)
+            {
+                var manifestBuilder = serviceProvider.GetRequiredService<IModuleManifestBuilder>();
+                manifestBuilder.WithDefaultsFromModuleType(type);
+                var startupType = GetStartupType(type);
+                IModuleStartup? startup = null;
+                if (startupType is not null)
+                {
+                    startup = (IModuleStartup)ActivatorUtilities.CreateInstance(serviceProvider, startupType);
+
+                    startup.ConfigureManifest(manifestBuilder);
+                }
+                return (manifestBuilder.Build(), startup);
+            }
+
+            static List<(Type Module, ModuleManifest Manifest, IModuleStartup? Startup)> ResolveModuleDependency(IEnumerable<Type> initialModules, IServiceProvider serviceProvider)
+            {
+                var result = new List<(Type Module, ModuleManifest Manifest, IModuleStartup? Startup)>();
+
+                Dictionary<Type, IModuleStartup?> startups = new Dictionary<Type, IModuleStartup?>();
+                Dictionary<Type, ModuleManifest> manifests = new Dictionary<Type, ModuleManifest>();
+                Dictionary<Type, int> inDegrees = new Dictionary<Type, int>();
+
+                Queue<Type> queue = new Queue<Type>();
+
+                void addModule(Type type)
+                {
+                    var info = ResolveModule(type, serviceProvider);
+                    startups.Add(type, info.Startup);
+                    manifests.Add(type, info.Manifest);
+                    inDegrees.Add(type, 0);
+                }
+
+                foreach (var t in initialModules.Reverse())
+                {
+                    addModule(t);
+                    queue.Enqueue(t);
+                }
+                while (queue.Count > 0)
+                {
+                    var cur = queue.Dequeue();
+                    var manifest = manifests[cur];
+                    foreach (var dep in manifest.Dependencies)
+                    {
+                        if (!manifests.ContainsKey(dep))
+                        {
+                            addModule(dep);
+                            queue.Enqueue(dep);
+                        }
+                        inDegrees[dep] += 1;
+                    }
+                }
+
+                foreach (var item in inDegrees.Where(x => x.Value is 0))
+                    queue.Enqueue(item.Key);
+
+                while (queue.Count > 0)
+                {
+                    var cur = queue.Dequeue();
+                    var manifest = manifests[cur];
+                    result.Add((cur, manifest, startups[cur]));
+
+                    foreach (var dep in manifest.Dependencies)
+                    {
+                        Debug.Assert(inDegrees[dep] >= 1, $"{dep.FullName} in-degree is 0.");
+
+                        inDegrees[dep] -= 1;
+                        if (inDegrees[dep] is 0)
+                        {
+                            queue.Enqueue(dep);
+                        }
+                    }
+                }
+                result.Reverse();
+                return result;
+            }
 
             builderServices ??= new ServiceCollection();
-            builderServices.AddLogging().AddOptions();
             foreach (var configure in BuilderServiceConfiguration)
             {
                 configure(builderServices);
             }
+            builderServices.TryAddTransient<IModuleManifestBuilder, DefaultModuleManifestBuilder>();
+            builderServices.AddLogging().AddOptions();
 
             PluginDescriptors.ForEach(plugin => builderServices.AddSingleton(plugin));
-            modules.ForEach(item =>
-            {
-                if (item.Startup is not null)
-                    builderServices.AddScoped(item.Startup);
-            });
 
             using var builderService = builderServices.BuildServiceProvider();
-
             var logger = builderService.GetRequiredService<ILogger<DefaultModuleHostBuilder>>();
+
+            var modules = ResolveModuleDependency(Modules, builderService);
+            var plugins = new List<IModuleHostBuilderPlugin>();
+
+            Dictionary<Type, Type> moduleStartups = new Dictionary<Type, Type>();
 
             PluginDescriptors.ForEach(type =>
             {
@@ -196,7 +218,6 @@ namespace Modulight.Modules.Hosting
                 logger.LogInformation($"Loaded plugin {type.FullName}.");
             });
 
-            services.AddLogging().AddOptions();
             foreach (var configure in ServiceConfiguration)
             {
                 configure(services);
@@ -204,11 +225,18 @@ namespace Modulight.Modules.Hosting
 
             BeforeBuild(services, plugins);
 
-            foreach (var (type, manifest, startupType) in modules)
+            services.AddLogging().AddOptions();
+
+            foreach (var (type, manifest, startup) in modules)
             {
                 logger.LogInformation($"Processing module {type.FullName}.");
 
-                BeforeModule(services, type, manifest, plugins);
+                if (startup is not null)
+                {
+                    startup.ConfigureServices(services);
+                }
+
+                BeforeModule(services, type, manifest, startup, plugins);
 
                 services.AddSingleton(type);
                 foreach (var service in manifest.Services)
@@ -224,12 +252,7 @@ namespace Modulight.Modules.Hosting
                             break;
                     }
                 }
-                IModuleStartup? startup = null;
-                if (startupType is not null)
-                {
-                    startup = (IModuleStartup)builderService.GetRequiredService(startupType);
-                    startup.ConfigureServices(services);
-                }
+
 
                 AfterModule(services, type, manifest, startup, plugins);
 

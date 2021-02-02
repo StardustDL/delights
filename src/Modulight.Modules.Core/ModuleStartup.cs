@@ -3,7 +3,8 @@
 namespace Modulight.Modules
 {
     /// <summary>
-    /// Startup for module.
+    /// Startup for module (needs to be no-state, no disposable).
+    /// The builder may construct the startup instance many times.
     /// </summary>
     public interface IModuleStartup
     {
@@ -12,6 +13,12 @@ namespace Modulight.Modules
         /// </summary>
         /// <param name="services"></param>
         void ConfigureServices(IServiceCollection services);
+
+        /// <summary>
+        /// Configure the module manifest.
+        /// </summary>
+        /// <param name="builder"></param>
+        void ConfigureManifest(IModuleManifestBuilder builder);
     }
 
     /// <summary>
@@ -19,6 +26,9 @@ namespace Modulight.Modules
     /// </summary>
     public abstract class ModuleStartup : IModuleStartup
     {
+        /// <inheritdoc/>
+        public virtual void ConfigureManifest(IModuleManifestBuilder builder) { }
+
         /// <inheritdoc/>
         public virtual void ConfigureServices(IServiceCollection services) { }
     }

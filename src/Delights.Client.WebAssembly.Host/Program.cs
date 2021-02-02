@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using Modulight.Modules.Hosting;
 using System.Threading.Tasks;
 
 namespace Delights.Client.WebAssembly.Host
@@ -8,7 +9,11 @@ namespace Delights.Client.WebAssembly.Host
     {
         public static async Task Main(string[] args)
         {
-            await CreateHostBuilder(args).Build().RunAsync();
+            var host = CreateHostBuilder(args).Build();
+
+            await using var _ = await host.Services.UseModuleHost();
+
+            await host.RunAsync();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

@@ -16,6 +16,10 @@ namespace Delights.Client.Shared
         {
             var builder = ModuleHostBuilder.CreateDefaultBuilder()
                 .UseRazorComponentClientModules()
+                .ConfigureOptions<ServerConfiguration>((o, _) =>
+                 {
+                     o.GraphQLEndpoint = "https://localhost:5001/graphql";
+                 })
                 .AddModule<UI.UiModule>()
             .AddNotesModule(configureOptions: (o, sp) =>
             {
@@ -49,18 +53,6 @@ namespace Delights.Client.Shared
 
 
             return builder;
-        }
-    }
-
-    public static class ServiceExtensions
-    {
-        public static IServiceCollection AddServerConfiguration(this IServiceCollection services)
-        {
-            services.AddOptions<ServerConfiguration>().Configure(o =>
-            {
-                o.GraphQLEndpoint = "https://localhost:5001/graphql";
-            });
-            return services;
         }
     }
 }

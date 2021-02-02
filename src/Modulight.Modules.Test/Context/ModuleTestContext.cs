@@ -21,10 +21,10 @@ namespace Modulight.Modules.Test.Context
 
         public List<Type> ModuleProcessingOrder { get; } = new List<Type>();
 
-        public override void BeforeModule(Type module, ModuleManifest manifest, IServiceCollection services)
+        public override void BeforeModule(Type module, ModuleManifest manifest, IModuleStartup? startup, IServiceCollection services)
         {
             ModuleProcessingOrder.Add(module);
-            base.BeforeModule(module, manifest, services);
+            base.BeforeModule(module, manifest, startup, services);
         }
 
         public override void AfterModule(Type module, ModuleManifest manifest, IModuleStartup? startup, IServiceCollection services)

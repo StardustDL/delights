@@ -35,9 +35,9 @@ namespace Test.Modulights
                 base.BeforeBuild(builder, services);
             }
 
-            public override void BeforeModule(Type module, ModuleManifest manifest, IServiceCollection services)
+            public override void BeforeModule(Type module, ModuleManifest manifest, IModuleStartup startup, IServiceCollection services)
             {
-                base.BeforeModule(module, manifest, services);
+                base.BeforeModule(module, manifest, startup, services);
             }
         }
 

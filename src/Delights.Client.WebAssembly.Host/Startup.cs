@@ -22,7 +22,6 @@ namespace Delights.Client.WebAssembly.Host
         {
             services.AddRazorPages();
 
-            services.AddServerConfiguration();
             ModuleSetup.CreateDefaultBuilder(false).Build(services);
         }
 
