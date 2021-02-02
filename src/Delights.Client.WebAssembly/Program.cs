@@ -25,8 +25,6 @@ namespace Delights.Client.WebAssembly
 
             await using var _ = await host.Services.UseModuleHost();
 
-            await host.Services.GetRazorComponentClientModuleCollection().LoadResources();
-
             /*{
                     var service = provider.GetRequiredService<Modules.Persons.ModuleService>();
                     Console.WriteLine((await service.GraphQLClient.GetDumpAsync()).Data.Dump.Base64);

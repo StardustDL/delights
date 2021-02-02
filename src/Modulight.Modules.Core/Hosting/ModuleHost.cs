@@ -175,10 +175,13 @@ namespace Modulight.Modules.Hosting
 
         public virtual async Task Shutdown()
         {
-            foreach (var module in LoadedModules)
+            foreach (var module in LoadedModules.Reverse())
             {
                 await module.Shutdown();
             }
+
+            _LoadedModules = new Dictionary<Type, IModule>();
+            LoadedModules = Array.Empty<IModule>();
         }
 
         public virtual ILogger<TModule> GetLogger<TModule>()

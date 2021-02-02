@@ -35,10 +35,7 @@ namespace Delights.Modules.Bookkeeping
             builder.AddModule<BookkeepingModule>();
             if (configureOptions is not null)
             {
-                builder.ConfigureServices(services =>
-                {
-                    services.AddOptions<ModuleOption>().Configure(configureOptions);
-                });
+                builder.ConfigureOptions(configureOptions);
             }
 
             return builder;

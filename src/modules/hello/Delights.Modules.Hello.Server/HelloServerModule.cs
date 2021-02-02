@@ -12,10 +12,10 @@ namespace Delights.Modules.Hello.Server
 {
     public static class ModuleExtensions
     {
-        public static IModuleHostBuilder AddHelloServerModule(this IModuleHostBuilder modules)
+        public static IModuleHostBuilder AddHelloServerModule(this IModuleHostBuilder builder)
         {
-            modules.AddModule<HelloServerModule>();
-            return modules;
+            builder.AddModule<HelloServerModule>();
+            return builder;
         }
     }
 

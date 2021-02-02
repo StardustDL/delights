@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -17,4 +17,9 @@
     <PackageReference Include="coverlet.collector" Version="3.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Modulight.Modules.Test\Modulight.Modules.Test.csproj" />
+    <ProjectReference Include="..\..\src\StardustDL.AspNet.ItemMetadataServer\StardustDL.AspNet.ItemMetadataServer.csproj" />
+    <ProjectReference Include="..\..\src\StardustDL.AspNet.ObjectStorage\StardustDL.AspNet.ObjectStorage.csproj" />
+  </ItemGroup>
 </Project>

@@ -44,12 +44,8 @@ namespace Delights.Modules.Persons.Server
             builder.AddModule<PersonsServerModule>();
             if (configureStartupOptions is not null)
             {
-                builder.ConfigureBuilderServices(services =>
-                {
-                    services.AddOptions<PersonsServerModuleStartupOption>().Configure(configureStartupOptions);
-                });
+                builder.ConfigureBuilderOptions(configureStartupOptions);
             }
-
             return builder;
         }
     }

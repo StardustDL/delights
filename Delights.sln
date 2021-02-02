@@ -93,6 +93,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Modulights", "test\Tes
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Modulight.Modules.Test", "src\Modulight.Modules.Test\Modulight.Modules.Test.csproj", "{C77FD1F9-D08E-4428-85B8-D6998C750501}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Extensions", "test\Test.Extensions\Test.Extensions.csproj", "{BC76EDD6-EAA4-440F-BF07-235BE1BF7F15}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{0140b3c5-ad7e-47e6-b6f6-0d876ad3cfd3}*SharedItemsImports = 13
@@ -245,6 +247,10 @@ Global
 		{C77FD1F9-D08E-4428-85B8-D6998C750501}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C77FD1F9-D08E-4428-85B8-D6998C750501}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C77FD1F9-D08E-4428-85B8-D6998C750501}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC76EDD6-EAA4-440F-BF07-235BE1BF7F15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC76EDD6-EAA4-440F-BF07-235BE1BF7F15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC76EDD6-EAA4-440F-BF07-235BE1BF7F15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC76EDD6-EAA4-440F-BF07-235BE1BF7F15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -287,6 +293,7 @@ Global
 		{76BF6DCF-FB48-44EB-9060-4E37C3F1F5BE} = {97449FE5-7A3E-42AF-BF57-F5CE9B4F3075}
 		{43D55AED-D32F-41AA-9B67-D3EC8ECB7306} = {97449FE5-7A3E-42AF-BF57-F5CE9B4F3075}
 		{C77FD1F9-D08E-4428-85B8-D6998C750501} = {F9AEA789-C2F1-4EB8-91C2-914B365CD8F6}
+		{BC76EDD6-EAA4-440F-BF07-235BE1BF7F15} = {97449FE5-7A3E-42AF-BF57-F5CE9B4F3075}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BEC8D602-768F-4E83-8C66-022EE9BE6CED}

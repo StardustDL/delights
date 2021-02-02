@@ -44,10 +44,7 @@ namespace Delights.Modules.Bookkeeping.Server
             builder.AddModule<BookkeepingServerModule>();
             if (configureStartupOptions is not null)
             {
-                builder.ConfigureBuilderServices(services =>
-                {
-                    services.AddOptions<BookkeepingServerModuleStartupOption>().Configure(configureStartupOptions);
-                });
+                builder.ConfigureBuilderOptions(configureStartupOptions);
             }
 
             return builder;

@@ -17,17 +17,14 @@ namespace Delights.Modules.Hello
 {
     public static class ModuleExtensions
     {
-        public static IModuleHostBuilder AddHelloModule(this IModuleHostBuilder modules, Action<ModuleOption, IServiceProvider>? configureOptions = null)
+        public static IModuleHostBuilder AddHelloModule(this IModuleHostBuilder builder, Action<ModuleOption, IServiceProvider>? configureOptions = null)
         {
-            modules.AddModule<HelloModule>();
+            builder.AddModule<HelloModule>();
             if (configureOptions is not null)
             {
-                modules.ConfigureServices(services =>
-                {
-                    services.AddOptions<ModuleOption>().Configure(configureOptions);
-                });
+                builder.ConfigureOptions(configureOptions);
             }
-            return modules;
+            return builder;
         }
     }
 

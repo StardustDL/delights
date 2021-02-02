@@ -29,8 +29,9 @@ namespace Modulight.Modules
         /// Test a type is a module type.
         /// </summary>
         /// <param name="type"></param>
+        /// <param name="moduleType"></param>
         /// <returns></returns>
-        public static bool IsModule(this Type type) => type.IsModule<IModule>();
+        public static bool IsModule(this Type type, Type? moduleType = null) => type.IsAssignableTo(moduleType ?? typeof(IModule));
 
         /// <summary>
         /// Test a type is a specified module type.
@@ -38,7 +39,7 @@ namespace Modulight.Modules
         /// <typeparam name="T"></typeparam>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static bool IsModule<T>(this Type type) where T : IModule => type.IsAssignableTo(typeof(T));
+        public static bool IsModule<T>(this Type type) where T : IModule => type.IsModule(typeof(T));
 
         /// <summary>
         /// Ensure a type is a module type.

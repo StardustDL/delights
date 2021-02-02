@@ -87,6 +87,36 @@ namespace Modulight.Modules.Hosting
         /// <returns></returns>
         public static IModuleHostBuilder UsePlugin<T>(this IModuleHostBuilder builder) where T : IModuleHostBuilderPlugin => builder.UsePlugin(typeof(T));
 
+        /// <summary>
+        /// Configure builder options.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="builder"></param>
+        /// <param name="configureOptions"></param>
+        /// <returns></returns>
+        public static IModuleHostBuilder ConfigureBuilderOptions<T>(this IModuleHostBuilder builder, Action<T, IServiceProvider> configureOptions) where T : class
+        {
+            return builder.ConfigureBuilderServices(services =>
+            {
+                services.AddOptions<T>().Configure(configureOptions);
+            });
+        }
+
+        /// <summary>
+        /// Configure options for target services.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="builder"></param>
+        /// <param name="configureOptions"></param>
+        /// <returns></returns>
+        public static IModuleHostBuilder ConfigureOptions<T>(this IModuleHostBuilder builder, Action<T, IServiceProvider> configureOptions) where T : class
+        {
+            return builder.ConfigureServices(services =>
+            {
+                services.AddOptions<T>().Configure(configureOptions);
+            });
+        }
+
         internal static bool IsHostBuilderPlugin(this Type type) => type.IsAssignableTo(typeof(IModuleHostBuilderPlugin));
 
         internal static void EnsureHostBuilderPlugin(this Type type)

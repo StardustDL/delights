@@ -11,18 +11,11 @@ namespace StardustDL.AspNet.ItemMetadataServer
             builder.AddModule<ItemMetadataServerModule>();
             if (configureStartupOptions is not null)
             {
-                builder.ConfigureBuilderServices(services =>
-                {
-                    services.AddOptions<ItemMetadataServerModuleStartupOption>().Configure(configureStartupOptions);
-                });
+                builder.ConfigureBuilderOptions(configureStartupOptions);
             }
             return builder;
         }
 
-        public static IModuleHostBuilder AddItemMetadataServerGraphqlModule(this IModuleHostBuilder modules)
-        {
-            modules.AddModule<GraphQL.ItemMetadataServerGraphqlModule>();
-            return modules;
-        }
+        public static IModuleHostBuilder AddItemMetadataServerGraphqlModule(this IModuleHostBuilder builder) => builder.AddModule<GraphQL.ItemMetadataServerGraphqlModule>();
     }
 }

@@ -4,6 +4,6 @@ namespace Modulight.Modules.Test.Context
 {
     public record ModuleHostBuilderLog
     {
-        public Type[] ModuleProcessingOrder { get; init; }
+        public Type[] ModuleProcessingOrder { get; init; } = Array.Empty<Type>();
     }
 }

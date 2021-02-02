@@ -9,6 +9,7 @@ using Modulight.Modules.Client.RazorComponents.UI;
 using Modulight.Modules.Hosting;
 using StardustDL.RazorComponents.AntDesigns;
 using StardustDL.RazorComponents.MaterialDesignIcons;
+using System.Threading.Tasks;
 
 namespace Delights.UI
 {
@@ -25,6 +26,16 @@ namespace Delights.UI
         }
 
         public override RenderFragment? Icon => Components.Fragments.Icon;
+
+        public override async Task Initialize()
+        {
+            if(System.Environment.OSVersion.Platform is System.PlatformID.Other)
+            {
+                await Host.Services.GetRazorComponentClientModuleCollection().LoadResources();
+            }
+
+            await base.Initialize();
+        }
     }
 
     class Startup : ModuleStartup

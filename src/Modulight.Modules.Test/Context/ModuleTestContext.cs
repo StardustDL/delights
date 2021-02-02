@@ -99,21 +99,21 @@ namespace Modulight.Modules.Test.Context
             return services.BuildServiceProvider().GetModuleHost();
         }
 
-        public async Task UseHostAsync(Func<IModuleHost, Task> action = null)
+        public async Task UseHostAsync(Func<IModuleHost, Task>? action = null)
         {
             var host = Build();
             if (action is not null)
                 await action(host);
         }
 
-        public void UseHost(Action<IModuleHost> action = null)
+        public void UseHost(Action<IModuleHost>? action = null)
         {
             var host = Build();
             if (action is not null)
                 action(host);
         }
 
-        public async Task Run(Action<IModuleHost> action = null, Action<IModuleHost> afterAction = null)
+        public async Task Run(Action<IModuleHost>? action = null, Action<IModuleHost>? afterAction = null)
         {
             await UseHostAsync(async host =>
             {
@@ -127,7 +127,7 @@ namespace Modulight.Modules.Test.Context
             });
         }
 
-        public async Task RunAsync(Func<IModuleHost, Task> action = null, Action<IModuleHost> afterAction = null)
+        public async Task RunAsync(Func<IModuleHost, Task>? action = null, Action<IModuleHost>? afterAction = null)
         {
             await UseHostAsync(async host =>
             {

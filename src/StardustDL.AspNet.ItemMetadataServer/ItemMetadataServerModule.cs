@@ -10,6 +10,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
     [Module(Description = "Provide Item Metadata Server services.", Url = "https://github.com/StardustDL/delights", Author = "StardustDL")]
     [ModuleStartup(typeof(Startup))]
     [ModuleService(typeof(ModuleService))]
+    [ModuleService(typeof(ItemMetadataDomain<>), ServiceType = typeof(IItemMetadataDomain<>))]
     public class ItemMetadataServerModule : Module<ItemMetadataServerModule>
     {
         public ItemMetadataServerModule(IModuleHost host) : base(host)
@@ -26,7 +27,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
         }
     }
 
-    public class Startup : ModuleStartup
+    class Startup : ModuleStartup
     {
         public Startup(IOptions<ItemMetadataServerModuleStartupOption> options) => Options = options.Value;
 
@@ -34,8 +35,6 @@ namespace StardustDL.AspNet.ItemMetadataServer
 
         public override void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped(typeof(IItemMetadataDomain<>), typeof(ItemMetadataDomain<>));
-
             services.AddDbContext<Data.DataDbContext>(o =>
             {
                 if (Options.ConfigureDbContext is not null)

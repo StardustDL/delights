@@ -44,10 +44,7 @@ namespace Delights.Modules.Notes.Server
             builder.AddModule<NotesServerModule>();
             if (configureStartupOptions is not null)
             {
-                builder.ConfigureBuilderServices(services =>
-                {
-                    services.AddOptions<NotesServerModuleStartupOption>().Configure(configureStartupOptions);
-                });
+                builder.ConfigureBuilderOptions(configureStartupOptions);
             }
 
             return builder;

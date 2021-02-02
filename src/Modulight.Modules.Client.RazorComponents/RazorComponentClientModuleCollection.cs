@@ -40,7 +40,21 @@ namespace Modulight.Modules.Client.RazorComponents
         /// Load all <see cref="UIResource"/> defined in modules into DOM.
         /// </summary>
         /// <returns></returns>
-        Task LoadResources();
+        Task LoadResources(Type? moduleType = null);
+    }
+
+    /// <summary>
+    /// Extension methods for <see cref="IRazorComponentClientModuleCollection"/>.
+    /// </summary>
+    public static class RazorComponentClientModuleCollectionExtensions
+    {
+        /// <summary>
+        /// Load all <see cref="UIResource"/> defined in modules into DOM.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="collection"></param>
+        /// <returns></returns>
+        public static Task LoadResources<T>(this IRazorComponentClientModuleCollection collection) where T : IModule => collection.LoadResources(typeof(T));
     }
 
     internal class RazorComponentClientModuleCollection : ModuleHostFilter<IRazorComponentClientModule>, IRazorComponentClientModuleCollection
@@ -52,12 +66,19 @@ namespace Modulight.Modules.Client.RazorComponents
 
         public ILogger<RazorComponentClientModuleCollection> Logger { get; }
 
-        public async Task LoadResources()
+        public async Task LoadResources(Type? moduleType = null)
         {
             using var scope = Host.Services.CreateScope();
             var provider = scope.ServiceProvider;
             var ui = provider.GetRequiredService<ModuleUILoader>();
-            foreach (var module in LoadedModules)
+
+            var targetModules = LoadedModules;
+            if (moduleType is not null)
+            {
+                targetModules = targetModules.Where(x => x.GetType().IsModule(moduleType));
+            }
+
+            foreach (var module in targetModules)
             {
                 foreach (var resource in module.Resources)
                 {

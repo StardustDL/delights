@@ -74,10 +74,7 @@ namespace Test.Modulights
             var context = new ModuleTestContext<OptionTestModule>()
                 .CheckStartup<OptionTestModule, OptionStartup>();
             context.ConfigureBuilder(builder =>
-                builder.ConfigureBuilderServices(services =>
-                {
-                    services.AddOptions<StartupOption>().Configure(o => o.Content = OptionContent);
-                }));
+                builder.ConfigureBuilderOptions<StartupOption>((o, _) => o.Content = OptionContent));
             await context.Run(host =>
             {
                 var option = host.Services.GetService<IOptions<StartupOption>>().Value;
