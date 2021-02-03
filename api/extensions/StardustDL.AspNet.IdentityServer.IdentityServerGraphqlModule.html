@@ -89,9 +89,8 @@
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><a class="xref" href="../modulight/Modulight.Modules.Module.html">Module</a></div>
-    <div class="level2"><a class="xref" href="../modulight/Modulight.Modules.Module-1.html">Module</a>&lt;<a class="xref" href="StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.html">IdentityServerGraphqlModule</a>&gt;</div>
-    <div class="level3"><a class="xref" href="../modulight/Modulight.Modules.Server.GraphQL.GraphQLServerModule-1.html">GraphQLServerModule</a>&lt;<a class="xref" href="StardustDL.AspNet.IdentityServer.IdentityServerGraphqlModule.html">IdentityServerGraphqlModule</a>&gt;</div>
-    <div class="level4"><span class="xref">IdentityServerGraphqlModule</span></div>
+    <div class="level2"><a class="xref" href="../modulight/Modulight.Modules.Server.GraphQL.GraphQLServerModule.html">GraphQLServerModule</a></div>
+    <div class="level3"><span class="xref">IdentityServerGraphqlModule</span></div>
   </div>
   <div classs="implements">
     <h5>Implements</h5>
@@ -101,10 +100,7 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="../modulight/Modulight.Modules.Server.GraphQL.GraphQLServerModule-1.html#Modulight_Modules_Server_GraphQL_GraphQLServerModule_1_MapEndpoint_Microsoft_AspNetCore_Routing_IEndpointRouteBuilder_">GraphQLServerModule&lt;IdentityServerGraphqlModule&gt;.MapEndpoint(IEndpointRouteBuilder)</a>
-    </div>
-    <div>
-      <a class="xref" href="../modulight/Modulight.Modules.Module-1.html#Modulight_Modules_Module_1_Logger">Module&lt;IdentityServerGraphqlModule&gt;.Logger</a>
+      <a class="xref" href="../modulight/Modulight.Modules.Server.GraphQL.GraphQLServerModule.html#Modulight_Modules_Server_GraphQL_GraphQLServerModule_MapEndpoint_Microsoft_AspNetCore_Routing_IEndpointRouteBuilder_">GraphQLServerModule.MapEndpoint(IEndpointRouteBuilder)</a>
     </div>
     <div>
       <a class="xref" href="../modulight/Modulight.Modules.Module.html#Modulight_Modules_Module_Host">Module.Host</a>
@@ -156,7 +152,7 @@
     <pre><code class="lang-csharp hljs">[Module(Description = null, Url = null, Author = null)]
 [ModuleDependency(typeof(IdentityServerModule))]
 [GraphQLModuleType(&quot;IdentityServer&quot;, typeof(ModuleQuery))]
-public class IdentityServerGraphqlModule : GraphQLServerModule&lt;IdentityServerGraphqlModule&gt;, IGraphQLServerModule, IModule</code></pre>
+public class IdentityServerGraphqlModule : GraphQLServerModule, IGraphQLServerModule, IModule</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>

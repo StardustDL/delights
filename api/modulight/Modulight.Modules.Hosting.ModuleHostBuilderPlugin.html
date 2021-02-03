@@ -128,13 +128,13 @@
   <h3 id="methods">Methods
   </h3>
   <a id="Modulight_Modules_Hosting_ModuleHostBuilderPlugin_AfterBuild_" data-uid="Modulight.Modules.Hosting.ModuleHostBuilderPlugin.AfterBuild*"></a>
-  <h4 id="Modulight_Modules_Hosting_ModuleHostBuilderPlugin_AfterBuild_System_ValueTuple_System_Type_ModuleManifest____Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="Modulight.Modules.Hosting.ModuleHostBuilderPlugin.AfterBuild(System.ValueTuple{System.Type,ModuleManifest}[],Microsoft.Extensions.DependencyInjection.IServiceCollection)">AfterBuild((Type, ModuleManifest)[], IServiceCollection)</h4>
+  <h4 id="Modulight_Modules_Hosting_ModuleHostBuilderPlugin_AfterBuild_ModuleDefinition___Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="Modulight.Modules.Hosting.ModuleHostBuilderPlugin.AfterBuild(ModuleDefinition[],Microsoft.Extensions.DependencyInjection.IServiceCollection)">AfterBuild(ModuleDefinition[], IServiceCollection)</h4>
   <div class="markdown level1 summary"><p>Do after the host builded.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void AfterBuild((Type, ModuleManifest)[] modules, IServiceCollection services)</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual void AfterBuild(ModuleDefinition[] modules, IServiceCollection services)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -147,7 +147,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.Type</span>, <span class="xref">ModuleManifest</span>&gt;[]</td>
+        <td><span class="xref">ModuleDefinition</span>[]</td>
         <td><span class="parametername">modules</span></td>
         <td></td>
       </tr>
@@ -159,13 +159,13 @@
     </tbody>
   </table>
   <a id="Modulight_Modules_Hosting_ModuleHostBuilderPlugin_AfterModule_" data-uid="Modulight.Modules.Hosting.ModuleHostBuilderPlugin.AfterModule*"></a>
-  <h4 id="Modulight_Modules_Hosting_ModuleHostBuilderPlugin_AfterModule_System_Type_ModuleManifest_Modulight_Modules_IModuleStartup_Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="Modulight.Modules.Hosting.ModuleHostBuilderPlugin.AfterModule(System.Type,ModuleManifest,Modulight.Modules.IModuleStartup,Microsoft.Extensions.DependencyInjection.IServiceCollection)">AfterModule(Type, ModuleManifest, IModuleStartup, IServiceCollection)</h4>
+  <h4 id="Modulight_Modules_Hosting_ModuleHostBuilderPlugin_AfterModule_ModuleDefinition_Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="Modulight.Modules.Hosting.ModuleHostBuilderPlugin.AfterModule(ModuleDefinition,Microsoft.Extensions.DependencyInjection.IServiceCollection)">AfterModule(ModuleDefinition, IServiceCollection)</h4>
   <div class="markdown level1 summary"><p>Do after the module registered.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void AfterModule(Type module, ModuleManifest manifest, IModuleStartup startup, IServiceCollection services)</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual void AfterModule(ModuleDefinition module, IServiceCollection services)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -178,18 +178,8 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Type</span></td>
+        <td><span class="xref">ModuleDefinition</span></td>
         <td><span class="parametername">module</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">ModuleManifest</span></td>
-        <td><span class="parametername">manifest</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="Modulight.Modules.IModuleStartup.html">IModuleStartup</a></td>
-        <td><span class="parametername">startup</span></td>
         <td></td>
       </tr>
       <tr>
@@ -200,13 +190,13 @@
     </tbody>
   </table>
   <a id="Modulight_Modules_Hosting_ModuleHostBuilderPlugin_BeforeBuild_" data-uid="Modulight.Modules.Hosting.ModuleHostBuilderPlugin.BeforeBuild*"></a>
-  <h4 id="Modulight_Modules_Hosting_ModuleHostBuilderPlugin_BeforeBuild_Modulight_Modules_Hosting_IModuleHostBuilder_Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="Modulight.Modules.Hosting.ModuleHostBuilderPlugin.BeforeBuild(Modulight.Modules.Hosting.IModuleHostBuilder,Microsoft.Extensions.DependencyInjection.IServiceCollection)">BeforeBuild(IModuleHostBuilder, IServiceCollection)</h4>
+  <h4 id="Modulight_Modules_Hosting_ModuleHostBuilderPlugin_BeforeBuild_System_Collections_Generic_IList_System_Type__Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="Modulight.Modules.Hosting.ModuleHostBuilderPlugin.BeforeBuild(System.Collections.Generic.IList{System.Type},Microsoft.Extensions.DependencyInjection.IServiceCollection)">BeforeBuild(IList&lt;Type&gt;, IServiceCollection)</h4>
   <div class="markdown level1 summary"><p>Do before the host is building.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void BeforeBuild(IModuleHostBuilder builder, IServiceCollection services)</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual void BeforeBuild(IList&lt;Type&gt; modules, IServiceCollection services)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -219,8 +209,8 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="Modulight.Modules.Hosting.IModuleHostBuilder.html">IModuleHostBuilder</a></td>
-        <td><span class="parametername">builder</span></td>
+        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<span class="xref">System.Type</span>&gt;</td>
+        <td><span class="parametername">modules</span></td>
         <td></td>
       </tr>
       <tr>
@@ -231,13 +221,13 @@
     </tbody>
   </table>
   <a id="Modulight_Modules_Hosting_ModuleHostBuilderPlugin_BeforeModule_" data-uid="Modulight.Modules.Hosting.ModuleHostBuilderPlugin.BeforeModule*"></a>
-  <h4 id="Modulight_Modules_Hosting_ModuleHostBuilderPlugin_BeforeModule_System_Type_ModuleManifest_Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="Modulight.Modules.Hosting.ModuleHostBuilderPlugin.BeforeModule(System.Type,ModuleManifest,Microsoft.Extensions.DependencyInjection.IServiceCollection)">BeforeModule(Type, ModuleManifest, IServiceCollection)</h4>
+  <h4 id="Modulight_Modules_Hosting_ModuleHostBuilderPlugin_BeforeModule_ModuleDefinition_Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="Modulight.Modules.Hosting.ModuleHostBuilderPlugin.BeforeModule(ModuleDefinition,Microsoft.Extensions.DependencyInjection.IServiceCollection)">BeforeModule(ModuleDefinition, IServiceCollection)</h4>
   <div class="markdown level1 summary"><p>Do before the module is registering.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual void BeforeModule(Type module, ModuleManifest manifest, IServiceCollection services)</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual void BeforeModule(ModuleDefinition module, IServiceCollection services)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -250,13 +240,8 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Type</span></td>
+        <td><span class="xref">ModuleDefinition</span></td>
         <td><span class="parametername">module</span></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><span class="xref">ModuleManifest</span></td>
-        <td><span class="parametername">manifest</span></td>
         <td></td>
       </tr>
       <tr>

@@ -89,9 +89,8 @@
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><a class="xref" href="../modulight/Modulight.Modules.Module.html">Module</a></div>
-    <div class="level2"><a class="xref" href="../modulight/Modulight.Modules.Module-1.html">Module</a>&lt;<a class="xref" href="Delights.UI.UiModule.html">UiModule</a>&gt;</div>
-    <div class="level3"><a class="xref" href="../modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-1.html">RazorComponentClientModule</a>&lt;<a class="xref" href="Delights.UI.UiModule.html">UiModule</a>&gt;</div>
-    <div class="level4"><span class="xref">UiModule</span></div>
+    <div class="level2"><a class="xref" href="../modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule.html">RazorComponentClientModule</a></div>
+    <div class="level3"><span class="xref">UiModule</span></div>
   </div>
   <div classs="implements">
     <h5>Implements</h5>
@@ -101,16 +100,13 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="../modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-1.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModule_1_RootPath">RazorComponentClientModule&lt;UiModule&gt;.RootPath</a>
+      <a class="xref" href="../modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModule_RootPath">RazorComponentClientModule.RootPath</a>
     </div>
     <div>
-      <a class="xref" href="../modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-1.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModule_1_Contains_System_String_">RazorComponentClientModule&lt;UiModule&gt;.Contains(String)</a>
+      <a class="xref" href="../modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModule_Contains_System_String_">RazorComponentClientModule.Contains(String)</a>
     </div>
     <div>
-      <a class="xref" href="../modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule-1.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModule_1_Resources">RazorComponentClientModule&lt;UiModule&gt;.Resources</a>
-    </div>
-    <div>
-      <a class="xref" href="../modulight/Modulight.Modules.Module-1.html#Modulight_Modules_Module_1_Logger">Module&lt;UiModule&gt;.Logger</a>
+      <a class="xref" href="../modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModule_Resources">RazorComponentClientModule.Resources</a>
     </div>
     <div>
       <a class="xref" href="../modulight/Modulight.Modules.Module.html#Modulight_Modules_Module_Host">Module.Host</a>
@@ -126,9 +122,6 @@
     </div>
     <div>
       <a class="xref" href="../modulight/Modulight.Modules.Module.html#Modulight_Modules_Module_GetOption__1_System_IServiceProvider_">Module.GetOption&lt;T&gt;(IServiceProvider)</a>
-    </div>
-    <div>
-      <a class="xref" href="../modulight/Modulight.Modules.Module.html#Modulight_Modules_Module_Initialize">Module.Initialize()</a>
     </div>
     <div>
       <a class="xref" href="../modulight/Modulight.Modules.Module.html#Modulight_Modules_Module_Shutdown">Module.Shutdown()</a>
@@ -165,7 +158,7 @@
 [ModuleUIResource(UIResourceType.Script, &quot;https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.slim.min.js&quot;)]
 [ModuleStartup(typeof(Startup))]
 [ModuleDependency(typeof(ClientModule))]
-public class UiModule : RazorComponentClientModule&lt;UiModule&gt;, IRazorComponentClientModule, IModule</code></pre>
+public class UiModule : RazorComponentClientModule, IRazorComponentClientModule, IModule</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -220,7 +213,34 @@ public class UiModule : RazorComponentClientModule&lt;UiModule&gt;, IRazorCompon
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><span class="xref">Modulight.Modules.Client.RazorComponents.RazorComponentClientModule&lt;Delights.UI.UiModule&gt;.Icon</span></div>
+  <div><a class="xref" href="../modulight/Modulight.Modules.Client.RazorComponents.RazorComponentClientModule.html#Modulight_Modules_Client_RazorComponents_RazorComponentClientModule_Icon">RazorComponentClientModule.Icon</a></div>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Delights_UI_UiModule_Initialize_" data-uid="Delights.UI.UiModule.Initialize*"></a>
+  <h4 id="Delights_UI_UiModule_Initialize" data-uid="Delights.UI.UiModule.Initialize">Initialize()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task Initialize()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="../modulight/Modulight.Modules.Module.html#Modulight_Modules_Module_Initialize">Module.Initialize()</a></div>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="../modulight/Modulight.Modules.Client.RazorComponents.IRazorComponentClientModule.html">IRazorComponentClientModule</a>

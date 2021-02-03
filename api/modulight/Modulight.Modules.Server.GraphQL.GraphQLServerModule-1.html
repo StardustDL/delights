@@ -90,7 +90,7 @@
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><a class="xref" href="Modulight.Modules.Module.html">Module</a></div>
-    <div class="level2"><a class="xref" href="Modulight.Modules.Module-1.html">Module</a>&lt;TModule&gt;</div>
+    <div class="level2"><a class="xref" href="Modulight.Modules.Server.GraphQL.GraphQLServerModule.html">GraphQLServerModule</a></div>
     <div class="level3"><span class="xref">GraphQLServerModule&lt;TModule&gt;</span></div>
   </div>
   <div classs="implements">
@@ -101,7 +101,7 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
-      <a class="xref" href="Modulight.Modules.Module-1.html#Modulight_Modules_Module_1_Logger">Module&lt;TModule&gt;.Logger</a>
+      <a class="xref" href="Modulight.Modules.Server.GraphQL.GraphQLServerModule.html#Modulight_Modules_Server_GraphQL_GraphQLServerModule_MapEndpoint_Microsoft_AspNetCore_Routing_IEndpointRouteBuilder_">GraphQLServerModule.MapEndpoint(IEndpointRouteBuilder)</a>
     </div>
     <div>
       <a class="xref" href="Modulight.Modules.Module.html#Modulight_Modules_Module_Host">Module.Host</a>
@@ -150,7 +150,8 @@
   <h6><strong>Assembly</strong>: Modulight.Modules.Server.GraphQL.dll</h6>
   <h5 id="Modulight_Modules_Server_GraphQL_GraphQLServerModule_1_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class GraphQLServerModule&lt;TModule&gt; : Module&lt;TModule&gt;, IGraphQLServerModule, IModule</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete]
+public abstract class GraphQLServerModule&lt;TModule&gt; : GraphQLServerModule, IGraphQLServerModule, IModule</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -191,50 +192,6 @@
       <tr>
         <td><a class="xref" href="Modulight.Modules.Hosting.IModuleHost.html">IModuleHost</a></td>
         <td><span class="parametername">host</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h3 id="methods">Methods
-  </h3>
-  <a id="Modulight_Modules_Server_GraphQL_GraphQLServerModule_1_MapEndpoint_" data-uid="Modulight.Modules.Server.GraphQL.GraphQLServerModule`1.MapEndpoint*"></a>
-  <h4 id="Modulight_Modules_Server_GraphQL_GraphQLServerModule_1_MapEndpoint_Microsoft_AspNetCore_Routing_IEndpointRouteBuilder_" data-uid="Modulight.Modules.Server.GraphQL.GraphQLServerModule`1.MapEndpoint(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder)">MapEndpoint(IEndpointRouteBuilder)</h4>
-  <div class="markdown level1 summary"><p>Map graphql endpoints.
-Used in <span class="xref">Microsoft.AspNetCore.Builder.EndpointRoutingApplicationBuilderExtensions.UseEndpoints(Microsoft.AspNetCore.Builder.IApplicationBuilder,System.Action{Microsoft.AspNetCore.Routing.IEndpointRouteBuilder})</span>.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public virtual GraphQLEndpointConventionBuilder MapEndpoint(IEndpointRouteBuilder builder)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Microsoft.AspNetCore.Routing.IEndpointRouteBuilder</span></td>
-        <td><span class="parametername">builder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">HotChocolate.AspNetCore.Extensions.GraphQLEndpointConventionBuilder</span></td>
         <td></td>
       </tr>
     </tbody>

@@ -83,7 +83,7 @@
   
   <h1 id="Modulight_Modules_IModuleStartup" data-uid="Modulight.Modules.IModuleStartup" class="text-break">Interface IModuleStartup
   </h1>
-  <div class="markdown level0 summary"><p>Startup for module.</p>
+  <div class="markdown level0 summary"><p>Startup for module (needs to be no-state, no disposable).</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Modulight.Modules.html">Modulight.Modules</a></h6>
@@ -94,6 +94,32 @@
   </div>
   <h3 id="methods">Methods
   </h3>
+  <a id="Modulight_Modules_IModuleStartup_ConfigureManifest_" data-uid="Modulight.Modules.IModuleStartup.ConfigureManifest*"></a>
+  <h4 id="Modulight_Modules_IModuleStartup_ConfigureManifest_Modulight_Modules_IModuleManifestBuilder_" data-uid="Modulight.Modules.IModuleStartup.ConfigureManifest(Modulight.Modules.IModuleManifestBuilder)">ConfigureManifest(IModuleManifestBuilder)</h4>
+  <div class="markdown level1 summary"><p>Configure the module manifest.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void ConfigureManifest(IModuleManifestBuilder builder)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Modulight.Modules.IModuleManifestBuilder.html">IModuleManifestBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <a id="Modulight_Modules_IModuleStartup_ConfigureServices_" data-uid="Modulight.Modules.IModuleStartup.ConfigureServices*"></a>
   <h4 id="Modulight_Modules_IModuleStartup_ConfigureServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_" data-uid="Modulight.Modules.IModuleStartup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">ConfigureServices(IServiceCollection)</h4>
   <div class="markdown level1 summary"><p>Configure the target services.</p>
