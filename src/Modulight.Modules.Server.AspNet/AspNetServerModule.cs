@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.DependencyInjection;
 using Modulight.Modules.Hosting;
 using System;
 
@@ -28,7 +29,8 @@ namespace Modulight.Modules.Server.AspNet
     /// <summary>
     /// Basic implement for <see cref="IAspNetServerModule"/>
     /// </summary>
-    public abstract class AspNetServerModule<TModule> : Module<TModule>, IAspNetServerModule
+    [ModuleDependency(typeof(AspnetServerCoreModule))]
+    public abstract class AspNetServerModule : Module, IAspNetServerModule
     {
         /// <summary>
         /// Create the instance.
@@ -43,5 +45,27 @@ namespace Modulight.Modules.Server.AspNet
 
         /// <inheritdoc/>
         public virtual void UseMiddleware(IApplicationBuilder builder) { }
+    }
+
+    [Module(Author = "StardustDL", Description = "Provide services for aspnet server modules.", Url = "https://github.com/StardustDL/delights")]
+    [ModuleService(typeof(AspNetServerModuleCollection), ServiceType = typeof(IAspNetServerModuleCollection), Lifetime = ServiceLifetime.Singleton)]
+    class AspnetServerCoreModule : Module
+    {
+        public AspnetServerCoreModule(IModuleHost host, IAspNetServerModuleCollection collection) : base(host)
+        {
+            Collection = collection;
+        }
+
+        public IAspNetServerModuleCollection Collection { get; }
+    }
+
+    /// <inheritdoc/>
+    [Obsolete]
+    public abstract class AspNetServerModule<TModule> : AspNetServerModule
+    {
+        /// <inheritdoc/>
+        protected AspNetServerModule(IModuleHost host) : base(host)
+        {
+        }
     }
 }

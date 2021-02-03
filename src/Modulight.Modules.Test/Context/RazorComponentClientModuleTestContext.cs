@@ -6,7 +6,6 @@ namespace Modulight.Modules.Test.Context
     {
         public RazorComponentClientModuleTestContext() : base()
         {
-            ConfigureBuilder(builder => builder.UseRazorComponentClientModules());
         }
     }
 

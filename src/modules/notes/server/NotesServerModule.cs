@@ -21,7 +21,7 @@ namespace Delights.Modules.Notes.Server
     [ModuleStartup(typeof(Startup))]
     [ModuleDependency(typeof(ItemMetadataServerModule))]
     [GraphQLModuleType("Notes", typeof(ModuleQuery), MutationType = typeof(ModuleMutation))]
-    public class NotesServerModule : GraphQLServerModule<NotesServerModule>
+    public class NotesServerModule : GraphQLServerModule
     {
         public NotesServerModule(IModuleHost host) : base(host)
         {

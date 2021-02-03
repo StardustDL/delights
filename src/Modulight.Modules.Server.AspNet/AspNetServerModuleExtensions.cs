@@ -17,7 +17,8 @@ namespace Modulight.Modules.Server.AspNet
         /// </summary>
         /// <param name="modules"></param>
         /// <returns></returns>
-        public static IModuleHostBuilder UseAspNetServerModules(this IModuleHostBuilder modules) => modules.UsePlugin<AspNetServerModulePlugin>();
+        [Obsolete("No need to use this method. The plugin has been removed.")]
+        public static IModuleHostBuilder UseAspNetServerModules(this IModuleHostBuilder modules) => modules;
 
         /// <summary>
         /// Get aspnet module host from service provider.

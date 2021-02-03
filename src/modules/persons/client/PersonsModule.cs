@@ -24,7 +24,7 @@ namespace Delights.Modules.Persons
     [ModuleStartup(typeof(Startup))]
     [ModuleDependency(typeof(ClientModule))]
     [ModuleUIRootPath("persons")]
-    public class PersonsModule : RazorComponentClientModule<PersonsModule>
+    public class PersonsModule : RazorComponentClientModule
     {
         public PersonsModule(IModuleHost host) : base(host)
         {

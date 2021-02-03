@@ -71,15 +71,16 @@ namespace Modulight.Modules.Hosting
             return this;
         }
 
-        protected virtual void BeforeBuild(IServiceCollection services, IReadOnlyList<IModuleHostBuilderPlugin> plugins)
+        protected virtual void BeforeBuild(IList<Type> modules, IServiceCollection services, IReadOnlyList<IModuleHostBuilderPlugin> plugins)
         {
             foreach (var plugin in plugins)
             {
-                plugin.BeforeBuild(this, services);
+                plugin.BeforeBuild(modules, services);
             }
+            services.AddLogging().AddOptions();
         }
 
-        protected virtual void AfterBuild(IServiceCollection services, (Type, ModuleManifest)[] modules, IReadOnlyList<IModuleHostBuilderPlugin> plugins)
+        protected virtual void AfterBuild(IServiceCollection services, ModuleDefinition[] modules, IReadOnlyList<IModuleHostBuilderPlugin> plugins)
         {
             foreach (var plugin in plugins)
             {
@@ -87,19 +88,19 @@ namespace Modulight.Modules.Hosting
             }
         }
 
-        protected virtual void BeforeModule(IServiceCollection services, Type module, ModuleManifest manifest, IModuleStartup? startup, IReadOnlyList<IModuleHostBuilderPlugin> plugins)
+        protected virtual void BeforeModule(IServiceCollection services, ModuleDefinition module, IReadOnlyList<IModuleHostBuilderPlugin> plugins)
         {
             foreach (var plugin in plugins)
             {
-                plugin.BeforeModule(module, manifest, startup, services);
+                plugin.BeforeModule(module, services);
             }
         }
 
-        protected virtual void AfterModule(IServiceCollection services, Type module, ModuleManifest manifest, IModuleStartup? startup, IReadOnlyList<IModuleHostBuilderPlugin> plugins)
+        protected virtual void AfterModule(IServiceCollection services, ModuleDefinition module, IReadOnlyList<IModuleHostBuilderPlugin> plugins)
         {
             foreach (var plugin in plugins)
             {
-                plugin.AfterModule(module, manifest, startup, services);
+                plugin.AfterModule(module, services);
             }
         }
 
@@ -117,7 +118,7 @@ namespace Modulight.Modules.Hosting
                 return null;
             }
 
-            static (ModuleManifest Manifest, IModuleStartup? Startup) ResolveModule(Type type, IServiceProvider serviceProvider)
+            static ModuleDefinition ResolveModule(Type type, IServiceProvider serviceProvider)
             {
                 var manifestBuilder = serviceProvider.GetRequiredService<IModuleManifestBuilder>();
                 manifestBuilder.WithDefaultsFromModuleType(type);
@@ -129,12 +130,12 @@ namespace Modulight.Modules.Hosting
 
                     startup.ConfigureManifest(manifestBuilder);
                 }
-                return (manifestBuilder.Build(), startup);
+                return new ModuleDefinition(type, manifestBuilder.Build(), startup);
             }
 
-            static List<(Type Module, ModuleManifest Manifest, IModuleStartup? Startup)> ResolveModuleDependency(IEnumerable<Type> initialModules, IServiceProvider serviceProvider)
+            static List<ModuleDefinition> ResolveModuleDependency(IEnumerable<Type> initialModules, IServiceProvider serviceProvider)
             {
-                var result = new List<(Type Module, ModuleManifest Manifest, IModuleStartup? Startup)>();
+                var result = new List<ModuleDefinition>();
 
                 Dictionary<Type, IModuleStartup?> startups = new Dictionary<Type, IModuleStartup?>();
                 Dictionary<Type, ModuleManifest> manifests = new Dictionary<Type, ModuleManifest>();
@@ -177,7 +178,7 @@ namespace Modulight.Modules.Hosting
                 {
                     var cur = queue.Dequeue();
                     var manifest = manifests[cur];
-                    result.Add((cur, manifest, startups[cur]));
+                    result.Add(new ModuleDefinition(cur, manifest, startups[cur]));
 
                     foreach (var dep in manifest.Dependencies)
                     {
@@ -207,10 +208,7 @@ namespace Modulight.Modules.Hosting
             using var builderService = builderServices.BuildServiceProvider();
             var logger = builderService.GetRequiredService<ILogger<DefaultModuleHostBuilder>>();
 
-            var modules = ResolveModuleDependency(Modules, builderService);
             var plugins = new List<IModuleHostBuilderPlugin>();
-
-            Dictionary<Type, Type> moduleStartups = new Dictionary<Type, Type>();
 
             PluginDescriptors.ForEach(type =>
             {
@@ -223,12 +221,17 @@ namespace Modulight.Modules.Hosting
                 configure(services);
             }
 
-            BeforeBuild(services, plugins);
+            IList<Type> initialModules = new List<Type>(Modules.ToArray());
 
-            services.AddLogging().AddOptions();
+            BeforeBuild(initialModules, services, plugins);
 
-            foreach (var (type, manifest, startup) in modules)
+            var modules = ResolveModuleDependency(initialModules, builderService);
+            Dictionary<Type, Type> moduleStartups = new Dictionary<Type, Type>();
+
+            foreach (var definition in modules)
             {
+                var (type, manifest, startup) = definition;
+
                 logger.LogInformation($"Processing module {type.FullName}.");
 
                 if (startup is not null)
@@ -236,7 +239,7 @@ namespace Modulight.Modules.Hosting
                     startup.ConfigureServices(services);
                 }
 
-                BeforeModule(services, type, manifest, startup, plugins);
+                BeforeModule(services, definition, plugins);
 
                 services.AddSingleton(type);
                 foreach (var service in manifest.Services)
@@ -254,16 +257,15 @@ namespace Modulight.Modules.Hosting
                 }
 
 
-                AfterModule(services, type, manifest, startup, plugins);
+                AfterModule(services, definition, plugins);
 
                 logger.LogInformation($"Processed module {type.FullName}.");
             }
 
-            var definedModules = modules.Select(x => (x.Item1, x.Item2)).ToArray();
+            AfterBuild(services, modules.ToArray(), plugins);
 
-            services.AddSingleton<IModuleHost>(sp => new DefaultModuleHost(sp, definedModules));
-
-            AfterBuild(services, definedModules, plugins);
+            var definedModules = modules.Select(x => (x.Type, x.Manifest)).ToArray();
+            services.TryAddSingleton<IModuleHost>(sp => new DefaultModuleHost(sp, definedModules));
         }
 
         public IModuleHostBuilder ConfigureBuilderServices(Action<IServiceCollection> configureBuilderServices)

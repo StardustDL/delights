@@ -6,7 +6,6 @@ namespace Modulight.Modules.Test.Context
     {
         public AspNetServerModuleTestContext() : base()
         {
-            ConfigureBuilder(builder => builder.UseAspNetServerModules());
         }
     }
 

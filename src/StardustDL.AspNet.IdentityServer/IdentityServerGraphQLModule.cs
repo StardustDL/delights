@@ -10,7 +10,7 @@ namespace StardustDL.AspNet.IdentityServer
     [Module(Description = "Provide GraphQL endpoints for identity server.", Url = "https://github.com/StardustDL/delights", Author = "StardustDL")]
     [ModuleDependency(typeof(IdentityServerModule))]
     [GraphQLModuleType("IdentityServer", typeof(ModuleQuery))]
-    public class IdentityServerGraphqlModule : GraphQLServerModule<IdentityServerGraphqlModule>
+    public class IdentityServerGraphqlModule : GraphQLServerModule
     {
         public IdentityServerGraphqlModule(IModuleHost host) : base(host)
         {

@@ -39,7 +39,7 @@ namespace Delights.Api
 
             services.AddCors();
 
-            var builder = ModuleHostBuilder.CreateDefaultBuilder().UseAspNetServerModules().UseGraphQLServerModules();
+            var builder = ModuleHostBuilder.CreateDefaultBuilder().UseGraphQLServerModules();
 
             /*builder.AddIdentityServerModule((o, sp) =>
             {
@@ -115,11 +115,11 @@ namespace Delights.Api
 
             app.UseCors();
 
-            app.UseAspNetServerModuleMiddlewares();
+            // app.UseAspNetServerModuleMiddlewares();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapAspNetServerModuleEndpoints();
+                // endpoints.MapAspNetServerModuleEndpoints();
                 endpoints.MapGraphQLServerModuleEndpoints(postMapEndpoint: (module, builder) =>
                 {
                     builder.RequireCors(cors =>

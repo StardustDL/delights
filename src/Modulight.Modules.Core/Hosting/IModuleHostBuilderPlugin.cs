@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System;
+using System.Collections.Generic;
 
 namespace Modulight.Modules.Hosting
 {
@@ -13,32 +14,28 @@ namespace Modulight.Modules.Hosting
         /// </summary>
         /// <param name="modules"></param>
         /// <param name="services"></param>
-        void AfterBuild((Type, ModuleManifest)[] modules, IServiceCollection services);
+        void AfterBuild(ModuleDefinition[] modules, IServiceCollection services);
 
         /// <summary>
         /// Do after the module registered.
         /// </summary>
         /// <param name="module"></param>
-        /// <param name="manifest"></param>
-        /// <param name="startup"></param>
         /// <param name="services"></param>
-        void AfterModule(Type module, ModuleManifest manifest, IModuleStartup? startup, IServiceCollection services);
+        void AfterModule(ModuleDefinition module, IServiceCollection services);
 
         /// <summary>
         /// Do before the host is building.
         /// </summary>
-        /// <param name="builder"></param>
+        /// <param name="modules"></param>
         /// <param name="services"></param>
-        void BeforeBuild(IModuleHostBuilder builder, IServiceCollection services);
+        void BeforeBuild(IList<Type> modules, IServiceCollection services);
 
         /// <summary>
         /// Do before the module is registering.
         /// </summary>
         /// <param name="module"></param>
-        /// <param name="manifest"></param>
-        /// <param name="startup"></param>
         /// <param name="services"></param>
-        void BeforeModule(Type module, ModuleManifest manifest, IModuleStartup? startup, IServiceCollection services);
+        void BeforeModule(ModuleDefinition module, IServiceCollection services);
     }
 
     /// <summary>
@@ -47,15 +44,15 @@ namespace Modulight.Modules.Hosting
     public abstract class ModuleHostBuilderPlugin : IModuleHostBuilderPlugin
     {
         /// <inheritdoc/>
-        public virtual void BeforeBuild(IModuleHostBuilder builder, IServiceCollection services) { }
+        public virtual void BeforeBuild(IList<Type> modules, IServiceCollection services) { }
 
         /// <inheritdoc/>
-        public virtual void AfterBuild((Type, ModuleManifest)[] modules, IServiceCollection services) { }
+        public virtual void AfterBuild(ModuleDefinition[] modules, IServiceCollection services) { }
 
         /// <inheritdoc/>
-        public virtual void BeforeModule(Type module, ModuleManifest manifest, IModuleStartup? startup, IServiceCollection services) { }
+        public virtual void BeforeModule(ModuleDefinition module, IServiceCollection services) { }
 
         /// <inheritdoc/>
-        public virtual void AfterModule(Type module, ModuleManifest manifest, IModuleStartup? startup, IServiceCollection services) { }
+        public virtual void AfterModule(ModuleDefinition module, IServiceCollection services) { }
     }
 }

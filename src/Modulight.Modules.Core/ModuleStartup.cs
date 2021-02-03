@@ -4,7 +4,6 @@ namespace Modulight.Modules
 {
     /// <summary>
     /// Startup for module (needs to be no-state, no disposable).
-    /// The builder may construct the startup instance many times.
     /// </summary>
     public interface IModuleStartup
     {

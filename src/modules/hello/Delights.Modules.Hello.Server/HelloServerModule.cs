@@ -22,7 +22,7 @@ namespace Delights.Modules.Hello.Server
     [Module(Url = Shared.SharedManifest.Url, Author = Shared.SharedManifest.Author, Description = SharedManifest.Description)]
     [GraphQLModuleType("Hello", typeof(ModuleQuery))]
     [ModuleService(typeof(ModuleService))]
-    public class HelloServerModule : GraphQLServerModule<HelloServerModule>
+    public class HelloServerModule : GraphQLServerModule
     {
         public HelloServerModule(IModuleHost host) : base(host)
         {

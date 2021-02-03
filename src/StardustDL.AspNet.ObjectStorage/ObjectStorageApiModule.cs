@@ -14,7 +14,7 @@ namespace StardustDL.AspNet.ObjectStorage
     [ModuleService(typeof(ObjectStorageApiService))]
     [ModuleOption(typeof(ObjectStorageApiModuleOption))]
     [ModuleStartup(typeof(ApiStartup))]
-    public class ObjectStorageApiModule : AspNetServerModule<ObjectStorageApiModule>
+    public class ObjectStorageApiModule : AspNetServerModule
     {
         /// <summary>
         /// Create the instance.

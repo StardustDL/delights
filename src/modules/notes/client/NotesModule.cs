@@ -19,7 +19,7 @@ namespace Delights.Modules.Notes
     [ModuleStartup(typeof(Startup))]
     [ModuleDependency(typeof(ClientModule))]
     [ModuleUIRootPath("notes")]
-    public class NotesModule : RazorComponentClientModule<NotesModule>
+    public class NotesModule : RazorComponentClientModule
     {
         public NotesModule(IModuleHost host) : base(host)
         {
