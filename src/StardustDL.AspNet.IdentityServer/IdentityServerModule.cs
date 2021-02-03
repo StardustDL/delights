@@ -19,7 +19,7 @@ namespace StardustDL.AspNet.IdentityServer
     [ModuleService(typeof(IdentityServerService))]
     [ModuleStartup(typeof(Startup))]
     [ModuleOption(typeof(IdentityServerModuleOption))]
-    public class IdentityServerModule : AspNetServerModule<IdentityServerModule>
+    public class IdentityServerModule : AspNetServerModule
     {
         public IdentityServerModule(IModuleHost host, IOptions<IdentityServerModuleOption> options) : base(host)
         {

@@ -19,7 +19,7 @@ namespace Delights.Modules.Bookkeeping
     [ModuleStartup(typeof(Startup))]
     [ModuleDependency(typeof(ClientModule))]
     [ModuleUIRootPath("bookkeeping")]
-    public class BookkeepingModule : RazorComponentClientModule<BookkeepingModule>
+    public class BookkeepingModule : RazorComponentClientModule
     {
         public BookkeepingModule(IModuleHost host) : base(host)
         {

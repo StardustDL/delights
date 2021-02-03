@@ -21,7 +21,7 @@ namespace Delights.Modules.Persons.Server
     [ModuleStartup(typeof(Startup))]
     [ModuleDependency(typeof(ItemMetadataServerModule))]
     [GraphQLModuleType("Persons", typeof(ModuleQuery), MutationType = typeof(ModuleMutation))]
-    public class PersonsServerModule : GraphQLServerModule<PersonsServerModule>
+    public class PersonsServerModule : GraphQLServerModule
     {
         public PersonsServerModule(IModuleHost host) : base(host)
         {

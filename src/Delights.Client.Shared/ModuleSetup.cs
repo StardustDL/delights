@@ -15,7 +15,6 @@ namespace Delights.Client.Shared
         public static IModuleHostBuilder CreateDefaultBuilder(bool isDev)
         {
             var builder = ModuleHostBuilder.CreateDefaultBuilder()
-                .UseRazorComponentClientModules()
                 .ConfigureOptions<ServerConfiguration>((o, _) =>
                  {
                      o.GraphQLEndpoint = "https://localhost:5001/graphql";

@@ -21,7 +21,7 @@ namespace Delights.Modules.Bookkeeping.Server
     [ModuleStartup(typeof(Startup))]
     [ModuleDependency(typeof(ItemMetadataServerModule))]
     [GraphQLModuleType("Bookkeeping", typeof(ModuleQuery), MutationType = typeof(ModuleMutation))]
-    public class BookkeepingServerModule : GraphQLServerModule<BookkeepingServerModule>
+    public class BookkeepingServerModule : GraphQLServerModule
     {
         public BookkeepingServerModule(IModuleHost host) : base(host)
         {

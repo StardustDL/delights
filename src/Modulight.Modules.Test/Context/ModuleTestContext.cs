@@ -21,23 +21,23 @@ namespace Modulight.Modules.Test.Context
 
         public List<Type> ModuleProcessingOrder { get; } = new List<Type>();
 
-        public override void BeforeModule(Type module, ModuleManifest manifest, IModuleStartup? startup, IServiceCollection services)
+        public override void BeforeModule(ModuleDefinition module, IServiceCollection services)
         {
-            ModuleProcessingOrder.Add(module);
-            base.BeforeModule(module, manifest, startup, services);
+            ModuleProcessingOrder.Add(module.Type);
+            base.BeforeModule(module, services);
         }
 
-        public override void AfterModule(Type module, ModuleManifest manifest, IModuleStartup? startup, IServiceCollection services)
+        public override void AfterModule(ModuleDefinition module, IServiceCollection services)
         {
-            if (Options.StartupChecking.TryGetValue(module, out var startupType))
+            if (Options.StartupChecking.TryGetValue(module.Type, out var startupType))
             {
-                Assert.IsNotNull(startup, "The startup is unexpected null.");
-                Assert.AreEqual(startupType, startup!.GetType(), "Startup type is not the same.");
+                Assert.IsNotNull(module.Startup, "The startup is unexpected null.");
+                Assert.AreEqual(startupType, module.Startup!.GetType(), "Startup type is not the same.");
             }
-            base.AfterModule(module, manifest, startup, services);
+            base.AfterModule(module, services);
         }
 
-        public override void AfterBuild((Type, ModuleManifest)[] modules, IServiceCollection services)
+        public override void AfterBuild(ModuleDefinition[] modules, IServiceCollection services)
         {
             services.AddSingleton(new ModuleHostBuilderLog
             {

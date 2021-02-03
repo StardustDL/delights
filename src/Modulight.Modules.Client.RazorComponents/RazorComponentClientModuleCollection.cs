@@ -18,7 +18,6 @@ namespace Modulight.Modules.Client.RazorComponents
     /// </summary>
     public interface IRazorComponentClientModuleCollection : IModuleCollection<IRazorComponentClientModule>
     {
-
         /// <summary>
         /// Load related assemblies for a given route.
         /// </summary>

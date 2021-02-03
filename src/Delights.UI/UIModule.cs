@@ -19,7 +19,7 @@ namespace Delights.UI
     [ModuleUIResource(UIResourceType.Script, "https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.slim.min.js")]
     [ModuleStartup(typeof(Startup))]
     [ModuleDependency(typeof(ClientModule))]
-    public class UiModule : RazorComponentClientModule<UiModule>
+    public class UiModule : RazorComponentClientModule
     {
         public UiModule(IModuleHost host) : base(host)
         {
@@ -29,11 +29,6 @@ namespace Delights.UI
 
         public override async Task Initialize()
         {
-            if(System.Environment.OSVersion.Platform is System.PlatformID.Other)
-            {
-                await Host.Services.GetRazorComponentClientModuleCollection().LoadResources();
-            }
-
             await base.Initialize();
         }
     }

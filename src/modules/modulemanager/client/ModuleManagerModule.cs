@@ -19,7 +19,7 @@ namespace Delights.Modules.ModuleManager
     [ModuleService(typeof(ModuleService))]
     [ModuleUIRootPath("modules")]
     [ModuleDependency(typeof(ClientModule))]
-    public class ModuleManagerModule : RazorComponentClientModule<ModuleManagerModule>
+    public class ModuleManagerModule : RazorComponentClientModule
     {
         public ModuleManagerModule(IModuleHost host) : base(host)
         {

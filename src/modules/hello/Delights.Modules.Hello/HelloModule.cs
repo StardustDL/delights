@@ -34,7 +34,7 @@ namespace Delights.Modules.Hello
     [ModuleUIRootPath("hello")]
     [ModuleUIResource(UIResourceType.Assembly, "Delights.Modules.Hello.UI")]
     [ModuleDependency(typeof(ClientModule))]
-    public class HelloModule : RazorComponentClientModule<HelloModule>
+    public class HelloModule : RazorComponentClientModule
     {
         public HelloModule(IModuleHost host) : base(host)
         {
