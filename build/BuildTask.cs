@@ -18,12 +18,13 @@ namespace Build
                     MSBuildSettings = context.GetMSBuildSettings(),
                 });
             }
-            catch { }
-
-            context.DotNetCoreBuild(Paths.Base.FullPath, new DotNetCoreBuildSettings
+            catch
             {
-                MSBuildSettings = context.GetMSBuildSettings(),
-            });
+                context.DotNetCoreBuild(Paths.Base.FullPath, new DotNetCoreBuildSettings
+                {
+                    MSBuildSettings = context.GetMSBuildSettings(),
+                });
+            }
         }
     }
 }
