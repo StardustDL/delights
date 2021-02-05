@@ -9,48 +9,27 @@ defaults:
     shell: pwsh
 
 env:
-  dotnet-version: "5.0.x"
-  node-version: "12.x"
-  build_version: "0.0.3-alpha.${{ github.run_number }}"
-  PKG: ${{ format('{0}', contains(github.event.head_commit.message, '/pkg')) }}
-  IMAGE: ${{ format('{0}', contains(github.event.head_commit.message, '/image')) }}
-  DOCS: ${{ format('{0}', contains(github.event.head_commit.message, '/docs')) }}
+  COMMIT_MESSAGE: ${{ github.event.head_commit.message }}
 
 jobs:
   ci:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-18.04]
     runs-on: ${{ matrix.os }}
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Setup dotnet
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: ${{ env.dotnet-version }}
-    - name: Setup dotnet
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: "3.1.x"
-    - name: Setup dotnet
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: "2.1.x"
-    - name: Setup NodeJS
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ env.node-version }}
-    - name: Setup psake
-      run: Set-PSRepository -Name PSGallery -InstallationPolicy Trusted; Install-Module -Name psake
-    - name: CI
-      run: Invoke-psake ci
-    - name: Upload reports
+    - name: Test
+      run: ./build.ps1 -t test
+    - name: Publish
+      run: ./build.ps1 -t publish
+    - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
-        name: ci-${{ matrix.os }}
-        path: ./reports
+        name: test-${{ matrix.os }}
+        path: ./dist
   deploy:
     needs: ci
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
@@ -58,78 +37,19 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Setup dotnet
-      uses: actions/setup-dotnet@v1
+    - name: Download artifacts
+      uses: actions/download-artifact@v2
       with:
-        dotnet-version: ${{ env.dotnet-version }}
-    - name: Setup dotnet
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: "3.1.x"
-    - name: Setup dotnet
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: "2.1.x"
-    - name: Setup NodeJS
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ env.node-version }}
-    - name: Setup psake
-      run: Set-PSRepository -Name PSGallery -InstallationPolicy Trusted; Install-Module -Name psake
-    - name: Build and Deploy packages
-      run: Invoke-psake cd
-    - name: Upload package artifacts
-      uses: actions/upload-artifact@v2
-      with:
-        name: packages
-        path: ./packages
-    - name: Upload to Azure packages
+        name: test-ubuntu-18.04
+        path: ./dist
+    - name: Deploy packages
       env:
-        NUGET_AUTH_TOKEN: ${{ secrets.AZ_TOKEN }}
-      run: Invoke-psake publish-packages
-    # - name: Build API image
-    #   uses: docker/build-push-action@v2
-    #   with:
-    #     context: .
-    #     file: ./src/Delights.Api/Dockerfile
-    #     push: false
-    #     tags: |
-    #       stardustdl/delights:api
-    # - name: Build client image
-    #   uses: docker/build-push-action@v2
-    #   with:
-    #     context: .
-    #     file: ./src/Delights.Client/Dockerfile
-    #     push: false
-    #     tags: |
-    #       stardustdl/delights:client
-    # - name: Build WASM host client image
-    #   uses: docker/build-push-action@v2
-    #   with:
-    #     context: .
-    #     file: ./src/Delights.Client.WebAssembly.Host/Dockerfile
-    #     push: false
-    #     tags: |
-    #       stardustdl/delights:client-wasm-host
-  invoke-docs:
-    needs: ci
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
-    runs-on: ubuntu-latest
-    steps:
-    - name: Invoke docs workflow
-      if: ${{ env.DOCS == 'true' }}
-      uses: benc-uk/workflow-dispatch@v1
+        AZ_AUTH_TOKEN: ${{ secrets.AZ_TOKEN }}
+        NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
+      run: ./build.ps1 -e -t Deploy-Packages
+    - name: Deploy documents
+      uses: JamesIves/github-pages-deploy-action@3.7.1
       with:
-        workflow: Docs
-        token: ${{ secrets.PA_TOKEN }}
-  invoke-cd:
-    needs: deploy
-    runs-on: ubuntu-latest
-    steps:
-    - name: Invoke CD workflow
-      if: ${{ env.PKG == 'true' || env.IMAGE == 'true' }}
-      uses: benc-uk/workflow-dispatch@v1
-      with:
-        workflow: CD
-        token: ${{ secrets.PA_TOKEN }}
-        inputs: '{ "pkg": "${{ env.PKG }}", "image": "${{ env.IMAGE }}" }'
+        ACCESS_TOKEN: ${{ secrets.PA_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: ./dist/docs/_site
