@@ -19,7 +19,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Delights.Modules.Client\Delights.Modules.Client.csproj" />
-    <ProjectReference Include="..\..\..\Modulight.Modules.Client.RazorComponents\Modulight.Modules.Client.RazorComponents.csproj" />
   </ItemGroup>
 
   <Import Project="..\shared\Delights.Modules.Notes.Shared.projitems" Label="Shared" />

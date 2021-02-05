@@ -15,7 +15,7 @@ namespace Build
         {
             context.CleanDirectory(Paths.Dist.Test);
 
-            context.DotNetCoreTest(Paths.MainSolution, new DotNetCoreTestSettings
+            context.DotNetCoreTest(context.SolutionFile, new DotNetCoreTestSettings
             {
                 Configuration = context.BuildConfiguration,
             }, new CoverletSettings

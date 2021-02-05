@@ -10,12 +10,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Modulight.Modules.Server.GraphQL\Modulight.Modules.Server.GraphQL.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="HotChocolate.Data.EntityFramework" Version="11.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.2" />
+    <PackageReference Include="Modulight.Modules.Server.GraphQL" Version="0.0.3" />
   </ItemGroup>
 
 </Project>

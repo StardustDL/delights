@@ -15,7 +15,6 @@ namespace Build
     [IsDependentOn(typeof(PackTask))]
     public sealed class DeployPackageTask : FrostingTask<BuildContext>
     {
-        const string CustomSourceName = "ownpkgs";
 
         public override void Run(BuildContext context)
         {
@@ -51,7 +50,7 @@ namespace Build
                     throw new Exception("No AZ_AUTH_TOKEN environment variable setted.");
                 }
 
-                context.DotNetCoreNuGetAddSource(CustomSourceName, new Cake.Common.Tools.DotNetCore.NuGet.Source.DotNetCoreNuGetSourceSettings
+                context.DotNetCoreNuGetUpdateSource(RestoreTask.CustomSourceName, new Cake.Common.Tools.DotNetCore.NuGet.Source.DotNetCoreNuGetSourceSettings
                 {
                     Source = "https://sparkshine.pkgs.visualstudio.com/StardustDL/_packaging/feed/nuget/v3/index.json",
                     UserName = "sparkshine",
@@ -60,7 +59,7 @@ namespace Build
                 });
 
                 settings.ApiKey = "az";
-                settings.Source = CustomSourceName;
+                settings.Source = RestoreTask.CustomSourceName;
 
                 DeployTo(context, settings);
             }
@@ -68,17 +67,16 @@ namespace Build
 
         public override void Finally(BuildContext context)
         {
-            context.DotNetCoreNuGetRemoveSource(CustomSourceName);
         }
 
         void DeployTo(BuildContext context, DotNetCoreNuGetPushSettings settings)
         {
             var packageList = new List<string>
                 {
-                    "Modulight.Modules.Core",
+                    /*"Modulight.Modules.Core",
                     "Modulight.Modules.Client.RazorComponents",
                     "Modulight.Modules.Server.AspNet",
-                    "Modulight.Modules.Server.GraphQL",
+                    "Modulight.Modules.Server.GraphQL",*/
                 };
 
             foreach (var pkgName in packageList)

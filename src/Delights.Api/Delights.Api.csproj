@@ -20,7 +20,6 @@
     <ProjectReference Include="..\modules\bookkeeping\server\Delights.Modules.Bookkeeping.Server.csproj" />
     <ProjectReference Include="..\modules\notes\server\Delights.Modules.Notes.Server.csproj" />
     <ProjectReference Include="..\modules\persons\server\Delights.Modules.Persons.Server.csproj" />
-    <ProjectReference Include="..\Modulight.Modules.Server.GraphQL\Modulight.Modules.Server.GraphQL.csproj" />
     <ProjectReference Include="..\modules\hello\Delights.Modules.Hello.Server\Delights.Modules.Hello.Server.csproj" />
     <ProjectReference Include="..\modules\modulemanager\server\Delights.Modules.ModuleManager.Server.csproj" />
     <ProjectReference Include="..\StardustDL.AspNet.IdentityServer\StardustDL.AspNet.IdentityServer.csproj" />

@@ -10,9 +10,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Modulight.Modules.Core\Modulight.Modules.Core.csproj" />
-    <ProjectReference Include="..\..\Modulight.Modules.Server.AspNet\Modulight.Modules.Server.AspNet.csproj" />
-    <ProjectReference Include="..\..\Modulight.Modules.Server.GraphQL\Modulight.Modules.Server.GraphQL.csproj" />
     <ProjectReference Include="..\..\StardustDL.AspNet.ItemMetadataServer\StardustDL.AspNet.ItemMetadataServer.csproj" />
   </ItemGroup>
 
