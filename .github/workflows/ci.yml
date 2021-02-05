@@ -16,11 +16,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-18.04]
+        os: [windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+    - name: Install docfx
+      run: choco install docfx -y
     - name: Test
       run: ./build.ps1 -t test
     - name: Publish
@@ -40,7 +42,7 @@ jobs:
     - name: Download artifacts
       uses: actions/download-artifact@v2
       with:
-        name: test-ubuntu-18.04
+        name: test-windows-latest
         path: ./dist
     - name: Deploy packages
       env:

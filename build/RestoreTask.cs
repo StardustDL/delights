@@ -2,6 +2,7 @@
 using Cake.Common.Tools.DotNetCore.Tool;
 using Cake.Core.IO.Arguments;
 using Cake.Frosting;
+using Cake.Common.Tools.Chocolatey;
 
 namespace Build
 {
