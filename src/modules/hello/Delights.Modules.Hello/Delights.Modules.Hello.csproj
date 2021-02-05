@@ -19,7 +19,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\..\Modulight.Modules.Client.RazorComponents\Modulight.Modules.Client.RazorComponents.csproj" />
 		<ProjectReference Include="..\..\Delights.Modules.Client\Delights.Modules.Client.csproj" />
 	</ItemGroup>
 

@@ -2,6 +2,7 @@
 using Cake.Common.Build;
 using Cake.Common.Tools.DotNetCore.MSBuild;
 using Cake.Core;
+using Cake.Core.IO;
 using Cake.Core.Tooling;
 using Cake.Frosting;
 using System;
@@ -10,7 +11,9 @@ namespace Build
 {
     public class BuildContext : FrostingContext
     {
-        const string Version = "0.0.3";
+        const string Version = "0.0.4";
+
+        const int BuildRunNumberOffset = 134;
 
         public string CommitMessage { get; set; }
 
@@ -24,6 +27,17 @@ namespace Build
 
         public string BuildVersion { get; set; }
 
+        public bool Release { get; set; }
+
+        public string Solution { get; set; }
+
+        public FilePath SolutionFile => Solution.ToLowerInvariant() switch
+        {
+            "modulight" => Paths.ModulightSolution,
+            "delights" => Paths.DelightsSolution,
+            _ => Paths.MainSolution,
+        };
+
         public DotNetCoreMSBuildSettings GetMSBuildSettings()
         {
             return new DotNetCoreMSBuildSettings().SetVersion(BuildVersion)
@@ -33,6 +47,8 @@ namespace Build
         public BuildContext(ICakeContext context)
             : base(context)
         {
+            Release = context.HasArgument("release");
+            Solution = context.Argument("solution", "");
             CommitMessage = context.Argument("commit", "");
             if (CommitMessage is "")
             {
@@ -54,16 +70,18 @@ namespace Build
                 {
                     if (actions.Environment.Workflow.Workflow == "CI")
                     {
-                        BuildVersion += $"-preview.{actions.Environment.Workflow.RunNumber}";
+                        BuildVersion += $"-preview.{Math.Max(1, actions.Environment.Workflow.RunNumber - BuildRunNumberOffset)}";
                     }
                     else if (actions.Environment.Workflow.Workflow == "Release")
                     {
-                        EnableDocument = true;
-                        EnableNuGetPackage = true;
-                        EnableImage = true;
+                        Release = true;
                     }
                 }
             }
+
+            EnableDocument = EnableDocument || Release;
+            EnableNuGetPackage = EnableNuGetPackage || Release;
+            EnableImage = EnableImage || Release;
         }
     }
 }

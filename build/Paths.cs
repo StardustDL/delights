@@ -34,6 +34,10 @@ namespace Build
 
         public static FilePath TestBaseProject => Test.CombineWithFilePath("./Test.Base/Test.Base.csproj");
 
-        public static FilePath MainSolution => Base.CombineWithFilePath("./Delights.sln");
+        public static FilePath MainSolution => Base.CombineWithFilePath("./All.sln");
+
+        public static FilePath ModulightSolution => Base.CombineWithFilePath("./Modulight.sln");
+
+        public static FilePath DelightsSolution => Base.CombineWithFilePath("./Delights.sln");
     }
 }

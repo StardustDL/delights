@@ -13,14 +13,14 @@ namespace Build
         {
             try
             {
-                context.DotNetCoreBuild(Paths.Base.FullPath, new DotNetCoreBuildSettings
+                context.DotNetCoreBuild(context.SolutionFile.FullPath, new DotNetCoreBuildSettings
                 {
                     MSBuildSettings = context.GetMSBuildSettings(),
                 });
             }
             catch
             {
-                context.DotNetCoreBuild(Paths.Base.FullPath, new DotNetCoreBuildSettings
+                context.DotNetCoreBuild(context.SolutionFile.FullPath, new DotNetCoreBuildSettings
                 {
                     MSBuildSettings = context.GetMSBuildSettings(),
                 });
