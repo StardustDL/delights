@@ -13,33 +13,33 @@
       "disableGitFeatures": false,
       "disableDefaultFilter": false
     },
-    {
-      "src": [
-        {
-          "files": [
-            "src/StardustDL*/**.csproj"
-          ],
-          "cwd": ".."
-        }
-      ],
-      "dest": "../dist/docs/api/extensions",
-      "disableGitFeatures": false,
-      "disableDefaultFilter": false
-    },
-    {
-      "src": [
-        {
-          "files": [
-            "src/Delights*/**.csproj",
-            "src/modules/**.csproj"
-          ],
-          "cwd": ".."
-        }
-      ],
-      "dest": "../dist/docs/api/delights",
-      "disableGitFeatures": false,
-      "disableDefaultFilter": false
-    }
+    // {
+    //   "src": [
+    //     {
+    //       "files": [
+    //         "src/StardustDL*/**.csproj"
+    //       ],
+    //       "cwd": ".."
+    //     }
+    //   ],
+    //   "dest": "../dist/docs/api/extensions",
+    //   "disableGitFeatures": false,
+    //   "disableDefaultFilter": false
+    // },
+    // {
+    //   "src": [
+    //     {
+    //       "files": [
+    //         "src/Delights*/**.csproj",
+    //         "src/modules/**.csproj"
+    //       ],
+    //       "cwd": ".."
+    //     }
+    //   ],
+    //   "dest": "../dist/docs/api/delights",
+    //   "disableGitFeatures": false,
+    //   "disableDefaultFilter": false
+    // }
   ],
   "build": {
     "content": [
