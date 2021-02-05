@@ -9,7 +9,7 @@
           "cwd": ".."
         }
       ],
-      "dest": "api/modulight",
+      "dest": "../dist/docs/api/modulight",
       "disableGitFeatures": false,
       "disableDefaultFilter": false
     },
@@ -22,7 +22,7 @@
           "cwd": ".."
         }
       ],
-      "dest": "api/extensions",
+      "dest": "../dist/docs/api/extensions",
       "disableGitFeatures": false,
       "disableDefaultFilter": false
     },
@@ -36,7 +36,7 @@
           "cwd": ".."
         }
       ],
-      "dest": "api/delights",
+      "dest": "../dist/docs/api/delights",
       "disableGitFeatures": false,
       "disableDefaultFilter": false
     }
@@ -45,19 +45,19 @@
     "content": [
       {
         "files": [
-          "api/modulight/**.yml",
+          "../dist/docs/api/modulight/**.yml",
           "api/modulight/index.md"
         ]
       },
       {
         "files": [
-          "api/extensions/**.yml",
+          "../dist/docs/api/extensions/**.yml",
           "api/extensions/index.md"
         ]
       },
       {
         "files": [
-          "api/delights/**.yml",
+          "../dist/docs/api/delights/**.yml",
           "api/delights/index.md"
         ]
       },

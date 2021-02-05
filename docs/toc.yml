@@ -9,3 +9,5 @@
 - name: Extension API Documentation
   href: api/extensions
   homepage: api/extensions/index.md
+- name: Test Coverage Report
+  href: reports/coverage
