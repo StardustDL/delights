@@ -1,5 +1,4 @@
-﻿using Delights.Modules.Client;
-using Delights.Modules.Hello.GraphQL;
+﻿using Delights.Modules.Hello.GraphQL;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -28,12 +27,12 @@ namespace Delights.Modules.Hello
         }
     }
 
-    [Module(Url = Shared.SharedManifest.Url, Author = Shared.SharedManifest.Author, Description = SharedManifest.Description)]
+    [Module(Url = SharedManifest.Url, Author = SharedManifest.Author, Description = SharedManifest.Description)]
     [ModuleStartup(typeof(Startup))]
     [ModuleService(typeof(ModuleService))]
     [ModuleUIRootPath("hello")]
     [ModuleUIResource(UIResourceType.Assembly, "Delights.Modules.Hello.UI")]
-    [ModuleDependency(typeof(ClientModule))]
+    [ModuleDependency(typeof(MaterialDesignIconModule))]
     public class HelloModule : RazorComponentClientModule
     {
         public HelloModule(IModuleHost host) : base(host)

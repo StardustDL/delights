@@ -7,10 +7,11 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
-    <PackageReference Include="Modulight.Modules.Server.GraphQL" Version="0.0.3" />
   </ItemGroup>
 
-  <Import Project="..\..\Delights.Modules.Shared\Delights.Modules.Shared.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Modulight.Modules.Server.GraphQL\Modulight.Modules.Server.GraphQL.csproj" />
+  </ItemGroup>
 
   <Import Project="..\Delights.Modules.Hello.Shared\Delights.Modules.Hello.Shared.projitems" Label="Shared" />
 

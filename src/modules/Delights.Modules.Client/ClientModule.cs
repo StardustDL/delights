@@ -13,7 +13,7 @@ namespace Delights.Modules.Client
     [ModuleDependency(typeof(AntDesignModule))]
     [ModuleDependency(typeof(MaterialDesignIconModule))]
     [ModuleDependency(typeof(VditorModule))]
-    public class ClientModule : Module<ClientModule>
+    public class ClientModule : Module
     {
         public ClientModule(IModuleHost host) : base(host)
         {

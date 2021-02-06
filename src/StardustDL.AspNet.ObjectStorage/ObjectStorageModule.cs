@@ -11,7 +11,7 @@ namespace StardustDL.AspNet.ObjectStorage
     [Module(Description = "Provide object storage services.", Url = "https://github.com/StardustDL/delights", Author = "StardustDL")]
     [ModuleService(typeof(ObjectStorageService))]
     [ModuleOption(typeof(ObjectStorageModuleOption))]
-    public class ObjectStorageModule : Module<ObjectStorageModule>
+    public class ObjectStorageModule : Module
     {
         /// <summary>
         /// Create the instance.

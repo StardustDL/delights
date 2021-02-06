@@ -11,7 +11,7 @@ namespace StardustDL.AspNet.ItemMetadataServer
     [ModuleStartup(typeof(Startup))]
     [ModuleService(typeof(ModuleService))]
     [ModuleService(typeof(ItemMetadataDomain<>), ServiceType = typeof(IItemMetadataDomain<>))]
-    public class ItemMetadataServerModule : Module<ItemMetadataServerModule>
+    public class ItemMetadataServerModule : Module
     {
         public ItemMetadataServerModule(IModuleHost host) : base(host)
         {

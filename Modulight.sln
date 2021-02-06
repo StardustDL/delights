@@ -32,9 +32,7 @@ EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		src\modules\hello\Delights.Modules.Hello.Shared\Delights.Modules.Hello.Shared.projitems*{058ab875-cb8c-4a40-a154-e42c7ffdf4a1}*SharedItemsImports = 13
-		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{85cb913c-4ce0-42af-88c6-c33ef6e96d34}*SharedItemsImports = 5
 		src\modules\hello\Delights.Modules.Hello.Shared\Delights.Modules.Hello.Shared.projitems*{85cb913c-4ce0-42af-88c6-c33ef6e96d34}*SharedItemsImports = 5
-		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{a3ed5966-43fd-4ef1-a520-7ad40ef4d596}*SharedItemsImports = 5
 		src\modules\hello\Delights.Modules.Hello.Shared\Delights.Modules.Hello.Shared.projitems*{a3ed5966-43fd-4ef1-a520-7ad40ef4d596}*SharedItemsImports = 5
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -12,8 +12,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.ApiAuthorization.IdentityServer" Version="5.0.2" />
-    <PackageReference Include="Modulight.Modules.Server.AspNet" Version="0.0.3" />
-    <PackageReference Include="Modulight.Modules.Server.GraphQL" Version="0.0.3" />
+    <PackageReference Include="Modulight.Modules.Server.AspNet" Version="0.0.4-preview.6" />
+    <PackageReference Include="Modulight.Modules.Server.GraphQL" Version="0.0.4-preview.6" />
   </ItemGroup>
 
 </Project>
