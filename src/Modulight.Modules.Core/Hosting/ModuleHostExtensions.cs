@@ -10,6 +10,21 @@ namespace Modulight.Modules.Hosting
     public static class ModuleHostExtensions
     {
         /// <summary>
+        /// Add Modulight module services.
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="configureBuilder"></param>
+        /// <returns></returns>
+        public static IServiceCollection AddModules(this IServiceCollection services, Action<IModuleHostBuilder>? configureBuilder = null)
+        {
+            var builder = ModuleHostBuilder.CreateDefaultBuilder();
+            if (configureBuilder is not null)
+                configureBuilder(builder);
+            builder.Build(services);
+            return services;
+        }
+
+        /// <summary>
         /// Get default module host from service provider.
         /// </summary>
         /// <param name="services"></param>

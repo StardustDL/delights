@@ -9,7 +9,6 @@
     <ProjectReference Include="..\modules\notes\client\Delights.Modules.Notes.csproj" />
     <ProjectReference Include="..\modules\persons\client\Delights.Modules.Persons.csproj" />
     <ProjectReference Include="..\Delights.UI\Delights.UI.csproj" />
-    <ProjectReference Include="..\modules\hello\Delights.Modules.Hello.UI\Delights.Modules.Hello.UI.csproj" />
     <ProjectReference Include="..\modules\modulemanager\client\Delights.Modules.ModuleManager.csproj" />
   </ItemGroup>
 

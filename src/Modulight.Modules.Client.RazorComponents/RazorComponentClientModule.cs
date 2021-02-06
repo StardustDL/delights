@@ -112,14 +112,4 @@ namespace Modulight.Modules.Client.RazorComponents
             await base.Initialize();
         }
     }
-
-    /// <inheritdoc/>
-    [Obsolete]
-    public abstract class RazorComponentClientModule<T> : RazorComponentClientModule
-    {
-        /// <inheritdoc/>
-        protected RazorComponentClientModule(IModuleHost host) : base(host)
-        {
-        }
-    }
 }

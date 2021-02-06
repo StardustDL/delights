@@ -1,6 +1,4 @@
 ﻿using Delights.Modules.Bookkeeping;
-using Delights.Modules.Hello;
-using Delights.Modules.ModuleManager;
 using Delights.Modules.Notes;
 using Delights.Modules.Persons;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,7 +36,7 @@ namespace Delights.Client.Shared
 
             if (isDev)
             {
-                builder.AddHelloModule(configureOptions: (o, sp) =>
+                /*builder.AddHelloModule(configureOptions: (o, sp) =>
                  {
                      var serverConfiguration = sp.GetRequiredService<IOptions<ServerConfiguration>>().Value;
                      o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;
@@ -47,7 +45,7 @@ namespace Delights.Client.Shared
                 {
                     var serverConfiguration = sp.GetRequiredService<IOptions<ServerConfiguration>>().Value;
                     o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;
-                });
+                });*/
             }
 
 

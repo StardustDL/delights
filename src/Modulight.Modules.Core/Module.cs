@@ -71,21 +71,4 @@ namespace Modulight.Modules
         /// <inheritdoc/>
         public virtual Task Shutdown() => Task.CompletedTask;
     }
-
-    /// <summary>
-    /// Basic implementation for <see cref="IModule"/> with typed module, cooperated with <see cref="IModuleHost"/>.
-    /// </summary>
-    public abstract class Module<TModule> : Module
-    {
-        /// <inheritdoc/>
-        protected Module(IModuleHost host) : base(host)
-        {
-            Logger = host.GetLogger<TModule>();
-        }
-
-        /// <summary>
-        /// Get module logger.
-        /// </summary>
-        public ILogger<TModule> Logger { get; }
-    }
 }

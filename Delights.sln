@@ -11,14 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Client", "src\Deli
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{0C012303-205C-4886-8F91-DF223124E1E9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "hello", "hello", "{3C385D87-CD57-48DE-9724-91489F24356D}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.Hello", "src\modules\hello\Delights.Modules.Hello\Delights.Modules.Hello.csproj", "{AB7ABB0A-734A-4A06-8BA2-374E586A96DC}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.Hello.UI", "src\modules\hello\Delights.Modules.Hello.UI\Delights.Modules.Hello.UI.csproj", "{C88DBFFE-EF11-49A7-9F0D-D97226271C7A}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.Hello.Server", "src\modules\hello\Delights.Modules.Hello.Server\Delights.Modules.Hello.Server.csproj", "{CBE41E90-70AF-4B89-9929-CAA8A74B7C3B}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modulemanager", "modulemanager", "{ACEBD1CB-4315-4A1D-BE67-56A9168B6099}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Delights.Modules.ModuleManager", "src\modules\modulemanager\client\Delights.Modules.ModuleManager.csproj", "{08C0899F-43AF-496E-95CF-22F8816EA69F}"
@@ -38,8 +30,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StardustDL.AspNet.IdentityServer", "src\StardustDL.AspNet.IdentityServer\StardustDL.AspNet.IdentityServer.csproj", "{28B2788D-9EF5-4226-92D9-B694767B57C3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "extensions", "extensions", "{17A43292-B8B1-4657-B6A5-019C9C28DC64}"
-EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Delights.Modules.Hello.Shared", "src\modules\hello\Delights.Modules.Hello.Shared\Delights.Modules.Hello.Shared.shproj", "{058AB875-CB8C-4A40-A154-E42C7FFDF4A1}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Delights.Modules.Shared", "src\modules\Delights.Modules.Shared\Delights.Modules.Shared.shproj", "{0140B3C5-AD7E-47E6-B6F6-0D876AD3CFD3}"
 EndProject
@@ -82,7 +72,6 @@ EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{0140b3c5-ad7e-47e6-b6f6-0d876ad3cfd3}*SharedItemsImports = 13
-		src\modules\hello\Delights.Modules.Hello.Shared\Delights.Modules.Hello.Shared.projitems*{058ab875-cb8c-4a40-a154-e42c7ffdf4a1}*SharedItemsImports = 13
 		src\modules\persons\shared\Delights.Modules.Persons.Shared.projitems*{06770d8f-22b3-4cf0-ba69-b1e4196c2624}*SharedItemsImports = 13
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{08c0899f-43af-496e-95cf-22f8816ea69f}*SharedItemsImports = 5
 		src\modules\modulemanager\shared\Delights.Modules.ModuleManager.Shared.projitems*{08c0899f-43af-496e-95cf-22f8816ea69f}*SharedItemsImports = 5
@@ -102,13 +91,9 @@ Global
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{72bdc22e-981b-46ca-bc72-9ec6b0d71142}*SharedItemsImports = 5
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{84a4dc85-7120-4eaf-ba6e-a999fa97356d}*SharedItemsImports = 5
 		src\modules\modulemanager\shared\Delights.Modules.ModuleManager.Shared.projitems*{84a4dc85-7120-4eaf-ba6e-a999fa97356d}*SharedItemsImports = 5
-		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{ab7abb0a-734a-4a06-8ba2-374e586a96dc}*SharedItemsImports = 5
-		src\modules\hello\Delights.Modules.Hello.Shared\Delights.Modules.Hello.Shared.projitems*{ab7abb0a-734a-4a06-8ba2-374e586a96dc}*SharedItemsImports = 5
 		src\modules\bookkeeping\shared\Delights.Modules.Bookkeeping.Shared.projitems*{b2e27fb4-3f40-40c2-a322-57504a016548}*SharedItemsImports = 13
 		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{c2432c09-5e38-4aef-8561-aba5b54b777a}*SharedItemsImports = 5
 		src\modules\notes\shared\Delights.Modules.Notes.Shared.projitems*{c2432c09-5e38-4aef-8561-aba5b54b777a}*SharedItemsImports = 5
-		src\modules\Delights.Modules.Shared\Delights.Modules.Shared.projitems*{cbe41e90-70af-4b89-9929-caa8a74b7c3b}*SharedItemsImports = 5
-		src\modules\hello\Delights.Modules.Hello.Shared\Delights.Modules.Hello.Shared.projitems*{cbe41e90-70af-4b89-9929-caa8a74b7c3b}*SharedItemsImports = 5
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -127,18 +112,6 @@ Global
 		{275F052C-CA08-4EF0-AC4A-9F1421B8CDC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{275F052C-CA08-4EF0-AC4A-9F1421B8CDC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{275F052C-CA08-4EF0-AC4A-9F1421B8CDC7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AB7ABB0A-734A-4A06-8BA2-374E586A96DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB7ABB0A-734A-4A06-8BA2-374E586A96DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AB7ABB0A-734A-4A06-8BA2-374E586A96DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AB7ABB0A-734A-4A06-8BA2-374E586A96DC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C88DBFFE-EF11-49A7-9F0D-D97226271C7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C88DBFFE-EF11-49A7-9F0D-D97226271C7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C88DBFFE-EF11-49A7-9F0D-D97226271C7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C88DBFFE-EF11-49A7-9F0D-D97226271C7A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CBE41E90-70AF-4B89-9929-CAA8A74B7C3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CBE41E90-70AF-4B89-9929-CAA8A74B7C3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CBE41E90-70AF-4B89-9929-CAA8A74B7C3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CBE41E90-70AF-4B89-9929-CAA8A74B7C3B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{08C0899F-43AF-496E-95CF-22F8816EA69F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{08C0899F-43AF-496E-95CF-22F8816EA69F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08C0899F-43AF-496E-95CF-22F8816EA69F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -212,10 +185,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{3C385D87-CD57-48DE-9724-91489F24356D} = {0C012303-205C-4886-8F91-DF223124E1E9}
-		{AB7ABB0A-734A-4A06-8BA2-374E586A96DC} = {3C385D87-CD57-48DE-9724-91489F24356D}
-		{C88DBFFE-EF11-49A7-9F0D-D97226271C7A} = {3C385D87-CD57-48DE-9724-91489F24356D}
-		{CBE41E90-70AF-4B89-9929-CAA8A74B7C3B} = {3C385D87-CD57-48DE-9724-91489F24356D}
 		{ACEBD1CB-4315-4A1D-BE67-56A9168B6099} = {0C012303-205C-4886-8F91-DF223124E1E9}
 		{08C0899F-43AF-496E-95CF-22F8816EA69F} = {ACEBD1CB-4315-4A1D-BE67-56A9168B6099}
 		{84A4DC85-7120-4EAF-BA6E-A999FA97356D} = {ACEBD1CB-4315-4A1D-BE67-56A9168B6099}
@@ -224,7 +193,6 @@ Global
 		{BB342E23-6714-4004-AB70-4B93119FB16C} = {522A1407-2CF2-491C-BBAB-76749F7F33B4}
 		{2BA63FB4-6FC0-42E7-A90A-2E9FE6C22BD8} = {17A43292-B8B1-4657-B6A5-019C9C28DC64}
 		{28B2788D-9EF5-4226-92D9-B694767B57C3} = {17A43292-B8B1-4657-B6A5-019C9C28DC64}
-		{058AB875-CB8C-4A40-A154-E42C7FFDF4A1} = {3C385D87-CD57-48DE-9724-91489F24356D}
 		{0140B3C5-AD7E-47E6-B6F6-0D876AD3CFD3} = {0C012303-205C-4886-8F91-DF223124E1E9}
 		{0A72DFB0-5B98-4EEB-A2FA-BAECC7F04D89} = {ACEBD1CB-4315-4A1D-BE67-56A9168B6099}
 		{CACB9937-D0A3-458B-BE98-67471F0873D0} = {17A43292-B8B1-4657-B6A5-019C9C28DC64}

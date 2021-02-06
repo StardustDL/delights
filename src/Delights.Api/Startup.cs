@@ -1,6 +1,4 @@
 using Delights.Modules.Bookkeeping.Server;
-using Delights.Modules.Hello.Server;
-using Delights.Modules.ModuleManager.Server;
 using Delights.Modules.Notes.Server;
 using Delights.Modules.Persons.Server;
 using Microsoft.AspNetCore.Builder;
@@ -78,8 +76,7 @@ namespace Delights.Api
             })
                 .AddItemMetadataServerGraphqlModule();
 
-            builder.AddHelloServerModule()
-                .AddModuleManagerServerModule()
+            builder
                  .AddPersonsServerModule((o, sp) =>
                  {
                      o.ConfigureDbContext = options =>

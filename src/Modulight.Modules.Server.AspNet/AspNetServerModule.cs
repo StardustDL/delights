@@ -58,14 +58,4 @@ namespace Modulight.Modules.Server.AspNet
 
         public IAspNetServerModuleCollection Collection { get; }
     }
-
-    /// <inheritdoc/>
-    [Obsolete]
-    public abstract class AspNetServerModule<TModule> : AspNetServerModule
-    {
-        /// <inheritdoc/>
-        protected AspNetServerModule(IModuleHost host) : base(host)
-        {
-        }
-    }
 }

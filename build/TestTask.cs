@@ -15,16 +15,19 @@ namespace Build
         {
             context.CleanDirectory(Paths.Dist.Test);
 
-            context.DotNetCoreTest(context.SolutionFile, new DotNetCoreTestSettings
+            foreach (var solution in context.SolutionFiles)
             {
-                Configuration = context.BuildConfiguration,
-            }, new CoverletSettings
-            {
-                CollectCoverage = true,
-                CoverletOutputDirectory = Paths.Dist.TestCoverageJsonResult.GetDirectory().FullPath,
-                CoverletOutputName = Paths.Dist.TestCoverageJsonResult.GetFilename().FullPath,
-                MergeWithFile = context.MakeAbsolute(Paths.Dist.TestCoverageJsonResult),
-            });
+                context.DotNetCoreTest(solution, new DotNetCoreTestSettings
+                {
+                    Configuration = context.BuildConfiguration,
+                }, new CoverletSettings
+                {
+                    CollectCoverage = true,
+                    CoverletOutputDirectory = Paths.Dist.TestCoverageJsonResult.GetDirectory().FullPath,
+                    CoverletOutputName = Paths.Dist.TestCoverageJsonResult.GetFilename().FullPath,
+                    MergeWithFile = context.MakeAbsolute(Paths.Dist.TestCoverageJsonResult),
+                });
+            }
 
             context.DotNetCoreTest(Paths.TestBaseProject, new DotNetCoreTestSettings
             {

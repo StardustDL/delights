@@ -59,14 +59,4 @@ namespace Modulight.Modules.Server.GraphQL
 
         public IGraphQLServerModuleCollection Collection { get; }
     }
-
-    /// <inheritdoc/>
-    [Obsolete]
-    public abstract class GraphQLServerModule<TModule> : GraphQLServerModule
-    {
-        /// <inheritdoc/>
-        protected GraphQLServerModule(IModuleHost host) : base(host)
-        {
-        }
-    }
 }

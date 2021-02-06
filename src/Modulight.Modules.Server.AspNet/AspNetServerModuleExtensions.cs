@@ -12,15 +12,6 @@ namespace Modulight.Modules.Server.AspNet
     public static class AspNetServerModuleExtensions
     {
         /// <summary>
-        /// Use building middlewares for aspnet modules.
-        /// It will register <see cref="IAspNetServerModuleCollection"/> service.
-        /// </summary>
-        /// <param name="modules"></param>
-        /// <returns></returns>
-        [Obsolete("No need to use this method. The plugin has been removed.")]
-        public static IModuleHostBuilder UseAspNetServerModules(this IModuleHostBuilder modules) => modules;
-
-        /// <summary>
         /// Get aspnet module host from service provider.
         /// </summary>
         /// <param name="provider"></param>

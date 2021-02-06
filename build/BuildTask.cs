@@ -11,19 +11,22 @@ namespace Build
     {
         public override void Run(BuildContext context)
         {
-            try
+            foreach (var solution in context.SolutionFiles)
             {
-                context.DotNetCoreBuild(context.SolutionFile.FullPath, new DotNetCoreBuildSettings
+                try
                 {
-                    MSBuildSettings = context.GetMSBuildSettings(),
-                });
-            }
-            catch
-            {
-                context.DotNetCoreBuild(context.SolutionFile.FullPath, new DotNetCoreBuildSettings
+                    context.DotNetCoreBuild(solution.FullPath, new DotNetCoreBuildSettings
+                    {
+                        MSBuildSettings = context.GetMSBuildSettings(),
+                    });
+                }
+                catch
                 {
-                    MSBuildSettings = context.GetMSBuildSettings(),
-                });
+                    context.DotNetCoreBuild(solution.FullPath, new DotNetCoreBuildSettings
+                    {
+                        MSBuildSettings = context.GetMSBuildSettings(),
+                    });
+                }
             }
         }
     }

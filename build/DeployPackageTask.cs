@@ -69,15 +69,27 @@ namespace Build
         {
         }
 
-        void DeployTo(BuildContext context, DotNetCoreNuGetPushSettings settings)
-        {
-            var packageList = new List<string>
+        readonly List<string> ModulightPackages = new List<string>
                 {
-                    /*"Modulight.Modules.Core",
+                    "Modulight.Modules.Core",
                     "Modulight.Modules.Client.RazorComponents",
                     "Modulight.Modules.Server.AspNet",
-                    "Modulight.Modules.Server.GraphQL",*/
+                    "Modulight.Modules.Server.GraphQL",
                 };
+
+        void DeployTo(BuildContext context, DotNetCoreNuGetPushSettings settings)
+        {
+            List<string> packageList = new List<string>();
+
+            switch (context.Solution)
+            {
+                case SolutionType.Modulight:
+                    packageList.AddRange(ModulightPackages);
+                    break;
+                case SolutionType.All:
+                    packageList.AddRange(ModulightPackages);
+                    break;
+            }
 
             foreach (var pkgName in packageList)
             {

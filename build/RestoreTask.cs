@@ -3,6 +3,8 @@ using Cake.Common.Tools.DotNetCore.Tool;
 using Cake.Core.IO.Arguments;
 using Cake.Frosting;
 using Cake.Common.Tools.Chocolatey;
+using System;
+using Cake.Core.Diagnostics;
 
 namespace Build
 {
@@ -13,19 +15,18 @@ namespace Build
 
         public override void Run(BuildContext context)
         {
-            if (!context.DotNetCoreNuGetHasSource(CustomSourceName))
+            try
             {
-                try
+                context.DotNetCoreNuGetAddSource(CustomSourceName, new Cake.Common.Tools.DotNetCore.NuGet.Source.DotNetCoreNuGetSourceSettings
                 {
-                    context.DotNetCoreNuGetAddSource(CustomSourceName, new Cake.Common.Tools.DotNetCore.NuGet.Source.DotNetCoreNuGetSourceSettings
-                    {
-                        Source = "https://sparkshine.pkgs.visualstudio.com/StardustDL/_packaging/feed/nuget/v3/index.json",
-                    });
-                }
-                catch { }
+                    Source = "https://sparkshine.pkgs.visualstudio.com/StardustDL/_packaging/feed/nuget/v3/index.json",
+                });
+            }
+            catch (Exception ex)
+            {
+                context.Log.Error(ex.Message);
             }
 
-            context.DotNetCoreRestore(context.SolutionFile.FullPath);
             context.DotNetCoreTool("tool", new DotNetCoreToolSettings
             {
                 ArgumentCustomization = builder =>
@@ -34,6 +35,11 @@ namespace Build
                     return builder;
                 }
             });
+
+            foreach (var solution in context.SolutionFiles)
+            {
+                context.DotNetCoreRestore(solution.FullPath);
+            }
         }
     }
 }

@@ -12,11 +12,14 @@ namespace Build
         public override void Run(BuildContext context)
         {
             context.CleanDirectory(Paths.Dist.Packages);
-            context.DotNetCorePack(context.SolutionFile.FullPath, new DotNetCorePackSettings
+            foreach (var solution in context.SolutionFiles)
             {
-                OutputDirectory = Paths.Dist.Packages,
-                MSBuildSettings = context.GetMSBuildSettings(),
-            });
+                context.DotNetCorePack(solution.FullPath, new DotNetCorePackSettings
+                {
+                    OutputDirectory = Paths.Dist.Packages,
+                    MSBuildSettings = context.GetMSBuildSettings(),
+                });
+            }
         }
     }
 }
