@@ -5,7 +5,7 @@
 @inject IServiceProvider ServiceProvider
 
 <AntDesign.Layout Style="min-height: 100vh; background: initial;">
-    <Sider Collapsible Theme="SiderTheme.Light" Breakpoint="BreakpointType.Xl" CollapsedWidth="0">
+    <Sider Collapsible Theme="SiderTheme.Light" Breakpoint="BreakpointType.Xl">
         <Menu Mode="MenuMode.Inline" Theme="MenuTheme.Light">
             <MenuItem Class="text-center p-0">
                 Delights
@@ -15,7 +15,7 @@
                 if (module.RootPath is not "")
                 {
                     <MenuItem>
-                        <ModuleIcon Module="module" Fallback="@Fragments.DefaultModuleIcon"></ModuleIcon>
+                        <AntModuleIcon Module="module"></AntModuleIcon>
                         <MenuLink href="@module.RootPath">@module?.Manifest.DisplayName</MenuLink>
                     </MenuItem>
                 }

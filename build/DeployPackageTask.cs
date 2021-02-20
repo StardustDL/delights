@@ -50,6 +50,18 @@ namespace Build
                     throw new Exception("No AZ_AUTH_TOKEN environment variable setted.");
                 }
 
+                try
+                {
+                    context.DotNetCoreNuGetAddSource(RestoreTask.CustomSourceName, new Cake.Common.Tools.DotNetCore.NuGet.Source.DotNetCoreNuGetSourceSettings
+                    {
+                        Source = "https://sparkshine.pkgs.visualstudio.com/StardustDL/_packaging/feed/nuget/v3/index.json",
+                    });
+                }
+                catch (Exception ex)
+                {
+                    context.Log.Error(ex.Message);
+                }
+
                 context.DotNetCoreNuGetUpdateSource(RestoreTask.CustomSourceName, new Cake.Common.Tools.DotNetCore.NuGet.Source.DotNetCoreNuGetSourceSettings
                 {
                     Source = "https://sparkshine.pkgs.visualstudio.com/StardustDL/_packaging/feed/nuget/v3/index.json",

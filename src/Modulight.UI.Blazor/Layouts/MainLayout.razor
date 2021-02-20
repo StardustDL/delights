@@ -1,0 +1,33 @@
+﻿@inherits LayoutComponentBase
+@inject IBlazorUIProvider UIProvider
+@inject IModuleHost ModuleHost
+@inject IRazorComponentClientModuleCollection RazorComponentClientModuleCollection
+@inject IServiceProvider ServiceProvider
+
+<AntDesign.Layout Style="min-height: 100vh; background: initial;">
+    <Sider Collapsible Theme="SiderTheme.Light" Breakpoint="BreakpointType.Xl">
+        <Menu Mode="MenuMode.Inline" Theme="MenuTheme.Light">
+            <MenuItem Class="text-center p-0">
+                @UIProvider.SiteInfo.Name
+            </MenuItem>
+            @foreach (var module in UIProvider.GetVisibleClientModules())
+            {
+                <MenuItem>
+                    <AntModuleIcon Module="module"></AntModuleIcon>
+                    <MenuLink href="@module.RootPath">@module?.Manifest.DisplayName</MenuLink>
+                </MenuItem>
+            }
+        </Menu>
+    </Sider>
+    <AntDesign.Layout Style="background: initial;">
+        <Content>@Body</Content>
+        <Footer Class="text-center p-1">
+            @if (UIProvider.Footer is not null)
+            {
+                @UIProvider.Footer
+            }
+        </Footer>
+    </AntDesign.Layout>
+</AntDesign.Layout>
+
+<BackTop></BackTop>

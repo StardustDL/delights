@@ -26,6 +26,11 @@ namespace Modulight.Modules.Client.RazorComponents
         UIResource[] Resources { get; }
 
         /// <summary>
+        /// Get global components.
+        /// </summary>
+        Type[] GlobalComponents { get; }
+
+        /// <summary>
         /// Get module UI route root path, such as home, search, and so on.
         /// Use <see cref="string.Empty"/> for no page module.
         /// </summary>
@@ -67,6 +72,15 @@ namespace Modulight.Modules.Client.RazorComponents
                 }
                 Resources = resources.ToArray();
             }
+            {
+                var attrs = type.GetCustomAttributes<ModuleUIGlobalComponentAttribute>();
+                List<Type> resources = new List<Type>();
+                foreach (var attr in attrs)
+                {
+                    resources.Add(attr.Type);
+                }
+                GlobalComponents = resources.ToArray();
+            }
         }
 
         /// <inheritdoc/>
@@ -88,6 +102,9 @@ namespace Modulight.Modules.Client.RazorComponents
 
         /// <inheritdoc/>
         public UIResource[] Resources { get; protected set; }
+
+        /// <inheritdoc/>
+        public Type[] GlobalComponents { get; protected set; }
     }
 
     [Module(Author = "StardustDL", Description = "Provide services for razor component client modules.", Url = "https://github.com/StardustDL/delights")]
