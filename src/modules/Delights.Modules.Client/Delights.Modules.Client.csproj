@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.2" />
-    <PackageReference Include="Modulight.Modules.Client.RazorComponents" Version="0.0.4-preview.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.3" />
+    <PackageReference Include="Modulight.Modules.Client.RazorComponents" Version="0.0.4-preview.25" />
     <PackageReference Include="StardustDL.RazorComponents.AntDesigns" Version="0.0.2-preview.11" />
     <PackageReference Include="StardustDL.RazorComponents.MaterialDesignIcons" Version="0.0.2-preview.11" />
     <PackageReference Include="StardustDL.RazorComponents.Vditors" Version="0.0.2-preview.11" />

@@ -87,6 +87,7 @@ namespace Build
                     "Modulight.Modules.Client.RazorComponents",
                     "Modulight.Modules.Server.AspNet",
                     "Modulight.Modules.Server.GraphQL",
+                    "Modulight.UI.Blazor",
                 };
 
         void DeployTo(BuildContext context, DotNetCoreNuGetPushSettings settings)

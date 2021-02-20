@@ -10,10 +10,24 @@ using System;
 
 namespace Modulight.UI.Blazor
 {
+    /// <summary>
+    /// Extension methods for default Blazor UI.
+    /// </summary>
     public static class ModuleExtensions
     {
+        /// <summary>
+        /// Add Blazor UI Module with default UI provider.
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <returns></returns>
         public static IModuleHostBuilder AddBlazorUIModule(this IModuleHostBuilder builder) => builder.AddModule<BlazorUiModule>();
 
+        /// <summary>
+        /// Add Blazor UI Module with customed UI provider.
+        /// </summary>
+        /// <typeparam name="TUIProvider"></typeparam>
+        /// <param name="builder"></param>
+        /// <returns></returns>
         public static IModuleHostBuilder AddBlazorUIModule<TUIProvider>(this IModuleHostBuilder builder) where TUIProvider : class, IBlazorUIProvider
         {
             return builder.ConfigureServices(sc =>
@@ -29,7 +43,7 @@ namespace Modulight.UI.Blazor
     [ModuleUIResource(UIResourceType.Script, "https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.slim.min.js")]
     [ModuleDependency(typeof(AntDesignModule))]
     [ModuleDependency(typeof(MaterialDesignIconModule))]
-    public class BlazorUiModule : RazorComponentClientModule
+    class BlazorUiModule : RazorComponentClientModule
     {
         public BlazorUiModule(IModuleHost host) : base(host)
         {
