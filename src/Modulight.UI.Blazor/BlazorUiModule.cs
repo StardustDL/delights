@@ -29,7 +29,6 @@ namespace Modulight.UI.Blazor
     [ModuleUIResource(UIResourceType.Script, "https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.slim.min.js")]
     [ModuleDependency(typeof(AntDesignModule))]
     [ModuleDependency(typeof(MaterialDesignIconModule))]
-    [ModuleUIGlobalComponent(typeof(AntDesign.AntContainer))]
     public class BlazorUiModule : RazorComponentClientModule
     {
         public BlazorUiModule(IModuleHost host) : base(host)

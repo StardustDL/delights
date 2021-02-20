@@ -13,6 +13,8 @@ public static RenderFragment DefaultRouterNotFound = @<span>
     </LayoutView>
 </span>;
 public static RenderFragment DefaultRouterNavigating = @<span>
-    <Skeleton Active="true"></Skeleton>
+    <LayoutView Layout="@typeof(MainLayout)">
+        <Skeleton Active="true"></Skeleton>
+    </LayoutView>
 </span>;
 }

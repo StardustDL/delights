@@ -3,18 +3,19 @@
 @inject IModuleHost ModuleHost
 @inject IRazorComponentClientModuleCollection RazorComponentClientModuleCollection
 @inject IServiceProvider ServiceProvider
+@inject NavigationManager NavigationManager
 
 <AntDesign.Layout Style="min-height: 100vh; background: initial;">
-    <Sider Collapsible Theme="SiderTheme.Light" Breakpoint="BreakpointType.Xl">
+    <Sider Collapsible Theme="SiderTheme.Light" Breakpoint="BreakpointType.Xl" OnCollapse="OnCollapse">
         <Menu Mode="MenuMode.Inline" Theme="MenuTheme.Light">
             <MenuItem Class="text-center p-0">
                 @UIProvider.SiteInfo.Name
             </MenuItem>
             @foreach (var module in UIProvider.GetVisibleClientModules())
             {
-                <MenuItem>
+                <MenuItem OnClick="@(()=>NavigationManager.NavigateTo(module.RootPath))">
                     <AntModuleIcon Module="module"></AntModuleIcon>
-                    <MenuLink href="@module.RootPath">@module?.Manifest.DisplayName</MenuLink>
+                    <MenuLink Href="@module.RootPath" hidden="@IsCollapsed">@module?.Manifest.DisplayName</MenuLink>
                 </MenuItem>
             }
         </Menu>
@@ -31,3 +32,12 @@
 </AntDesign.Layout>
 
 <BackTop></BackTop>
+
+@code{
+    bool IsCollapsed { get; set; } = false;
+
+    void OnCollapse(bool isCollapsed)
+    {
+        IsCollapsed = isCollapsed;
+    }
+}

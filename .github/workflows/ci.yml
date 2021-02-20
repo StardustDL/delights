@@ -50,8 +50,8 @@ jobs:
         NUGET_AUTH_TOKEN: ${{ secrets.NUGET_TOKEN }}
       run: ./build.ps1 -e -t Deploy-Packages
     - name: Deploy documents
-      uses: JamesIves/github-pages-deploy-action@3.7.1
+      uses: JamesIves/github-pages-deploy-action@4.0.0
       with:
-        ACCESS_TOKEN: ${{ secrets.PA_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: ./dist/docs/_site
+        token: ${{ secrets.PA_TOKEN }}
+        branch: gh-pages
+        folder: ./dist/docs/_site
