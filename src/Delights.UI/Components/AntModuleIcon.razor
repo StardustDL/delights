@@ -1,0 +1,14 @@
+﻿<Icon>
+    <Component>
+        <ModuleIcon Module="Module">
+            <Fallback>
+                <MdiIcon Type="@IconNames.Module" />
+            </Fallback>
+        </ModuleIcon>
+    </Component>
+</Icon>
+
+@code {
+    [Parameter]
+    public IRazorComponentClientModule? Module { get; set; }
+}
