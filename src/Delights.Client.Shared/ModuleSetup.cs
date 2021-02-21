@@ -10,10 +10,9 @@ namespace Delights.Client.Shared
 {
     public static class ModuleSetup
     {
-        public static IModuleHostBuilder CreateDefaultBuilder(bool isDev)
+        public static IModuleHostBuilder UseDefaults(this IModuleHostBuilder builder)
         {
-            var builder = ModuleHostBuilder.CreateDefaultBuilder()
-                .ConfigureOptions<ServerConfiguration>((o, _) =>
+            builder.ConfigureOptions<ServerConfiguration>((o, _) =>
                  {
                      o.GraphQLEndpoint = "https://localhost:5001/graphql";
                  })
@@ -34,20 +33,16 @@ namespace Delights.Client.Shared
             o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;
         });
 
-            if (isDev)
+            /*builder.AddHelloModule(configureOptions: (o, sp) =>
+             {
+                 var serverConfiguration = sp.GetRequiredService<IOptions<ServerConfiguration>>().Value;
+                 o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;
+             })
+            .AddModuleManagerModule(configureOptions: (o, sp) =>
             {
-                /*builder.AddHelloModule(configureOptions: (o, sp) =>
-                 {
-                     var serverConfiguration = sp.GetRequiredService<IOptions<ServerConfiguration>>().Value;
-                     o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;
-                 })
-                .AddModuleManagerModule(configureOptions: (o, sp) =>
-                {
-                    var serverConfiguration = sp.GetRequiredService<IOptions<ServerConfiguration>>().Value;
-                    o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;
-                });*/
-            }
-
+                var serverConfiguration = sp.GetRequiredService<IOptions<ServerConfiguration>>().Value;
+                o.GraphQLEndpoint = serverConfiguration.GraphQLEndpoint;
+            });*/
 
             return builder;
         }

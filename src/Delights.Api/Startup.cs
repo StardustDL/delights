@@ -37,9 +37,10 @@ namespace Delights.Api
 
             services.AddCors();
 
-            var builder = ModuleHostBuilder.CreateDefaultBuilder().UseGraphQLServerModules();
-
-            /*builder.AddIdentityServerModule((o, sp) =>
+            services.AddModules(builder =>
+            {
+                builder.UseGraphQLServerModules();
+                /*builder.AddIdentityServerModule((o, sp) =>
             {
                 o.ConfigureDbContext = options =>
                     options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection"));
@@ -69,31 +70,30 @@ namespace Delights.Api
                 })
                 .AddObjectStorageApiModule();*/
 
-            builder.AddItemMetadataServerModule((o, sp) =>
-            {
-                o.ConfigureDbContext = options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("ItemMetadataConnection"));
-            })
-                .AddItemMetadataServerGraphqlModule();
+                builder.AddItemMetadataServerModule((o, sp) =>
+                {
+                    o.ConfigureDbContext = options =>
+                        options.UseSqlServer(Configuration.GetConnectionString("ItemMetadataConnection"));
+                })
+                    .AddItemMetadataServerGraphqlModule();
 
-            builder
-                 .AddPersonsServerModule((o, sp) =>
-                 {
-                     o.ConfigureDbContext = options =>
-                         options.UseSqlServer(Configuration.GetConnectionString("PersonsConnection"));
-                 })
-                 .AddNotesServerModule((o, sp) =>
-                 {
-                     o.ConfigureDbContext = options =>
-                         options.UseSqlServer(Configuration.GetConnectionString("NotesConnection"));
-                 })
-                 .AddBookkeepingServerModule((o, sp) =>
-                  {
-                      o.ConfigureDbContext = options =>
-                          options.UseSqlServer(Configuration.GetConnectionString("BookkeepingConnection"));
-                  });
-
-            builder.Build(services);
+                builder
+                     .AddPersonsServerModule((o, sp) =>
+                     {
+                         o.ConfigureDbContext = options =>
+                             options.UseSqlServer(Configuration.GetConnectionString("PersonsConnection"));
+                     })
+                     .AddNotesServerModule((o, sp) =>
+                     {
+                         o.ConfigureDbContext = options =>
+                             options.UseSqlServer(Configuration.GetConnectionString("NotesConnection"));
+                     })
+                     .AddBookkeepingServerModule((o, sp) =>
+                     {
+                         o.ConfigureDbContext = options =>
+                         options.UseSqlServer(Configuration.GetConnectionString("BookkeepingConnection"));
+                     });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -112,11 +112,11 @@ namespace Delights.Api
 
             app.UseCors();
 
-            // app.UseAspNetServerModuleMiddlewares();
+            app.UseAspNetServerModuleMiddlewares();
 
             app.UseEndpoints(endpoints =>
             {
-                // endpoints.MapAspNetServerModuleEndpoints();
+                endpoints.MapAspNetServerModuleEndpoints();
                 endpoints.MapGraphQLServerModuleEndpoints(postMapEndpoint: (module, builder) =>
                 {
                     builder.RequireCors(cors =>

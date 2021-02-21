@@ -6,6 +6,7 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Modulight.Modules.Hosting;
+using Modulight.UI.Blazor;
 
 namespace Delights.Client.WebAssembly
 {
@@ -14,11 +15,15 @@ namespace Delights.Client.WebAssembly
         public static async Task Main(string[] args)
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
-            builder.RootComponents.Add<Delights.UI.App>("app");
+            builder.RootComponents.Add<Modulight.UI.Blazor.App>("app");
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-            ModuleSetup.CreateDefaultBuilder(false).Build(builder.Services);
+            builder.Services.AddModules(builder =>
+            {
+                builder.AddBlazorUI<Delights.UI.DelightsBlazorUIProvider>()
+                    .UseDefaults();
+            });
 
             var host = builder.Build();
 
