@@ -88,6 +88,7 @@ namespace Build
                     "Modulight.Modules.Server.AspNet",
                     "Modulight.Modules.Server.GraphQL",
                     "Modulight.UI.Blazor",
+                    "Modulight.UI.Blazor.Hosting",
                 };
 
         void DeployTo(BuildContext context, DotNetCoreNuGetPushSettings settings)

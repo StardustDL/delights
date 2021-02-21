@@ -7,7 +7,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Modulight.Modules.Hosting;
+using Modulight.Modules.Server.AspNet;
 using Modulight.UI.Blazor;
+using Modulight.UI.Blazor.Hosting;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,12 +30,10 @@ namespace Test.Modulights.UI
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
-            services.AddServerSideBlazor();
-
             services.AddModules(builder =>
             {
-                builder.AddBlazorUIModule<TestBlazorUIProvider>().AddHelloModule((o, _) => o.GraphQLEndpoint = "https://localhost:5001");
+                builder.AddClientSideBlazorUI<TestBlazorUIProvider>()
+                    .AddHelloModule((o, _) => o.GraphQLEndpoint = "https://localhost:5001");
             });
         }
 
@@ -52,14 +52,16 @@ namespace Test.Modulights.UI
             }
 
             app.UseHttpsRedirection();
+
+            app.UseAspNetServerModuleMiddlewares();
+
             app.UseStaticFiles();
 
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapBlazorHub();
-                endpoints.MapFallbackToPage("/_Host");
+                endpoints.MapAspNetServerModuleEndpoints();
             });
         }
     }

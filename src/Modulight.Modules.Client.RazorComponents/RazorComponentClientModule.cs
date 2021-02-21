@@ -111,6 +111,7 @@ namespace Modulight.Modules.Client.RazorComponents
     [ModuleService(typeof(RazorComponentClientModuleCollection), ServiceType = typeof(IRazorComponentClientModuleCollection), Lifetime = ServiceLifetime.Singleton)]
     [ModuleService(typeof(JSModuleProvider<>), ServiceType = typeof(IJSModuleProvider<>))]
     [ModuleService(typeof(LazyAssemblyLoader))]
+    [ModuleService(typeof(ModuleUILoader))]
     class RazorComponentClientCoreModule : Module
     {
         public RazorComponentClientCoreModule(IModuleHost host, IRazorComponentClientModuleCollection collection) : base(host)

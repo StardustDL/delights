@@ -1,6 +1,6 @@
 # Delights
 
-![](https://github.com/StardustDL/delights/workflows/CI/badge.svg) ![](https://github.com/StardustDL/delights/workflows/CD/badge.svg) ![](https://img.shields.io/github/license/StardustDL/delights.svg)
+![](https://github.com/StardustDL/delights/workflows/CI/badge.svg) ![](https://img.shields.io/github/license/StardustDL/delights.svg)
 
 Delights is a collection of useful tools in life.
 

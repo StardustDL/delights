@@ -20,6 +20,17 @@ namespace Modulight.Modules.Hosting
             var builder = ModuleHostBuilder.CreateDefaultBuilder();
             if (configureBuilder is not null)
                 configureBuilder(builder);
+            return services.AddModules(builder);
+        }
+
+        /// <summary>
+        /// Add Modulight module services.
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="builder"></param>
+        /// <returns></returns>
+        public static IServiceCollection AddModules(this IServiceCollection services, IModuleHostBuilder builder)
+        {
             builder.Build(services);
             return services;
         }

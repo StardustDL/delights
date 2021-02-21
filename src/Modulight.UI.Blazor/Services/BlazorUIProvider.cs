@@ -74,6 +74,11 @@ namespace Modulight.UI.Blazor.Services
         Type DefaultLayout { get; }
 
         /// <summary>
+        /// Root component.
+        /// </summary>
+        Type RootComponent { get; }
+
+        /// <summary>
         /// Default assembly.
         /// </summary>
         Assembly AppAssembly { get; }
@@ -118,6 +123,9 @@ namespace Modulight.UI.Blazor.Services
 
         /// <inheritdoc/>
         public virtual Assembly AppAssembly => GetType().Assembly;
+
+        /// <inheritdoc/>
+        public virtual Type RootComponent => typeof(App);
 
         /// <inheritdoc/>
         public virtual IEnumerable<IRazorComponentClientModule> GetVisibleClientModules() => RazorComponentClientModuleCollection.LoadedModules.Where(x => x.RootPath is not "");

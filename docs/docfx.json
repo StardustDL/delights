@@ -4,12 +4,12 @@
       "src": [
         {
           "files": [
-            "src/Modulight*/**.csproj"
+            "src/Modulight.Modules.*/**.csproj"
           ],
           "cwd": ".."
         }
       ],
-      "dest": "../dist/docs/api/modulight",
+      "dest": "api/modulight",
       "disableGitFeatures": false,
       "disableDefaultFilter": false
     },
@@ -22,7 +22,7 @@
     //       "cwd": ".."
     //     }
     //   ],
-    //   "dest": "../dist/docs/api/extensions",
+    //   "dest": "api/extensions",
     //   "disableGitFeatures": false,
     //   "disableDefaultFilter": false
     // },
@@ -36,7 +36,7 @@
     //       "cwd": ".."
     //     }
     //   ],
-    //   "dest": "../dist/docs/api/delights",
+    //   "dest": "api/delights",
     //   "disableGitFeatures": false,
     //   "disableDefaultFilter": false
     // }
@@ -45,19 +45,19 @@
     "content": [
       {
         "files": [
-          "../dist/docs/api/modulight/**.yml",
+          "api/modulight/**.yml",
           "api/modulight/index.md"
         ]
       },
       {
         "files": [
-          "../dist/docs/api/extensions/**.yml",
+          // "api/extensions/**.yml",
           "api/extensions/index.md"
         ]
       },
       {
         "files": [
-          "../dist/docs/api/delights/**.yml",
+          // "api/delights/**.yml",
           "api/delights/index.md"
         ]
       },

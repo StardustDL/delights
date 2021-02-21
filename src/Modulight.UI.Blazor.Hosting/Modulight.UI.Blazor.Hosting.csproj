@@ -1,7 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Nullable>enable</Nullable>
@@ -12,18 +13,20 @@
     <RepositoryUrl>https://github.com/StardustDL/delights</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <Description>Provide user interfaces for blazor client module hosting.</Description>
+    <Description>Support ASP.NET hosting for Modulight.UI.Blazor.</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <SupportedPlatform Include="browser" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.3" />
-    <PackageReference Include="StardustDL.RazorComponents.AntDesigns" Version="0.0.2-preview.12" />
-    <PackageReference Include="StardustDL.RazorComponents.MaterialDesignIcons" Version="0.0.2-preview.12" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web.Extensions" Version="5.0.0-preview9.20513.1" />
+    <PackageReference Include="Modulight.Modules.Server.AspNet" Version="0.0.4-preview.25" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="5.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Modulight.UI.Blazor\Modulight.UI.Blazor.csproj" />
   </ItemGroup>
 
 </Project>
