@@ -15,7 +15,6 @@ namespace Build
     {
         None,
         All,
-        Modulight,
         Delights,
     }
 
@@ -43,7 +42,6 @@ namespace Build
 
         public IEnumerable<FilePath> SolutionFiles => Solution switch
         {
-            SolutionType.Modulight => new FilePath[] { Paths.ModulightSolution },
             SolutionType.Delights => new FilePath[] { Paths.DelightsSolution },
             _ => Paths.Solutions,
         };
@@ -65,17 +63,9 @@ namespace Build
                 CommitMessage = context.EnvironmentVariable("COMMIT_MESSAGE", "");
             }
 
-            if (CommitMessage.Contains("[modulight]", StringComparison.InvariantCultureIgnoreCase))
-            {
-                Solution = SolutionType.Modulight;
-            }
-            else
-            {
-                Solution = SolutionType.All;
-            }
+            Solution = SolutionType.All;
             Solution = context.Argument("solution", "").ToLowerInvariant() switch
             {
-                "modulight" => SolutionType.Modulight,
                 "delights" => SolutionType.Delights,
                 "all" => SolutionType.All,
                 _ => Solution,

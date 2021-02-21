@@ -36,10 +36,8 @@ namespace Build
 
         public static FilePath TestBaseProject => Test.CombineWithFilePath("./Test.Base/Test.Base.csproj");
 
-        public static FilePath ModulightSolution => Base.CombineWithFilePath("./Modulight.sln");
-
         public static FilePath DelightsSolution => Base.CombineWithFilePath("./Delights.sln");
 
-        public static IEnumerable<FilePath> Solutions => new FilePath[] { ModulightSolution, DelightsSolution };
+        public static IEnumerable<FilePath> Solutions => new FilePath[] { DelightsSolution };
     }
 }

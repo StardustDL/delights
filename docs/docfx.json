@@ -1,18 +1,5 @@
 {
   "metadata": [
-    {
-      "src": [
-        {
-          "files": [
-            "src/Modulight.Modules.*/**.csproj"
-          ],
-          "cwd": ".."
-        }
-      ],
-      "dest": "api/modulight",
-      "disableGitFeatures": false,
-      "disableDefaultFilter": false
-    },
     // {
     //   "src": [
     //     {
@@ -43,12 +30,6 @@
   ],
   "build": {
     "content": [
-      {
-        "files": [
-          "api/modulight/**.yml",
-          "api/modulight/index.md"
-        ]
-      },
       {
         "files": [
           // "api/extensions/**.yml",

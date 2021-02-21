@@ -1,7 +1,0 @@
-query getMessages {
-    messages {
-        nodes {
-            content
-        }
-    }
-}
